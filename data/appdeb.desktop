@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=AppDeb
+GenericName=Application Manager
+Comment=Install and manage Flatpak, AppImage, and .deb applications
+Exec=appdeb
+Icon=io.github.ta4anx.AppDeb
+Terminal=false
+Categories=System;PackageManager;
+Keywords=package;installer;flatpak;appimage;deb;app;
+StartupNotify=true

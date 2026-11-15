@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.ta4anx.AppDeb</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>AppDeb</name>
+  <summary>Install and manage Flatpak, AppImage, .deb and .tar.gz applications</summary>
+  <description>
+    <p>
+      AppDeb is a full-control application manager for Debian-based Linux desktops.
+      It installs and removes Flatpak applications, AppImages, local .deb packages and
+      portable .tar.gz applications from a single window.
+    </p>
+    <p>
+      Each installed application gets a details page with its icon, version, size,
+      scope, executable, desktop entry, file locations, live CPU and memory usage,
+      Flatpak permissions, and an autostart switch. AppDeb also repairs desktop
+      entries that show a generic icon in the dock by setting the window class
+      association, renaming menu entries, and creating desktop shortcuts.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.ta4anx.AppDeb.desktop</launchable>
+  <url type="homepage">https://github.com/ta4anx/appdeb</url>
+  <url type="bugtracker">https://github.com/ta4anx/appdeb/issues</url>
+  <developer id="io.github.ta4anx">
+    <name>Kaan Çakmak</name>
+  </developer>
+  <categories>
+    <category>System</category>
+    <category>PackageManager</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-11-15">
+      <description>
+        <p>First release: Flatpak, AppImage, .deb and .tar.gz management, desktop entry doctor, CLI.</p>
+      </description>
+    </release>
+  </releases>
+</component>

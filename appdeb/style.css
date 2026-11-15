@@ -1,0 +1,35 @@
+.app-icon {
+  border-radius: 12px;
+}
+
+.app-list-row {
+  border-radius: 10px;
+}
+
+.app-list-title {
+  font-weight: 600;
+}
+
+.path-label {
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+.stat-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.badge-muted {
+  opacity: 0.7;
+}
+
+.console-view {
+  font-family: monospace;
+  font-size: 0.85em;
+}
+
+.permissions-view {
+  font-family: monospace;
+  font-size: 0.85em;
+}
