@@ -31,5 +31,13 @@ jobs:
         run: |
           python3 -m appdeb --version
           python3 -m appdeb managers
+      - name: File type registration
+        env:
+          XDG_DATA_HOME: /tmp/xdg-mimecheck
+        run: |
+          mkdir -p "$XDG_DATA_HOME/applications"
+          cp data/io.github.ta4anx.AppDeb.desktop "$XDG_DATA_HOME/applications/"
+          update-desktop-database "$XDG_DATA_HOME/applications"
+          python3 scripts/check_mime.py
       - name: Shell syntax
         run: bash -n scripts/build_deb.sh

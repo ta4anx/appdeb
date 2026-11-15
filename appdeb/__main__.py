@@ -569,16 +569,16 @@ def _cmd_install(args) -> int:
             print(_("Aborted"))
             return 1
 
-    from .backends import appimage, tarball
+    from . import filetypes
 
-    suffix = path.name.lower()
-    if appimage.is_appimage(path):
+    kind = filetypes.kind(path)
+    if kind == "appimage":
         return _appimage_install(args, path)
-    if suffix.endswith(".deb"):
+    if kind == "deb":
         return _deb_install(args, path)
-    if suffix.endswith(".flatpak") or suffix.endswith(".flatpakref"):
+    if kind == "flatpak":
         return _flatpak_install(args, path)
-    if tarball.is_tarball(path):
+    if kind == "tarball":
         return _tarball_install(args, path)
     _print_error(_("unsupported file type: %s") % path.name)
     return 1

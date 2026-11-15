@@ -91,8 +91,9 @@ desktop-entry doctor that repairs broken or icon-less entries.
 
 **Languages and integration**
 
-- Interface languages: English, Türkçe, Deutsch, Français, 中文（简体）, Español, 한국어,
-  Polski, Svenska, Italiano, Azərbaycanca, Dansk (Settings → Language, applied on restart).
+- Interface languages: English, System default, Türkçe, Deutsch, Français, 中文（简体）,
+  Español, 한국어, Polski, Svenska, Italiano, Azərbaycanca, Dansk (Settings → Language,
+  applied on restart; English and System are always available, so you can switch back).
 - “Open with AppDeb” for AppImage, `.deb`, Flatpak bundles/refs and `.tar.gz`/`.tgz` files:
   the desktop entry registers those MIME types, so file managers offer AppDeb and a
   double-click opens the matching install flow.
@@ -104,8 +105,8 @@ Download the latest `.deb` from the [releases page](https://github.com/ta4anx/ap
 and install it:
 
 ```bash
-wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.4.0_all.deb
-sudo apt install ./appdeb_0.4.0_all.deb
+wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.4.1_all.deb
+sudo apt install ./appdeb_0.4.1_all.deb
 appdeb
 ```
 
@@ -216,7 +217,7 @@ bash scripts/build_deb.sh                          # build the .deb
 
 # translations (gettext, Babel/pybabel only for extraction)
 pybabel extract -k _ -k N_ -k 'ngettext:1,2' --no-location --sort-output \
-  --project AppDeb --version 0.4.0 -o appdeb/locale/appdeb.pot appdeb
+  --project AppDeb --version 0.4.1 -o appdeb/locale/appdeb.pot appdeb
 python3 scripts/build_mo.py --check                # validate catalogues
 python3 scripts/build_mo.py --in-place             # compile .mo for source runs
 LANGUAGE=de python3 -m appdeb                      # try a language

@@ -12,6 +12,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from .. import apps  # noqa: E402
+from .. import filetypes  # noqa: E402
 from ..i18n import _, ngettext  # noqa: E402
 from ..services import downloader  # noqa: E402
 from . import settings  # noqa: E402
@@ -191,26 +192,14 @@ class InstallPage(Adw.NavigationPage):
     # ------------------------------------------------------------ public API
     def open_file(self, path: Path) -> None:
         path = Path(path)
-        try:
-            from ..backends import tarball
-
-            is_tarball = tarball.is_tarball(path)
-        except Exception:  # noqa: BLE001
-            is_tarball = False
-        try:
-            from ..backends import appimage
-
-            is_appimage = appimage.is_appimage(path)
-        except Exception:  # noqa: BLE001
-            is_appimage = False
-
-        if is_tarball:
+        kind = filetypes.kind(path)
+        if kind == "tarball":
             self._start_tarball_install(path, None)
-        elif is_appimage:
+        elif kind == "appimage":
             self._prepare_appimage(path)
-        elif path.suffix.lower() == ".deb":
+        elif kind == "deb":
             self._inspect_deb(path)
-        elif path.suffix.lower() in (".flatpak", ".flatpakref"):
+        elif kind == "flatpak":
             self._install_flatpak_bundle(path)
         else:
             show_toast(self, _("Unsupported file type: %s") % path.name)

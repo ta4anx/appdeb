@@ -18,6 +18,7 @@ from pathlib import Path
 DOMAIN = "appdeb"
 LANGUAGES = [
     ("system", "System"),
+    ("en", "English"),
     ("tr", "Türkçe"),
     ("de", "Deutsch"),
     ("fr", "Français"),

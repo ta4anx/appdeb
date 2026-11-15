@@ -31,6 +31,12 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.4.1" date="2026-11-16">
+      <description>
+        <p>English is selectable again in the language list, and file-type routing for
+        "Open with AppDeb" now shares one code path with a registration check.</p>
+      </description>
+    </release>
     <release version="0.4.0" date="2026-11-16">
       <description>
         <p>Eleven interface languages, sorting in the installed list, installing or removing
