@@ -124,6 +124,9 @@ class DetailsPage(Adw.NavigationPage):
         deb_group = self._build_deb_group()
         if deb_group is not None:
             body.append(deb_group)
+        snap_group = self._build_snap_group()
+        if snap_group is not None:
+            body.append(snap_group)
 
         clamp = Adw.Clamp(maximum_size=900, tightening_threshold=700)
         clamp.set_child(body)
@@ -941,6 +944,18 @@ class DetailsPage(Adw.NavigationPage):
         purge_row.add_suffix(self._purge)
         group.add(purge_row)
 
+        hold_row = Adw.SwitchRow(
+            title="Hold package version",
+            subtitle="Prevent apt from upgrading this package",
+        )
+        hold_row.set_sensitive(False)
+        hold_row.connect("notify::active", self._on_deb_hold_toggled)
+        group.add(hold_row)
+        self._deb_hold_row = hold_row
+        self._deb_hold_package = package
+        self._deb_hold_guard = False
+        self._load_deb_hold(self._build_token, package)
+
         remove_row = Adw.ActionRow(
             title="Remove package",
             subtitle="Shows the affected packages before removal",
@@ -951,6 +966,342 @@ class DetailsPage(Adw.NavigationPage):
         remove_row.add_suffix(remove_button)
         group.add(remove_row)
         return group
+
+    # ------------------------------------------------------------------- snap
+    def _snap_name(self) -> str:
+        entry = self.app.entry
+        name = _key(entry, "X-SnapInstanceName")
+        if name:
+            return name
+        stem = Path(self.app.desktop_id or entry.path.name).name
+        if stem.endswith(".desktop"):
+            stem = stem[: -len(".desktop")]
+        if "_" in stem:
+            prefix = stem.split("_", 1)[0].strip()
+            if prefix:
+                return prefix
+        executable = self._first_exec_path()
+        if executable is not None:
+            return executable.name
+        return (entry.name or "").strip()
+
+    def _build_snap_group(self) -> Adw.PreferencesGroup | None:
+        if self.app.kind != "snap" and self.app.entry.source != "snap":
+            return None
+        name = self._snap_name()
+        from ..backends import snap
+
+        available = snap.available()
+        group = Adw.PreferencesGroup(title="Snap")
+        if not available:
+            group.set_description("The snap command is not available on this system.")
+        if not name:
+            group.add(
+                Adw.ActionRow(
+                    title="Snap name unknown",
+                    subtitle="This desktop entry does not identify a snap instance",
+                )
+            )
+            return group
+
+        self._snap_instance = name
+        self._snap_channels: list[str] = []
+        self._snap_channel_index = 0
+        self._snap_channel_guard = False
+        self._snap_hold_guard = False
+
+        channel_row = Adw.ComboRow(title="Channel")
+        channel_row.set_model(Gtk.StringList.new([]))
+        channel_row.set_sensitive(False)
+        channel_row.set_subtitle(
+            "Loading channels…"
+            if available
+            else "The snap command is not available on this system."
+        )
+        channel_row.connect("notify::selected", self._on_snap_channel_selected)
+        group.add(channel_row)
+        self._snap_channel_row = channel_row
+
+        refresh_row = Adw.ButtonRow(title="Refresh snap now")
+        refresh_row.set_sensitive(available)
+        if not available:
+            refresh_row.set_tooltip_text("The snap command is not available on this system.")
+        refresh_row.connect("activated", lambda _row: self._on_snap_refresh())
+        group.add(refresh_row)
+
+        hold_row = Adw.SwitchRow(
+            title="Hold updates",
+            subtitle="Pause automatic refreshes for this snap",
+        )
+        hold_row.set_sensitive(False)
+        hold_row.connect("notify::active", self._on_snap_hold_toggled)
+        group.add(hold_row)
+        self._snap_hold_row = hold_row
+
+        if available:
+            self._load_snap_parameters(self._build_token, name)
+        return group
+
+    def _load_snap_parameters(self, token: int, name: str) -> None:
+        def worker() -> None:
+            from ..backends import snap
+
+            channels: dict[str, str] = {}
+            error = ""
+            try:
+                channels = snap.channels(name)
+            except Exception as exc:  # noqa: BLE001 - shown inline
+                error = str(exc) or exc.__class__.__name__
+            tracking = ""
+            try:
+                tracking = snap.info(name).get("tracking", "") or ""
+            except Exception:  # noqa: BLE001 - tracking is optional
+                tracking = ""
+            try:
+                is_held = snap.held(name)
+            except Exception:  # noqa: BLE001 - default to unheld
+                is_held = False
+            GLib.idle_add(
+                self._apply_snap_parameters,
+                token,
+                channels,
+                tracking,
+                is_held,
+                error,
+            )
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _apply_snap_parameters(
+        self,
+        token: int,
+        channels: dict[str, str],
+        tracking: str,
+        is_held: bool,
+        error: str,
+    ) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        names = list(channels)
+        self._snap_channels = names
+        row = getattr(self, "_snap_channel_row", None)
+        if row is not None:
+            if not names:
+                row.set_sensitive(False)
+                if error:
+                    row.set_subtitle(escape_markup(f"Could not read snap channels: {error}"))
+                else:
+                    row.set_subtitle("No channels reported for this snap")
+                self._snap_channel_index = -1
+            else:
+                index = self._preferred_channel(names, channels, tracking)
+                self._snap_channel_guard = True
+                row.set_model(Gtk.StringList.new(names))
+                row.set_selected(index)
+                self._snap_channel_index = index
+                self._snap_channel_guard = False
+                row.set_subtitle(
+                    escape_markup(f"Following {names[index]}; switching refreshes the snap")
+                )
+                row.set_sensitive(True)
+        hold = getattr(self, "_snap_hold_row", None)
+        if hold is not None:
+            self._snap_hold_guard = True
+            hold.set_active(bool(is_held))
+            self._snap_hold_guard = False
+            hold.set_sensitive(True)
+        return GLib.SOURCE_REMOVE
+
+    def _preferred_channel(
+        self,
+        names: list[str],
+        channels: dict[str, str],
+        tracking: str,
+    ) -> int:
+        if tracking in names:
+            return names.index(tracking)
+        version = self.app.version or _key(self.app.entry, "X-Appdeb-Version")
+        if version:
+            for index, name in enumerate(names):
+                if channels.get(name) == version:
+                    return index
+        return 0
+
+    def _restore_snap_channel(self) -> None:
+        row = getattr(self, "_snap_channel_row", None)
+        index = getattr(self, "_snap_channel_index", None)
+        if row is None or index is None or index < 0:
+            return
+        self._snap_channel_guard = True
+        row.set_selected(index)
+        self._snap_channel_guard = False
+
+    def _on_snap_channel_selected(self, row: Adw.ComboRow, _param) -> None:
+        if self._snap_channel_guard:
+            return
+        names = list(getattr(self, "_snap_channels", []) or [])
+        selected = row.get_selected()
+        if not names or selected < 0 or selected >= len(names):
+            return
+        if selected == getattr(self, "_snap_channel_index", -1):
+            return
+        channel = names[selected]
+        from ..backends import snap
+
+        if not snap.available():
+            self._restore_snap_channel()
+            return
+        dialog = confirm(
+            self.get_root(),
+            "Switch snap channel",
+            f"Switch {self._snap_instance} to {channel}? The snap is refreshed now.",
+            confirm_label="Switch channel",
+            on_confirm=lambda: self._switch_snap_channel(channel, selected),
+        )
+        dialog.connect(
+            "response",
+            lambda _dialog, response: (
+                None if response == "confirm" else self._restore_snap_channel()
+            ),
+        )
+
+    def _switch_snap_channel(self, channel: str, selected: int) -> None:
+        from ..backends import snap
+
+        name = self._snap_instance
+
+        def worker(progress, cancel):
+            snap.refresh(name, progress=progress, cancel=cancel, channel=channel)
+            return True
+
+        dialog = OperationDialog(
+            f"Switching {name} to {channel}",
+            worker,
+            on_success=lambda _result: self._snap_channel_switched(name, channel, selected),
+            on_error=self._snap_channel_failed,
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _snap_channel_switched(self, name: str, channel: str, selected: int) -> None:
+        self._snap_channel_index = selected
+        show_toast(self, f"{name} now follows {channel}")
+        self._notify_changed()
+
+    def _snap_channel_failed(self, exc: BaseException) -> None:
+        self._restore_snap_channel()
+        show_toast(self, f"Could not switch channel: {exc}")
+
+    def _on_snap_refresh(self) -> None:
+        from ..backends import snap
+
+        name = self._snap_instance
+
+        def worker(progress, cancel):
+            snap.refresh(name, progress=progress, cancel=cancel)
+            return True
+
+        dialog = OperationDialog(
+            f"Refreshing {name}",
+            worker,
+            on_success=lambda _result: self._snap_refreshed(name),
+            on_error=lambda exc: show_toast(self, f"Could not refresh snap: {exc}"),
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _snap_refreshed(self, name: str) -> None:
+        show_toast(self, f"Refreshed {name}")
+        self._notify_changed()
+
+    def _on_snap_hold_toggled(self, row: Adw.SwitchRow, _param) -> None:
+        if self._snap_hold_guard:
+            return
+        name = getattr(self, "_snap_instance", "")
+        if not name:
+            return
+        enabled = row.get_active()
+        from ..backends import snap
+
+        def worker(progress, cancel):
+            snap.hold(name, enabled, progress=progress, cancel=cancel)
+            return True
+
+        def failed(exc: BaseException) -> None:
+            self._snap_hold_guard = True
+            row.set_active(not enabled)
+            self._snap_hold_guard = False
+            show_toast(self, f"Could not change update hold: {exc}")
+
+        dialog = OperationDialog(
+            "Holding snap updates" if enabled else "Resuming snap updates",
+            worker,
+            on_success=lambda _result: show_toast(
+                self,
+                f"Updates for {name} are held" if enabled else f"Updates for {name} resumed",
+            ),
+            on_error=failed,
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    # -------------------------------------------------------------- deb hold
+    def _load_deb_hold(self, token: int, package: str) -> None:
+        def worker() -> None:
+            from ..backends import deb
+
+            try:
+                is_held = deb.held(package)
+            except Exception:  # noqa: BLE001 - default to unheld
+                is_held = False
+            GLib.idle_add(self._apply_deb_hold, token, is_held)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _apply_deb_hold(self, token: int, is_held: bool) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        row = getattr(self, "_deb_hold_row", None)
+        if row is None:
+            return GLib.SOURCE_REMOVE
+        self._deb_hold_guard = True
+        row.set_active(bool(is_held))
+        self._deb_hold_guard = False
+        row.set_sensitive(True)
+        return GLib.SOURCE_REMOVE
+
+    def _on_deb_hold_toggled(self, row: Adw.SwitchRow, _param) -> None:
+        if self._deb_hold_guard:
+            return
+        package = getattr(self, "_deb_hold_package", "")
+        if not package:
+            return
+        enabled = row.get_active()
+        from ..backends import deb
+
+        def worker(progress, cancel):
+            deb.hold(package, enabled, progress=progress, cancel=cancel)
+            return True
+
+        def failed(exc: BaseException) -> None:
+            self._deb_hold_guard = True
+            row.set_active(not enabled)
+            self._deb_hold_guard = False
+            show_toast(self, f"Could not change package hold: {exc}")
+
+        dialog = OperationDialog(
+            "Holding package version" if enabled else "Releasing package hold",
+            worker,
+            on_success=lambda _result: show_toast(
+                self,
+                f"{package} held at its current version"
+                if enabled
+                else f"{package} can be upgraded again",
+            ),
+            on_error=failed,
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
 
     # -------------------------------------------------------------- resources
     def _on_map(self, *_args) -> None:

@@ -203,6 +203,43 @@ def remove(
         raise BackendError("package removal failed", result.output)
 
 
+def parse_showhold(output: str) -> list[str]:
+    """Parse ``apt-mark showhold`` output into package names."""
+    packages: list[str] = []
+    for line in (output or "").splitlines():
+        name = line.strip()
+        if not name or name.startswith(("WARNING:", "warning:")):
+            continue
+        if name not in packages:
+            packages.append(name)
+    return packages
+
+
+def held(package: str) -> bool:
+    name = (package or "").strip()
+    if not name:
+        return False
+    result = runner.capture(["apt-mark", "showhold"], timeout=60)
+    if not result.ok:
+        return False
+    return name in parse_showhold(result.output)
+
+
+def hold(
+    package: str,
+    enabled: bool,
+    progress: Callable[[str], None] | None = None,
+    cancel=None,
+) -> None:
+    name = (package or "").strip()
+    if not name:
+        raise BackendError("package name is empty")
+    args = ["pkexec", "apt-mark", "hold" if enabled else "unhold", name]
+    result = runner.run(args, timeout=300, progress=progress, cancel=cancel)
+    if not result.ok:
+        raise BackendError("package hold failed", result.output)
+
+
 def package_for_desktop(desktop_path: Path) -> str | None:
     source = Path(desktop_path).expanduser().resolve()
     result = runner.capture(["dpkg-query", "-S", str(source)], timeout=60)

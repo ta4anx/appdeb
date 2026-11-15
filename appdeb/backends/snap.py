@@ -214,6 +214,78 @@ def parse_info(output: str) -> dict[str, str]:
     return result
 
 
+def parse_channels(output: str) -> dict[str, str]:
+    """Return ``{channel: version}`` from the ``channels:`` block of ``snap info``."""
+    lines = output.splitlines()
+    result: dict[str, str] = {}
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        index += 1
+        if not line.strip() or line[:1].isspace():
+            continue
+        key, separator, value = line.partition(":")
+        if not separator or key.strip() != "channels" or value.strip():
+            continue
+        while index < len(lines):
+            current = lines[index]
+            if current.strip() and not current[:1].isspace():
+                break
+            index += 1
+            stripped = current.strip()
+            if not stripped:
+                continue
+            if stripped.startswith(("WARNING:", "warning:")):
+                continue
+            channel, sep, rest = stripped.partition(":")
+            if not sep:
+                continue
+            channel = channel.strip()
+            if not channel:
+                continue
+            tokens = rest.split()
+            version = tokens[0] if tokens else ""
+            if version in ("^", "-"):
+                version = ""
+            result[channel] = version
+        break
+    return result
+
+
+def parse_held(output: str) -> bool:
+    """Return whether the Notes column of a ``snap list`` row contains ``held``."""
+    lines = _data_lines(output)
+    if len(lines) < 2:
+        return False
+    notes_start = lines[0].find("Notes")
+    if notes_start < 0:
+        return False
+    for line in lines[1:]:
+        if "held" in line[notes_start:].split():
+            return True
+    return False
+
+
+def channels(name: str) -> dict[str, str]:
+    snap_name = (name or "").strip()
+    if not snap_name or not available():
+        return {}
+    result = _run([_SNAP, "info", snap_name], timeout=60)
+    if not result.ok:
+        raise BackendError("snap info failed", result.output)
+    return parse_channels(result.output)
+
+
+def held(name: str) -> bool:
+    snap_name = (name or "").strip()
+    if not snap_name or not available():
+        return False
+    result = _run([_SNAP, "list", snap_name], timeout=60)
+    if not result.ok:
+        return False
+    return parse_held(result.output)
+
+
 def list_installed() -> list[SnapPackage]:
     if not available():
         return []
@@ -271,13 +343,33 @@ def uninstall(
 
 
 def refresh(
-    name: str | None,
+    name: str | None = None,
     progress: Callable[[str], None] | None = None,
     cancel=None,
+    *,
+    channel: str | None = None,
 ) -> None:
     args = ["pkexec", _SNAP, "refresh"]
+    selected = (channel or "").strip()
+    if selected:
+        args.append(f"--channel={selected}")
     if name:
         args.append(name)
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
         raise BackendError("snap refresh failed", result.output)
+
+
+def hold(
+    name: str,
+    enabled: bool,
+    progress: Callable[[str], None] | None = None,
+    cancel=None,
+) -> None:
+    snap_name = (name or "").strip()
+    if not snap_name:
+        raise BackendError("snap name is empty")
+    args = ["pkexec", _SNAP, "refresh", "--hold" if enabled else "--unhold", snap_name]
+    result = _run(args, timeout=300, progress=progress, cancel=cancel)
+    if not result.ok:
+        raise BackendError("snap hold failed", result.output)

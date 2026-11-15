@@ -20,6 +20,8 @@ desktop-entry doctor that repairs broken or icon-less entries.
 
 ![Installed applications](docs/screenshots/installed.png)
 
+![Package managers](docs/screenshots/managers.png)
+
 ## Features
 
 **Install**
@@ -61,9 +63,10 @@ desktop-entry doctor that repairs broken or icon-less entries.
 - Change the package manager: AppDeb searches the other managers for the same app (for
   example Ultimaker Cura's AppImage has a Flatpak and a Snap build) and installs it there;
   you then decide whether to remove the previous copy.
-- Application parameters: edit the menu comment, categories, keywords and `Exec` line, and
-  toggle terminal mode or hiding the entry from the application menu — all written to a user
-  override, never to the vendor file.
+- Application parameters: edit the menu comment, categories, keywords and `Exec` line, toggle
+  terminal mode or hiding the entry from the application menu (user override, never the vendor
+  file), switch a Snap's channel, refresh a Snap, hold Snap refreshes, and hold an apt package
+  version — plus Flatpak permission overrides.
 - Managers page: which package managers exist on the machine, their versions, install
   locations, and how many packages each one manages, plus the AppDeb-managed AppImage and
   tarball stores.
@@ -88,8 +91,8 @@ Download the latest `.deb` from the [releases page](https://github.com/ta4anx/ap
 and install it:
 
 ```bash
-wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.2.0_all.deb
-sudo apt install ./appdeb_0.2.0_all.deb
+wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.3.0_all.deb
+sudo apt install ./appdeb_0.3.0_all.deb
 appdeb
 ```
 
