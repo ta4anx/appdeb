@@ -22,7 +22,7 @@ jobs:
       - name: Unit tests
         run: python3 -m unittest discover -s tests -v
       - name: Validate desktop entry
-        run: desktop-file-validate data/appdeb.desktop
+        run: desktop-file-validate data/io.github.ta4anx.AppDeb.desktop
       - name: Validate metainfo
         run: appstreamcli validate --no-net data/io.github.ta4anx.AppDeb.metainfo.xml
       - name: Shell syntax

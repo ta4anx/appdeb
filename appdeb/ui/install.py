@@ -21,7 +21,7 @@ from .dialogs import (  # noqa: E402
     UrlDownloadDialog,
     confirm,
 )
-from .widgets import file_filter, file_filters, show_toast  # noqa: E402
+from .widgets import escape_markup, file_filter, file_filters, show_toast  # noqa: E402
 
 
 class DebInstallDialog(Adw.Dialog):
@@ -100,6 +100,7 @@ class InstallPage(Adw.NavigationPage):
         self._search_token: object | None = None
         self._result_rows: list[Adw.PreferencesRow] = []
         self._file_dialog = None
+        self._manager_state: dict[str, dict] = {}
 
         header = Adw.HeaderBar()
         header.set_title_widget(Adw.WindowTitle(title="Install"))
@@ -134,6 +135,10 @@ class InstallPage(Adw.NavigationPage):
         self._status_row = Adw.ActionRow(title="Type at least 2 characters to search")
         self._results_group.add(self._status_row)
         page.add(self._results_group)
+
+        for brew_group, brew_results in self._build_manager_groups():
+            page.add(brew_group)
+            page.add(brew_results)
 
         appimage_group = Adw.PreferencesGroup(
             title="AppImage",
@@ -267,7 +272,7 @@ class InstallPage(Adw.NavigationPage):
             if result.remotes:
                 subtitle_parts.append(result.remotes)
             row = Adw.ActionRow(title=result.name or result.application)
-            row.set_subtitle(" — ".join(subtitle_parts))
+            row.set_subtitle(escape_markup(" — ".join(subtitle_parts)))
             row.set_subtitle_lines(2)
             if result.version:
                 row.add_suffix(Gtk.Label(label=result.version))
@@ -345,6 +350,283 @@ class InstallPage(Adw.NavigationPage):
             parent=self.get_root(),
         )
         dialog.present(self.get_root())
+
+    # -------------------------------------------------------- Homebrew / Snap
+    def _manager_available(self, key: str) -> bool:
+        try:
+            module = (
+                __import__("appdeb.backends.brew", fromlist=["available"])
+                if key == "brew"
+                else __import__("appdeb.backends.snap", fromlist=["available"])
+            )
+            return bool(module.available())
+        except Exception:  # noqa: BLE001 - missing backend means unavailable
+            return False
+
+    def _manager_module(self, key: str):
+        if key == "brew":
+            from ..backends import brew
+
+            return brew
+        from ..backends import snap
+
+        return snap
+
+    def _build_manager_groups(self) -> list[tuple[Adw.PreferencesGroup, Adw.PreferencesGroup]]:
+        specs = (
+            (
+                "brew",
+                "Homebrew",
+                (
+                    "Search formulae and install them with Homebrew. "
+                    "Homebrew installs into your user account; no password is needed."
+                ),
+                "Search formulae",
+                "Install formula by name",
+                "Homebrew was not found",
+            ),
+            (
+                "snap",
+                "Snap",
+                (
+                    "Search snaps and install them. System installs prompt for "
+                    "authentication and may take a while."
+                ),
+                "Search snaps",
+                "Install snap by name",
+                "Snap was not found",
+            ),
+        )
+        groups: list[tuple[Adw.PreferencesGroup, Adw.PreferencesGroup]] = []
+        for key, title, description, search_title, typed_title, missing in specs:
+            available = self._manager_available(key)
+            group = Adw.PreferencesGroup(
+                title=title,
+                description=description if available else missing,
+            )
+            group.set_sensitive(available)
+
+            search = Adw.EntryRow(title=search_title)
+            search.connect("changed", lambda _row, k=key: self._on_manager_search_changed(k))
+            group.add(search)
+
+            typed = Adw.EntryRow(title=typed_title)
+            typed.connect("entry-activated", lambda _row, k=key: self._install_manager_typed(k))
+            install = Gtk.Button(label="Install")
+            install.add_css_class("suggested-action")
+            install.connect("clicked", lambda _b, k=key: self._install_manager_typed(k))
+            typed.add_suffix(install)
+            group.add(typed)
+
+            upgrade_row = None
+            if key == "brew":
+                upgrade_row = Adw.ButtonRow(title="Upgrade outdated formulae")
+                upgrade_row.connect("activated", lambda _r: self._upgrade_outdated())
+                group.add(upgrade_row)
+
+            results = Adw.PreferencesGroup(title=f"{title} results")
+            status = Adw.ActionRow(title="Type at least 2 characters to search")
+            results.add(status)
+            results.set_sensitive(available)
+
+            self._manager_state[key] = {
+                "group": group,
+                "results_group": results,
+                "results_status": status,
+                "search": search,
+                "typed": typed,
+                "rows": [],
+                "token": None,
+                "timeout": 0,
+                "available": available,
+                "upgrade_row": upgrade_row,
+            }
+            groups.append((group, results))
+            if key == "brew" and available:
+                GLib.idle_add(self._refresh_outdated_idle)
+        return groups
+
+    def _on_manager_search_changed(self, key: str) -> None:
+        state = self._manager_state.get(key)
+        if state is None:
+            return
+        if state["timeout"]:
+            GLib.source_remove(state["timeout"])
+            state["timeout"] = 0
+        state["timeout"] = GLib.timeout_add(400, self._start_manager_search, key)
+
+    def _start_manager_search(self, key: str) -> bool:
+        state = self._manager_state.get(key)
+        if state is None:
+            return GLib.SOURCE_REMOVE
+        state["timeout"] = 0
+        query = state["search"].get_text().strip()
+        self._clear_manager_rows(key)
+        if len(query) < 2:
+            state["results_status"].set_title("Type at least 2 characters to search")
+            state["results_status"].set_visible(True)
+            return GLib.SOURCE_REMOVE
+        state["results_status"].set_title(f"Searching for “{query}”…")
+        state["results_status"].set_visible(True)
+        token = object()
+        state["token"] = token
+
+        def worker() -> None:
+            results: list = []
+            error = ""
+            try:
+                results = self._manager_search(key, query)
+            except Exception as exc:  # noqa: BLE001 - shown inline
+                error = str(exc) or exc.__class__.__name__
+            GLib.idle_add(self._apply_manager_results, key, token, results, error)
+
+        threading.Thread(target=worker, daemon=True).start()
+        return GLib.SOURCE_REMOVE
+
+    def _manager_search(self, key: str, query: str) -> list:
+        return self._manager_module(key).search(query)
+
+    def _clear_manager_rows(self, key: str) -> None:
+        state = self._manager_state.get(key)
+        if state is None:
+            return
+        for row in state["rows"]:
+            state["results_group"].remove(row)
+        state["rows"] = []
+
+    def _apply_manager_results(
+        self, key: str, token: object, results: list, error: str
+    ) -> bool:
+        state = self._manager_state.get(key)
+        if state is None or token is not state["token"]:
+            return GLib.SOURCE_REMOVE
+        self._clear_manager_rows(key)
+        status = state["results_status"]
+        if error:
+            status.set_title(f"Search failed: {error}")
+            status.set_visible(True)
+            return GLib.SOURCE_REMOVE
+        if not results:
+            status.set_title("No results")
+            status.set_visible(True)
+            return GLib.SOURCE_REMOVE
+        status.set_visible(False)
+        for result in results[:40]:
+            name = getattr(result, "name", "") or getattr(result, "formula", "") or ""
+            if key == "brew":
+                parts = [
+                    getattr(result, "description", "") or "",
+                    getattr(result, "version", "") or "",
+                ]
+            else:
+                parts = [
+                    getattr(result, "publisher", "") or "",
+                    getattr(result, "version", "") or "",
+                ]
+            subtitle = " · ".join(part for part in parts if part)
+            row = Adw.ActionRow(title=escape_markup(name or "Unknown package"), subtitle=escape_markup(subtitle))
+            row.set_subtitle_lines(2)
+            button = Gtk.Button(label="Install")
+            button.add_css_class("suggested-action")
+            button.connect(
+                "clicked",
+                lambda _b, k=key, n=name: self._install_manager_package(k, n),
+            )
+            row.add_suffix(button)
+            state["results_group"].add(row)
+            state["rows"].append(row)
+        return GLib.SOURCE_REMOVE
+
+    def _install_manager_typed(self, key: str) -> None:
+        state = self._manager_state.get(key)
+        if state is None:
+            return
+        name = state["typed"].get_text().strip()
+        if not name:
+            show_toast(
+                self,
+                "Enter a formula name first" if key == "brew" else "Enter a snap name first",
+            )
+            return
+        self._install_manager_package(key, name)
+
+    def _install_manager_package(self, key: str, name: str) -> None:
+        if not name:
+            return
+        title = "Homebrew" if key == "brew" else "Snap"
+
+        def worker(progress, cancel):
+            module = self._manager_module(key)
+            module.install(name, progress=progress, cancel=cancel)
+            return name
+
+        def on_error(exc: BaseException) -> None:
+            show_toast(self, f"{title} installation failed: {exc}")
+
+        dialog = OperationDialog(
+            f"Installing {name} with {title}",
+            worker,
+            on_success=lambda installed: self._manager_installed(key, installed),
+            on_error=on_error,
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _manager_installed(self, key: str, name: str) -> None:
+        title = "Homebrew" if key == "brew" else "Snap"
+        show_toast(self, f"Installed {name} with {title}")
+        if self._on_changed is not None:
+            self._on_changed()
+
+    def _refresh_outdated_idle(self) -> bool:
+        state = self._manager_state.get("brew")
+        if state is None or not state.get("available"):
+            return GLib.SOURCE_REMOVE
+
+        def worker() -> None:
+            count = 0
+            try:
+                from ..backends import brew
+
+                count = len(brew.outdated())
+            except Exception:  # noqa: BLE001 - count is cosmetic
+                count = 0
+            GLib.idle_add(self._apply_outdated_count, count)
+
+        threading.Thread(target=worker, daemon=True).start()
+        return GLib.SOURCE_REMOVE
+
+    def _apply_outdated_count(self, count: int) -> bool:
+        state = self._manager_state.get("brew")
+        if state is None or state.get("upgrade_row") is None:
+            return GLib.SOURCE_REMOVE
+        title = "Upgrade outdated formulae"
+        if count > 0:
+            title = f"{title} ({count})"
+        state["upgrade_row"].set_title(title)
+        return GLib.SOURCE_REMOVE
+
+    def _upgrade_outdated(self) -> None:
+        def worker(progress, cancel):
+            from ..backends import brew
+
+            brew.update(None, progress=progress, cancel=cancel)
+            return True
+
+        dialog = OperationDialog(
+            "Upgrading Homebrew formulae",
+            worker,
+            on_success=self._outdated_upgraded,
+            on_error=lambda exc: show_toast(self, f"Homebrew upgrade failed: {exc}"),
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _outdated_upgraded(self, _result) -> None:
+        show_toast(self, "Outdated formulae upgraded")
+        self._refresh_outdated_idle()
+        if self._on_changed is not None:
+            self._on_changed()
 
     # -------------------------------------------------------------- AppImage
     def _choose_appimage(self) -> None:

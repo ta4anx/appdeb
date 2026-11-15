@@ -14,7 +14,7 @@ from gi.repository import Adw, GLib, Gtk  # noqa: E402
 from .. import desktop, doctor, icons  # noqa: E402
 from ..models import Issue  # noqa: E402
 from .dialogs import OperationDialog  # noqa: E402
-from .widgets import show_toast  # noqa: E402
+from .widgets import escape_markup, show_toast  # noqa: E402
 
 SEVERITY_ICONS = {
     "error": "dialog-error-symbolic",
@@ -49,7 +49,7 @@ class ToolsPage(Adw.NavigationPage):
             ("Refresh application database", "Regenerate desktop-file-utils caches", self._refresh_database),
             ("Back up desktop entries", "Copy user desktop entries and the database to the backup folder", self._backup),
         ):
-            row = Adw.ActionRow(title=title, subtitle=subtitle, activatable=True)
+            row = Adw.ActionRow(title=escape_markup(title), subtitle=escape_markup(subtitle), activatable=True)
             row.add_suffix(Gtk.Image.new_from_icon_name("go-next-symbolic"))
             row.connect("activated", lambda _r, h=handler: h())
             actions.add(row)
@@ -91,7 +91,7 @@ class ToolsPage(Adw.NavigationPage):
     def _scan_failed(self, message: str) -> bool:
         self._scanning = False
         self._status_row.set_title("Scan failed")
-        self._status_row.set_subtitle(message)
+        self._status_row.set_subtitle(escape_markup(message))
         self._status_row.set_visible(True)
         return GLib.SOURCE_REMOVE
 

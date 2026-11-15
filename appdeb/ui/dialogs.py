@@ -14,7 +14,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
 from ..models import TarballMetadata  # noqa: E402
-from .widgets import file_filter, file_filters, icon_image  # noqa: E402
+from .widgets import escape_markup, file_filter, file_filters, icon_image  # noqa: E402
 
 
 class OperationDialog(Adw.Dialog):
@@ -254,7 +254,7 @@ class AppImageInstallDialog(Adw.Dialog):
         icon_group = Adw.PreferencesGroup(title="Icon")
         self._icon_row = Adw.ActionRow(title="Application icon")
         if self._icon_path is not None:
-            self._icon_row.set_subtitle(str(self._icon_path))
+            self._icon_row.set_subtitle(escape_markup(self._icon_path))
         else:
             self._icon_row.set_subtitle("No embedded icon found")
         self._preview = icon_image(str(self._icon_path) if self._icon_path else "", 48)
@@ -305,7 +305,7 @@ class AppImageInstallDialog(Adw.Dialog):
         if gfile is None or gfile.get_path() is None:
             return
         self._icon_path = Path(gfile.get_path())
-        self._icon_row.set_subtitle(str(self._icon_path))
+        self._icon_row.set_subtitle(escape_markup(self._icon_path))
         self._preview.set_from_file(str(self._icon_path))
 
     def _extract_icon(self) -> None:
@@ -314,7 +314,7 @@ class AppImageInstallDialog(Adw.Dialog):
         candidate = Path(self._metadata.icon)
         if candidate.is_file():
             self._icon_path = candidate
-            self._icon_row.set_subtitle(str(candidate))
+            self._icon_row.set_subtitle(escape_markup(candidate))
             self._preview.set_from_file(str(candidate))
         else:
             self._icon_row.set_subtitle("The embedded icon is not available; choose one manually")
@@ -481,7 +481,7 @@ class TarballInstallDialog(Adw.Dialog):
         if gfile is None or gfile.get_path() is None:
             return
         self._icon_path = Path(gfile.get_path())
-        self._icon_row.set_subtitle(str(self._icon_path))
+        self._icon_row.set_subtitle(escape_markup(self._icon_path))
         self._preview.set_from_file(str(self._icon_path))
 
     def _on_install_clicked(self, _button: Gtk.Button) -> None:

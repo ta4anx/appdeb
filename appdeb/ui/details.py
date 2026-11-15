@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 from datetime import datetime
 from pathlib import Path
 
@@ -14,9 +15,11 @@ from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
 from .. import apps, db, desktop, icons, processes  # noqa: E402
 from ..services import autostart  # noqa: E402
+from . import settings  # noqa: E402
 from .dialogs import OperationDialog, confirm  # noqa: E402
 from .widgets import (  # noqa: E402
     badge,
+    escape_markup,
     file_filter,
     file_filters,
     icon_image,
@@ -75,6 +78,10 @@ class DetailsPage(Adw.NavigationPage):
         self._autostart_guard = False
         self._perm_guard = False
         self._file_dialog = None
+        self._build_token = 0
+        self._store_group: Adw.PreferencesGroup | None = None
+        self._screenshot_group: Adw.PreferencesGroup | None = None
+        self._sources_group: Adw.PreferencesGroup | None = None
         self._title = Adw.WindowTitle(title=app.display_name)
         self._build()
         self.connect("map", self._on_map)
@@ -82,6 +89,7 @@ class DetailsPage(Adw.NavigationPage):
 
     # ------------------------------------------------------------------ build
     def _build(self) -> None:
+        self._build_token += 1
         self.set_title(self.app.display_name)
         self._title.set_title(self.app.display_name)
         self._title.set_subtitle(apps.kind_label(self.app.kind))
@@ -95,10 +103,14 @@ class DetailsPage(Adw.NavigationPage):
         body.set_margin_start(18)
         body.set_margin_end(18)
         body.append(self._build_header_card())
+        body.append(self._build_store_group())
+        body.append(self._build_screenshots_group())
         body.append(self._build_details_group())
         body.append(self._build_wm_group())
+        body.append(self._build_parameters_group())
         body.append(self._build_resource_group())
         body.append(self._build_files_group())
+        body.append(self._build_sources_group())
         flatpak_group = self._build_flatpak_group()
         if flatpak_group is not None:
             body.append(flatpak_group)
@@ -124,6 +136,7 @@ class DetailsPage(Adw.NavigationPage):
         toolbar.add_top_bar(header)
         toolbar.set_content(scroller)
         self.set_child(toolbar)
+        self._load_store_metadata()
 
     def _build_header_card(self) -> Gtk.Widget:
         card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
@@ -189,7 +202,7 @@ class DetailsPage(Adw.NavigationPage):
         return button
 
     def _info_row(self, title: str, value: str, *, selectable: bool = False) -> Adw.ActionRow:
-        row = Adw.ActionRow(title=title, subtitle=value or "—")
+        row = Adw.ActionRow(title=title, subtitle=escape_markup(value or "—"))
         if selectable:
             row.set_subtitle_selectable(True)
         return row
@@ -259,7 +272,7 @@ class DetailsPage(Adw.NavigationPage):
     def _build_files_group(self) -> Adw.PreferencesGroup:
         group = Adw.PreferencesGroup(title="Files")
         for label, path in apps.candidate_files(self.app):
-            row = Adw.ActionRow(title=label, subtitle=str(path))
+            row = Adw.ActionRow(title=label, subtitle=escape_markup(path))
             row.set_subtitle_selectable(True)
             open_button = Gtk.Button(icon_name="folder-open-symbolic")
             open_button.set_tooltip_text("Open location")
@@ -268,6 +281,494 @@ class DetailsPage(Adw.NavigationPage):
             row.add_suffix(open_button)
             group.add(row)
         return group
+
+    # ----------------------------------------------------------- store details
+    def _build_store_group(self) -> Adw.PreferencesGroup:
+        group = Adw.PreferencesGroup(title="Store details")
+        self._store_group = group
+        spinner_row = Adw.ActionRow(title="Loading store details…")
+        spinner = Gtk.Spinner()
+        spinner.set_valign(Gtk.Align.CENTER)
+        spinner.start()
+        spinner_row.add_suffix(spinner)
+        group.add(spinner_row)
+        self._store_status_row = spinner_row
+        return group
+
+    def _build_screenshots_group(self) -> Adw.PreferencesGroup:
+        group = Adw.PreferencesGroup(title="Screenshots")
+        group.set_visible(False)
+        self._screenshot_group = group
+        return group
+
+    def _load_store_metadata(self) -> None:
+        token = self._build_token
+        app = self.app
+
+        def worker() -> None:
+            data = None
+            try:
+                from .. import storemeta
+
+                data = storemeta.details(app)
+            except Exception:  # noqa: BLE001 - store metadata is optional
+                data = None
+            if data is None:
+                GLib.idle_add(self._hide_store_groups, token)
+                return
+            GLib.idle_add(self._apply_store_details, token, data)
+            shots = list(getattr(data, "screenshots", None) or [])[:4]
+            if not shots:
+                GLib.idle_add(self._hide_screenshots, token)
+                return
+            GLib.idle_add(self._apply_screenshot_meta, token, data, shots)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _hide_store_groups(self, token: int) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        if self._store_group is not None:
+            self._store_group.set_visible(False)
+        if self._screenshot_group is not None:
+            self._screenshot_group.set_visible(False)
+        return GLib.SOURCE_REMOVE
+
+    def _hide_screenshots(self, token: int) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        if self._screenshot_group is not None:
+            self._screenshot_group.set_visible(False)
+        return GLib.SOURCE_REMOVE
+
+    def _apply_store_details(self, token: int, data) -> bool:
+        if token != self._build_token or self._store_group is None:
+            return GLib.SOURCE_REMOVE
+        group = self._store_group
+        status = getattr(self, "_store_status_row", None)
+        if status is not None:
+            status.set_visible(False)
+        source = (getattr(data, "source", "") or "Store").strip()
+        name = getattr(data, "name", "") or ""
+        app_id = getattr(data, "app_id", "") or ""
+        self._store_app_id = app_id
+        expander = Adw.ExpanderRow(title=f"{source.title()} store", subtitle=escape_markup(name or app_id))
+        expander.set_expanded(True)
+
+        description = getattr(data, "description", "") or getattr(data, "summary", "") or ""
+        if description:
+            label = Gtk.Label(label=description)
+            label.set_wrap(True)
+            label.set_selectable(True)
+            label.set_xalign(0.0)
+            label.set_margin_top(8)
+            label.set_margin_bottom(8)
+            label.set_margin_start(12)
+            label.set_margin_end(12)
+            description_row = Adw.ActionRow()
+            description_row.set_child(label)
+            expander.add_row(description_row)
+
+        for title, key in (
+            ("Developer", "developer"),
+            ("License", "license"),
+        ):
+            value = getattr(data, key, "") or ""
+            if value:
+                expander.add_row(self._info_row(title, value, selectable=True))
+
+        homepage = getattr(data, "homepage", "") or ""
+        if homepage:
+            row = self._info_row("Homepage", homepage, selectable=True)
+            link = Gtk.Button(icon_name="adw-external-link-symbolic")
+            link.set_tooltip_text("Open homepage")
+            link.add_css_class("flat")
+            link.connect("clicked", lambda _b, url=homepage: self._open_uri(url))
+            row.add_suffix(link)
+            expander.add_row(row)
+
+        if app_id:
+            expander.add_row(self._info_row("Store ID", app_id, selectable=True))
+
+        group.add(expander)
+        group.set_visible(True)
+        return GLib.SOURCE_REMOVE
+
+    def _apply_screenshot_meta(self, token: int, data, shots) -> bool:
+        if token != self._build_token or self._screenshot_group is None:
+            return GLib.SOURCE_REMOVE
+        group = self._screenshot_group
+        app_id = getattr(data, "app_id", "") or ""
+        self._store_app_id = app_id
+
+        scroller = Gtk.ScrolledWindow()
+        scroller.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.NEVER)
+        scroller.set_hexpand(True)
+        box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        box.set_margin_top(6)
+        box.set_margin_bottom(6)
+        box.set_margin_start(6)
+        box.set_margin_end(6)
+        pairs: list[tuple[Gtk.Picture, object]] = []
+        for shot in shots:
+            picture = Gtk.Picture()
+            picture.set_size_request(-1, 170)
+            picture.set_content_fit(Gtk.ContentFit.CONTAIN)
+            picture.set_can_shrink(True)
+            overlay = Gtk.Overlay()
+            overlay.set_child(picture)
+            caption = getattr(shot, "caption", "") or ""
+            if caption:
+                label = Gtk.Label(label=caption)
+                label.add_css_class("caption")
+                label.add_css_class("osd")
+                label.set_valign(Gtk.Align.END)
+                label.set_halign(Gtk.Align.FILL)
+                label.set_margin_bottom(6)
+                label.set_margin_start(6)
+                label.set_margin_end(6)
+                label.set_max_width_chars(36)
+                overlay.add_overlay(label)
+            click = Gtk.GestureClick()
+            click.connect("released", self._on_screenshot_clicked, shot)
+            picture.add_controller(click)
+            box.append(overlay)
+            pairs.append((picture, shot))
+        scroller.set_child(box)
+        group.add(scroller)
+        group.set_visible(True)
+        self._download_screenshots(token, app_id, pairs)
+        return GLib.SOURCE_REMOVE
+
+    def _download_screenshots(
+        self, token: int, app_id: str, pairs: list[tuple[Gtk.Picture, object]]
+    ) -> None:
+        def worker() -> None:
+            for picture, shot in pairs:
+                path = None
+                try:
+                    from .. import storemeta
+
+                    path = storemeta.download_screenshot(app_id, shot)
+                except Exception:  # noqa: BLE001 - broken thumbnails are skipped
+                    path = None
+                if path:
+                    GLib.idle_add(self._set_screenshot_file, token, picture, shot, path)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _set_screenshot_file(self, token: int, picture: Gtk.Picture, shot, path) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        target = Path(path)
+        if not target.is_file():
+            return GLib.SOURCE_REMOVE
+        try:
+            picture.set_filename(str(target))
+        except Exception:  # noqa: BLE001 - older GTK fallback
+            try:
+                picture.set_file(Gio.File.new_for_path(str(target)))
+            except Exception:  # noqa: BLE001
+                return GLib.SOURCE_REMOVE
+        try:
+            shot.local_path = target
+        except Exception:  # noqa: BLE001 - frozen dataclass; rely on cache by URL
+            pass
+        return GLib.SOURCE_REMOVE
+
+    def _on_screenshot_clicked(
+        self, _gesture: Gtk.GestureClick, _n_press: int, _x: float, _y: float, shot
+    ) -> None:
+        path = getattr(shot, "local_path", None)
+        if path is None:
+            try:
+                from .. import storemeta
+
+                path = storemeta.download_screenshot(
+                    getattr(self, "_store_app_id", "") or "", shot
+                )
+            except Exception:  # noqa: BLE001
+                path = None
+        if path is None or not Path(path).is_file():
+            show_toast(self, "Screenshot is not available")
+            return
+        caption = getattr(shot, "caption", "") or ""
+        dialog = Adw.Dialog()
+        dialog.set_title(caption or "Screenshot")
+        dialog.set_content_width(900)
+        dialog.set_content_height(650)
+        header = Adw.HeaderBar()
+        picture = Gtk.Picture.new_for_filename(str(path))
+        picture.set_can_shrink(True)
+        picture.set_vexpand(True)
+        content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        content.set_margin_top(12)
+        content.set_margin_bottom(12)
+        content.set_margin_start(12)
+        content.set_margin_end(12)
+        content.append(picture)
+        if caption:
+            label = Gtk.Label(label=caption)
+            label.set_wrap(True)
+            label.set_xalign(0.0)
+            label.add_css_class("dim-label")
+            content.append(label)
+        toolbar = Adw.ToolbarView()
+        toolbar.add_top_bar(header)
+        toolbar.set_content(content)
+        dialog.set_child(toolbar)
+        dialog.present(self.get_root())
+
+    def _open_uri(self, url: str) -> None:
+        try:
+            Gio.AppInfo.launch_default_for_uri(url, None)
+        except GLib.Error as exc:
+            show_toast(self, f"Could not open link: {exc.message}")
+
+    # ----------------------------------------------------- change package manager
+    def _build_sources_group(self) -> Adw.PreferencesGroup:
+        group = Adw.PreferencesGroup(
+            title="Change package manager",
+            description=(
+                "Install this application from another package manager. "
+                "The current copy is not touched until you remove it."
+            ),
+        )
+        status = Adw.ActionRow(title="Looking for alternative package sources…")
+        spinner = Gtk.Spinner()
+        spinner.set_valign(Gtk.Align.CENTER)
+        spinner.start()
+        status.add_suffix(spinner)
+        group.add(status)
+        self._sources_status = status
+        self._sources_group = group
+        token = self._build_token
+        app = self.app
+
+        def worker() -> None:
+            candidates: list = []
+            error = ""
+            try:
+                from ..sources import find_sources
+
+                candidates = find_sources(app)
+            except Exception as exc:  # noqa: BLE001 - shown inline
+                error = str(exc) or exc.__class__.__name__
+            GLib.idle_add(self._apply_sources, token, group, candidates, error)
+
+        threading.Thread(target=worker, daemon=True).start()
+        return group
+
+    def _apply_sources(
+        self,
+        token: int,
+        group: Adw.PreferencesGroup,
+        candidates: list,
+        error: str,
+    ) -> bool:
+        if token != self._build_token:
+            return GLib.SOURCE_REMOVE
+        status = getattr(self, "_sources_status", None)
+        if error:
+            if status is not None:
+                status.set_title(f"Could not search for alternative sources: {error}")
+                status.set_visible(True)
+            return GLib.SOURCE_REMOVE
+        if not candidates:
+            if status is not None:
+                status.set_title("No alternative package sources found.")
+                status.set_visible(True)
+            return GLib.SOURCE_REMOVE
+        if status is not None:
+            status.set_visible(False)
+        for candidate in candidates:
+            kind = getattr(candidate, "kind", "") or ""
+            name = getattr(candidate, "name", "") or getattr(candidate, "ref", "") or ""
+            ref = getattr(candidate, "ref", "") or ""
+            version = getattr(candidate, "version", "") or ""
+            origin = getattr(candidate, "origin", "") or ""
+            summary = getattr(candidate, "summary", "") or ""
+            if len(summary) > 90:
+                summary = summary[:87].rstrip() + "…"
+            parts = [part for part in (ref, version, origin) if part]
+            subtitle = " · ".join(parts)
+            if summary:
+                subtitle = f"{subtitle} · {summary}" if subtitle else summary
+            if kind == "snap":
+                subtitle = (
+                    f"{subtitle} · Snap installs prompt for authentication"
+                    if subtitle
+                    else "Snap installs prompt for authentication"
+                )
+            label = self._kind_label(kind)
+            row = Adw.ActionRow(title=escape_markup(f"{label} · {name}"), subtitle=escape_markup(subtitle))
+            row.set_subtitle_lines(2)
+            install = Gtk.Button(label="Install")
+            install.add_css_class("suggested-action")
+            install.connect(
+                "clicked", lambda _b, c=candidate: self._install_candidate(c)
+            )
+            row.add_suffix(install)
+            group.add(row)
+        return GLib.SOURCE_REMOVE
+
+    @staticmethod
+    def _kind_label(kind: str) -> str:
+        return {
+            "brew": "Homebrew",
+            "snap": "Snap",
+            "flatpak": "Flatpak",
+        }.get(kind, apps.kind_label(kind))
+
+    def _install_candidate(self, candidate) -> None:
+        name = getattr(candidate, "name", "") or getattr(candidate, "ref", "") or "package"
+        scope = settings.flatpak_scope()
+
+        def worker(progress, cancel):
+            from ..sources import install_candidate
+
+            return install_candidate(
+                candidate,
+                scope=scope,
+                progress=progress,
+                cancel=cancel,
+            )
+
+        dialog = OperationDialog(
+            f"Installing {name}",
+            worker,
+            on_success=lambda _result: self._candidate_installed(candidate),
+            on_error=lambda exc: show_toast(self, f"Installation failed: {exc}"),
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _candidate_installed(self, candidate) -> None:
+        name = getattr(candidate, "name", "") or getattr(candidate, "ref", "") or "package"
+        current = apps.kind_label(self.app.kind)
+        confirm(
+            self.get_root(),
+            "Remove the current copy?",
+            f"Remove the {current.lower()} copy of {self.app.display_name}?\n\n"
+            f"{name} was installed with {self._kind_label(getattr(candidate, 'kind', ''))}. "
+            "You can keep both copies.",
+            confirm_label="Remove current copy",
+            destructive=True,
+            on_confirm=self._uninstall_current_kind,
+        )
+
+    def _uninstall_current_kind(self) -> None:
+        def worker(progress, cancel):
+            from ..sources import uninstall_kind
+
+            return uninstall_kind(self.app, progress=progress, cancel=cancel)
+
+        dialog = OperationDialog(
+            f"Removing {self.app.display_name}",
+            worker,
+            on_success=lambda _result: self._notify_changed(),
+            on_error=lambda exc: show_toast(self, f"Removal failed: {exc}"),
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    # --------------------------------------------------- application parameters
+    def _fresh_entry(self):
+        try:
+            fresh = desktop.load(self.app.entry.path)
+        except Exception:  # noqa: BLE001 - fall back to the cached entry
+            fresh = None
+        return fresh or self.app.entry
+
+    def _build_parameters_group(self) -> Adw.PreferencesGroup:
+        entry = self._fresh_entry()
+        group = Adw.PreferencesGroup(
+            title="Application parameters",
+            description="Values written to this application's desktop entry.",
+        )
+        categories = ";".join(entry.categories or []) or _key(entry, "Categories")
+        rows = (
+            ("Comment", "Comment", entry.comment or _key(entry, "Comment")),
+            ("Categories", "Categories", categories),
+            ("Keywords", "Keywords", _key(entry, "Keywords")),
+            ("Exec", "Exec", entry.exec_line),
+        )
+        for title, key, value in rows:
+            row = Adw.EntryRow(title=title)
+            row.set_text(value or "")
+            save = Gtk.Button(label="Save")
+            save.connect(
+                "clicked",
+                lambda _b, r=row, k=key: self._save_parameter(r, k),
+            )
+            row.add_suffix(save)
+            group.add(row)
+
+        terminal = Adw.SwitchRow(
+            title="Terminal application",
+            subtitle="Run this application in a terminal window",
+        )
+        terminal.set_active(bool(entry.terminal))
+        terminal.connect("notify::active", self._on_terminal_toggled)
+        group.add(terminal)
+
+        hidden = Adw.SwitchRow(
+            title="Hide from application menu",
+            subtitle="Keep the desktop entry but omit it from application menus",
+        )
+        hidden.set_active(bool(entry.no_display))
+        hidden.connect("notify::active", self._on_nodisplay_toggled)
+        group.add(hidden)
+        return group
+
+    def _save_parameter(self, row: Adw.EntryRow, key: str) -> None:
+        value = row.get_text().strip()
+        if key == "Exec" and not value:
+            show_toast(self, "Exec cannot be empty")
+            return
+        if key == "Categories" and value and not value.endswith(";"):
+            value += ";"
+            row.set_text(value)
+        try:
+            fresh = desktop.set_string(self._fresh_entry(), key, value)
+        except (OSError, GLib.Error) as exc:
+            show_toast(self, f"Could not update {key}: {exc}")
+            return
+        self.app.entry = fresh
+        show_toast(self, f"{key} updated")
+        self._notify_changed()
+
+    def _on_terminal_toggled(self, row: Adw.SwitchRow, _param) -> None:
+        value = "true" if row.get_active() else "false"
+        try:
+            fresh = desktop.set_string(self._fresh_entry(), "Terminal", value)
+        except (OSError, GLib.Error) as exc:
+            show_toast(self, f"Could not update Terminal: {exc}")
+            return
+        self.app.entry = fresh
+        show_toast(
+            self,
+            "Application runs in a terminal" if row.get_active() else "Terminal disabled",
+        )
+        self._notify_changed()
+
+    def _on_nodisplay_toggled(self, row: Adw.SwitchRow, _param) -> None:
+        try:
+            if row.get_active():
+                fresh = desktop.set_string(self._fresh_entry(), "NoDisplay", "true")
+            else:
+                fresh = desktop.remove_key(self._fresh_entry(), "NoDisplay")
+        except (OSError, GLib.Error) as exc:
+            show_toast(self, f"Could not update menu visibility: {exc}")
+            return
+        self.app.entry = fresh
+        show_toast(
+            self,
+            "Hidden from the application menu"
+            if row.get_active()
+            else "Shown in the application menu",
+        )
+        self._notify_changed()
 
     def _build_flatpak_group(self) -> Adw.PreferencesGroup | None:
         if self.app.kind != "flatpak" and self.app.entry.source != "flatpak":
@@ -299,7 +800,7 @@ class DetailsPage(Adw.NavigationPage):
             )
             group.add(row)
 
-        expander = Adw.ExpanderRow(title="Effective permissions", subtitle=app_id)
+        expander = Adw.ExpanderRow(title="Effective permissions", subtitle=escape_markup(app_id))
         try:
             from ..backends import flatpak
 

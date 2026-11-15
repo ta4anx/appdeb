@@ -17,7 +17,8 @@ install -d "$ROOT/usr/share/doc/appdeb"
 install -d "$ROOT/DEBIAN"
 
 install -m 0755 scripts/appdeb-launcher.sh "$ROOT/usr/bin/appdeb"
-install -m 0644 data/appdeb.desktop "$ROOT/usr/share/applications/appdeb.desktop"
+install -m 0644 data/io.github.ta4anx.AppDeb.desktop \
+  "$ROOT/usr/share/applications/io.github.ta4anx.AppDeb.desktop"
 install -m 0644 data/io.github.ta4anx.AppDeb.svg \
   "$ROOT/usr/share/icons/hicolor/scalable/apps/io.github.ta4anx.AppDeb.svg"
 install -m 0644 data/io.github.ta4anx.AppDeb.metainfo.xml \
@@ -52,7 +53,7 @@ Maintainer: Kaan Çakmak <skaancakmak@gmail.com>
 Section: utils
 Priority: optional
 Depends: python3 (>= 3.10), python3-gi, gir1.2-gtk-4.0 (>= 4.10), gir1.2-adw-1 (>= 1.4), python3-psutil, python3-requests, python3-pil, desktop-file-utils, pkexec, flatpak, gtk-update-icon-cache
-Recommends: squashfs-tools, xdg-utils, appstream
+Recommends: squashfs-tools, xdg-utils, appstream, snapd
 Description: Full-control app installer and manager for Debian-based Linux
  AppDeb installs and manages Flatpak apps, AppImages, local .deb packages,
  and portable .tar.gz applications.
@@ -65,6 +66,9 @@ cat > "$ROOT/DEBIAN/postinst" <<'EOF'
 #!/bin/sh
 set -e
 if [ "$1" = "configure" ]; then
+  # 0.1.x shipped appdeb.desktop; the application id must equal the desktop id
+  # for GNOME to associate the window with the icon.
+  rm -f /usr/share/applications/appdeb.desktop
   update-desktop-database /usr/share/applications || true
   gtk-update-icon-cache -f -t /usr/share/icons/hicolor || true
 fi

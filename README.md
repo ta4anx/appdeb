@@ -1,6 +1,6 @@
 # AppDeb
 
-**Full-control installer and manager for Flatpak, AppImage, `.deb` and portable `.tar.gz` applications on Debian-based Linux — with desktop-entry icon repair.**
+**Full-control installer and manager for Flatpak, Snap, Homebrew, AppImage, `.deb` and portable `.tar.gz` applications on Debian-based Linux — with store details, screenshots and desktop-entry icon repair.**
 
 [![CI](https://github.com/ta4anx/appdeb/actions/workflows/ci.yml/badge.svg)](https://github.com/ta4anx/appdeb/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/ta4anx/appdeb)](https://github.com/ta4anx/appdeb/releases)
@@ -34,6 +34,10 @@ desktop-entry doctor that repairs broken or icon-less entries.
   pick, and a URL flow. Ambiguous archives get an explicit executable/name/icon dialog.
 - `.deb`: inspect package, version, architecture, installed size and dependencies before
   installing through polkit.
+- Snap: search the Snap Store or type a snap name and install it; system installs go through
+  polkit.
+- Homebrew: search formulae or type the formula name and install it, with an upgrade action
+  for outdated formulae. Brew installs stay in your user account.
 
 **Manage**
 
@@ -52,6 +56,17 @@ desktop-entry doctor that repairs broken or icon-less entries.
 - AppImage replace-in-place and tarball replace/reinstall, both keeping the desktop entry.
 - `.deb` removal with dependency-impact listing and a hard refusal for essential or
   desktop-critical packages.
+- Store details per app: description, developer, license, homepage and store screenshots
+  (Flathub AppStream, Snap Store media) loaded in the background, with a full-size viewer.
+- Change the package manager: AppDeb searches the other managers for the same app (for
+  example Ultimaker Cura's AppImage has a Flatpak and a Snap build) and installs it there;
+  you then decide whether to remove the previous copy.
+- Application parameters: edit the menu comment, categories, keywords and `Exec` line, and
+  toggle terminal mode or hiding the entry from the application menu — all written to a user
+  override, never to the vendor file.
+- Managers page: which package managers exist on the machine, their versions, install
+  locations, and how many packages each one manages, plus the AppDeb-managed AppImage and
+  tarball stores.
 
 **Diagnose**
 
@@ -63,7 +78,8 @@ desktop-entry doctor that repairs broken or icon-less entries.
 
 **Command line**
 
-- `appdeb list`, `appdeb install`, `appdeb remove`, `appdeb scan`, `appdeb fix-icons` for
+- `appdeb list`, `appdeb managers`, `appdeb search`, `appdeb install` (files or
+  `--from brew|snap|flatpak`), `appdeb remove`, `appdeb scan`, `appdeb fix-icons` for
   scripted use and headless machines.
 
 ## Install
@@ -72,8 +88,8 @@ Download the latest `.deb` from the [releases page](https://github.com/ta4anx/ap
 and install it:
 
 ```bash
-wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.1.0_all.deb
-sudo apt install ./appdeb_0.1.0_all.deb
+wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.2.0_all.deb
+sudo apt install ./appdeb_0.2.0_all.deb
 appdeb
 ```
 
@@ -103,7 +119,8 @@ python3 -m appdeb
 | Page | What it does |
 | --- | --- |
 | **Installed** | Every desktop application, with kind filter and search; Flatpak updates appear as a button |
-| **Install** | Flatpak search, AppImage file/URL, tarball one-click / to-folder / URL, `.deb` inspection |
+| **Managers** | Flatpak, Snap, Homebrew and APT availability, versions, paths and package counts |
+| **Install** | Flatpak and Snap search, Homebrew formulae search and typed install, AppImage file/URL, tarball one-click / to-folder / URL, `.deb` inspection |
 | **System** | CPU, memory, swap, disk, network, load, uptime, top processes |
 | **Tools** | Desktop doctor scan/fix, icon cache rebuild, application database refresh, entry backup |
 | **Settings** | Flatpak scope for installs, hidden entries, refresh interval, About |
@@ -117,6 +134,10 @@ python3 -m appdeb
 ```bash
 appdeb list                                   # desktop id, name, kind, version
 appdeb list --json
+appdeb managers                              # which managers exist, versions, package counts
+appdeb search ripgrep                        # Flatpak + Snap + Homebrew results
+appdeb install ripgrep --from brew           # typed install through Homebrew
+appdeb install gnome-calculator --from snap
 appdeb install ./Foo.AppImage --name Foo --icon foo.png
 appdeb install ./Foo.deb
 appdeb install ./Foo.tar.gz                   # one-click into ~/.local/share/appdeb/tarballs
@@ -137,6 +158,11 @@ appdeb --version
   `pkexec`.
 - AppImages and tarballs run **outside** any sandbox and can read your files. AppDeb shows this
   warning in every flow; only install software you trust.
+- Homebrew installs into your user account and needs no privilege escalation; Snap and `.deb`
+  operations are system-wide and prompt through polkit.
+- Store metadata and screenshots are fetched over https from Flathub and the Snap Store and
+  cached under `~/.cache/appdeb/`; AppDeb still works offline (offline AppStream data, cached
+  JSON, or no store details at all).
 - `.tar.gz` extraction rejects absolute paths, `..` traversal, device/FIFO members, escaping
   symlinks and hardlinks, archives with more than 20 000 members, and archives expanding past
   4 GiB. Installation is atomic: a failed extract never leaves a half-populated directory.
@@ -154,10 +180,12 @@ appdeb --version
 
 ```text
 appdeb/            Python package (GTK4 + libadwaita)
-  backends/        flatpak, appimage, tarball, deb adapters + process runner
+  backends/        flatpak, snap, brew, appimage, tarball, deb adapters + process runner
+  storemeta.py     Flathub / Snap Store details, screenshots and caching
+  sources.py       finds the same app in other package managers
   services/        downloader, autostart
   ui/              application, window, pages, widgets, dialogs
-data/              desktop entry, AppStream metainfo, app icon
+data/              io.github.ta4anx.AppDeb.desktop, AppStream metainfo, app icon
 tests/             unittest suites (no network, no user state)
 scripts/           launcher, .deb builder
 .github/workflows/ CI and tag-driven release

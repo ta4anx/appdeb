@@ -13,7 +13,7 @@ from gi.repository import Adw, GLib, Gtk  # noqa: E402
 from .. import apps  # noqa: E402
 from . import settings  # noqa: E402
 from .dialogs import OperationDialog  # noqa: E402
-from .widgets import chevron, icon_image, show_toast  # noqa: E402
+from .widgets import chevron, escape_markup, icon_image, show_toast  # noqa: E402
 
 FILTER_CHOICES = ["All", "Flatpak", "AppImage", "Tarball", "System"]
 FILTER_KINDS = {"Flatpak": "flatpak", "AppImage": "appimage", "Tarball": "tarball"}
@@ -108,7 +108,7 @@ class InstalledPage(Adw.NavigationPage):
             subtitle_parts = [apps.kind_label(app.kind)]
             if app.version:
                 subtitle_parts.append(app.version)
-            row.set_subtitle(" · ".join(subtitle_parts))
+            row.set_subtitle(escape_markup(" · ".join(subtitle_parts)))
             row.set_activatable(True)
             row.add_css_class("app-list-row")
             row.add_prefix(icon_image(app.entry.icon, 40))

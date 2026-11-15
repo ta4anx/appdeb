@@ -5,13 +5,24 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
+import shutil
+import subprocess
 import sys
 from dataclasses import asdict
 from pathlib import Path
 
 from . import APP_NAME, __version__, config, db
 
-SUBCOMMANDS = ("list", "install", "remove", "fix-icons", "scan")
+SUBCOMMANDS = ("list", "install", "remove", "fix-icons", "scan", "managers", "search")
+
+VERSION_RE = re.compile(r"\d+(?:\.\d+)+(?:[+~][0-9A-Za-z.+~-]+)?")
+
+
+def _normalize_version(line: str) -> str:
+    text = " ".join((line or "").split())
+    match = VERSION_RE.search(text)
+    return match.group(0) if match else text
 
 
 def _print_error(message: str) -> None:
@@ -54,8 +65,11 @@ def build_parser() -> argparse.ArgumentParser:
     list_parser = sub.add_parser("list", help="print installed desktop entries")
     list_parser.add_argument("--json", action="store_true", help="print JSON")
 
-    install_parser = sub.add_parser("install", help="install a file")
-    install_parser.add_argument("file", help="AppImage, .deb, .flatpak, .flatpakref, .tar.gz or .tgz")
+    install_parser = sub.add_parser("install", help="install a file or package-manager package")
+    install_parser.add_argument(
+        "file",
+        help="AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name with --from",
+    )
     install_parser.add_argument("--name", help="application name")
     install_parser.add_argument("--icon", help="icon file to install")
     install_parser.add_argument("--wm-class", dest="wm_class", help="StartupWMClass / window class")
@@ -64,6 +78,12 @@ def build_parser() -> argparse.ArgumentParser:
     install_parser.add_argument("--scope", choices=["user", "system"], default="user", help="Flatpak scope")
     install_parser.add_argument("--dest", help="destination folder for tarball installs")
     install_parser.add_argument("--exec", dest="executable", help="tarball executable, relative to the archive root")
+    install_parser.add_argument(
+        "--from",
+        dest="from_manager",
+        choices=["brew", "snap", "flatpak"],
+        help="install a formula/snap/app ID with the given package manager",
+    )
     install_parser.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
 
     remove_parser = sub.add_parser("remove", help="uninstall an application by desktop ID")
@@ -76,6 +96,18 @@ def build_parser() -> argparse.ArgumentParser:
 
     scan_parser = sub.add_parser("scan", help="scan desktop entries for problems")
     scan_parser.add_argument("--json", action="store_true", help="print JSON")
+
+    managers_parser = sub.add_parser("managers", help="show package manager availability and counts")
+    managers_parser.add_argument("--json", action="store_true", help="print JSON")
+
+    search_parser = sub.add_parser("search", help="search Flatpak, Snap and Homebrew packages")
+    search_parser.add_argument("query", help="search text (at least 2 characters)")
+    search_parser.add_argument(
+        "--manager",
+        choices=["flatpak", "snap", "brew"],
+        help="limit the search to one manager (default: all available)",
+    )
+    search_parser.add_argument("--json", action="store_true", help="print JSON")
 
     return parser
 
@@ -112,6 +144,218 @@ def _cmd_scan(args) -> int:
         return 0
     for issue in issues:
         print(f"{issue.severity}\t{issue.code}\t{issue.path}\t{issue.message}")
+    return 0
+
+
+def _manager_available(manager: str) -> bool:
+    if manager == "apt":
+        return shutil.which("dpkg") is not None
+    try:
+        module = __import__(f"appdeb.backends.{manager}", fromlist=["available"])
+        return bool(module.available())
+    except Exception:  # noqa: BLE001 - fall back to PATH detection
+        if manager == "brew" and Path("/home/linuxbrew/.linuxbrew/bin/brew").is_file():
+            return True
+        return shutil.which(manager) is not None
+
+
+def _manager_binary(manager: str) -> str:
+    found = shutil.which(manager)
+    if found:
+        return found
+    if manager == "brew":
+        fallback = Path("/home/linuxbrew/.linuxbrew/bin/brew")
+        if fallback.is_file():
+            return str(fallback)
+    if manager == "apt":
+        return shutil.which("dpkg") or "dpkg"
+    return manager
+
+
+def _manager_version(manager: str) -> str:
+    if manager == "snap":
+        args = ["snap", "version"]
+    elif manager == "apt":
+        args = ["dpkg", "--version"]
+    else:
+        args = [_manager_binary(manager), "--version"]
+    lines = _command_lines(args, timeout=10)
+    return _normalize_version(lines[0]) if lines else ""
+
+
+def _command_lines(args: list[str], *, timeout: float = 60) -> list[str]:
+    try:
+        result = subprocess.run(
+            args,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            env={**os.environ, "LC_ALL": "C"},
+        )
+    except (OSError, subprocess.SubprocessError):
+        return []
+    if result.returncode != 0:
+        return []
+    return [line.strip() for line in (result.stdout or "").splitlines() if line.strip()]
+
+
+def _manager_counts() -> dict[str, int]:
+    snap_lines = _command_lines(["snap", "list"])
+    snap_count = sum(
+        1
+        for line in snap_lines[1:]
+        if not line.lower().startswith(("no snaps", "warning:"))
+    )
+    apt_count = sum(
+        1
+        for line in _command_lines(["dpkg-query", "-W", "-f=${Status}\\n"])
+        if line == "install ok installed"
+    )
+    return {
+        "flatpak": len(_command_lines(["flatpak", "list", "--app", "--columns=application"])),
+        "snap": snap_count,
+        "brew": len(_command_lines([_manager_binary("brew"), "list", "--formula"])),
+        "apt": apt_count,
+    }
+
+
+def _cmd_managers(args) -> int:
+    counts = _manager_counts()
+    payload = []
+    for manager, name in (
+        ("flatpak", "Flatpak"),
+        ("snap", "Snap"),
+        ("brew", "Homebrew"),
+        ("apt", "APT / dpkg"),
+    ):
+        available = _manager_available(manager)
+        payload.append(
+            {
+                "name": name,
+                "available": available,
+                "version": _manager_version(manager) if available else "",
+                "installed_count": counts[manager],
+            }
+        )
+    if args.json:
+        print(json.dumps(payload, indent=2))
+        return 0
+    for row in payload:
+        print(
+            f"{row['name']}\t{'available' if row['available'] else 'missing'}\t"
+            f"{row['version']}\t{row['installed_count']}"
+        )
+    return 0
+
+
+def _clean_field(value) -> str:
+    return " ".join(str(value or "").split())
+
+
+def _search_manager(manager: str, query: str) -> list[dict]:
+    rows: list[dict] = []
+    if manager == "flatpak":
+        from .backends import flatpak
+
+        for result in flatpak.search(query):
+            rows.append(
+                {
+                    "manager": "flatpak",
+                    "name": _clean_field(getattr(result, "name", "") or getattr(result, "application", "")),
+                    "version": _clean_field(getattr(result, "version", "")),
+                    "description": _clean_field(getattr(result, "description", "")),
+                }
+            )
+    elif manager == "snap":
+        from .backends import snap
+
+        for result in snap.search(query):
+            rows.append(
+                {
+                    "manager": "snap",
+                    "name": _clean_field(getattr(result, "name", "")),
+                    "version": _clean_field(getattr(result, "version", "")),
+                    "description": _clean_field(
+                        getattr(result, "publisher", "") or getattr(result, "notes", "")
+                    ),
+                }
+            )
+    else:
+        from .backends import brew
+
+        for result in brew.search(query):
+            rows.append(
+                {
+                    "manager": "brew",
+                    "name": _clean_field(getattr(result, "name", "")),
+                    "version": _clean_field(getattr(result, "version", "")),
+                    "description": _clean_field(getattr(result, "description", "")),
+                }
+            )
+    return rows
+
+
+def _cmd_search(args) -> int:
+    query = (args.query or "").strip()
+    if len(query) < 2:
+        _print_error("the search query must be at least 2 characters")
+        return 1
+    if args.manager:
+        managers = [args.manager]
+    else:
+        managers = [name for name in ("flatpak", "snap", "brew") if _manager_available(name)]
+    results: list[dict] = []
+    errors: list[str] = []
+    for manager in managers:
+        try:
+            results.extend(_search_manager(manager, query))
+        except Exception as exc:  # noqa: BLE001 - report and continue with other managers
+            errors.append(f"{manager}: {str(exc) or exc.__class__.__name__}")
+    if args.json:
+        print(json.dumps(results, indent=2))
+        return 0
+    for row in results:
+        print(f"{row['manager']}\t{row['name']}\t{row['version']}\t{row['description']}")
+    if errors:
+        for message in errors:
+            _print_error(message)
+        if not results:
+            return 1
+    return 0
+
+
+def _manager_install(args) -> int:
+    manager = args.from_manager
+    spec = (args.file or "").strip()
+    if not spec:
+        _print_error("a package name is required with --from")
+        return 1
+    if not _manager_available(manager):
+        _print_error(f"{manager} is not installed")
+        return 1
+    if not args.yes and sys.stdin.isatty():
+        if not _confirm(f"Install {spec} with {manager}? [y/N] "):
+            print("Aborted")
+            return 1
+    try:
+        if manager == "brew":
+            from .backends import brew
+
+            brew.install(spec, progress=_stream)
+            print(spec)
+        elif manager == "snap":
+            from .backends import snap
+
+            snap.install(spec, progress=_stream)
+            print(spec)
+        else:
+            from .backends import flatpak
+
+            flatpak.install(spec, args.scope, progress=_stream)
+            print(_desktop_id_for_flatpak(spec))
+    except Exception as exc:  # noqa: BLE001
+        _report_exception(exc)
+        return 1
     return 0
 
 
@@ -269,6 +513,8 @@ def _deb_install(args, path: Path) -> int:
 
 
 def _cmd_install(args) -> int:
+    if getattr(args, "from_manager", None):
+        return _manager_install(args)
     path = Path(args.file).expanduser()
     if not path.is_file():
         _print_error(f"file not found: {path}")
@@ -378,6 +624,8 @@ def main(argv: list[str] | None = None) -> int:
         "remove": _cmd_remove,
         "fix-icons": _cmd_fix_icons,
         "scan": _cmd_scan,
+        "managers": _cmd_managers,
+        "search": _cmd_search,
     }
     try:
         return handlers[args.command](args)

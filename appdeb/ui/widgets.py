@@ -8,7 +8,7 @@ import gi
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
-from gi.repository import Adw, Gtk  # noqa: E402
+from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from .. import icons  # noqa: E402
 
@@ -63,6 +63,11 @@ class Sparkline(Gtk.DrawingArea):
             else:
                 cr.line_to(x, y)
         cr.stroke()
+
+
+def escape_markup(text) -> str:
+    """Escape text for the markup-parsing ``subtitle``/``title`` properties."""
+    return GLib.markup_escape_text("" if text is None else str(text))
 
 
 def icon_image(icon_value: str, size: int = 48) -> Gtk.Image:

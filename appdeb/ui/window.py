@@ -15,12 +15,14 @@ from .. import apps  # noqa: E402
 from .details import DetailsPage  # noqa: E402
 from .install import InstallPage  # noqa: E402
 from .installed import InstalledPage  # noqa: E402
+from .managers import ManagersPage  # noqa: E402
 from .settings import SettingsPage  # noqa: E402
 from .system import SystemPage  # noqa: E402
 from .tools import ToolsPage  # noqa: E402
 
 SECTIONS = [
     ("installed", "Installed", "view-grid-symbolic"),
+    ("managers", "Managers", "package-x-generic-symbolic"),
     ("install", "Install", "folder-download-symbolic"),
     ("system", "System", "utilities-system-monitor-symbolic"),
     ("tools", "Tools", "emblem-system-symbolic"),
@@ -127,7 +129,7 @@ class AppDebWindow(Adw.ApplicationWindow):
             self._nav.replace([page])
         self._current = name
         refresh = getattr(page, "refresh", None)
-        if callable(refresh) and name == "installed":
+        if callable(refresh) and name in ("installed", "managers"):
             refresh()
 
     # ----------------------------------------------------------------- pages
@@ -137,6 +139,8 @@ class AppDebWindow(Adw.ApplicationWindow):
             return page
         if name == "installed":
             page = InstalledPage(self.open_details)
+        elif name == "managers":
+            page = ManagersPage()
         elif name == "install":
             page = InstallPage(self.open_details, on_changed=self._reload_installed)
         elif name == "system":
