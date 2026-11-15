@@ -379,7 +379,14 @@ def main(argv: list[str] | None = None) -> int:
         "fix-icons": _cmd_fix_icons,
         "scan": _cmd_scan,
     }
-    return handlers[args.command](args)
+    try:
+        return handlers[args.command](args)
+    except BrokenPipeError:
+        # `appdeb list | head` closes the pipe early; exit quietly.
+        try:
+            sys.stdout.close()
+        finally:
+            os._exit(0)
 
 
 if __name__ == "__main__":
