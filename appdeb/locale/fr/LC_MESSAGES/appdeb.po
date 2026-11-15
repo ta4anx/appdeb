@@ -1,0 +1,1926 @@
+# French translation of AppDeb.
+# Copyright (C) 2026 AppDeb contributors
+# This file is distributed under the same license as the AppDeb project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, python-format
+msgid "\n\nThe following packages will be removed:\n%s"
+msgstr "\n\nLes paquets suivants seront supprimés :\n%s"
+
+msgid "\n\nThe managed bundle is deleted; your downloaded file is kept."
+msgstr "\n\nLe bundle géré est supprimé ; votre fichier téléchargé est conservé."
+
+msgid "\n\nThe managed install directory is deleted; the original archive is kept."
+msgstr "\n\nLe répertoire d’installation géré est supprimé ; l’archive d’origine est conservée."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+#, python-format
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)dj %(hours)dh %(minutes)dmin"
+
+#, python-format
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)dh %(minutes)dmin"
+
+#, python-format
+msgid "%(minutes)dm"
+msgstr "%(minutes)dmin"
+
+#, python-format
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s gère %(count)d paquet ; supprimez-le d’abord."
+msgstr[1] "%(name)s gère %(count)d paquets ; supprimez-les d’abord."
+
+#, python-format
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s suit désormais %(channel)s"
+
+#, python-format
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+#, python-format
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+#, python-format
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+#, python-format
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+#, python-format
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+#, python-format
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+#, python-format
+msgid "%d Debian packages in the %s database"
+msgstr "%d paquets Debian dans la base %s"
+
+#, python-format
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d mise à jour Flatpak"
+msgstr[1] "%d mises à jour Flatpak"
+
+#, python-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d appli"
+msgstr[1] "%d applis"
+
+#, python-format
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d application"
+msgstr[1] "%d applications"
+
+#, python-format
+msgid "%d applications known to %s"
+msgstr "%d applications connues de %s"
+
+#, python-format
+msgid "%d can be fixed automatically"
+msgstr "%d corrigeables automatiquement"
+
+#, python-format
+msgid "%d formulae installed with %s"
+msgstr "%d formules installées avec %s"
+
+#, python-format
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d problème"
+msgstr[1] "%d problèmes"
+
+#, python-format
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+#, python-format
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+#, python-format
+msgid "%s applications"
+msgstr "%s applications"
+
+#, python-format
+msgid "%s can be upgraded again"
+msgstr "%s peut à nouveau être mis à jour"
+
+#, python-format
+msgid "%s failed"
+msgstr "%s a échoué"
+
+#, python-format
+msgid "%s formulae"
+msgstr "%s formules"
+
+#, python-format
+msgid "%s held at its current version"
+msgstr "%s maintenu à sa version actuelle"
+
+#, python-format
+msgid "%s installation failed: %s"
+msgstr "Échec de l’installation de %s : %s"
+
+#, python-format
+msgid "%s is not installed"
+msgstr "%s n’est pas installé"
+
+#, python-format
+msgid "%s is replaced in place. Quit the application first; the current bundle is backed up next to the new one."
+msgstr "%s est remplacé sur place. Quittez d’abord l’application ; le bundle actuel est sauvegardé à côté du nouveau."
+
+#, python-format
+msgid "%s packages"
+msgstr "%s paquets"
+
+#, python-format
+msgid "%s results"
+msgstr "%s résultats"
+
+#, python-format
+msgid "%s store"
+msgstr "Magasin %s"
+
+#, python-format
+msgid "%s updated"
+msgstr "%s mis à jour"
+
+#, python-format
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+#, python-format
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(vide)"
+
+msgid "(no executable found)"
+msgstr "(aucun exécutable trouvé)"
+
+msgid "--name is required for AppImage installs"
+msgstr "--name est requis pour installer un AppImage"
+
+msgid "0 apps"
+msgstr "0 appli"
+
+msgid "10 seconds"
+msgstr "10 secondes"
+
+msgid "2 seconds"
+msgstr "2 secondes"
+
+msgid "5 seconds"
+msgstr "5 secondes"
+
+#, python-format
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "Un raccourci pour %s existe déjà. Le supprimer ?"
+
+msgid "Aborted"
+msgstr "Annulé"
+
+msgid "About"
+msgstr "À propos"
+
+msgid "About AppDeb"
+msgstr "À propos d’AppDeb"
+
+msgid "Adjust the search text or the filter."
+msgstr "Modifiez le texte de recherche ou le filtre."
+
+msgid "All"
+msgstr "Tous"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "Toutes les entrées de bureau analysées semblent saines"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "Supprimer aussi la configuration système lors de la désinstallation"
+
+msgid "AppDeb puts every kind of Linux application in one window: Flatpak, Snap, Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr "AppDeb réunit tous les types d’applications Linux dans une seule fenêtre : Flatpak, Snap, Homebrew, AppImage, paquets .deb et archives .tar.gz portables."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage remplacé ; redémarrez l’application pour l’utiliser"
+
+msgid "AppImage store"
+msgstr "Magasin d’AppImage"
+
+msgid "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name with --from"
+msgstr "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz ou nom de paquet avec --from"
+
+msgid "AppImages run outside the Flatpak sandbox and can read your files. Only install apps you trust."
+msgstr "Les AppImage s’exécutent hors du bac à sable Flatpak et peuvent lire vos fichiers. N’installez que des applications auxquelles vous faites confiance."
+
+msgid "Application"
+msgstr "Application"
+
+msgid "Application data"
+msgstr "Données d’application"
+
+msgid "Application database refreshed"
+msgstr "Base de données des applications actualisée"
+
+msgid "Application details"
+msgstr "Détails de l’application"
+
+msgid "Application icon"
+msgstr "Icône de l’application"
+
+msgid "Application icon reset"
+msgstr "Icône de l’application réinitialisée"
+
+msgid "Application icon updated"
+msgstr "Icône de l’application mise à jour"
+
+msgid "Application manager"
+msgstr "Gestionnaire d’applications"
+
+msgid "Application parameters"
+msgstr "Paramètres de l’application"
+
+msgid "Application renamed"
+msgstr "Application renommée"
+
+msgid "Application runs in a terminal"
+msgstr "L’application s’exécute dans un terminal"
+
+msgid "Application uninstalled"
+msgstr "Application désinstallée"
+
+msgid "Applications found through each package manager."
+msgstr "Applications trouvées via chaque gestionnaire de paquets."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "Applications installées et gérées par AppDeb."
+
+#, python-format
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "Appliquer %d correction ? [y/N] "
+msgstr[1] "Appliquer %d corrections ? [y/N] "
+
+msgid "Architecture"
+msgstr "Architecture"
+
+msgid "Archives"
+msgstr "Archives"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Autostart disabled"
+msgstr "Démarrage automatique désactivé"
+
+msgid "Autostart enabled"
+msgstr "Démarrage automatique activé"
+
+msgid "Autostart this application when you sign in"
+msgstr "Démarrer cette application à l’ouverture de session"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Back up desktop entries"
+msgstr "Sauvegarder les entrées de bureau"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "Sauvegarder le bundle actuel et installer une nouvelle version"
+
+#, python-format
+msgid "Backup created in %s"
+msgstr "Sauvegarde créée dans %s"
+
+#, python-format
+msgid "Backup failed: %s"
+msgstr "Échec de la sauvegarde : %s"
+
+msgid "Browse…"
+msgstr "Parcourir…"
+
+msgid "Bundle"
+msgstr "Bundle"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "Utilisation du CPU"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Cancelling…"
+msgstr "Annulation…"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Change Icon"
+msgstr "Changer l’icône"
+
+msgid "Change executable…"
+msgstr "Changer l’exécutable…"
+
+msgid "Change package manager"
+msgstr "Changer de gestionnaire de paquets"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "Les modifications s’appliquent comme des surcharges utilisateur pour cette application."
+
+msgid "Channel"
+msgstr "Canal"
+
+msgid "Check updates"
+msgstr "Rechercher des mises à jour"
+
+msgid "Check your package managers"
+msgstr "Vérifiez vos gestionnaires de paquets"
+
+msgid "Checking"
+msgstr "Vérification"
+
+msgid "Checking…"
+msgstr "Vérification…"
+
+msgid "Choose .deb package"
+msgstr "Choisir un paquet .deb"
+
+msgid "Choose .deb package…"
+msgstr "Choisir un paquet .deb…"
+
+msgid "Choose .tar.gz archive"
+msgstr "Choisir une archive .tar.gz"
+
+msgid "Choose AppImage"
+msgstr "Choisir un AppImage"
+
+msgid "Choose AppImage file…"
+msgstr "Choisir un fichier AppImage…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Choisir un bundle Flatpak ou .flatpakref"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Choisir un bundle Flatpak ou .flatpakref…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "Choisir un exécutable dans le répertoire d’installation"
+
+msgid "Choose application icon"
+msgstr "Choisir l’icône de l’application"
+
+msgid "Choose archive"
+msgstr "Choisir une archive"
+
+msgid "Choose destination folder"
+msgstr "Choisir le dossier de destination"
+
+msgid "Choose executable"
+msgstr "Choisir un exécutable"
+
+msgid "Choose icon"
+msgstr "Choisir une icône"
+
+msgid "Choose replacement"
+msgstr "Choisir un remplacement"
+
+msgid "Choose replacement .tar.gz"
+msgstr "Choisir un .tar.gz de remplacement"
+
+msgid "Choose replacement AppImage"
+msgstr "Choisir un AppImage de remplacement"
+
+msgid "Choose…"
+msgstr "Choisir…"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "Copier les entrées de bureau utilisateur et la base de données dans le dossier de sauvegarde"
+
+#, python-format
+msgid "Could not change autostart: %s"
+msgstr "Impossible de modifier le démarrage automatique : %s"
+
+#, python-format
+msgid "Could not change package hold: %s"
+msgstr "Impossible de modifier le maintien du paquet : %s"
+
+#, python-format
+msgid "Could not change permission: %s"
+msgstr "Impossible de modifier l’autorisation : %s"
+
+#, python-format
+msgid "Could not change update hold: %s"
+msgstr "Impossible de modifier le maintien des mises à jour : %s"
+
+#, python-format
+msgid "Could not create shortcut: %s"
+msgstr "Impossible de créer le raccourci : %s"
+
+msgid "Could not fix this issue"
+msgstr "Impossible de corriger ce problème"
+
+#, python-format
+msgid "Could not install icon: %s"
+msgstr "Impossible d’installer l’icône : %s"
+
+#, python-format
+msgid "Could not launch: %s"
+msgstr "Impossible de lancer : %s"
+
+#, python-format
+msgid "Could not open link: %s"
+msgstr "Impossible d’ouvrir le lien : %s"
+
+#, python-format
+msgid "Could not open location: %s"
+msgstr "Impossible d’ouvrir l’emplacement : %s"
+
+msgid "Could not read archive"
+msgstr "Impossible de lire l’archive"
+
+#, python-format
+msgid "Could not read snap channels: %s"
+msgstr "Impossible de lire les canaux snap : %s"
+
+msgid "Could not read the archive"
+msgstr "Impossible de lire l’archive"
+
+msgid "Could not read the package"
+msgstr "Impossible de lire le paquet"
+
+msgid "Could not rebuild the icon cache"
+msgstr "Impossible de reconstruire le cache d’icônes"
+
+#, python-format
+msgid "Could not refresh snap: %s"
+msgstr "Impossible d’actualiser snap : %s"
+
+#, python-format
+msgid "Could not reset overrides: %s"
+msgstr "Impossible de réinitialiser les surcharges : %s"
+
+#, python-format
+msgid "Could not search for alternative sources: %s"
+msgstr "Impossible de rechercher des sources alternatives : %s"
+
+#, python-format
+msgid "Could not switch channel: %s"
+msgstr "Impossible de changer de canal : %s"
+
+#, python-format
+msgid "Could not terminate processes: %s"
+msgstr "Impossible de terminer les processus : %s"
+
+#, python-format
+msgid "Could not update %s: %s"
+msgstr "Impossible de mettre à jour %s : %s"
+
+#, python-format
+msgid "Could not update Terminal: %s"
+msgstr "Impossible de mettre à jour Terminal : %s"
+
+#, python-format
+msgid "Could not update menu visibility: %s"
+msgstr "Impossible de modifier la visibilité dans le menu : %s"
+
+#, python-format
+msgid "Could not update window class: %s"
+msgstr "Impossible de mettre à jour la classe de fenêtre : %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Paquet Debian"
+
+msgid "Debian packages"
+msgstr "Paquets Debian"
+
+msgid "Dependencies"
+msgstr "Dépendances"
+
+msgid "Depends"
+msgstr "Dépend de"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Desktop Shortcut"
+msgstr "Raccourci sur le bureau"
+
+msgid "Desktop entry ID"
+msgstr "ID de l’entrée de bureau"
+
+msgid "Desktop file"
+msgstr "Fichier de bureau"
+
+msgid "Desktop shortcut"
+msgstr "Raccourci sur le bureau"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Destination folder (optional)"
+msgstr "Dossier de destination (facultatif)"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Detected version"
+msgstr "Version détectée"
+
+msgid "Developer"
+msgstr "Développeur"
+
+msgid "Disk"
+msgstr "Disque"
+
+msgid "Disk read / write"
+msgstr "Lecture / écriture disque"
+
+msgid "Dock icon association"
+msgstr "Association d’icône dans le dock"
+
+msgid "Dock icon association updated"
+msgstr "Association d’icône dans le dock mise à jour"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Download .tar.gz"
+msgstr "Télécharger .tar.gz"
+
+msgid "Download .tar.gz from URL…"
+msgstr "Télécharger .tar.gz depuis une URL…"
+
+msgid "Download AppImage"
+msgstr "Télécharger l’AppImage"
+
+msgid "Download AppImage from URL…"
+msgstr "Télécharger l’AppImage depuis une URL…"
+
+msgid "Download from URL"
+msgstr "Télécharger depuis une URL"
+
+msgid "Download history"
+msgstr "Historique des téléchargements"
+
+msgid "Downloading AppImage"
+msgstr "Téléchargement de l’AppImage"
+
+msgid "Downloading archive"
+msgstr "Téléchargement de l’archive"
+
+msgid "Downloads are installed from the download cache. Only install software you trust."
+msgstr "Les téléchargements sont installés depuis le cache de téléchargement. N’installez que des logiciels auxquels vous faites confiance."
+
+msgid "Effective permissions"
+msgstr "Autorisations effectives"
+
+msgid "End processes"
+msgstr "Terminer les processus"
+
+#, python-format
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "%d processus terminé"
+msgstr[1] "%d processus terminés"
+
+msgid "Enter a formula name first"
+msgstr "Saisissez d’abord un nom de formule"
+
+msgid "Enter a snap name first"
+msgstr "Saisissez d’abord un nom de snap"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec ne peut pas être vide"
+
+msgid "Executable"
+msgstr "Exécutable"
+
+msgid "Executable updated"
+msgstr "Exécutable mis à jour"
+
+msgid "Executables"
+msgstr "Exécutables"
+
+msgid "Extract icon"
+msgstr "Extraire l’icône"
+
+msgid "Files"
+msgstr "Fichiers"
+
+msgid "Finish"
+msgstr "Terminer"
+
+msgid "Fix"
+msgstr "Corriger"
+
+msgid "Fix icons and desktop entries"
+msgstr "Corriger les icônes et les entrées de bureau"
+
+#, python-format
+msgid "Fixing %s"
+msgstr "Correction de %s"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Bundles Flatpak"
+
+msgid "Flatpak is not installed on this system."
+msgstr "Flatpak n’est pas installé sur ce système."
+
+msgid "Flatpak location"
+msgstr "Emplacement Flatpak"
+
+msgid "Flatpak overrides reset"
+msgstr "Surcharges Flatpak réinitialisées"
+
+msgid "Flatpak permissions"
+msgstr "Autorisations Flatpak"
+
+msgid "Flatpak scope"
+msgstr "Portée Flatpak"
+
+msgid "Folder"
+msgstr "Dossier"
+
+#, python-format
+msgid "Following %s; switching refreshes the snap"
+msgstr "Suit %s ; changer de canal actualise le snap"
+
+msgid "Hidden from the application menu"
+msgstr "Masqué du menu d’applications"
+
+msgid "Hide from application menu"
+msgstr "Masquer du menu d’applications"
+
+msgid "Hold package version"
+msgstr "Maintenir la version du paquet"
+
+msgid "Hold updates"
+msgstr "Suspendre les mises à jour"
+
+msgid "Holding package version"
+msgstr "Maintien de la version du paquet"
+
+msgid "Holding snap updates"
+msgstr "Suspension des mises à jour snap"
+
+msgid "Home disk usage"
+msgstr "Utilisation du disque personnel"
+
+msgid "Home folder"
+msgstr "Dossier personnel"
+
+#, python-format
+msgid "Homebrew upgrade failed: %s"
+msgstr "Échec de la mise à niveau Homebrew : %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew n’a pas été trouvé"
+
+msgid "Homepage"
+msgstr "Page d’accueil"
+
+msgid "Host filesystem"
+msgstr "Système de fichiers hôte"
+
+msgid "How often resource usage is sampled"
+msgstr "Fréquence d’échantillonnage de l’utilisation des ressources"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "Icône"
+
+msgid "Icon cache rebuilt"
+msgstr "Cache d’icônes reconstruit"
+
+msgid "If a running window shows a generic gear instead of its real icon, the entry is missing a window-class association. The Tools page finds those problems and repairs them, with a backup of every file it changes."
+msgstr "Si une fenêtre en cours d’exécution affiche un engrenage générique au lieu de sa vraie icône, l’entrée n’a pas d’association de classe de fenêtre. La page Outils détecte ces problèmes et les corrige, avec une sauvegarde de chaque fichier modifié."
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "Inclure les entrées marquées NoDisplay ou Hidden"
+
+#, python-format
+msgid "Inside install: %s"
+msgstr "Dans l’installation : %s"
+
+msgid "Inspecting AppImage…"
+msgstr "Inspection de l’AppImage…"
+
+msgid "Install"
+msgstr "Installer"
+
+#, python-format
+msgid "Install %s with %s? [y/N] "
+msgstr "Installer %s avec %s ? [y/N] "
+
+#, python-format
+msgid "Install %s? [y/N] "
+msgstr "Installer %s ? [y/N] "
+
+msgid "Install .deb package"
+msgstr "Installer un paquet .deb"
+
+msgid "Install .tar.gz (one click)"
+msgstr "Installer .tar.gz (un clic)"
+
+msgid "Install .tar.gz application"
+msgstr "Installer une application .tar.gz"
+
+msgid "Install .tar.gz to folder…"
+msgstr "Installer .tar.gz dans un dossier…"
+
+msgid "Install AppImage"
+msgstr "Installer l’AppImage"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "Installer un paquet .deb local via apt et polkit."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "Installer et gérer des applications Flatpak, AppImage, .deb et .tar.gz."
+
+msgid "Install by searching or by typing"
+msgstr "Installer en recherchant ou en saisissant"
+
+msgid "Install directory"
+msgstr "Répertoire d’installation"
+
+msgid "Install formula by name"
+msgstr "Installer une formule par nom"
+
+msgid "Install path"
+msgstr "Chemin d’installation"
+
+msgid "Install snap by name"
+msgstr "Installer un snap par nom"
+
+msgid "Install this application from another package manager. The current copy is not touched until you remove it."
+msgstr "Installer cette application depuis un autre gestionnaire de paquets. La copie actuelle n’est pas touchée tant que vous ne la supprimez pas."
+
+#, python-format
+msgid "Installation failed: %s"
+msgstr "Échec de l’installation : %s"
+
+msgid "Installation scope"
+msgstr "Portée de l’installation"
+
+msgid "Installed"
+msgstr "Installées"
+
+#, python-format
+msgid "Installed %s"
+msgstr "%s installé"
+
+#, python-format
+msgid "Installed %s with %s"
+msgstr "%s installé avec %s"
+
+msgid "Installed applications"
+msgstr "Applications installées"
+
+msgid "Installed by manager"
+msgstr "Installé par le gestionnaire"
+
+msgid "Installed size"
+msgstr "Taille installée"
+
+#, python-format
+msgid "Installing %s"
+msgstr "Installation de %s"
+
+#, python-format
+msgid "Installing %s with %s"
+msgstr "Installation de %s avec %s"
+
+msgid "Installing a .deb package changes system software and requires administrator authentication via polkit."
+msgstr "L’installation d’un paquet .deb modifie les logiciels système et nécessite une authentification administrateur via polkit."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "Langue de l’interface utilisée après le redémarrage d’AppDeb"
+
+msgid "Issue fixed"
+msgstr "Problème corrigé"
+
+msgid "Issues"
+msgstr "Problèmes"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "Conserver l’entrée de bureau mais l’omettre des menus d’applications"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "Conserver l’entrée de bureau, l’icône et le nom lors du remplacement des fichiers"
+
+msgid "Keywords"
+msgstr "Mots-clés"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "Launch"
+msgstr "Lancer"
+
+#, python-format
+msgid "Launching %s"
+msgstr "Lancement de %s"
+
+msgid "Leave empty to install into the managed AppDeb store. Choose a folder to install into a subfolder of it."
+msgstr "Laissez vide pour installer dans le magasin AppDeb géré. Choisissez un dossier pour installer dans un sous-dossier de celui-ci."
+
+msgid "License"
+msgstr "Licence"
+
+msgid "Load"
+msgstr "Charger"
+
+msgid "Load average"
+msgstr "Charge moyenne"
+
+msgid "Loading channels…"
+msgstr "Chargement des canaux…"
+
+msgid "Loading store details…"
+msgstr "Chargement des détails du magasin…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "Rechercher les entrées invalides, les icônes manquantes et les classes de fenêtre non associées"
+
+msgid "Looking for alternative package sources…"
+msgstr "Recherche de sources de paquets alternatives…"
+
+msgid "Main menu"
+msgstr "Menu principal"
+
+msgid "Maintainer"
+msgstr "Mainteneur"
+
+msgid "Maintenance"
+msgstr "Maintenance"
+
+msgid "Managed stores"
+msgstr "Magasins gérés"
+
+msgid "Managers"
+msgstr "Gestionnaires"
+
+msgid "Matching folder"
+msgstr "Dossier correspondant"
+
+msgid "Memory"
+msgstr "Mémoire"
+
+msgid "Memory usage"
+msgstr "Utilisation de la mémoire"
+
+msgid "Monitoring"
+msgstr "Surveillance"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Network"
+msgstr "Réseau"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "No alternative package sources found."
+msgstr "Aucune source de paquets alternative trouvée."
+
+msgid "No applications match"
+msgstr "Aucune application ne correspond"
+
+msgid "No channels reported for this snap"
+msgstr "Aucun canal signalé pour ce snap"
+
+msgid "No embedded icon found"
+msgstr "Aucune icône intégrée trouvée"
+
+msgid "No executable detected; choose one"
+msgstr "Aucun exécutable détecté ; choisissez-en un"
+
+msgid "No issues found"
+msgstr "Aucun problème trouvé"
+
+msgid "No results"
+msgstr "Aucun résultat"
+
+msgid "No running processes"
+msgstr "Aucun processus en cours"
+
+msgid "No scan has run yet"
+msgstr "Aucune analyse n’a encore été effectuée"
+
+msgid "No shortcut found"
+msgstr "Aucun raccourci trouvé"
+
+msgid "Not installed"
+msgstr "Non installé"
+
+msgid "Only https:// URLs are supported."
+msgstr "Seules les URL https:// sont prises en charge."
+
+msgid "Open bundle folder"
+msgstr "Ouvrir le dossier du bundle"
+
+msgid "Open homepage"
+msgstr "Ouvrir la page d’accueil"
+
+msgid "Open install folder"
+msgstr "Ouvrir le dossier d’installation"
+
+msgid "Open location"
+msgstr "Ouvrir l’emplacement"
+
+msgid "Optional"
+msgstr "Facultatif"
+
+msgid "Original archive"
+msgstr "Archive d’origine"
+
+msgid "Outdated formulae upgraded"
+msgstr "Formules obsolètes mises à niveau"
+
+msgid "Package"
+msgstr "Paquet"
+
+msgid "Package manager information is unavailable"
+msgstr "Les informations des gestionnaires de paquets sont indisponibles"
+
+msgid "Package manager overview"
+msgstr "Aperçu des gestionnaires de paquets"
+
+msgid "Package managers"
+msgstr "Gestionnaires de paquets"
+
+msgid "Package managers available on this system and their versions."
+msgstr "Gestionnaires de paquets disponibles sur ce système et leurs versions."
+
+msgid "Package removed"
+msgstr "Paquet supprimé"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "Suspendre les actualisations automatiques pour ce snap"
+
+msgid "Permissions are unavailable."
+msgstr "Les autorisations sont indisponibles."
+
+msgid "Pick a page from the sidebar to start. Settings holds the Flatpak install scope, the interface language and a button to show this guide again at any time."
+msgstr "Choisissez une page dans la barre latérale pour commencer. Les Paramètres contiennent la portée d’installation Flatpak, la langue de l’interface et un bouton pour réafficher ce guide à tout moment."
+
+msgid "Pick another executable inside the install directory"
+msgstr "Choisir un autre exécutable dans le répertoire d’installation"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "Empêcher apt de mettre à niveau ce paquet"
+
+msgid "Processes"
+msgstr "Processus"
+
+msgid "Purge configuration files"
+msgstr "Purger les fichiers de configuration"
+
+msgid "Quit"
+msgstr "Quitter"
+
+msgid "Rebuild icon cache"
+msgstr "Reconstruire le cache d’icônes"
+
+msgid "Refresh application database"
+msgstr "Actualiser la base de données des applications"
+
+msgid "Refresh interval"
+msgstr "Intervalle d’actualisation"
+
+msgid "Refresh package manager information"
+msgstr "Actualiser les informations des gestionnaires de paquets"
+
+msgid "Refresh snap now"
+msgstr "Actualiser snap maintenant"
+
+msgid "Refresh the application list"
+msgstr "Actualiser la liste des applications"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "Actualiser le cache d’icônes hicolor utilisateur"
+
+#, python-format
+msgid "Refreshed %s"
+msgstr "%s actualisé"
+
+#, python-format
+msgid "Refreshing %s"
+msgstr "Actualisation de %s"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "Régénérer les caches de desktop-file-utils"
+
+msgid "Reinstall / replace archive…"
+msgstr "Réinstaller / remplacer l’archive…"
+
+msgid "Releasing package hold"
+msgstr "Levée du maintien du paquet"
+
+#, python-format
+msgid "Removal failed: %s"
+msgstr "Échec de la suppression : %s"
+
+msgid "Remove"
+msgstr "Supprimer"
+
+#, python-format
+msgid "Remove %s? [y/N] "
+msgstr "Supprimer %s ? [y/N] "
+
+msgid "Remove Debian package"
+msgstr "Supprimer le paquet Debian"
+
+#, python-format
+msgid "Remove all user permission overrides for %s?"
+msgstr "Supprimer toutes les surcharges d’autorisations utilisateur pour %s ?"
+
+msgid "Remove current copy"
+msgstr "Supprimer la copie actuelle"
+
+msgid "Remove every user permission override for this application"
+msgstr "Supprimer toutes les surcharges d’autorisations utilisateur pour cette application"
+
+msgid "Remove package"
+msgstr "Supprimer le paquet"
+
+msgid "Remove shortcut"
+msgstr "Supprimer le raccourci"
+
+#, python-format
+msgid "Remove the %(kind)s copy of %(name)s?\n\n%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr "Supprimer la copie %(kind)s de %(name)s ?\n\n%(candidate)s a été installé avec %(manager)s. Vous pouvez conserver les deux copies."
+
+msgid "Remove the current copy?"
+msgstr "Supprimer la copie actuelle ?"
+
+#, python-format
+msgid "Remove the package %s?"
+msgstr "Supprimer le paquet %s ?"
+
+msgid "Remove…"
+msgstr "Supprimer…"
+
+#, python-format
+msgid "Removing %s"
+msgstr "Suppression de %s"
+
+msgid "Rename"
+msgstr "Renommer"
+
+msgid "Rename application"
+msgstr "Renommer l’application"
+
+#, python-format
+msgid "Rename failed: %s"
+msgstr "Échec du renommage : %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "Réparer les entrées de bureau et actualiser les métadonnées des applications."
+
+msgid "Replace AppImage"
+msgstr "Remplacer l’AppImage"
+
+msgid "Replace AppImage…"
+msgstr "Remplacer l’AppImage…"
+
+msgid "Replace tarball installation"
+msgstr "Remplacer l’installation tarball"
+
+msgid "Replacing AppImage"
+msgstr "Remplacement de l’AppImage"
+
+msgid "Replacing tarball installation"
+msgstr "Remplacement de l’installation tarball"
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Reset Flatpak overrides"
+msgstr "Réinitialiser les surcharges Flatpak"
+
+msgid "Reset Icon"
+msgstr "Réinitialiser l’icône"
+
+msgid "Reset all overrides"
+msgstr "Réinitialiser toutes les surcharges"
+
+msgid "Resources"
+msgstr "Ressources"
+
+msgid "Restart"
+msgstr "Redémarrer"
+
+msgid "Restart AppDeb to apply"
+msgstr "Redémarrez AppDeb pour appliquer"
+
+msgid "Results"
+msgstr "Résultats"
+
+msgid "Resuming snap updates"
+msgstr "Reprise des mises à jour snap"
+
+msgid "Run this application in a terminal window"
+msgstr "Exécuter cette application dans une fenêtre de terminal"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (facultatif)"
+
+msgid "SHA-256 mismatch"
+msgstr "Incohérence SHA-256"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Scan desktop entries"
+msgstr "Analyser les entrées de bureau"
+
+msgid "Scan failed"
+msgstr "Échec de l’analyse"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "Analyser pour inspecter toutes les entrées de bureau"
+
+msgid "Scanning desktop entries…"
+msgstr "Analyse des entrées de bureau…"
+
+msgid "Scanning…"
+msgstr "Analyse…"
+
+msgid "Scope"
+msgstr "Portée"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Portée utilisée pour les installations et mises à jour Flatpak."
+
+msgid "Screenshot"
+msgstr "Capture d’écran"
+
+msgid "Screenshot is not available"
+msgstr "La capture d’écran n’est pas disponible"
+
+msgid "Screenshots"
+msgstr "Captures d’écran"
+
+msgid "Search Flathub"
+msgstr "Rechercher sur Flathub"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "Rechercher sur Flathub et installer des applications dans la portée choisie dans les Paramètres."
+
+msgid "Search Flathub, the Snap Store or Homebrew, or type an exact package name. AppImages, .deb packages and .tar.gz archives can be installed from a file or an https URL, and every install is checked before it touches your system."
+msgstr "Recherchez sur Flathub, le Snap Store ou Homebrew, ou saisissez un nom de paquet exact. Les AppImage, paquets .deb et archives .tar.gz peuvent être installés depuis un fichier ou une URL https, et chaque installation est vérifiée avant de toucher votre système."
+
+msgid "Search applications"
+msgstr "Rechercher des applications"
+
+#, python-format
+msgid "Search failed: %s"
+msgstr "Échec de la recherche : %s"
+
+msgid "Search formulae"
+msgstr "Rechercher des formules"
+
+msgid "Search formulae and install them with Homebrew. Homebrew installs into your user account; no password is needed."
+msgstr "Rechercher des formules et les installer avec Homebrew. Homebrew installe dans votre compte utilisateur ; aucun mot de passe n’est nécessaire."
+
+msgid "Search snaps"
+msgstr "Rechercher des snaps"
+
+msgid "Search snaps and install them. System installs prompt for authentication and may take a while."
+msgstr "Rechercher des snaps et les installer. Les installations système demandent une authentification et peuvent prendre du temps."
+
+#, python-format
+msgid "Searching %s for %s"
+msgstr "Recherche de %s pour %s"
+
+#, python-format
+msgid "Searching for “%s”…"
+msgstr "Recherche de « %s »…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "Envoyer SIGTERM aux processus de cette application"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+#, python-format
+msgid "Shortcut created: %s"
+msgstr "Raccourci créé : %s"
+
+msgid "Shortcut removed"
+msgstr "Raccourci supprimé"
+
+msgid "Show hidden desktop entries"
+msgstr "Afficher les entrées de bureau masquées"
+
+msgid "Shown in the application menu"
+msgstr "Affiché dans le menu d’applications"
+
+msgid "Shows the affected packages before removal"
+msgstr "Affiche les paquets concernés avant la suppression"
+
+msgid "Size"
+msgstr "Taille"
+
+msgid "Skip"
+msgstr "Ignorer"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Les installations Snap demandent une authentification"
+
+msgid "Snap name unknown"
+msgstr "Nom du snap inconnu"
+
+msgid "Snap was not found"
+msgstr "Snap introuvable"
+
+msgid "Source / reference"
+msgstr "Source / référence"
+
+msgid "Start at login"
+msgstr "Démarrer à l’ouverture de session"
+
+msgid "Started"
+msgstr "Démarré"
+
+msgid "Startup"
+msgstr "Démarrage"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / classe de fenêtre"
+
+#, python-format
+msgid "Step %d of %d"
+msgstr "Étape %d sur %d"
+
+msgid "Store"
+msgstr "Magasin"
+
+msgid "Store ID"
+msgstr "ID du magasin"
+
+msgid "Store details"
+msgstr "Détails du magasin"
+
+msgid "Swap usage"
+msgstr "Utilisation du swap"
+
+#, python-format
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "Passer %(name)s au canal %(channel)s ? Le snap est actualisé maintenant."
+
+msgid "Switch channel"
+msgstr "Changer de canal"
+
+msgid "Switch snap channel"
+msgstr "Changer le canal du snap"
+
+#, python-format
+msgid "Switching %(name)s to %(channel)s"
+msgstr "Passage de %(name)s au canal %(channel)s"
+
+msgid "System"
+msgstr "Système"
+
+msgid "Tar archives"
+msgstr "Archives tar"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Échec de l’installation du tarball"
+
+msgid "Tarball store"
+msgstr "Magasin de tarballs"
+
+msgid "Tarballs run outside a sandbox and can read your files. Only install apps you trust."
+msgstr "Les tarballs s’exécutent hors d’un bac à sable et peuvent lire vos fichiers. N’installez que des applications auxquelles vous faites confiance."
+
+msgid "Terminal application"
+msgstr "Application en terminal"
+
+msgid "Terminal disabled"
+msgstr "Terminal désactivé"
+
+#, python-format
+msgid "Terminate all processes belonging to %s?"
+msgstr "Terminer tous les processus appartenant à %s ?"
+
+msgid "The Debian package name is unknown"
+msgstr "Le nom du paquet Debian est inconnu"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "L’ID de l’application Flatpak est inconnu"
+
+msgid "The Managers page shows which package managers exist on this computer, their versions and how many packages each one owns. You can install a missing manager there, or remove one once it no longer manages any packages."
+msgstr "La page Gestionnaires indique quels gestionnaires de paquets existent sur cet ordinateur, leurs versions et combien de paquets chacun gère. Vous pouvez y installer un gestionnaire manquant ou en supprimer un lorsqu’il ne gère plus aucun paquet."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "L’icône intégrée n’est pas disponible ; choisissez-en une manuellement"
+
+#, python-format
+msgid "The files for %s are replaced and the current install directory is backed up. Quit the application first."
+msgstr "Les fichiers de %s sont remplacés et le répertoire d’installation actuel est sauvegardé. Quittez d’abord l’application."
+
+msgid "The install directory is unknown"
+msgstr "Le répertoire d’installation est inconnu"
+
+msgid "The selected file is not an AppImage"
+msgstr "Le fichier sélectionné n’est pas un AppImage"
+
+msgid "The snap command is not available on this system."
+msgstr "La commande snap n’est pas disponible sur ce système."
+
+msgid "The window class (WM_CLASS) GNOME uses to match this application's windows to the desktop entry."
+msgstr "La classe de fenêtre (WM_CLASS) que GNOME utilise pour associer les fenêtres de cette application à l’entrée de bureau."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "Cela change le nom affiché dans les menus, le dock et cette fenêtre."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "Cette entrée de bureau n’identifie pas une instance snap"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "Tools"
+msgstr "Outils"
+
+msgid "Top processes"
+msgstr "Processus principaux"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Type at least 2 characters to search"
+msgstr "Saisissez au moins 2 caractères pour rechercher"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "L’URL n’a pas d’hôte"
+
+msgid "Uninstall"
+msgstr "Désinstaller"
+
+#, python-format
+msgid "Uninstall %s? This cannot be undone."
+msgstr "Désinstaller %s ? Cette action est irréversible."
+
+msgid "Uninstall application"
+msgstr "Désinstaller l’application"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "La désinstallation n’est pas prise en charge pour cette entrée"
+
+#, python-format
+msgid "Uninstalling %s"
+msgstr "Désinstallation de %s"
+
+msgid "Unknown package"
+msgstr "Paquet inconnu"
+
+#, python-format
+msgid "Unsupported file type: %s"
+msgstr "Type de fichier non pris en charge : %s"
+
+#, python-format
+msgid "Unsupported image: %s"
+msgstr "Image non prise en charge : %s"
+
+#, python-format
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "%d application mise à jour"
+msgstr[1] "%d applications mises à jour"
+
+#, python-format
+msgid "Updates for %s are held"
+msgstr "Les mises à jour de %s sont suspendues"
+
+#, python-format
+msgid "Updates for %s resumed"
+msgstr "Les mises à jour de %s ont repris"
+
+#, python-format
+msgid "Updating %s…"
+msgstr "Mise à jour de %s…"
+
+msgid "Updating Flatpak applications"
+msgstr "Mise à jour des applications Flatpak"
+
+msgid "Upgrade outdated formulae"
+msgstr "Mettre à niveau les formules obsolètes"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Mise à niveau des formules Homebrew"
+
+msgid "Upload"
+msgstr "Envoyer"
+
+msgid "Uptime"
+msgstr "Durée de fonctionnement"
+
+msgid "Usage history"
+msgstr "Historique d’utilisation"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "User data"
+msgstr "Données utilisateur"
+
+msgid "Values written to this application's desktop entry."
+msgstr "Valeurs écrites dans l’entrée de bureau de cette application."
+
+msgid "Version"
+msgstr "Version"
+
+#, python-format
+msgid "Version %s"
+msgstr "Version %s"
+
+msgid "Version unknown"
+msgstr "Version inconnue"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "Bienvenue dans AppDeb"
+
+msgid "Window class"
+msgstr "Classe de fenêtre"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "Vous êtes prêt"
+
+msgid "a package name is required with --from"
+msgstr "un nom de paquet est requis avec --from"
+
+msgid "application name"
+msgstr "nom de l’application"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "appliquer chaque problème d’entrée de bureau corrigeable automatiquement"
+
+msgid "apps"
+msgstr "applis"
+
+msgid "available"
+msgstr "disponible"
+
+msgid "brew install failed"
+msgstr "échec de brew install"
+
+msgid "brew search failed"
+msgstr "échec de brew search"
+
+msgid "brew uninstall failed"
+msgstr "échec de brew uninstall"
+
+msgid "brew upgrade failed"
+msgstr "échec de brew upgrade"
+
+msgid "cancelled"
+msgstr "annulé"
+
+#, python-format
+msgid "cannot inspect package: %s"
+msgstr "impossible d’inspecter le paquet : %s"
+
+#, python-format
+msgid "cannot install to %s: %s"
+msgstr "impossible d’installer vers %s : %s"
+
+#, python-format
+msgid "cannot replace %s: %s"
+msgstr "impossible de remplacer %s : %s"
+
+#, python-format
+msgid "cannot start: %s"
+msgstr "impossible de démarrer : %s"
+
+msgid "choose an executable with --exec"
+msgstr "choisissez un exécutable avec --exec"
+
+#, python-format
+msgid "command failed: %s"
+msgstr "échec de la commande : %s"
+
+#, python-format
+msgid "command not found: %s"
+msgstr "commande introuvable : %s"
+
+msgid "desktop entry comment"
+msgstr "commentaire de l’entrée de bureau"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "le fichier desktop contient plus d’un groupe [Desktop Entry]"
+
+msgid "destination folder for tarball installs"
+msgstr "dossier de destination pour les installations tarball"
+
+#, python-format
+msgid "destination is not writable: %s"
+msgstr "le dossier de destination n’est pas accessible en écriture : %s"
+
+msgid "disabled"
+msgstr "désactivé"
+
+msgid "download cancelled"
+msgstr "téléchargement annulé"
+
+#, python-format
+msgid "download failed: HTTP %s"
+msgstr "échec du téléchargement : HTTP %s"
+
+msgid "download too large"
+msgstr "téléchargement trop volumineux"
+
+msgid "enabled"
+msgstr "activé"
+
+msgid "essential package"
+msgstr "paquet essentiel"
+
+#, python-format
+msgid "executable not found: %s"
+msgstr "exécutable introuvable : %s"
+
+#, python-format
+msgid "failed\t%s\t%s\t%s"
+msgstr "échec\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "échec de l’écriture de l’entrée de bureau"
+
+#, python-format
+msgid "file not found: %s"
+msgstr "fichier introuvable : %s"
+
+#, python-format
+msgid "fixed\t%s\t%s"
+msgstr "corrigé\t%s\t%s"
+
+#, python-format
+msgid "fixed %d/%d"
+msgstr "%d/%d corrigés"
+
+msgid "flatpak install failed"
+msgstr "échec de l’installation flatpak"
+
+msgid "flatpak override failed"
+msgstr "échec de la surcharge flatpak"
+
+msgid "flatpak override reset failed"
+msgstr "échec de la réinitialisation des surcharges flatpak"
+
+msgid "flatpak search failed"
+msgstr "échec de la recherche flatpak"
+
+msgid "flatpak uninstall failed"
+msgstr "échec de la désinstallation flatpak"
+
+msgid "flatpak update failed"
+msgstr "échec de la mise à jour flatpak"
+
+msgid "icon file to install"
+msgstr "fichier d’icône à installer"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "l’icône est un chemin absolu en dehors du thème d’icônes"
+
+#, python-format
+msgid "icon not found: %s"
+msgstr "icône introuvable : %s"
+
+msgid "install a file or package-manager package"
+msgstr "installer un fichier ou un paquet d’un gestionnaire"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "installer une formule/un snap/un ID d’application avec le gestionnaire indiqué"
+
+#, python-format
+msgid "installed %s"
+msgstr "%s installé"
+
+msgid "installed bundle not found"
+msgstr "bundle installé introuvable"
+
+msgid "installed directory not found"
+msgstr "répertoire installé introuvable"
+
+#, python-format
+msgid "invalid flatpak scope: %s"
+msgstr "portée flatpak invalide : %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "limiter la recherche à un gestionnaire (par défaut : tous les disponibles)"
+
+msgid "missing"
+msgstr "manquant"
+
+msgid "name contains a forbidden character"
+msgstr "le nom contient un caractère interdit"
+
+msgid "name is empty"
+msgstr "le nom est vide"
+
+#, python-format
+msgid "no application with desktop ID %s"
+msgstr "aucune application avec l’ID de bureau %s"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "aucun exécutable trouvé ; utilisez install_spec avec un exécutable"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "aucun affichage graphique ; utilisez une sous-commande CLI"
+
+msgid "no package found for desktop entry"
+msgstr "aucun paquet trouvé pour l’entrée de bureau"
+
+#, python-format
+msgid "no uninstall backend for kind: %s"
+msgstr "aucun backend de désinstallation pour le type : %s"
+
+#, python-format
+msgid "not a .tar.gz archive: %s"
+msgstr "ce n’est pas une archive .tar.gz : %s"
+
+#, python-format
+msgid "not an AppImage: %s"
+msgstr "ce n’est pas un AppImage : %s"
+
+msgid "only https:// URLs are supported"
+msgstr "seules les URL https:// sont prises en charge"
+
+msgid "package"
+msgstr "paquet"
+
+msgid "package hold failed"
+msgstr "échec du maintien du paquet"
+
+msgid "package installation failed"
+msgstr "échec de l’installation du paquet"
+
+msgid "package name is empty"
+msgstr "le nom du paquet est vide"
+
+#, python-format
+msgid "package not found: %s"
+msgstr "paquet introuvable : %s"
+
+msgid "package removal failed"
+msgstr "échec de la suppression du paquet"
+
+msgid "packages"
+msgstr "paquets"
+
+msgid "print JSON"
+msgstr "imprimer le JSON"
+
+msgid "print installed desktop entries"
+msgstr "imprimer les entrées de bureau installées"
+
+msgid "purge configuration for .deb packages"
+msgstr "purger la configuration des paquets .deb"
+
+#, python-format
+msgid "refusing to remove %s: %s"
+msgstr "refus de supprimer %s : %s"
+
+#, python-format
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "refus de supprimer %s ; cela supprimerait des paquets protégés : %s"
+
+#, python-format
+msgid "removal is not supported for %s entries"
+msgstr "la suppression n’est pas prise en charge pour les entrées %s"
+
+#, python-format
+msgid "removed %s"
+msgstr "%s supprimé"
+
+msgid "required-priority package"
+msgstr "paquet de priorité requise"
+
+msgid "scan desktop entries for problems"
+msgstr "analyser les entrées de bureau à la recherche de problèmes"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "rechercher des paquets Flatpak, Snap et Homebrew"
+
+msgid "search text (at least 2 characters)"
+msgstr "texte de recherche (au moins 2 caractères)"
+
+msgid "semicolon separated categories"
+msgstr "catégories séparées par des points-virgules"
+
+msgid "show package manager availability and counts"
+msgstr "afficher la disponibilité et le nombre de paquets des gestionnaires"
+
+msgid "skip the confirmation prompt"
+msgstr "ignorer l’invite de confirmation"
+
+#, python-format
+msgid "skipped\t%s\t%s"
+msgstr "ignoré\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "échec de snap find"
+
+msgid "snap hold failed"
+msgstr "échec du maintien snap"
+
+msgid "snap info failed"
+msgstr "échec de snap info"
+
+msgid "snap install failed"
+msgstr "échec de l’installation snap"
+
+msgid "snap name is empty"
+msgstr "le nom du snap est vide"
+
+msgid "snap refresh failed"
+msgstr "échec de l’actualisation snap"
+
+msgid "snap remove failed"
+msgstr "échec de la suppression snap"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "exécutable du tarball, relatif à la racine de l’archive"
+
+msgid "the Debian package name is unknown"
+msgstr "le nom du paquet Debian est inconnu"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "l’ID de l’application Flatpak est inconnu"
+
+msgid "the search query must be at least 2 characters"
+msgstr "la recherche doit contenir au moins 2 caractères"
+
+msgid "timed out"
+msgstr "délai expiré"
+
+msgid "uninstall an application by desktop ID"
+msgstr "désinstaller une application par ID de bureau"
+
+msgid "unknown"
+msgstr "inconnu"
+
+#, python-format
+msgid "unknown source kind: %s"
+msgstr "type de source inconnu : %s"
+
+#, python-format
+msgid "unsafe archive: %s"
+msgstr "archive non sécurisée : %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "archive non sécurisée : l’archive dépasse 4 GiB"
+
+msgid "unsafe archive: too many members"
+msgstr "archive non sécurisée : trop de membres"
+
+#, python-format
+msgid "unsupported file type: %s"
+msgstr "type de fichier non pris en charge : %s"
+
+#, python-format
+msgid "unsupported flatpak override action: %s"
+msgstr "action de surcharge flatpak non prise en charge : %s"
+
+#, python-format
+msgid "window class %s is not associated with this entry"
+msgstr "la classe de fenêtre %s n’est pas associée à cette entrée"
+
+msgid "%s installed"
+msgstr "%s installé"
+
+msgid "%s removed"
+msgstr "%s supprimé"
+
+msgid "Getting started"
+msgstr "Premiers pas"
+
+msgid "Install %s?"
+msgstr "Installer %s ?"
+
+msgid "Kind"
+msgstr "Type"
+
+msgid "Name (A–Z)"
+msgstr "Nom (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "Nom (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "Aucun paquet de ce gestionnaire ne reste."
+
+msgid "Recently installed (newest first)"
+msgstr "Installés récemment (du plus récent)"
+
+msgid "Remove %s"
+msgstr "Supprimer %s"
+
+msgid "Remove %s?"
+msgstr "Supprimer %s ?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "Rejouer la présentation étape par étape"
+
+msgid "Show welcome guide"
+msgstr "Afficher le guide de bienvenue"
+
+msgid "Size (largest first)"
+msgstr "Taille (du plus grand)"
+
+msgid "Sort by"
+msgstr "Trier par"
+
+msgid "Sort the application list"
+msgstr "Trier la liste des applications"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "Cette action est manuelle. Exécutez la commande ci-dessous dans un terminal."
+
+msgid "This uses apt and asks for authentication."
+msgstr "Cela utilise apt et demande une authentification."
+
+msgid "options"
+msgstr "options"
+
+msgid "positional arguments"
+msgstr "arguments positionnels"

@@ -31,6 +31,13 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.4.0" date="2026-11-16">
+      <description>
+        <p>Eleven interface languages, sorting in the installed list, installing or removing
+        package managers, a first-run welcome guide, and the ability to open AppImage, .deb,
+        Flatpak and .tar.gz files with AppDeb.</p>
+      </description>
+    </release>
     <release version="0.3.0" date="2026-11-16">
       <description>
         <p>Snap channel switching, snap refresh and update hold, and apt package holds

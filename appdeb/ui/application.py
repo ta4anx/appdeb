@@ -10,9 +10,11 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 gi.require_version("Gio", "2.0")
-from gi.repository import Adw, Gdk, Gio, Gtk  # noqa: E402
+from gi.repository import Adw, Gdk, Gio, GLib, Gtk  # noqa: E402
 
 from .. import APP_ID, APP_NAME, REPOSITORY, __version__, config, db  # noqa: E402
+from ..i18n import setup as setup_i18n  # noqa: E402
+from . import onboarding  # noqa: E402
 from .window import AppDebWindow  # noqa: E402
 
 
@@ -93,6 +95,11 @@ class AppDebApplication(Adw.Application):
     def do_activate(self) -> None:
         window = self._ensure_window()
         window.present()
+        GLib.idle_add(self._show_welcome_once, window)
+
+    def _show_welcome_once(self, window) -> bool:
+        onboarding.show_welcome(window)
+        return GLib.SOURCE_REMOVE
 
     def do_open(self, files, n_files, hint) -> None:
         window = self._ensure_window()
@@ -101,6 +108,9 @@ class AppDebApplication(Adw.Application):
 
 
 def main(files: list[str] | None = None) -> int:
+    config.ensure_dirs()
+    db.init()
+    setup_i18n(db.setting("language"))
     app = AppDebApplication()
     if files:
         argv = [sys.argv[0], *[str(item) for item in files]]

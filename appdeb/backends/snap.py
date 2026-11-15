@@ -10,6 +10,7 @@ import shutil
 from dataclasses import dataclass
 from typing import Callable
 
+from ..i18n import _
 from . import runner
 from .runner import BackendError
 
@@ -272,7 +273,7 @@ def channels(name: str) -> dict[str, str]:
         return {}
     result = _run([_SNAP, "info", snap_name], timeout=60)
     if not result.ok:
-        raise BackendError("snap info failed", result.output)
+        raise BackendError(_("snap info failed"), result.output)
     return parse_channels(result.output)
 
 
@@ -301,7 +302,7 @@ def search(query: str) -> list[SnapPackage]:
         return []
     result = _run([_SNAP, "find", "--color=never", text], timeout=120)
     if not result.ok:
-        raise BackendError("snap find failed", result.output)
+        raise BackendError(_("snap find failed"), result.output)
     return parse_find(result.output)
 
 
@@ -324,7 +325,7 @@ def install(
     args = ["pkexec", _SNAP, "install", name]
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("snap install failed", result.output)
+        raise BackendError(_("snap install failed"), result.output)
 
 
 def uninstall(
@@ -339,7 +340,7 @@ def uninstall(
     args.append(name)
     result = _run(args, timeout=1800, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("snap remove failed", result.output)
+        raise BackendError(_("snap remove failed"), result.output)
 
 
 def refresh(
@@ -357,7 +358,7 @@ def refresh(
         args.append(name)
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("snap refresh failed", result.output)
+        raise BackendError(_("snap refresh failed"), result.output)
 
 
 def hold(
@@ -368,8 +369,8 @@ def hold(
 ) -> None:
     snap_name = (name or "").strip()
     if not snap_name:
-        raise BackendError("snap name is empty")
+        raise BackendError(_("snap name is empty"))
     args = ["pkexec", _SNAP, "refresh", "--hold" if enabled else "--unhold", snap_name]
     result = _run(args, timeout=300, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("snap hold failed", result.output)
+        raise BackendError(_("snap hold failed"), result.output)

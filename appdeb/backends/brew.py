@@ -13,6 +13,7 @@ import shutil
 from dataclasses import dataclass
 from typing import Callable
 
+from ..i18n import _
 from . import runner
 from .runner import BackendError
 
@@ -212,7 +213,7 @@ def search(query: str) -> list[BrewResult]:
         return []
     result = _run([_BREW, "search", "--formula", text], timeout=120)
     if not result.ok:
-        raise BackendError("brew search failed", result.output)
+        raise BackendError(_("brew search failed"), result.output)
     names = parse_search(result.output)
     if not names:
         return []
@@ -258,7 +259,7 @@ def install(
     args = [_BREW, "install", "--formula", formula]
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("brew install failed", result.output)
+        raise BackendError(_("brew install failed"), result.output)
 
 
 def uninstall(
@@ -269,7 +270,7 @@ def uninstall(
     args = [_BREW, "uninstall", "--formula", formula]
     result = _run(args, timeout=1800, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("brew uninstall failed", result.output)
+        raise BackendError(_("brew uninstall failed"), result.output)
 
 
 def _parse_outdated(output: str) -> list[tuple[str, str]]:
@@ -321,4 +322,4 @@ def update(
         args.extend(["--formula", formula])
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("brew upgrade failed", result.output)
+        raise BackendError(_("brew upgrade failed"), result.output)

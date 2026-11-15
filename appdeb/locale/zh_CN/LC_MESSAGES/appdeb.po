@@ -1,0 +1,1983 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-format
+msgid ""
+"\n"
+"\n"
+"The following packages will be removed:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"将移除以下软件包：\n"
+"%s"
+
+msgid ""
+"\n"
+"\n"
+"The managed bundle is deleted; your downloaded file is kept."
+msgstr ""
+"\n"
+"\n"
+"受管理的应用包将被删除；你下载的文件会保留。"
+
+msgid ""
+"\n"
+"\n"
+"The managed install directory is deleted; the original archive is kept."
+msgstr ""
+"\n"
+"\n"
+"受管理的安装目录将被删除；原始压缩包会保留。"
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+#, python-format
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)d 天 %(hours)d 小时 %(minutes)d 分"
+
+#, python-format
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)d 小时 %(minutes)d 分"
+
+#, python-format
+msgid "%(minutes)dm"
+msgstr "%(minutes)d 分"
+
+#, python-format
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s 管理着 %(count)d 个软件包；请先移除它。"
+
+#, python-format
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s 现在跟随 %(channel)s 频道"
+
+#, python-format
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+#, python-format
+msgid "%.0f %%"
+msgstr "%.0f%%"
+
+#, python-format
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+#, python-format
+msgid "%.1f %% CPU"
+msgstr "%.1f%% CPU"
+
+#, python-format
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+#, python-format
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+#, python-format
+msgid "%d Debian packages in the %s database"
+msgstr "%s 数据库中有 %d 个 Debian 软件包"
+
+#, python-format
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d 个 Flatpak 更新"
+
+#, python-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d 个应用"
+
+#, python-format
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d 个应用"
+
+#, python-format
+msgid "%d applications known to %s"
+msgstr "%s 认识 %d 个应用"
+
+#, python-format
+msgid "%d can be fixed automatically"
+msgstr "%d 个可自动修复"
+
+#, python-format
+msgid "%d formulae installed with %s"
+msgstr "%s 已安装 %d 个 formula"
+
+#, python-format
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d 个问题"
+
+#, python-format
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+#, python-format
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s（%.0f%%）"
+
+#, python-format
+msgid "%s applications"
+msgstr "%s 个应用"
+
+#, python-format
+msgid "%s can be upgraded again"
+msgstr "%s 可以再次升级"
+
+#, python-format
+msgid "%s failed"
+msgstr "%s 失败"
+
+#, python-format
+msgid "%s formulae"
+msgstr "%s 个 formula"
+
+#, python-format
+msgid "%s held at its current version"
+msgstr "%s 已保持在当前版本"
+
+#, python-format
+msgid "%s installation failed: %s"
+msgstr "%s 安装失败：%s"
+
+#, python-format
+msgid "%s is not installed"
+msgstr "未安装 %s"
+
+#, python-format
+msgid ""
+"%s is replaced in place. Quit the application first; the current bundle "
+"is backed up next to the new one."
+msgstr "%s 将就地替换。请先退出该应用；当前应用包会备份在新版本旁边。"
+
+#, python-format
+msgid "%s packages"
+msgstr "%s 个软件包"
+
+#, python-format
+msgid "%s results"
+msgstr "%s 个结果"
+
+#, python-format
+msgid "%s store"
+msgstr "%s 存储"
+
+#, python-format
+msgid "%s updated"
+msgstr "%s 已更新"
+
+#, python-format
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+#, python-format
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "（空）"
+
+msgid "(no executable found)"
+msgstr "（未找到可执行文件）"
+
+msgid "--name is required for AppImage installs"
+msgstr "安装 AppImage 时必须指定 --name"
+
+msgid "0 apps"
+msgstr "0 个应用"
+
+msgid "10 seconds"
+msgstr "10 秒"
+
+msgid "2 seconds"
+msgstr "2 秒"
+
+msgid "5 seconds"
+msgstr "5 秒"
+
+#, python-format
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "%s 的快捷方式已存在。要移除吗？"
+
+msgid "Aborted"
+msgstr "已中止"
+
+msgid "About"
+msgstr "关于"
+
+msgid "About AppDeb"
+msgstr "关于 AppDeb"
+
+msgid "Adjust the search text or the filter."
+msgstr "调整搜索文本或筛选条件。"
+
+msgid "All"
+msgstr "全部"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "所有扫描的桌面入口均正常"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "卸载时同时移除系统配置"
+
+msgid ""
+"AppDeb puts every kind of Linux application in one window: Flatpak, Snap,"
+" Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr ""
+"AppDeb 将各类 Linux 应用集中到一个窗口：Flatpak、Snap、Homebrew、AppImage、.deb 软件包以及便携式 .tar.gz 压缩包。"
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage 已替换；重启应用后即可使用"
+
+msgid "AppImage store"
+msgstr "AppImage 存储"
+
+msgid ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name "
+"with --from"
+msgstr "AppImage、.deb、.flatpak、.flatpakref、.tar.gz、.tgz，或配合 --from 的软件包名"
+
+msgid ""
+"AppImages run outside the Flatpak sandbox and can read your files. Only "
+"install apps you trust."
+msgstr "AppImage 在 Flatpak 沙盒之外运行，可以读取你的文件。请只安装你信任的应用。"
+
+msgid "Application"
+msgstr "应用"
+
+msgid "Application data"
+msgstr "应用数据"
+
+msgid "Application database refreshed"
+msgstr "应用数据库已刷新"
+
+msgid "Application details"
+msgstr "应用详情"
+
+msgid "Application icon"
+msgstr "应用图标"
+
+msgid "Application icon reset"
+msgstr "应用图标已重置"
+
+msgid "Application icon updated"
+msgstr "应用图标已更新"
+
+msgid "Application manager"
+msgstr "应用管理器"
+
+msgid "Application parameters"
+msgstr "应用参数"
+
+msgid "Application renamed"
+msgstr "应用已重命名"
+
+msgid "Application runs in a terminal"
+msgstr "应用在终端中运行"
+
+msgid "Application uninstalled"
+msgstr "应用已卸载"
+
+msgid "Applications found through each package manager."
+msgstr "通过各软件包管理器找到的应用。"
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "由 AppDeb 安装并管理的应用。"
+
+#, python-format
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "应用 %d 项修复？[y/N] "
+
+msgid "Architecture"
+msgstr "架构"
+
+msgid "Archives"
+msgstr "压缩包"
+
+msgid "Audio"
+msgstr "音频"
+
+msgid "Autostart disabled"
+msgstr "已禁用自动启动"
+
+msgid "Autostart enabled"
+msgstr "已启用自动启动"
+
+msgid "Autostart this application when you sign in"
+msgstr "登录时自动启动此应用"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Back up desktop entries"
+msgstr "备份桌面入口"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "备份当前应用包并安装新版本"
+
+#, python-format
+msgid "Backup created in %s"
+msgstr "备份已创建于 %s"
+
+#, python-format
+msgid "Backup failed: %s"
+msgstr "备份失败：%s"
+
+msgid "Browse…"
+msgstr "浏览…"
+
+msgid "Bundle"
+msgstr "应用包"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU 使用率"
+
+msgid "Cache"
+msgstr "缓存"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Cancelling…"
+msgstr "正在取消…"
+
+msgid "Categories"
+msgstr "类别"
+
+msgid "Change Icon"
+msgstr "更改图标"
+
+msgid "Change executable…"
+msgstr "更改可执行文件…"
+
+msgid "Change package manager"
+msgstr "更改软件包管理器"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "更改会作为此应用的用户覆盖设置生效。"
+
+msgid "Channel"
+msgstr "频道"
+
+msgid "Check updates"
+msgstr "检查更新"
+
+msgid "Check your package managers"
+msgstr "查看你的软件包管理器"
+
+msgid "Checking"
+msgstr "正在检查"
+
+msgid "Checking…"
+msgstr "正在检查…"
+
+msgid "Choose .deb package"
+msgstr "选择 .deb 软件包"
+
+msgid "Choose .deb package…"
+msgstr "选择 .deb 软件包…"
+
+msgid "Choose .tar.gz archive"
+msgstr "选择 .tar.gz 压缩包"
+
+msgid "Choose AppImage"
+msgstr "选择 AppImage"
+
+msgid "Choose AppImage file…"
+msgstr "选择 AppImage 文件…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "选择 Flatpak 应用包或 .flatpakref"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "选择 Flatpak 应用包或 .flatpakref…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "在安装目录中选择一个可执行文件"
+
+msgid "Choose application icon"
+msgstr "选择应用图标"
+
+msgid "Choose archive"
+msgstr "选择压缩包"
+
+msgid "Choose destination folder"
+msgstr "选择目标文件夹"
+
+msgid "Choose executable"
+msgstr "选择可执行文件"
+
+msgid "Choose icon"
+msgstr "选择图标"
+
+msgid "Choose replacement"
+msgstr "选择替换文件"
+
+msgid "Choose replacement .tar.gz"
+msgstr "选择替换用的 .tar.gz"
+
+msgid "Choose replacement AppImage"
+msgstr "选择替换用的 AppImage"
+
+msgid "Choose…"
+msgstr "选择…"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Comment"
+msgstr "说明"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "将用户桌面入口和数据库复制到备份文件夹"
+
+#, python-format
+msgid "Could not change autostart: %s"
+msgstr "无法更改自动启动：%s"
+
+#, python-format
+msgid "Could not change package hold: %s"
+msgstr "无法更改软件包版本锁定：%s"
+
+#, python-format
+msgid "Could not change permission: %s"
+msgstr "无法更改权限：%s"
+
+#, python-format
+msgid "Could not change update hold: %s"
+msgstr "无法更改更新锁定：%s"
+
+#, python-format
+msgid "Could not create shortcut: %s"
+msgstr "无法创建快捷方式：%s"
+
+msgid "Could not fix this issue"
+msgstr "无法修复此问题"
+
+#, python-format
+msgid "Could not install icon: %s"
+msgstr "无法安装图标：%s"
+
+#, python-format
+msgid "Could not launch: %s"
+msgstr "无法启动：%s"
+
+#, python-format
+msgid "Could not open link: %s"
+msgstr "无法打开链接：%s"
+
+#, python-format
+msgid "Could not open location: %s"
+msgstr "无法打开位置：%s"
+
+msgid "Could not read archive"
+msgstr "无法读取压缩包"
+
+#, python-format
+msgid "Could not read snap channels: %s"
+msgstr "无法读取 snap 频道：%s"
+
+msgid "Could not read the archive"
+msgstr "无法读取该压缩包"
+
+msgid "Could not read the package"
+msgstr "无法读取该软件包"
+
+msgid "Could not rebuild the icon cache"
+msgstr "无法重建图标缓存"
+
+#, python-format
+msgid "Could not refresh snap: %s"
+msgstr "无法刷新 snap：%s"
+
+#, python-format
+msgid "Could not reset overrides: %s"
+msgstr "无法重置覆盖设置：%s"
+
+#, python-format
+msgid "Could not search for alternative sources: %s"
+msgstr "无法搜索替代来源：%s"
+
+#, python-format
+msgid "Could not switch channel: %s"
+msgstr "无法切换频道：%s"
+
+#, python-format
+msgid "Could not terminate processes: %s"
+msgstr "无法终止进程：%s"
+
+#, python-format
+msgid "Could not update %s: %s"
+msgstr "无法更新 %s：%s"
+
+#, python-format
+msgid "Could not update Terminal: %s"
+msgstr "无法更新终端设置：%s"
+
+#, python-format
+msgid "Could not update menu visibility: %s"
+msgstr "无法更新菜单可见性：%s"
+
+#, python-format
+msgid "Could not update window class: %s"
+msgstr "无法更新窗口类：%s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian 软件包"
+
+msgid "Debian packages"
+msgstr "Debian 软件包"
+
+msgid "Dependencies"
+msgstr "依赖项"
+
+msgid "Depends"
+msgstr "依赖"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Desktop Shortcut"
+msgstr "桌面快捷方式"
+
+msgid "Desktop entry ID"
+msgstr "桌面入口 ID"
+
+msgid "Desktop file"
+msgstr "桌面文件"
+
+msgid "Desktop shortcut"
+msgstr "桌面快捷方式"
+
+msgid "Destination"
+msgstr "目标位置"
+
+msgid "Destination folder (optional)"
+msgstr "目标文件夹（可选）"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "Detected version"
+msgstr "检测到的版本"
+
+msgid "Developer"
+msgstr "开发者"
+
+msgid "Disk"
+msgstr "磁盘"
+
+msgid "Disk read / write"
+msgstr "磁盘读取 / 写入"
+
+msgid "Dock icon association"
+msgstr "Dock 图标关联"
+
+msgid "Dock icon association updated"
+msgstr "Dock 图标关联已更新"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Download .tar.gz"
+msgstr "下载 .tar.gz"
+
+msgid "Download .tar.gz from URL…"
+msgstr "从 URL 下载 .tar.gz…"
+
+msgid "Download AppImage"
+msgstr "下载 AppImage"
+
+msgid "Download AppImage from URL…"
+msgstr "从 URL 下载 AppImage…"
+
+msgid "Download from URL"
+msgstr "从 URL 下载"
+
+msgid "Download history"
+msgstr "下载历史"
+
+msgid "Downloading AppImage"
+msgstr "正在下载 AppImage"
+
+msgid "Downloading archive"
+msgstr "正在下载压缩包"
+
+msgid ""
+"Downloads are installed from the download cache. Only install software "
+"you trust."
+msgstr "下载内容会从下载缓存中安装。请只安装你信任的软件。"
+
+msgid "Effective permissions"
+msgstr "实际权限"
+
+msgid "End processes"
+msgstr "结束进程"
+
+#, python-format
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "已结束 %d 个进程"
+
+msgid "Enter a formula name first"
+msgstr "请先输入 formula 名称"
+
+msgid "Enter a snap name first"
+msgstr "请先输入 snap 名称"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec 不能为空"
+
+msgid "Executable"
+msgstr "可执行文件"
+
+msgid "Executable updated"
+msgstr "可执行文件已更新"
+
+msgid "Executables"
+msgstr "可执行文件"
+
+msgid "Extract icon"
+msgstr "提取图标"
+
+msgid "Files"
+msgstr "文件"
+
+msgid "Finish"
+msgstr "完成"
+
+msgid "Fix"
+msgstr "修复"
+
+msgid "Fix icons and desktop entries"
+msgstr "修复图标和桌面入口"
+
+#, python-format
+msgid "Fixing %s"
+msgstr "正在修复 %s"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak 应用包"
+
+msgid "Flatpak is not installed on this system."
+msgstr "此系统未安装 Flatpak。"
+
+msgid "Flatpak location"
+msgstr "Flatpak 位置"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpak 覆盖设置已重置"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak 权限"
+
+msgid "Flatpak scope"
+msgstr "Flatpak 范围"
+
+msgid "Folder"
+msgstr "文件夹"
+
+#, python-format
+msgid "Following %s; switching refreshes the snap"
+msgstr "正在跟随 %s；切换频道会刷新该 snap"
+
+msgid "Hidden from the application menu"
+msgstr "已从应用菜单中隐藏"
+
+msgid "Hide from application menu"
+msgstr "从应用菜单中隐藏"
+
+msgid "Hold package version"
+msgstr "锁定软件包版本"
+
+msgid "Hold updates"
+msgstr "锁定更新"
+
+msgid "Holding package version"
+msgstr "正在锁定软件包版本"
+
+msgid "Holding snap updates"
+msgstr "正在锁定 snap 更新"
+
+msgid "Home disk usage"
+msgstr "主目录磁盘使用"
+
+msgid "Home folder"
+msgstr "主目录"
+
+#, python-format
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew 升级失败：%s"
+
+msgid "Homebrew was not found"
+msgstr "未找到 Homebrew"
+
+msgid "Homepage"
+msgstr "主页"
+
+msgid "Host filesystem"
+msgstr "宿主文件系统"
+
+msgid "How often resource usage is sampled"
+msgstr "资源使用采样的频率"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "图标"
+
+msgid "Icon cache rebuilt"
+msgstr "图标缓存已重建"
+
+msgid ""
+"If a running window shows a generic gear instead of its real icon, the "
+"entry is missing a window-class association. The Tools page finds those "
+"problems and repairs them, with a backup of every file it changes."
+msgstr "如果正在运行的窗口显示通用齿轮图标而非真实图标，说明该入口缺少窗口类关联。工具页面会找出这些问题并修复它们，同时备份每个被更改的文件。"
+
+msgid "Images"
+msgstr "图片"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "包含标记为 NoDisplay 或 Hidden 的入口"
+
+#, python-format
+msgid "Inside install: %s"
+msgstr "安装目录内：%s"
+
+msgid "Inspecting AppImage…"
+msgstr "正在检查 AppImage…"
+
+msgid "Install"
+msgstr "安装"
+
+#, python-format
+msgid "Install %s with %s? [y/N] "
+msgstr "使用 %s 安装 %s？[y/N] "
+
+#, python-format
+msgid "Install %s? [y/N] "
+msgstr "安装 %s？[y/N] "
+
+msgid "Install .deb package"
+msgstr "安装 .deb 软件包"
+
+msgid "Install .tar.gz (one click)"
+msgstr "安装 .tar.gz（一键）"
+
+msgid "Install .tar.gz application"
+msgstr "安装 .tar.gz 应用"
+
+msgid "Install .tar.gz to folder…"
+msgstr "将 .tar.gz 安装到文件夹…"
+
+msgid "Install AppImage"
+msgstr "安装 AppImage"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "通过 apt 和 polkit 安装本地 .deb 软件包。"
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "安装并管理 Flatpak、AppImage、.deb 和 .tar.gz 应用。"
+
+msgid "Install by searching or by typing"
+msgstr "通过搜索或输入来安装"
+
+msgid "Install directory"
+msgstr "安装目录"
+
+msgid "Install formula by name"
+msgstr "按名称安装 formula"
+
+msgid "Install path"
+msgstr "安装路径"
+
+msgid "Install snap by name"
+msgstr "按名称安装 snap"
+
+msgid ""
+"Install this application from another package manager. The current copy "
+"is not touched until you remove it."
+msgstr "从其他软件包管理器安装此应用。在你移除当前副本之前，它不会被改动。"
+
+#, python-format
+msgid "Installation failed: %s"
+msgstr "安装失败：%s"
+
+msgid "Installation scope"
+msgstr "安装范围"
+
+msgid "Installed"
+msgstr "已安装"
+
+#, python-format
+msgid "Installed %s"
+msgstr "已安装 %s"
+
+#, python-format
+msgid "Installed %s with %s"
+msgstr "已使用 %s 安装 %s"
+
+msgid "Installed applications"
+msgstr "已安装的应用"
+
+msgid "Installed by manager"
+msgstr "由管理器安装"
+
+msgid "Installed size"
+msgstr "安装大小"
+
+#, python-format
+msgid "Installing %s"
+msgstr "正在安装 %s"
+
+#, python-format
+msgid "Installing %s with %s"
+msgstr "正在使用 %s 安装 %s"
+
+msgid ""
+"Installing a .deb package changes system software and requires "
+"administrator authentication via polkit."
+msgstr "安装 .deb 软件包会更改系统软件，需要通过 polkit 进行管理员身份验证。"
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "重启 AppDeb 后使用的界面语言"
+
+msgid "Issue fixed"
+msgstr "问题已修复"
+
+msgid "Issues"
+msgstr "问题"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "保留桌面入口，但将其从应用菜单中省略"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "替换文件时保留桌面入口、图标和名称"
+
+msgid "Keywords"
+msgstr "关键词"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Launch"
+msgstr "启动"
+
+#, python-format
+msgid "Launching %s"
+msgstr "正在启动 %s"
+
+msgid ""
+"Leave empty to install into the managed AppDeb store. Choose a folder to "
+"install into a subfolder of it."
+msgstr "留空则安装到 AppDeb 管理的存储中。选择文件夹则安装到其子文件夹中。"
+
+msgid "License"
+msgstr "许可证"
+
+msgid "Load"
+msgstr "负载"
+
+msgid "Load average"
+msgstr "平均负载"
+
+msgid "Loading channels…"
+msgstr "正在加载频道…"
+
+msgid "Loading store details…"
+msgstr "正在加载存储详情…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "查找无效入口、缺失图标和未匹配的窗口类"
+
+msgid "Looking for alternative package sources…"
+msgstr "正在查找替代软件包来源…"
+
+msgid "Main menu"
+msgstr "主菜单"
+
+msgid "Maintainer"
+msgstr "维护者"
+
+msgid "Maintenance"
+msgstr "维护"
+
+msgid "Managed stores"
+msgstr "受管理的存储"
+
+msgid "Managers"
+msgstr "管理器"
+
+msgid "Matching folder"
+msgstr "匹配文件夹"
+
+msgid "Memory"
+msgstr "内存"
+
+msgid "Memory usage"
+msgstr "内存使用"
+
+msgid "Monitoring"
+msgstr "监控"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "No alternative package sources found."
+msgstr "未找到替代软件包来源。"
+
+msgid "No applications match"
+msgstr "没有匹配的应用"
+
+msgid "No channels reported for this snap"
+msgstr "此 snap 未报告任何频道"
+
+msgid "No embedded icon found"
+msgstr "未找到内嵌图标"
+
+msgid "No executable detected; choose one"
+msgstr "未检测到可执行文件；请选择一个"
+
+msgid "No issues found"
+msgstr "未发现问题"
+
+msgid "No results"
+msgstr "无结果"
+
+msgid "No running processes"
+msgstr "没有正在运行的进程"
+
+msgid "No scan has run yet"
+msgstr "尚未运行扫描"
+
+msgid "No shortcut found"
+msgstr "未找到快捷方式"
+
+msgid "Not installed"
+msgstr "未安装"
+
+msgid "Only https:// URLs are supported."
+msgstr "仅支持 https:// URL。"
+
+msgid "Open bundle folder"
+msgstr "打开应用包文件夹"
+
+msgid "Open homepage"
+msgstr "打开主页"
+
+msgid "Open install folder"
+msgstr "打开安装文件夹"
+
+msgid "Open location"
+msgstr "打开位置"
+
+msgid "Optional"
+msgstr "可选"
+
+msgid "Original archive"
+msgstr "原始压缩包"
+
+msgid "Outdated formulae upgraded"
+msgstr "过时的 formula 已升级"
+
+msgid "Package"
+msgstr "软件包"
+
+msgid "Package manager information is unavailable"
+msgstr "软件包管理器信息不可用"
+
+msgid "Package manager overview"
+msgstr "软件包管理器概览"
+
+msgid "Package managers"
+msgstr "软件包管理器"
+
+msgid "Package managers available on this system and their versions."
+msgstr "此系统上可用的软件包管理器及其版本。"
+
+msgid "Package removed"
+msgstr "软件包已移除"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "暂停此 snap 的自动刷新"
+
+msgid "Permissions are unavailable."
+msgstr "权限不可用。"
+
+msgid ""
+"Pick a page from the sidebar to start. Settings holds the Flatpak install"
+" scope, the interface language and a button to show this guide again at "
+"any time."
+msgstr "从侧边栏选择一个页面开始。设置中包含 Flatpak 安装范围、界面语言，以及可随时再次显示本指南的按钮。"
+
+msgid "Pick another executable inside the install directory"
+msgstr "在安装目录中选择另一个可执行文件"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "阻止 apt 升级此软件包"
+
+msgid "Processes"
+msgstr "进程"
+
+msgid "Purge configuration files"
+msgstr "清除配置文件"
+
+msgid "Quit"
+msgstr "退出"
+
+msgid "Rebuild icon cache"
+msgstr "重建图标缓存"
+
+msgid "Refresh application database"
+msgstr "刷新应用数据库"
+
+msgid "Refresh interval"
+msgstr "刷新间隔"
+
+msgid "Refresh package manager information"
+msgstr "刷新软件包管理器信息"
+
+msgid "Refresh snap now"
+msgstr "立即刷新 snap"
+
+msgid "Refresh the application list"
+msgstr "刷新应用列表"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "刷新用户 hicolor 图标缓存"
+
+#, python-format
+msgid "Refreshed %s"
+msgstr "已刷新 %s"
+
+#, python-format
+msgid "Refreshing %s"
+msgstr "正在刷新 %s"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "重新生成 desktop-file-utils 缓存"
+
+msgid "Reinstall / replace archive…"
+msgstr "重新安装 / 替换压缩包…"
+
+msgid "Releasing package hold"
+msgstr "正在解除软件包版本锁定"
+
+#, python-format
+msgid "Removal failed: %s"
+msgstr "移除失败：%s"
+
+msgid "Remove"
+msgstr "移除"
+
+#, python-format
+msgid "Remove %s? [y/N] "
+msgstr "移除 %s？[y/N] "
+
+msgid "Remove Debian package"
+msgstr "移除 Debian 软件包"
+
+#, python-format
+msgid "Remove all user permission overrides for %s?"
+msgstr "移除 %s 的所有用户权限覆盖设置？"
+
+msgid "Remove current copy"
+msgstr "移除当前副本"
+
+msgid "Remove every user permission override for this application"
+msgstr "移除此应用的所有用户权限覆盖设置"
+
+msgid "Remove package"
+msgstr "移除软件包"
+
+msgid "Remove shortcut"
+msgstr "移除快捷方式"
+
+#, python-format
+msgid ""
+"Remove the %(kind)s copy of %(name)s?\n"
+"\n"
+"%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr ""
+"移除 %(name)s 的 %(kind)s 副本？\n"
+"\n"
+"%(candidate)s 是通过 %(manager)s 安装的。你可以保留两个副本。"
+
+msgid "Remove the current copy?"
+msgstr "移除当前副本？"
+
+#, python-format
+msgid "Remove the package %s?"
+msgstr "移除软件包 %s？"
+
+msgid "Remove…"
+msgstr "移除…"
+
+#, python-format
+msgid "Removing %s"
+msgstr "正在移除 %s"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "Rename application"
+msgstr "重命名应用"
+
+#, python-format
+msgid "Rename failed: %s"
+msgstr "重命名失败：%s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "修复桌面入口并刷新应用元数据。"
+
+msgid "Replace AppImage"
+msgstr "替换 AppImage"
+
+msgid "Replace AppImage…"
+msgstr "替换 AppImage…"
+
+msgid "Replace tarball installation"
+msgstr "替换 tarball 安装"
+
+msgid "Replacing AppImage"
+msgstr "正在替换 AppImage"
+
+msgid "Replacing tarball installation"
+msgstr "正在替换 tarball 安装"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Reset Flatpak overrides"
+msgstr "重置 Flatpak 覆盖设置"
+
+msgid "Reset Icon"
+msgstr "重置图标"
+
+msgid "Reset all overrides"
+msgstr "重置所有覆盖设置"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Restart"
+msgstr "重启"
+
+msgid "Restart AppDeb to apply"
+msgstr "重启 AppDeb 以应用"
+
+msgid "Results"
+msgstr "结果"
+
+msgid "Resuming snap updates"
+msgstr "正在恢复 snap 更新"
+
+msgid "Run this application in a terminal window"
+msgstr "在终端窗口中运行此应用"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256（可选）"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 不匹配"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Scan desktop entries"
+msgstr "扫描桌面入口"
+
+msgid "Scan failed"
+msgstr "扫描失败"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "扫描以检查所有桌面入口"
+
+msgid "Scanning desktop entries…"
+msgstr "正在扫描桌面入口…"
+
+msgid "Scanning…"
+msgstr "正在扫描…"
+
+msgid "Scope"
+msgstr "范围"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "用于 Flatpak 安装和更新的范围。"
+
+msgid "Screenshot"
+msgstr "截图"
+
+msgid "Screenshot is not available"
+msgstr "截图不可用"
+
+msgid "Screenshots"
+msgstr "截图"
+
+msgid "Search Flathub"
+msgstr "搜索 Flathub"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "搜索 Flathub 并按设置中选择的范围安装应用。"
+
+msgid ""
+"Search Flathub, the Snap Store or Homebrew, or type an exact package "
+"name. AppImages, .deb packages and .tar.gz archives can be installed from"
+" a file or an https URL, and every install is checked before it touches "
+"your system."
+msgstr ""
+"搜索 Flathub、Snap Store 或 Homebrew，或输入确切的软件包名称。AppImage、.deb 软件包和 .tar.gz 压缩包可从文件或 https URL 安装，每次安装都会在改动系统前进行检查。"
+
+msgid "Search applications"
+msgstr "搜索应用"
+
+#, python-format
+msgid "Search failed: %s"
+msgstr "搜索失败：%s"
+
+msgid "Search formulae"
+msgstr "搜索 formula"
+
+msgid ""
+"Search formulae and install them with Homebrew. Homebrew installs into "
+"your user account; no password is needed."
+msgstr "搜索 formula 并使用 Homebrew 安装。Homebrew 会安装到你的用户账户中，无需密码。"
+
+msgid "Search snaps"
+msgstr "搜索 snap"
+
+msgid ""
+"Search snaps and install them. System installs prompt for authentication "
+"and may take a while."
+msgstr "搜索并安装 snap。系统级安装会要求身份验证，可能需要一些时间。"
+
+#, python-format
+msgid "Searching %s for %s"
+msgstr "正在 %s 中搜索 %s"
+
+#, python-format
+msgid "Searching for “%s”…"
+msgstr "正在搜索“%s”…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "向此应用的进程发送 SIGTERM"
+
+msgid "Settings"
+msgstr "设置"
+
+#, python-format
+msgid "Shortcut created: %s"
+msgstr "快捷方式已创建：%s"
+
+msgid "Shortcut removed"
+msgstr "快捷方式已移除"
+
+msgid "Show hidden desktop entries"
+msgstr "显示隐藏的桌面入口"
+
+msgid "Shown in the application menu"
+msgstr "在应用菜单中显示"
+
+msgid "Shows the affected packages before removal"
+msgstr "移除前显示受影响的软件包"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Skip"
+msgstr "跳过"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "snap 安装会要求身份验证"
+
+msgid "Snap name unknown"
+msgstr "snap 名称未知"
+
+msgid "Snap was not found"
+msgstr "未找到 Snap"
+
+msgid "Source / reference"
+msgstr "来源 / 引用"
+
+msgid "Start at login"
+msgstr "登录时启动"
+
+msgid "Started"
+msgstr "启动时间"
+
+msgid "Startup"
+msgstr "启动"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / 窗口类"
+
+#, python-format
+msgid "Step %d of %d"
+msgstr "第 %d 步，共 %d 步"
+
+msgid "Store"
+msgstr "存储"
+
+msgid "Store ID"
+msgstr "存储 ID"
+
+msgid "Store details"
+msgstr "存储详情"
+
+msgid "Swap usage"
+msgstr "交换分区使用"
+
+#, python-format
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "将 %(name)s 切换到 %(channel)s？该 snap 会立即刷新。"
+
+msgid "Switch channel"
+msgstr "切换频道"
+
+msgid "Switch snap channel"
+msgstr "切换 snap 频道"
+
+#, python-format
+msgid "Switching %(name)s to %(channel)s"
+msgstr "正在将 %(name)s 切换到 %(channel)s"
+
+msgid "System"
+msgstr "系统"
+
+msgid "Tar archives"
+msgstr "Tar 压缩包"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball 安装失败"
+
+msgid "Tarball store"
+msgstr "Tarball 存储"
+
+msgid ""
+"Tarballs run outside a sandbox and can read your files. Only install apps"
+" you trust."
+msgstr "Tarball 在沙盒之外运行，可以读取你的文件。请只安装你信任的应用。"
+
+msgid "Terminal application"
+msgstr "终端应用"
+
+msgid "Terminal disabled"
+msgstr "已禁用终端"
+
+#, python-format
+msgid "Terminate all processes belonging to %s?"
+msgstr "终止属于 %s 的所有进程？"
+
+msgid "The Debian package name is unknown"
+msgstr "Debian 软件包名称未知"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Flatpak 应用 ID 未知"
+
+msgid ""
+"The Managers page shows which package managers exist on this computer, "
+"their versions and how many packages each one owns. You can install a "
+"missing manager there, or remove one once it no longer manages any "
+"packages."
+msgstr ""
+"管理器页面显示此计算机上存在哪些软件包管理器、它们的版本以及各自管理多少软件包。你可以在那里安装缺失的管理器，或在某个管理器不再管理任何软件包后将其移除。"
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "内嵌图标不可用；请手动选择一个"
+
+#, python-format
+msgid ""
+"The files for %s are replaced and the current install directory is backed"
+" up. Quit the application first."
+msgstr "%s 的文件将被替换，当前安装目录会被备份。请先退出该应用。"
+
+msgid "The install directory is unknown"
+msgstr "安装目录未知"
+
+msgid "The selected file is not an AppImage"
+msgstr "所选文件不是 AppImage"
+
+msgid "The snap command is not available on this system."
+msgstr "此系统上没有 snap 命令。"
+
+msgid ""
+"The window class (WM_CLASS) GNOME uses to match this application's "
+"windows to the desktop entry."
+msgstr "GNOME 用来将此应用窗口与桌面入口匹配的窗口类（WM_CLASS）。"
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "这会更改菜单、Dock 和此窗口中显示的名称。"
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "此桌面入口未标识任何 snap 实例"
+
+msgid "Threads"
+msgstr "线程"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Top processes"
+msgstr "占用最高的进程"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Type at least 2 characters to search"
+msgstr "输入至少 2 个字符以搜索"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL 缺少主机名"
+
+msgid "Uninstall"
+msgstr "卸载"
+
+#, python-format
+msgid "Uninstall %s? This cannot be undone."
+msgstr "卸载 %s？此操作无法撤销。"
+
+msgid "Uninstall application"
+msgstr "卸载应用"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "此入口不支持卸载"
+
+#, python-format
+msgid "Uninstalling %s"
+msgstr "正在卸载 %s"
+
+msgid "Unknown package"
+msgstr "未知软件包"
+
+#, python-format
+msgid "Unsupported file type: %s"
+msgstr "不支持的文件类型：%s"
+
+#, python-format
+msgid "Unsupported image: %s"
+msgstr "不支持的图像：%s"
+
+#, python-format
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "已更新 %d 个应用"
+
+#, python-format
+msgid "Updates for %s are held"
+msgstr "%s 的更新已锁定"
+
+#, python-format
+msgid "Updates for %s resumed"
+msgstr "%s 的更新已恢复"
+
+#, python-format
+msgid "Updating %s…"
+msgstr "正在更新 %s…"
+
+msgid "Updating Flatpak applications"
+msgstr "正在更新 Flatpak 应用"
+
+msgid "Upgrade outdated formulae"
+msgstr "升级过时的 formula"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "正在升级 Homebrew formula"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Uptime"
+msgstr "运行时间"
+
+msgid "Usage history"
+msgstr "使用历史"
+
+msgid "User"
+msgstr "用户"
+
+msgid "User data"
+msgstr "用户数据"
+
+msgid "Values written to this application's desktop entry."
+msgstr "写入此应用桌面入口的值。"
+
+msgid "Version"
+msgstr "版本"
+
+#, python-format
+msgid "Version %s"
+msgstr "版本 %s"
+
+msgid "Version unknown"
+msgstr "版本未知"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "欢迎使用 AppDeb"
+
+msgid "Window class"
+msgstr "窗口类"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "一切就绪"
+
+msgid "a package name is required with --from"
+msgstr "配合 --from 时必须提供软件包名称"
+
+msgid "application name"
+msgstr "应用名称"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "应用所有可自动修复的桌面入口问题"
+
+msgid "apps"
+msgstr "应用"
+
+msgid "available"
+msgstr "可用"
+
+msgid "brew install failed"
+msgstr "brew 安装失败"
+
+msgid "brew search failed"
+msgstr "brew 搜索失败"
+
+msgid "brew uninstall failed"
+msgstr "brew 卸载失败"
+
+msgid "brew upgrade failed"
+msgstr "brew 升级失败"
+
+msgid "cancelled"
+msgstr "已取消"
+
+#, python-format
+msgid "cannot inspect package: %s"
+msgstr "无法检查软件包：%s"
+
+#, python-format
+msgid "cannot install to %s: %s"
+msgstr "无法安装到 %s：%s"
+
+#, python-format
+msgid "cannot replace %s: %s"
+msgstr "无法替换 %s：%s"
+
+#, python-format
+msgid "cannot start: %s"
+msgstr "无法启动：%s"
+
+msgid "choose an executable with --exec"
+msgstr "使用 --exec 选择一个可执行文件"
+
+#, python-format
+msgid "command failed: %s"
+msgstr "命令失败：%s"
+
+#, python-format
+msgid "command not found: %s"
+msgstr "未找到命令：%s"
+
+msgid "desktop entry comment"
+msgstr "桌面入口说明"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "桌面文件包含多个 [Desktop Entry] 组"
+
+msgid "destination folder for tarball installs"
+msgstr "tarball 安装的目标文件夹"
+
+#, python-format
+msgid "destination is not writable: %s"
+msgstr "目标不可写：%s"
+
+msgid "disabled"
+msgstr "已禁用"
+
+msgid "download cancelled"
+msgstr "下载已取消"
+
+#, python-format
+msgid "download failed: HTTP %s"
+msgstr "下载失败：HTTP %s"
+
+msgid "download too large"
+msgstr "下载内容过大"
+
+msgid "enabled"
+msgstr "已启用"
+
+msgid "essential package"
+msgstr "必要软件包"
+
+#, python-format
+msgid "executable not found: %s"
+msgstr "未找到可执行文件：%s"
+
+#, python-format
+msgid "failed\t%s\t%s\t%s"
+msgstr "失败\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "写入桌面入口失败"
+
+#, python-format
+msgid "file not found: %s"
+msgstr "未找到文件：%s"
+
+#, python-format
+msgid "fixed\t%s\t%s"
+msgstr "已修复\t%s\t%s"
+
+#, python-format
+msgid "fixed %d/%d"
+msgstr "已修复 %d/%d"
+
+msgid "flatpak install failed"
+msgstr "flatpak 安装失败"
+
+msgid "flatpak override failed"
+msgstr "flatpak 覆盖设置失败"
+
+msgid "flatpak override reset failed"
+msgstr "flatpak 覆盖设置重置失败"
+
+msgid "flatpak search failed"
+msgstr "flatpak 搜索失败"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak 卸载失败"
+
+msgid "flatpak update failed"
+msgstr "flatpak 更新失败"
+
+msgid "icon file to install"
+msgstr "要安装的图标文件"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "图标是图标主题之外的绝对路径"
+
+#, python-format
+msgid "icon not found: %s"
+msgstr "未找到图标：%s"
+
+msgid "install a file or package-manager package"
+msgstr "安装文件或软件包管理器中的软件包"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "使用指定的软件包管理器安装 formula/snap/应用 ID"
+
+#, python-format
+msgid "installed %s"
+msgstr "已安装 %s"
+
+msgid "installed bundle not found"
+msgstr "未找到已安装的应用包"
+
+msgid "installed directory not found"
+msgstr "未找到安装目录"
+
+#, python-format
+msgid "invalid flatpak scope: %s"
+msgstr "无效的 flatpak 范围：%s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "将搜索限制在一个管理器（默认：所有可用的）"
+
+msgid "missing"
+msgstr "缺失"
+
+msgid "name contains a forbidden character"
+msgstr "名称包含禁止的字符"
+
+msgid "name is empty"
+msgstr "名称为空"
+
+#, python-format
+msgid "no application with desktop ID %s"
+msgstr "没有桌面 ID 为 %s 的应用"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "未找到可执行文件；请使用带可执行文件的 install_spec"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "没有图形显示；请使用 CLI 子命令"
+
+msgid "no package found for desktop entry"
+msgstr "未找到与桌面入口对应的软件包"
+
+#, python-format
+msgid "no uninstall backend for kind: %s"
+msgstr "类型 %s 没有卸载后端"
+
+#, python-format
+msgid "not a .tar.gz archive: %s"
+msgstr "不是 .tar.gz 压缩包：%s"
+
+#, python-format
+msgid "not an AppImage: %s"
+msgstr "不是 AppImage：%s"
+
+msgid "only https:// URLs are supported"
+msgstr "仅支持 https:// URL"
+
+msgid "package"
+msgstr "软件包"
+
+msgid "package hold failed"
+msgstr "软件包版本锁定失败"
+
+msgid "package installation failed"
+msgstr "软件包安装失败"
+
+msgid "package name is empty"
+msgstr "软件包名称为空"
+
+#, python-format
+msgid "package not found: %s"
+msgstr "未找到软件包：%s"
+
+msgid "package removal failed"
+msgstr "软件包移除失败"
+
+msgid "packages"
+msgstr "软件包"
+
+msgid "print JSON"
+msgstr "输出 JSON"
+
+msgid "print installed desktop entries"
+msgstr "输出已安装的桌面入口"
+
+msgid "purge configuration for .deb packages"
+msgstr "清除 .deb 软件包的配置"
+
+#, python-format
+msgid "refusing to remove %s: %s"
+msgstr "拒绝移除 %s：%s"
+
+#, python-format
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "拒绝移除 %s；这会移除受保护的软件包：%s"
+
+#, python-format
+msgid "removal is not supported for %s entries"
+msgstr "%s 类型的条目不支持移除"
+
+#, python-format
+msgid "removed %s"
+msgstr "已移除 %s"
+
+msgid "required-priority package"
+msgstr "必需优先级的软件包"
+
+msgid "scan desktop entries for problems"
+msgstr "扫描桌面入口以查找问题"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "搜索 Flatpak、Snap 和 Homebrew 软件包"
+
+msgid "search text (at least 2 characters)"
+msgstr "搜索文本（至少 2 个字符）"
+
+msgid "semicolon separated categories"
+msgstr "以分号分隔的类别"
+
+msgid "show package manager availability and counts"
+msgstr "显示软件包管理器可用性和数量"
+
+msgid "skip the confirmation prompt"
+msgstr "跳过确认提示"
+
+#, python-format
+msgid "skipped\t%s\t%s"
+msgstr "已跳过\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap 查找失败"
+
+msgid "snap hold failed"
+msgstr "snap 锁定失败"
+
+msgid "snap info failed"
+msgstr "snap 信息获取失败"
+
+msgid "snap install failed"
+msgstr "snap 安装失败"
+
+msgid "snap name is empty"
+msgstr "snap 名称为空"
+
+msgid "snap refresh failed"
+msgstr "snap 刷新失败"
+
+msgid "snap remove failed"
+msgstr "snap 移除失败"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "tarball 可执行文件，相对于压缩包根目录"
+
+msgid "the Debian package name is unknown"
+msgstr "Debian 软件包名称未知"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "Flatpak 应用 ID 未知"
+
+msgid "the search query must be at least 2 characters"
+msgstr "搜索内容必须至少 2 个字符"
+
+msgid "timed out"
+msgstr "超时"
+
+msgid "uninstall an application by desktop ID"
+msgstr "按桌面 ID 卸载应用"
+
+msgid "unknown"
+msgstr "未知"
+
+#, python-format
+msgid "unknown source kind: %s"
+msgstr "未知来源类型：%s"
+
+#, python-format
+msgid "unsafe archive: %s"
+msgstr "不安全的压缩包：%s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "不安全的压缩包：压缩包大于 4 GiB"
+
+msgid "unsafe archive: too many members"
+msgstr "不安全的压缩包：成员过多"
+
+#, python-format
+msgid "unsupported file type: %s"
+msgstr "不支持的文件类型：%s"
+
+#, python-format
+msgid "unsupported flatpak override action: %s"
+msgstr "不支持的 flatpak 覆盖操作：%s"
+
+#, python-format
+msgid "window class %s is not associated with this entry"
+msgstr "窗口类 %s 未与此条目关联"
+
+msgid "%s installed"
+msgstr "%s 已安装"
+
+msgid "%s removed"
+msgstr "%s 已移除"
+
+msgid "Getting started"
+msgstr "快速上手"
+
+msgid "Install %s?"
+msgstr "安装 %s？"
+
+msgid "Kind"
+msgstr "类型"
+
+msgid "Name (A–Z)"
+msgstr "名称（A–Z）"
+
+msgid "Name (Z–A)"
+msgstr "名称（Z–A）"
+
+msgid "No packages from this manager remain."
+msgstr "该包管理器已无剩余软件包。"
+
+msgid "Recently installed (newest first)"
+msgstr "最近安装（最新优先）"
+
+msgid "Remove %s"
+msgstr "移除 %s"
+
+msgid "Remove %s?"
+msgstr "移除 %s？"
+
+msgid "Replay the step-by-step introduction"
+msgstr "重新播放分步介绍"
+
+msgid "Show welcome guide"
+msgstr "显示欢迎指南"
+
+msgid "Size (largest first)"
+msgstr "大小（最大优先）"
+
+msgid "Sort by"
+msgstr "排序方式"
+
+msgid "Sort the application list"
+msgstr "对应用列表排序"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "此操作需手动完成。请在终端中运行以下命令。"
+
+msgid "This uses apt and asks for authentication."
+msgstr "此操作使用 apt，并需要身份验证。"
+
+msgid "options"
+msgstr "选项"
+
+msgid "positional arguments"
+msgstr "位置参数"

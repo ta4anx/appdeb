@@ -14,6 +14,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
 from .. import apps, db, desktop, icons, processes  # noqa: E402
+from ..i18n import N_, _, ngettext  # noqa: E402
 from ..services import autostart  # noqa: E402
 from . import settings  # noqa: E402
 from .dialogs import OperationDialog, confirm  # noqa: E402
@@ -30,13 +31,13 @@ from .widgets import (  # noqa: E402
 GROUP = "Desktop Entry"
 
 PERMISSIONS = [
-    ("Network", "shared", "network", "share", "unshare"),
-    ("IPC", "shared", "ipc", "share", "unshare"),
-    ("Wayland", "sockets", "wayland", "socket", "nosocket"),
-    ("X11", "sockets", "x11", "socket", "nosocket"),
-    ("Audio", "sockets", "pulseaudio", "socket", "nosocket"),
-    ("Home folder", "filesystems", "home", "filesystem", "nofilesystem"),
-    ("Host filesystem", "filesystems", "host", "filesystem", "nofilesystem"),
+    (N_("Network"), "shared", "network", "share", "unshare"),
+    (N_("IPC"), "shared", "ipc", "share", "unshare"),
+    (N_("Wayland"), "sockets", "wayland", "socket", "nosocket"),
+    (N_("X11"), "sockets", "x11", "socket", "nosocket"),
+    (N_("Audio"), "sockets", "pulseaudio", "socket", "nosocket"),
+    (N_("Home folder"), "filesystems", "home", "filesystem", "nofilesystem"),
+    (N_("Host filesystem"), "filesystems", "host", "filesystem", "nofilesystem"),
 ]
 
 
@@ -166,10 +167,15 @@ class DetailsPage(Adw.NavigationPage):
 
         badges = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         badges.append(badge(apps.kind_label(self.app.kind)))
-        badges.append(badge("User" if self.app.scope == "user" else "System", "Installation scope"))
+        badges.append(
+            badge(
+                _("User") if self.app.scope == "user" else _("System"),
+                _("Installation scope"),
+            )
+        )
         version = self.app.version or _key(self.app.entry, "X-Appdeb-Version")
         if version:
-            badges.append(badge(f"Version {version}"))
+            badges.append(badge(_("Version %s") % version))
         text.append(badges)
         top.append(text)
 
@@ -181,12 +187,12 @@ class DetailsPage(Adw.NavigationPage):
         actions.set_margin_start(18)
         actions.set_margin_end(18)
         actions.set_margin_bottom(18)
-        actions.append(self._action_button("Launch", "media-playback-start-symbolic", self._on_launch, "suggested-action"))
-        actions.append(self._action_button("Desktop Shortcut", "user-desktop-symbolic", self._on_shortcut))
-        actions.append(self._action_button("Change Icon", "image-x-generic-symbolic", self._on_change_icon))
-        actions.append(self._action_button("Reset Icon", "edit-undo-symbolic", self._on_reset_icon))
-        actions.append(self._action_button("Rename", "edit-rename-symbolic", self._on_rename))
-        actions.append(self._action_button("Uninstall", "user-trash-symbolic", self._on_uninstall, "destructive-action"))
+        actions.append(self._action_button(_("Launch"), "media-playback-start-symbolic", self._on_launch, "suggested-action"))
+        actions.append(self._action_button(_("Desktop Shortcut"), "user-desktop-symbolic", self._on_shortcut))
+        actions.append(self._action_button(_("Change Icon"), "image-x-generic-symbolic", self._on_change_icon))
+        actions.append(self._action_button(_("Reset Icon"), "edit-undo-symbolic", self._on_reset_icon))
+        actions.append(self._action_button(_("Rename"), "edit-rename-symbolic", self._on_rename))
+        actions.append(self._action_button(_("Uninstall"), "user-trash-symbolic", self._on_uninstall, "destructive-action"))
 
         card.append(top)
         card.append(actions)
@@ -211,30 +217,34 @@ class DetailsPage(Adw.NavigationPage):
         return row
 
     def _build_details_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Details")
-        group.add(self._info_row("Type", apps.kind_label(self.app.kind)))
-        group.add(self._info_row("Version", self.app.version))
-        group.add(self._info_row("Size", apps.human_size(self.app.size_bytes)))
-        group.add(self._info_row("Scope", "User" if self.app.scope == "user" else "System"))
+        group = Adw.PreferencesGroup(title=_("Details"))
+        group.add(self._info_row(_("Type"), apps.kind_label(self.app.kind)))
+        group.add(self._info_row(_("Version"), self.app.version))
+        group.add(self._info_row(_("Size"), apps.human_size(self.app.size_bytes)))
+        group.add(
+            self._info_row(
+                _("Scope"), _("User") if self.app.scope == "user" else _("System")
+            )
+        )
         installed = (self.app.db or {}).get("install_date") or ""
-        group.add(self._info_row("Installed", installed[:10]))
-        group.add(self._info_row("Source / reference", self.app.source_ref))
-        group.add(self._info_row("Desktop entry ID", self.app.desktop_id, selectable=True))
-        group.add(self._info_row("Desktop file", str(self.app.entry.path), selectable=True))
-        group.add(self._info_row("Exec", self.app.entry.exec_line, selectable=True))
+        group.add(self._info_row(_("Installed"), installed[:10]))
+        group.add(self._info_row(_("Source / reference"), self.app.source_ref))
+        group.add(self._info_row(_("Desktop entry ID"), self.app.desktop_id, selectable=True))
+        group.add(self._info_row(_("Desktop file"), str(self.app.entry.path), selectable=True))
+        group.add(self._info_row(_("Exec"), self.app.entry.exec_line, selectable=True))
         return group
 
     def _build_wm_group(self) -> Adw.PreferencesGroup:
         group = Adw.PreferencesGroup(
-            title="Dock icon association",
-            description=(
+            title=_("Dock icon association"),
+            description=_(
                 "The window class (WM_CLASS) GNOME uses to match this application's "
                 "windows to the desktop entry."
             ),
         )
-        self._wm_row = Adw.EntryRow(title="Window class")
+        self._wm_row = Adw.EntryRow(title=_("Window class"))
         self._wm_row.set_text(self.app.entry.startup_wm_class)
-        save = Gtk.Button(label="Save")
+        save = Gtk.Button(label=_("Save"))
         save.add_css_class("suggested-action")
         save.connect("clicked", self._on_save_wm_class)
         self._wm_row.add_suffix(save)
@@ -242,7 +252,7 @@ class DetailsPage(Adw.NavigationPage):
         return group
 
     def _build_resource_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Resources")
+        group = Adw.PreferencesGroup(title=_("Resources"))
         self._cpu_value = badge("—")
         self._rss_value = badge("—")
         self._proc_value = badge("—")
@@ -250,22 +260,22 @@ class DetailsPage(Adw.NavigationPage):
         self._io_value = badge("—")
         self._started_value = badge("—")
         for title, value in (
-            ("CPU", self._cpu_value),
-            ("Memory", self._rss_value),
-            ("Processes", self._proc_value),
-            ("Threads", self._thread_value),
-            ("Disk read / write", self._io_value),
-            ("Started", self._started_value),
+            (_("CPU"), self._cpu_value),
+            (_("Memory"), self._rss_value),
+            (_("Processes"), self._proc_value),
+            (_("Threads"), self._thread_value),
+            (_("Disk read / write"), self._io_value),
+            (_("Started"), self._started_value),
         ):
             row = Adw.ActionRow(title=title)
             value.add_css_class("stat-value")
             row.add_suffix(value)
             group.add(row)
         end_row = Adw.ActionRow(
-            title="End processes",
-            subtitle="Send SIGTERM to this application's processes",
+            title=_("End processes"),
+            subtitle=_("Send SIGTERM to this application's processes"),
         )
-        end_button = Gtk.Button(label="End processes")
+        end_button = Gtk.Button(label=_("End processes"))
         end_button.add_css_class("destructive-action")
         end_button.connect("clicked", lambda _b: self._on_end_processes())
         end_row.add_suffix(end_button)
@@ -273,12 +283,12 @@ class DetailsPage(Adw.NavigationPage):
         return group
 
     def _build_files_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Files")
+        group = Adw.PreferencesGroup(title=_("Files"))
         for label, path in apps.candidate_files(self.app):
             row = Adw.ActionRow(title=label, subtitle=escape_markup(path))
             row.set_subtitle_selectable(True)
             open_button = Gtk.Button(icon_name="folder-open-symbolic")
-            open_button.set_tooltip_text("Open location")
+            open_button.set_tooltip_text(_("Open location"))
             open_button.add_css_class("flat")
             open_button.connect("clicked", lambda _b, p=path: self._open_path(p))
             row.add_suffix(open_button)
@@ -287,9 +297,9 @@ class DetailsPage(Adw.NavigationPage):
 
     # ----------------------------------------------------------- store details
     def _build_store_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Store details")
+        group = Adw.PreferencesGroup(title=_("Store details"))
         self._store_group = group
-        spinner_row = Adw.ActionRow(title="Loading store details…")
+        spinner_row = Adw.ActionRow(title=_("Loading store details…"))
         spinner = Gtk.Spinner()
         spinner.set_valign(Gtk.Align.CENTER)
         spinner.start()
@@ -299,7 +309,7 @@ class DetailsPage(Adw.NavigationPage):
         return group
 
     def _build_screenshots_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Screenshots")
+        group = Adw.PreferencesGroup(title=_("Screenshots"))
         group.set_visible(False)
         self._screenshot_group = group
         return group
@@ -351,11 +361,14 @@ class DetailsPage(Adw.NavigationPage):
         status = getattr(self, "_store_status_row", None)
         if status is not None:
             status.set_visible(False)
-        source = (getattr(data, "source", "") or "Store").strip()
+        source = (getattr(data, "source", "") or _("Store")).strip()
         name = getattr(data, "name", "") or ""
         app_id = getattr(data, "app_id", "") or ""
         self._store_app_id = app_id
-        expander = Adw.ExpanderRow(title=f"{source.title()} store", subtitle=escape_markup(name or app_id))
+        expander = Adw.ExpanderRow(
+            title=_("%s store") % source.title(),
+            subtitle=escape_markup(name or app_id),
+        )
         expander.set_expanded(True)
 
         description = getattr(data, "description", "") or getattr(data, "summary", "") or ""
@@ -373,8 +386,8 @@ class DetailsPage(Adw.NavigationPage):
             expander.add_row(description_row)
 
         for title, key in (
-            ("Developer", "developer"),
-            ("License", "license"),
+            (_("Developer"), "developer"),
+            (_("License"), "license"),
         ):
             value = getattr(data, key, "") or ""
             if value:
@@ -382,16 +395,16 @@ class DetailsPage(Adw.NavigationPage):
 
         homepage = getattr(data, "homepage", "") or ""
         if homepage:
-            row = self._info_row("Homepage", homepage, selectable=True)
+            row = self._info_row(_("Homepage"), homepage, selectable=True)
             link = Gtk.Button(icon_name="adw-external-link-symbolic")
-            link.set_tooltip_text("Open homepage")
+            link.set_tooltip_text(_("Open homepage"))
             link.add_css_class("flat")
             link.connect("clicked", lambda _b, url=homepage: self._open_uri(url))
             row.add_suffix(link)
             expander.add_row(row)
 
         if app_id:
-            expander.add_row(self._info_row("Store ID", app_id, selectable=True))
+            expander.add_row(self._info_row(_("Store ID"), app_id, selectable=True))
 
         group.add(expander)
         group.set_visible(True)
@@ -493,11 +506,11 @@ class DetailsPage(Adw.NavigationPage):
             except Exception:  # noqa: BLE001
                 path = None
         if path is None or not Path(path).is_file():
-            show_toast(self, "Screenshot is not available")
+            show_toast(self, _("Screenshot is not available"))
             return
         caption = getattr(shot, "caption", "") or ""
         dialog = Adw.Dialog()
-        dialog.set_title(caption or "Screenshot")
+        dialog.set_title(caption or _("Screenshot"))
         dialog.set_content_width(900)
         dialog.set_content_height(650)
         header = Adw.HeaderBar()
@@ -526,18 +539,18 @@ class DetailsPage(Adw.NavigationPage):
         try:
             Gio.AppInfo.launch_default_for_uri(url, None)
         except GLib.Error as exc:
-            show_toast(self, f"Could not open link: {exc.message}")
+            show_toast(self, _("Could not open link: %s") % exc.message)
 
     # ----------------------------------------------------- change package manager
     def _build_sources_group(self) -> Adw.PreferencesGroup:
         group = Adw.PreferencesGroup(
-            title="Change package manager",
-            description=(
+            title=_("Change package manager"),
+            description=_(
                 "Install this application from another package manager. "
                 "The current copy is not touched until you remove it."
             ),
         )
-        status = Adw.ActionRow(title="Looking for alternative package sources…")
+        status = Adw.ActionRow(title=_("Looking for alternative package sources…"))
         spinner = Gtk.Spinner()
         spinner.set_valign(Gtk.Align.CENTER)
         spinner.start()
@@ -574,12 +587,14 @@ class DetailsPage(Adw.NavigationPage):
         status = getattr(self, "_sources_status", None)
         if error:
             if status is not None:
-                status.set_title(f"Could not search for alternative sources: {error}")
+                status.set_title(
+                    _("Could not search for alternative sources: %s") % error
+                )
                 status.set_visible(True)
             return GLib.SOURCE_REMOVE
         if not candidates:
             if status is not None:
-                status.set_title("No alternative package sources found.")
+                status.set_title(_("No alternative package sources found."))
                 status.set_visible(True)
             return GLib.SOURCE_REMOVE
         if status is not None:
@@ -594,19 +609,16 @@ class DetailsPage(Adw.NavigationPage):
             if len(summary) > 90:
                 summary = summary[:87].rstrip() + "…"
             parts = [part for part in (ref, version, origin) if part]
-            subtitle = " · ".join(parts)
+            subtitle = _(" · ").join(parts)
             if summary:
-                subtitle = f"{subtitle} · {summary}" if subtitle else summary
+                subtitle = _("%s · %s") % (subtitle, summary) if subtitle else summary
             if kind == "snap":
-                subtitle = (
-                    f"{subtitle} · Snap installs prompt for authentication"
-                    if subtitle
-                    else "Snap installs prompt for authentication"
-                )
+                auth = _("Snap installs prompt for authentication")
+                subtitle = _("%s · %s") % (subtitle, auth) if subtitle else auth
             label = self._kind_label(kind)
             row = Adw.ActionRow(title=escape_markup(f"{label} · {name}"), subtitle=escape_markup(subtitle))
             row.set_subtitle_lines(2)
-            install = Gtk.Button(label="Install")
+            install = Gtk.Button(label=_("Install"))
             install.add_css_class("suggested-action")
             install.connect(
                 "clicked", lambda _b, c=candidate: self._install_candidate(c)
@@ -638,24 +650,34 @@ class DetailsPage(Adw.NavigationPage):
             )
 
         dialog = OperationDialog(
-            f"Installing {name}",
+            _("Installing %s") % name,
             worker,
             on_success=lambda _result: self._candidate_installed(candidate),
-            on_error=lambda exc: show_toast(self, f"Installation failed: {exc}"),
+            on_error=lambda exc: show_toast(
+                self, _("Installation failed: %s") % exc
+            ),
             parent=self.get_root(),
         )
         dialog.present(self.get_root())
 
     def _candidate_installed(self, candidate) -> None:
-        name = getattr(candidate, "name", "") or getattr(candidate, "ref", "") or "package"
+        name = getattr(candidate, "name", "") or getattr(candidate, "ref", "") or _("package")
         current = apps.kind_label(self.app.kind)
         confirm(
             self.get_root(),
-            "Remove the current copy?",
-            f"Remove the {current.lower()} copy of {self.app.display_name}?\n\n"
-            f"{name} was installed with {self._kind_label(getattr(candidate, 'kind', ''))}. "
-            "You can keep both copies.",
-            confirm_label="Remove current copy",
+            _("Remove the current copy?"),
+            _(
+                "Remove the %(kind)s copy of %(name)s?\n\n"
+                "%(candidate)s was installed with %(manager)s. "
+                "You can keep both copies."
+            )
+            % {
+                "kind": current.lower(),
+                "name": self.app.display_name,
+                "candidate": name,
+                "manager": self._kind_label(getattr(candidate, "kind", "")),
+            },
+            confirm_label=_("Remove current copy"),
             destructive=True,
             on_confirm=self._uninstall_current_kind,
         )
@@ -667,10 +689,10 @@ class DetailsPage(Adw.NavigationPage):
             return uninstall_kind(self.app, progress=progress, cancel=cancel)
 
         dialog = OperationDialog(
-            f"Removing {self.app.display_name}",
+            _("Removing %s") % self.app.display_name,
             worker,
             on_success=lambda _result: self._notify_changed(),
-            on_error=lambda exc: show_toast(self, f"Removal failed: {exc}"),
+            on_error=lambda exc: show_toast(self, _("Removal failed: %s") % exc),
             parent=self.get_root(),
         )
         dialog.present(self.get_root())
@@ -686,20 +708,20 @@ class DetailsPage(Adw.NavigationPage):
     def _build_parameters_group(self) -> Adw.PreferencesGroup:
         entry = self._fresh_entry()
         group = Adw.PreferencesGroup(
-            title="Application parameters",
-            description="Values written to this application's desktop entry.",
+            title=_("Application parameters"),
+            description=_("Values written to this application's desktop entry."),
         )
         categories = ";".join(entry.categories or []) or _key(entry, "Categories")
         rows = (
-            ("Comment", "Comment", entry.comment or _key(entry, "Comment")),
-            ("Categories", "Categories", categories),
-            ("Keywords", "Keywords", _key(entry, "Keywords")),
-            ("Exec", "Exec", entry.exec_line),
+            (_("Comment"), "Comment", entry.comment or _key(entry, "Comment")),
+            (_("Categories"), "Categories", categories),
+            (_("Keywords"), "Keywords", _key(entry, "Keywords")),
+            (_("Exec"), "Exec", entry.exec_line),
         )
         for title, key, value in rows:
             row = Adw.EntryRow(title=title)
             row.set_text(value or "")
-            save = Gtk.Button(label="Save")
+            save = Gtk.Button(label=_("Save"))
             save.connect(
                 "clicked",
                 lambda _b, r=row, k=key: self._save_parameter(r, k),
@@ -708,16 +730,16 @@ class DetailsPage(Adw.NavigationPage):
             group.add(row)
 
         terminal = Adw.SwitchRow(
-            title="Terminal application",
-            subtitle="Run this application in a terminal window",
+            title=_("Terminal application"),
+            subtitle=_("Run this application in a terminal window"),
         )
         terminal.set_active(bool(entry.terminal))
         terminal.connect("notify::active", self._on_terminal_toggled)
         group.add(terminal)
 
         hidden = Adw.SwitchRow(
-            title="Hide from application menu",
-            subtitle="Keep the desktop entry but omit it from application menus",
+            title=_("Hide from application menu"),
+            subtitle=_("Keep the desktop entry but omit it from application menus"),
         )
         hidden.set_active(bool(entry.no_display))
         hidden.connect("notify::active", self._on_nodisplay_toggled)
@@ -727,7 +749,7 @@ class DetailsPage(Adw.NavigationPage):
     def _save_parameter(self, row: Adw.EntryRow, key: str) -> None:
         value = row.get_text().strip()
         if key == "Exec" and not value:
-            show_toast(self, "Exec cannot be empty")
+            show_toast(self, _("Exec cannot be empty"))
             return
         if key == "Categories" and value and not value.endswith(";"):
             value += ";"
@@ -735,10 +757,10 @@ class DetailsPage(Adw.NavigationPage):
         try:
             fresh = desktop.set_string(self._fresh_entry(), key, value)
         except (OSError, GLib.Error) as exc:
-            show_toast(self, f"Could not update {key}: {exc}")
+            show_toast(self, _("Could not update %s: %s") % (key, exc))
             return
         self.app.entry = fresh
-        show_toast(self, f"{key} updated")
+        show_toast(self, _("%s updated") % key)
         self._notify_changed()
 
     def _on_terminal_toggled(self, row: Adw.SwitchRow, _param) -> None:
@@ -746,12 +768,14 @@ class DetailsPage(Adw.NavigationPage):
         try:
             fresh = desktop.set_string(self._fresh_entry(), "Terminal", value)
         except (OSError, GLib.Error) as exc:
-            show_toast(self, f"Could not update Terminal: {exc}")
+            show_toast(self, _("Could not update Terminal: %s") % exc)
             return
         self.app.entry = fresh
         show_toast(
             self,
-            "Application runs in a terminal" if row.get_active() else "Terminal disabled",
+            _("Application runs in a terminal")
+            if row.get_active()
+            else _("Terminal disabled"),
         )
         self._notify_changed()
 
@@ -762,14 +786,14 @@ class DetailsPage(Adw.NavigationPage):
             else:
                 fresh = desktop.remove_key(self._fresh_entry(), "NoDisplay")
         except (OSError, GLib.Error) as exc:
-            show_toast(self, f"Could not update menu visibility: {exc}")
+            show_toast(self, _("Could not update menu visibility: %s") % exc)
             return
         self.app.entry = fresh
         show_toast(
             self,
-            "Hidden from the application menu"
+            _("Hidden from the application menu")
             if row.get_active()
-            else "Shown in the application menu",
+            else _("Shown in the application menu"),
         )
         self._notify_changed()
 
@@ -780,8 +804,8 @@ class DetailsPage(Adw.NavigationPage):
         if not app_id:
             return None
         group = Adw.PreferencesGroup(
-            title="Flatpak permissions",
-            description="Changes apply as user overrides for this application.",
+            title=_("Flatpak permissions"),
+            description=_("Changes apply as user overrides for this application."),
         )
         try:
             from ..backends import flatpak
@@ -790,7 +814,7 @@ class DetailsPage(Adw.NavigationPage):
         except Exception:  # noqa: BLE001 - permissions are best effort
             state = {}
         for label, group_key, value, on_action, off_action in PERMISSIONS:
-            row = Adw.SwitchRow(title=label)
+            row = Adw.SwitchRow(title=_(label))
             row.set_active(value in state.get(group_key, set()))
             row.connect(
                 "notify::active",
@@ -803,31 +827,33 @@ class DetailsPage(Adw.NavigationPage):
             )
             group.add(row)
 
-        expander = Adw.ExpanderRow(title="Effective permissions", subtitle=escape_markup(app_id))
+        expander = Adw.ExpanderRow(
+            title=_("Effective permissions"), subtitle=escape_markup(app_id)
+        )
         try:
             from ..backends import flatpak
 
             raw = flatpak.permissions(app_id, self.app.scope)
         except Exception:  # noqa: BLE001
-            raw = "Permissions are unavailable."
+            raw = _("Permissions are unavailable.")
         expander.add_row(monospace_view(raw, height=180))
         group.add(expander)
 
         reset_row = Adw.ActionRow(
-            title="Reset all overrides",
-            subtitle="Remove every user permission override for this application",
+            title=_("Reset all overrides"),
+            subtitle=_("Remove every user permission override for this application"),
         )
-        reset_button = Gtk.Button(label="Reset")
+        reset_button = Gtk.Button(label=_("Reset"))
         reset_button.connect("clicked", lambda _b: self._on_reset_overrides(app_id))
         reset_row.add_suffix(reset_button)
         group.add(reset_row)
         return group
 
     def _build_autostart_group(self) -> Adw.PreferencesGroup:
-        group = Adw.PreferencesGroup(title="Startup")
+        group = Adw.PreferencesGroup(title=_("Startup"))
         self._autostart_row = Adw.SwitchRow(
-            title="Start at login",
-            subtitle="Autostart this application when you sign in",
+            title=_("Start at login"),
+            subtitle=_("Autostart this application when you sign in"),
         )
         try:
             self._autostart_row.set_active(autostart.enabled(self.app.entry))
@@ -842,17 +868,17 @@ class DetailsPage(Adw.NavigationPage):
             return None
         group = Adw.PreferencesGroup(title="AppImage")
         bundle = self.app.install_path or self._first_exec_path()
-        group.add(self._info_row("Bundle", str(bundle) if bundle else ""))
+        group.add(self._info_row(_("Bundle"), str(bundle) if bundle else ""))
         replace_row = Adw.ActionRow(
-            title="Replace AppImage…",
-            subtitle="Back up the current bundle and install a new version",
+            title=_("Replace AppImage…"),
+            subtitle=_("Back up the current bundle and install a new version"),
         )
-        choose = Gtk.Button(label="Choose…")
+        choose = Gtk.Button(label=_("Choose…"))
         choose.connect("clicked", lambda _b: self._on_replace_appimage())
         replace_row.add_suffix(choose)
         group.add(replace_row)
 
-        open_row = Adw.ActionRow(title="Open bundle folder")
+        open_row = Adw.ActionRow(title=_("Open bundle folder"))
         open_button = Gtk.Button(icon_name="folder-open-symbolic")
         open_button.add_css_class("flat")
         if bundle is not None:
@@ -875,13 +901,13 @@ class DetailsPage(Adw.NavigationPage):
         executable_rel = _key(entry, "X-Appdeb-Executable")
         executable = (install_dir / executable_rel) if install_dir and executable_rel else self._first_exec_path()
 
-        group = Adw.PreferencesGroup(title="Tarball")
-        group.add(self._info_row("Install directory", str(install_dir) if install_dir else "", selectable=True))
-        group.add(self._info_row("Executable", str(executable) if executable else "", selectable=True))
-        group.add(self._info_row("Original archive", _key(entry, "X-Appdeb-Source")))
-        group.add(self._info_row("Detected version", self.app.version))
+        group = Adw.PreferencesGroup(title=_("Tarball"))
+        group.add(self._info_row(_("Install directory"), str(install_dir) if install_dir else "", selectable=True))
+        group.add(self._info_row(_("Executable"), str(executable) if executable else "", selectable=True))
+        group.add(self._info_row(_("Original archive"), _key(entry, "X-Appdeb-Source")))
+        group.add(self._info_row(_("Detected version"), self.app.version))
 
-        open_row = Adw.ActionRow(title="Open install folder")
+        open_row = Adw.ActionRow(title=_("Open install folder"))
         open_button = Gtk.Button(icon_name="folder-open-symbolic")
         open_button.add_css_class("flat")
         if install_dir is not None:
@@ -890,10 +916,10 @@ class DetailsPage(Adw.NavigationPage):
         group.add(open_row)
 
         change_row = Adw.ActionRow(
-            title="Change executable…",
-            subtitle="Pick another executable inside the install directory",
+            title=_("Change executable…"),
+            subtitle=_("Pick another executable inside the install directory"),
         )
-        change_button = Gtk.Button(label="Choose…")
+        change_button = Gtk.Button(label=_("Choose…"))
         change_button.connect(
             "clicked",
             lambda _b, d=install_dir: self._on_change_executable(d),
@@ -902,10 +928,10 @@ class DetailsPage(Adw.NavigationPage):
         group.add(change_row)
 
         replace_row = Adw.ActionRow(
-            title="Reinstall / replace archive…",
-            subtitle="Keep the desktop entry, icon and name while replacing the files",
+            title=_("Reinstall / replace archive…"),
+            subtitle=_("Keep the desktop entry, icon and name while replacing the files"),
         )
-        replace_button = Gtk.Button(label="Choose…")
+        replace_button = Gtk.Button(label=_("Choose…"))
         replace_button.connect("clicked", lambda _b: self._on_replace_tarball())
         replace_row.add_suffix(replace_button)
         group.add(replace_row)
@@ -926,27 +952,27 @@ class DetailsPage(Adw.NavigationPage):
         if info is None and self.app.kind != "deb":
             return None
 
-        group = Adw.PreferencesGroup(title="Debian package")
-        group.add(self._info_row("Package", package, selectable=True))
+        group = Adw.PreferencesGroup(title=_("Debian package"))
+        group.add(self._info_row(_("Package"), package, selectable=True))
         if info is not None:
-            group.add(self._info_row("Version", info.version))
-            group.add(self._info_row("Architecture", info.architecture))
-            group.add(self._info_row("Installed size", apps.human_size(info.installed_size * 1024)))
-            group.add(self._info_row("Maintainer", info.maintainer))
-            group.add(self._info_row("Dependencies", info.depends))
-            group.add(self._info_row("Description", info.description))
+            group.add(self._info_row(_("Version"), info.version))
+            group.add(self._info_row(_("Architecture"), info.architecture))
+            group.add(self._info_row(_("Installed size"), apps.human_size(info.installed_size * 1024)))
+            group.add(self._info_row(_("Maintainer"), info.maintainer))
+            group.add(self._info_row(_("Dependencies"), info.depends))
+            group.add(self._info_row(_("Description"), info.description))
 
         purge_row = Adw.ActionRow(
-            title="Purge configuration files",
-            subtitle="Also remove system configuration when uninstalling",
+            title=_("Purge configuration files"),
+            subtitle=_("Also remove system configuration when uninstalling"),
         )
         self._purge = Gtk.CheckButton()
         purge_row.add_suffix(self._purge)
         group.add(purge_row)
 
         hold_row = Adw.SwitchRow(
-            title="Hold package version",
-            subtitle="Prevent apt from upgrading this package",
+            title=_("Hold package version"),
+            subtitle=_("Prevent apt from upgrading this package"),
         )
         hold_row.set_sensitive(False)
         hold_row.connect("notify::active", self._on_deb_hold_toggled)
@@ -957,10 +983,10 @@ class DetailsPage(Adw.NavigationPage):
         self._load_deb_hold(self._build_token, package)
 
         remove_row = Adw.ActionRow(
-            title="Remove package",
-            subtitle="Shows the affected packages before removal",
+            title=_("Remove package"),
+            subtitle=_("Shows the affected packages before removal"),
         )
-        remove_button = Gtk.Button(label="Remove…")
+        remove_button = Gtk.Button(label=_("Remove…"))
         remove_button.add_css_class("destructive-action")
         remove_button.connect("clicked", lambda _b, p=package: self._on_remove_deb(p))
         remove_row.add_suffix(remove_button)
@@ -994,12 +1020,12 @@ class DetailsPage(Adw.NavigationPage):
         available = snap.available()
         group = Adw.PreferencesGroup(title="Snap")
         if not available:
-            group.set_description("The snap command is not available on this system.")
+            group.set_description(_("The snap command is not available on this system."))
         if not name:
             group.add(
                 Adw.ActionRow(
-                    title="Snap name unknown",
-                    subtitle="This desktop entry does not identify a snap instance",
+                    title=_("Snap name unknown"),
+                    subtitle=_("This desktop entry does not identify a snap instance"),
                 )
             )
             return group
@@ -1010,28 +1036,30 @@ class DetailsPage(Adw.NavigationPage):
         self._snap_channel_guard = False
         self._snap_hold_guard = False
 
-        channel_row = Adw.ComboRow(title="Channel")
+        channel_row = Adw.ComboRow(title=_("Channel"))
         channel_row.set_model(Gtk.StringList.new([]))
         channel_row.set_sensitive(False)
         channel_row.set_subtitle(
-            "Loading channels…"
+            _("Loading channels…")
             if available
-            else "The snap command is not available on this system."
+            else _("The snap command is not available on this system.")
         )
         channel_row.connect("notify::selected", self._on_snap_channel_selected)
         group.add(channel_row)
         self._snap_channel_row = channel_row
 
-        refresh_row = Adw.ButtonRow(title="Refresh snap now")
+        refresh_row = Adw.ButtonRow(title=_("Refresh snap now"))
         refresh_row.set_sensitive(available)
         if not available:
-            refresh_row.set_tooltip_text("The snap command is not available on this system.")
+            refresh_row.set_tooltip_text(
+                _("The snap command is not available on this system.")
+            )
         refresh_row.connect("activated", lambda _row: self._on_snap_refresh())
         group.add(refresh_row)
 
         hold_row = Adw.SwitchRow(
-            title="Hold updates",
-            subtitle="Pause automatic refreshes for this snap",
+            title=_("Hold updates"),
+            subtitle=_("Pause automatic refreshes for this snap"),
         )
         hold_row.set_sensitive(False)
         hold_row.connect("notify::active", self._on_snap_hold_toggled)
@@ -1089,9 +1117,11 @@ class DetailsPage(Adw.NavigationPage):
             if not names:
                 row.set_sensitive(False)
                 if error:
-                    row.set_subtitle(escape_markup(f"Could not read snap channels: {error}"))
+                    row.set_subtitle(
+                        escape_markup(_("Could not read snap channels: %s") % error)
+                    )
                 else:
-                    row.set_subtitle("No channels reported for this snap")
+                    row.set_subtitle(_("No channels reported for this snap"))
                 self._snap_channel_index = -1
             else:
                 index = self._preferred_channel(names, channels, tracking)
@@ -1101,7 +1131,9 @@ class DetailsPage(Adw.NavigationPage):
                 self._snap_channel_index = index
                 self._snap_channel_guard = False
                 row.set_subtitle(
-                    escape_markup(f"Following {names[index]}; switching refreshes the snap")
+                    escape_markup(
+                        _("Following %s; switching refreshes the snap") % names[index]
+                    )
                 )
                 row.set_sensitive(True)
         hold = getattr(self, "_snap_hold_row", None)
@@ -1153,9 +1185,10 @@ class DetailsPage(Adw.NavigationPage):
             return
         dialog = confirm(
             self.get_root(),
-            "Switch snap channel",
-            f"Switch {self._snap_instance} to {channel}? The snap is refreshed now.",
-            confirm_label="Switch channel",
+            _("Switch snap channel"),
+            _("Switch %(name)s to %(channel)s? The snap is refreshed now.")
+            % {"name": self._snap_instance, "channel": channel},
+            confirm_label=_("Switch channel"),
             on_confirm=lambda: self._switch_snap_channel(channel, selected),
         )
         dialog.connect(
@@ -1175,7 +1208,8 @@ class DetailsPage(Adw.NavigationPage):
             return True
 
         dialog = OperationDialog(
-            f"Switching {name} to {channel}",
+            _("Switching %(name)s to %(channel)s")
+            % {"name": name, "channel": channel},
             worker,
             on_success=lambda _result: self._snap_channel_switched(name, channel, selected),
             on_error=self._snap_channel_failed,
@@ -1185,12 +1219,12 @@ class DetailsPage(Adw.NavigationPage):
 
     def _snap_channel_switched(self, name: str, channel: str, selected: int) -> None:
         self._snap_channel_index = selected
-        show_toast(self, f"{name} now follows {channel}")
+        show_toast(self, _("%(name)s now follows %(channel)s") % {"name": name, "channel": channel})
         self._notify_changed()
 
     def _snap_channel_failed(self, exc: BaseException) -> None:
         self._restore_snap_channel()
-        show_toast(self, f"Could not switch channel: {exc}")
+        show_toast(self, _("Could not switch channel: %s") % exc)
 
     def _on_snap_refresh(self) -> None:
         from ..backends import snap
@@ -1202,16 +1236,18 @@ class DetailsPage(Adw.NavigationPage):
             return True
 
         dialog = OperationDialog(
-            f"Refreshing {name}",
+            _("Refreshing %s") % name,
             worker,
             on_success=lambda _result: self._snap_refreshed(name),
-            on_error=lambda exc: show_toast(self, f"Could not refresh snap: {exc}"),
+            on_error=lambda exc: show_toast(
+                self, _("Could not refresh snap: %s") % exc
+            ),
             parent=self.get_root(),
         )
         dialog.present(self.get_root())
 
     def _snap_refreshed(self, name: str) -> None:
-        show_toast(self, f"Refreshed {name}")
+        show_toast(self, _("Refreshed %s") % name)
         self._notify_changed()
 
     def _on_snap_hold_toggled(self, row: Adw.SwitchRow, _param) -> None:
@@ -1231,14 +1267,16 @@ class DetailsPage(Adw.NavigationPage):
             self._snap_hold_guard = True
             row.set_active(not enabled)
             self._snap_hold_guard = False
-            show_toast(self, f"Could not change update hold: {exc}")
+            show_toast(self, _("Could not change update hold: %s") % exc)
 
         dialog = OperationDialog(
-            "Holding snap updates" if enabled else "Resuming snap updates",
+            _("Holding snap updates") if enabled else _("Resuming snap updates"),
             worker,
             on_success=lambda _result: show_toast(
                 self,
-                f"Updates for {name} are held" if enabled else f"Updates for {name} resumed",
+                _("Updates for %s are held") % name
+                if enabled
+                else _("Updates for %s resumed") % name,
             ),
             on_error=failed,
             parent=self.get_root(),
@@ -1287,16 +1325,16 @@ class DetailsPage(Adw.NavigationPage):
             self._deb_hold_guard = True
             row.set_active(not enabled)
             self._deb_hold_guard = False
-            show_toast(self, f"Could not change package hold: {exc}")
+            show_toast(self, _("Could not change package hold: %s") % exc)
 
         dialog = OperationDialog(
-            "Holding package version" if enabled else "Releasing package hold",
+            _("Holding package version") if enabled else _("Releasing package hold"),
             worker,
             on_success=lambda _result: show_toast(
                 self,
-                f"{package} held at its current version"
+                _("%s held at its current version") % package
                 if enabled
-                else f"{package} can be upgraded again",
+                else _("%s can be upgraded again") % package,
             ),
             on_error=failed,
             parent=self.get_root(),
@@ -1363,7 +1401,7 @@ class DetailsPage(Adw.NavigationPage):
         try:
             Gio.AppInfo.launch_default_for_uri(Path(path).as_uri(), None)
         except GLib.Error as exc:
-            show_toast(self, f"Could not open location: {exc.message}")
+            show_toast(self, _("Could not open location: %s") % exc.message)
 
     def _pop(self) -> None:
         parent = self.get_parent()
@@ -1390,9 +1428,9 @@ class DetailsPage(Adw.NavigationPage):
         try:
             desktop.launch(self.app.entry)
         except Exception as exc:  # noqa: BLE001
-            show_toast(self, f"Could not launch: {exc}")
+            show_toast(self, _("Could not launch: %s") % exc)
             return
-        show_toast(self, f"Launching {self.app.display_name}")
+        show_toast(self, _("Launching %s") % self.app.display_name)
 
     def _on_shortcut(self) -> None:
         base = desktop.shortcut_path(self.app.entry)
@@ -1400,9 +1438,10 @@ class DetailsPage(Adw.NavigationPage):
         if base.exists():
             confirm(
                 root,
-                "Desktop shortcut",
-                f"A shortcut for {self.app.display_name} already exists. Remove it?",
-                confirm_label="Remove shortcut",
+                _("Desktop shortcut"),
+                _("A shortcut for %s already exists. Remove it?")
+                % self.app.display_name,
+                confirm_label=_("Remove shortcut"),
                 destructive=True,
                 on_confirm=self._remove_shortcut,
             )
@@ -1410,19 +1449,19 @@ class DetailsPage(Adw.NavigationPage):
             try:
                 path = desktop.create_shortcut(self.app.entry)
             except OSError as exc:
-                show_toast(self, f"Could not create shortcut: {exc}")
+                show_toast(self, _("Could not create shortcut: %s") % exc)
                 return
-            show_toast(self, f"Shortcut created: {path}")
+            show_toast(self, _("Shortcut created: %s") % path)
 
     def _remove_shortcut(self) -> None:
         if desktop.remove_shortcut(self.app.entry):
-            show_toast(self, "Shortcut removed")
+            show_toast(self, _("Shortcut removed"))
         else:
-            show_toast(self, "No shortcut found")
+            show_toast(self, _("No shortcut found"))
 
     def _on_change_icon(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose application icon")
-        filt = file_filter("Images", ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
+        dialog = Gtk.FileDialog(title=_("Choose application icon"))
+        filt = file_filter(_("Images"), ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -1443,9 +1482,9 @@ class DetailsPage(Adw.NavigationPage):
             desktop.set_string(self.app.entry, "Icon", name)
             db.upsert(self.app.desktop_id, icon_name=name)
         except (ValueError, OSError) as exc:
-            show_toast(self, f"Could not install icon: {exc}")
+            show_toast(self, _("Could not install icon: %s") % exc)
             return
-        show_toast(self, "Application icon updated")
+        show_toast(self, _("Application icon updated"))
         self._reload()
 
     def _on_reset_icon(self) -> None:
@@ -1461,7 +1500,7 @@ class DetailsPage(Adw.NavigationPage):
             db.upsert(self.app.desktop_id, icon_name=original)
         else:
             desktop.remove_key(self.app.entry, "Icon")
-        show_toast(self, "Application icon reset")
+        show_toast(self, _("Application icon reset"))
         self._reload()
 
     def _on_rename(self) -> None:
@@ -1469,12 +1508,12 @@ class DetailsPage(Adw.NavigationPage):
         entry.set_text(self.app.display_name)
         entry.set_activates_default(True)
         dialog = Adw.AlertDialog(
-            heading="Rename application",
-            body="This changes the name shown in menus, the dock and this window.",
+            heading=_("Rename application"),
+            body=_("This changes the name shown in menus, the dock and this window."),
         )
         dialog.set_extra_child(entry)
-        dialog.add_response("cancel", "Cancel")
-        dialog.add_response("rename", "Rename")
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("rename", _("Rename"))
         dialog.set_close_response("cancel")
         dialog.set_default_response("rename")
         dialog.set_response_appearance("rename", Adw.ResponseAppearance.SUGGESTED)
@@ -1485,10 +1524,10 @@ class DetailsPage(Adw.NavigationPage):
             try:
                 fresh = desktop.rename(self.app.entry, entry.get_text())
             except ValueError as exc:
-                show_toast(self, f"Rename failed: {exc}")
+                show_toast(self, _("Rename failed: %s") % exc)
                 return
             self.app.entry = fresh
-            show_toast(self, "Application renamed")
+            show_toast(self, _("Application renamed"))
             self._reload()
 
         dialog.connect("response", _on_response)
@@ -1504,17 +1543,17 @@ class DetailsPage(Adw.NavigationPage):
                 fresh = desktop.remove_key(self.app.entry, "StartupWMClass")
                 self.app.entry = fresh
         except (OSError, GLib.Error) as exc:
-            show_toast(self, f"Could not update window class: {exc}")
+            show_toast(self, _("Could not update window class: %s") % exc)
             return
-        show_toast(self, "Dock icon association updated")
+        show_toast(self, _("Dock icon association updated"))
         self._notify_changed()
 
     def _on_end_processes(self) -> None:
         confirm(
             self.get_root(),
-            "End processes",
-            f"Terminate all processes belonging to {self.app.display_name}?",
-            confirm_label="End processes",
+            _("End processes"),
+            _("Terminate all processes belonging to %s?") % self.app.display_name,
+            confirm_label=_("End processes"),
             destructive=True,
             on_confirm=self._end_processes,
         )
@@ -1523,12 +1562,15 @@ class DetailsPage(Adw.NavigationPage):
         try:
             count = processes.terminate(self.app)
         except Exception as exc:  # noqa: BLE001
-            show_toast(self, f"Could not terminate processes: {exc}")
+            show_toast(self, _("Could not terminate processes: %s") % exc)
             return
         if count:
-            show_toast(self, f"Ended {count} process" + ("" if count == 1 else "es"))
+            show_toast(
+                self,
+                ngettext("Ended %d process", "Ended %d processes", count) % count,
+            )
         else:
-            show_toast(self, "No running processes")
+            show_toast(self, _("No running processes"))
         self._update_resources()
 
     # -------------------------------------------------------------- flatpak
@@ -1551,19 +1593,26 @@ class DetailsPage(Adw.NavigationPage):
 
             flatpak.set_override(app_id, action, value)
         except Exception as exc:  # noqa: BLE001
-            show_toast(self, f"Could not change permission: {exc}")
+            show_toast(self, _("Could not change permission: %s") % exc)
             self._perm_guard = True
             row.set_active(not active)
             self._perm_guard = False
             return
-        show_toast(self, f"{row.get_title()} {'enabled' if active else 'disabled'}")
+        show_toast(
+            self,
+            _("%(permission)s %(state)s")
+            % {
+                "permission": row.get_title(),
+                "state": _("enabled") if active else _("disabled"),
+            },
+        )
 
     def _on_reset_overrides(self, app_id: str) -> None:
         confirm(
             self.get_root(),
-            "Reset Flatpak overrides",
-            f"Remove all user permission overrides for {app_id}?",
-            confirm_label="Reset",
+            _("Reset Flatpak overrides"),
+            _("Remove all user permission overrides for %s?") % app_id,
+            confirm_label=_("Reset"),
             destructive=True,
             on_confirm=lambda: self._reset_overrides(app_id),
         )
@@ -1574,9 +1623,9 @@ class DetailsPage(Adw.NavigationPage):
 
             flatpak.reset_overrides(app_id)
         except Exception as exc:  # noqa: BLE001
-            show_toast(self, f"Could not reset overrides: {exc}")
+            show_toast(self, _("Could not reset overrides: %s") % exc)
             return
-        show_toast(self, "Flatpak overrides reset")
+        show_toast(self, _("Flatpak overrides reset"))
         self._build()
 
     # -------------------------------------------------------------- autostart
@@ -1589,25 +1638,29 @@ class DetailsPage(Adw.NavigationPage):
             self._autostart_guard = True
             row.set_active(not row.get_active())
             self._autostart_guard = False
-            show_toast(self, f"Could not change autostart: {exc}")
+            show_toast(self, _("Could not change autostart: %s") % exc)
             return
-        show_toast(self, "Autostart enabled" if row.get_active() else "Autostart disabled")
+        show_toast(
+            self,
+            _("Autostart enabled") if row.get_active() else _("Autostart disabled"),
+        )
 
     # --------------------------------------------------------------- AppImage
     def _on_replace_appimage(self) -> None:
         confirm(
             self.get_root(),
-            "Replace AppImage",
-            (
-                f"{self.app.display_name} is replaced in place. Quit the application first; "
+            _("Replace AppImage"),
+            _(
+                "%s is replaced in place. Quit the application first; "
                 "the current bundle is backed up next to the new one."
-            ),
-            confirm_label="Choose replacement",
+            )
+            % self.app.display_name,
+            confirm_label=_("Choose replacement"),
             on_confirm=self._choose_appimage_replacement,
         )
 
     def _choose_appimage_replacement(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose replacement AppImage")
+        dialog = Gtk.FileDialog(title=_("Choose replacement AppImage"))
         filt = file_filter("AppImage", ["*.AppImage", "*.appimage"])
         store = file_filters([filt])
         if store is not None:
@@ -1627,14 +1680,14 @@ class DetailsPage(Adw.NavigationPage):
         from ..backends import appimage
 
         if not appimage.is_appimage(path):
-            show_toast(self, "The selected file is not an AppImage")
+            show_toast(self, _("The selected file is not an AppImage"))
             return
 
         def worker(progress, cancel):
             return appimage.replace(self.app, path)
 
         dialog = OperationDialog(
-            "Replacing AppImage",
+            _("Replacing AppImage"),
             worker,
             on_success=self._on_replaced,
             parent=self.get_root(),
@@ -1642,17 +1695,17 @@ class DetailsPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _on_replaced(self, _result) -> None:
-        show_toast(self, "AppImage replaced; restart the application to use it")
+        show_toast(self, _("AppImage replaced; restart the application to use it"))
         self._reload()
 
     # ---------------------------------------------------------------- tarball
     def _on_change_executable(self, install_dir: Path | None) -> None:
         if install_dir is None:
-            show_toast(self, "The install directory is unknown")
+            show_toast(self, _("The install directory is unknown"))
             return
-        dialog = Gtk.FileDialog(title="Choose executable")
+        dialog = Gtk.FileDialog(title=_("Choose executable"))
         filt = Gtk.FileFilter()
-        filt.set_name("Executables")
+        filt.set_name(_("Executables"))
         dialog.set_default_filter(filt)
         store = file_filters([filt])
         if store is not None:
@@ -1671,7 +1724,7 @@ class DetailsPage(Adw.NavigationPage):
         try:
             relative = path.resolve().relative_to(Path(install_dir).resolve())
         except (OSError, ValueError):
-            show_toast(self, "Choose an executable inside the install directory")
+            show_toast(self, _("Choose an executable inside the install directory"))
             return
         try:
             path.chmod(0o755)
@@ -1680,24 +1733,25 @@ class DetailsPage(Adw.NavigationPage):
         fresh = desktop.set_string(self.app.entry, "Exec", str(path))
         fresh = desktop.set_string(fresh, "X-Appdeb-Executable", str(relative))
         self.app.entry = fresh
-        show_toast(self, "Executable updated")
+        show_toast(self, _("Executable updated"))
         self._reload()
 
     def _on_replace_tarball(self) -> None:
         confirm(
             self.get_root(),
-            "Replace tarball installation",
-            (
-                f"The files for {self.app.display_name} are replaced and the current install "
+            _("Replace tarball installation"),
+            _(
+                "The files for %s are replaced and the current install "
                 "directory is backed up. Quit the application first."
-            ),
-            confirm_label="Choose archive",
+            )
+            % self.app.display_name,
+            confirm_label=_("Choose archive"),
             on_confirm=self._choose_tarball_replacement,
         )
 
     def _choose_tarball_replacement(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose replacement .tar.gz")
-        filt = file_filter("Archives", ["*.tar.gz", "*.tgz"])
+        dialog = Gtk.FileDialog(title=_("Choose replacement .tar.gz"))
+        filt = file_filter(_("Archives"), ["*.tar.gz", "*.tgz"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -1719,7 +1773,7 @@ class DetailsPage(Adw.NavigationPage):
             return tarball.replace(self.app, path)
 
         dialog = OperationDialog(
-            "Replacing tarball installation",
+            _("Replacing tarball installation"),
             worker,
             on_success=self._on_replaced,
             parent=self.get_root(),
@@ -1734,15 +1788,17 @@ class DetailsPage(Adw.NavigationPage):
             impact = deb.removal_impact(package)
         except Exception:  # noqa: BLE001
             impact = []
-        body = f"Remove the package {package}?"
+        body = _("Remove the package %s?") % package
         if impact:
-            body += "\n\nThe following packages will be removed:\n" + "\n".join(impact[:20])
+            body += _("\n\nThe following packages will be removed:\n%s") % "\n".join(
+                impact[:20]
+            )
         purge = self._purge.get_active()
         confirm(
             self.get_root(),
-            "Remove Debian package",
+            _("Remove Debian package"),
             body,
-            confirm_label="Remove",
+            confirm_label=_("Remove"),
             destructive=True,
             on_confirm=lambda: self._remove_deb(package, purge),
         )
@@ -1755,7 +1811,7 @@ class DetailsPage(Adw.NavigationPage):
             return True
 
         dialog = OperationDialog(
-            f"Removing {package}",
+            _("Removing %s") % package,
             worker,
             on_success=self._on_removed,
             parent=self.get_root(),
@@ -1763,7 +1819,7 @@ class DetailsPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _on_removed(self, _result) -> None:
-        show_toast(self, "Package removed")
+        show_toast(self, _("Package removed"))
         self._notify_changed()
         self._pop()
 
@@ -1771,18 +1827,22 @@ class DetailsPage(Adw.NavigationPage):
     def _on_uninstall(self) -> None:
         kind = self.app.kind
         if kind not in ("flatpak", "appimage", "tarball", "deb"):
-            show_toast(self, "Uninstall is not supported for this entry")
+            show_toast(self, _("Uninstall is not supported for this entry"))
             return
-        body = f"Uninstall {self.app.display_name}? This cannot be undone."
+        body = _("Uninstall %s? This cannot be undone.") % self.app.display_name
         if kind == "tarball":
-            body += "\n\nThe managed install directory is deleted; the original archive is kept."
+            body += _(
+                "\n\nThe managed install directory is deleted; the original archive is kept."
+            )
         if kind == "appimage":
-            body += "\n\nThe managed bundle is deleted; your downloaded file is kept."
+            body += _(
+                "\n\nThe managed bundle is deleted; your downloaded file is kept."
+            )
         confirm(
             self.get_root(),
-            "Uninstall application",
+            _("Uninstall application"),
             body,
-            confirm_label="Uninstall",
+            confirm_label=_("Uninstall"),
             destructive=True,
             on_confirm=lambda: self._uninstall(kind),
         )
@@ -1796,7 +1856,7 @@ class DetailsPage(Adw.NavigationPage):
 
                 app_id = self._flatpak_id()
                 if not app_id:
-                    raise RuntimeError("The Flatpak application ID is unknown")
+                    raise RuntimeError(_("The Flatpak application ID is unknown"))
                 flatpak.uninstall(app_id, app.scope, progress=progress, cancel=cancel)
             elif kind == "appimage":
                 from ..backends import appimage
@@ -1811,14 +1871,14 @@ class DetailsPage(Adw.NavigationPage):
 
                 package = app.source_ref or deb.package_for_desktop(Path(app.entry.path))
                 if not package:
-                    raise RuntimeError("The Debian package name is unknown")
+                    raise RuntimeError(_("The Debian package name is unknown"))
                 deb.remove(package, False, progress=progress, cancel=cancel)
             else:
-                raise RuntimeError("Uninstall is not supported for this entry")
+                raise RuntimeError(_("Uninstall is not supported for this entry"))
             return True
 
         dialog = OperationDialog(
-            f"Uninstalling {app.display_name}",
+            _("Uninstalling %s") % app.display_name,
             worker,
             on_success=self._on_uninstalled,
             parent=self.get_root(),
@@ -1826,6 +1886,6 @@ class DetailsPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _on_uninstalled(self, _result) -> None:
-        show_toast(self, "Application uninstalled")
+        show_toast(self, _("Application uninstalled"))
         self._notify_changed()
         self._pop()

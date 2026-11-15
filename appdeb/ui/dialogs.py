@@ -13,6 +13,7 @@ gi.require_version("Adw", "1")
 gi.require_version("Gio", "2.0")
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
+from ..i18n import _
 from ..models import TarballMetadata  # noqa: E402
 from .widgets import escape_markup, file_filter, file_filters, icon_image  # noqa: E402
 
@@ -44,7 +45,7 @@ class OperationDialog(Adw.Dialog):
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
         header.set_title_widget(self._title_widget)
-        self._cancel_button = Gtk.Button(label="Cancel")
+        self._cancel_button = Gtk.Button(label=_("Cancel"))
         self._cancel_button.connect("clicked", self._on_cancel_clicked)
         header.pack_end(self._cancel_button)
 
@@ -88,7 +89,7 @@ class OperationDialog(Adw.Dialog):
             return
         self._cancel.set()
         self._cancel_button.set_sensitive(False)
-        self._cancel_button.set_label("Cancelling…")
+        self._cancel_button.set_label(_("Cancelling…"))
 
     def _start(self) -> bool:
         thread = threading.Thread(target=self._run, daemon=True)
@@ -146,7 +147,7 @@ class OperationDialog(Adw.Dialog):
             self.close()
             self._on_error(exc)
             return GLib.SOURCE_REMOVE
-        self._title_widget.set_title(f"{self._title_text} failed")
+        self._title_widget.set_title(_("%s failed") % self._title_text)
         text = str(exc) or exc.__class__.__name__
         output = getattr(exc, "output", "") or ""
         end = self._buffer.get_end_iter()
@@ -155,7 +156,7 @@ class OperationDialog(Adw.Dialog):
             self._buffer.insert(self._buffer.get_end_iter(), f"\n{output}\n")
         adjustment = self._scroller.get_vadjustment()
         adjustment.set_value(adjustment.get_upper())
-        self._cancel_button.set_label("Close")
+        self._cancel_button.set_label(_("Close"))
         self._cancel_button.set_sensitive(True)
         self._progress.set_fraction(0.0)
         return GLib.SOURCE_REMOVE
@@ -172,8 +173,8 @@ def confirm(
     extra_child: Gtk.Widget | None = None,
 ) -> Adw.AlertDialog:
     dialog = Adw.AlertDialog(heading=heading, body=body)
-    dialog.add_response("cancel", "Cancel")
-    dialog.add_response("confirm", confirm_label)
+    dialog.add_response("cancel", _("Cancel"))
+    dialog.add_response("confirm", _(confirm_label))
     dialog.set_close_response("cancel")
     dialog.set_default_response("confirm")
     if destructive:
@@ -215,22 +216,22 @@ class AppImageInstallDialog(Adw.Dialog):
             if candidate.is_file():
                 self._icon_path = candidate
 
-        self.set_title("Install AppImage")
+        self.set_title(_("Install AppImage"))
         self.set_content_width(620)
         self.set_content_height(560)
 
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
-        cancel = Gtk.Button(label="Cancel")
+        cancel = Gtk.Button(label=_("Cancel"))
         cancel.connect("clicked", lambda _b: self.close())
         header.pack_start(cancel)
-        install = Gtk.Button(label="Install")
+        install = Gtk.Button(label=_("Install"))
         install.add_css_class("suggested-action")
         install.connect("clicked", self._on_install_clicked)
         header.pack_end(install)
 
         warning = Gtk.Label(
-            label=(
+            label=_(
                 "AppImages run outside the Flatpak sandbox and can read your files. "
                 "Only install apps you trust."
             )
@@ -239,31 +240,31 @@ class AppImageInstallDialog(Adw.Dialog):
         warning.set_xalign(0.0)
         warning.add_css_class("dim-label")
 
-        details = Adw.PreferencesGroup(title="Application details")
-        self._name = Adw.EntryRow(title="Name")
+        details = Adw.PreferencesGroup(title=_("Application details"))
+        self._name = Adw.EntryRow(title=_("Name"))
         self._name.set_text(initial_name or (metadata.name if metadata else "") or source.stem)
-        self._comment = Adw.EntryRow(title="Comment")
+        self._comment = Adw.EntryRow(title=_("Comment"))
         self._comment.set_text(metadata.comment if metadata else "")
-        self._categories = Adw.EntryRow(title="Categories")
+        self._categories = Adw.EntryRow(title=_("Categories"))
         self._categories.set_text((metadata.categories if metadata else "") or "Utility;")
-        self._wm_class = Adw.EntryRow(title="Window class")
+        self._wm_class = Adw.EntryRow(title=_("Window class"))
         self._wm_class.set_text(metadata.wm_class if metadata else "")
         for row in (self._name, self._comment, self._categories, self._wm_class):
             details.add(row)
 
-        icon_group = Adw.PreferencesGroup(title="Icon")
-        self._icon_row = Adw.ActionRow(title="Application icon")
+        icon_group = Adw.PreferencesGroup(title=_("Icon"))
+        self._icon_row = Adw.ActionRow(title=_("Application icon"))
         if self._icon_path is not None:
             self._icon_row.set_subtitle(escape_markup(self._icon_path))
         else:
-            self._icon_row.set_subtitle("No embedded icon found")
+            self._icon_row.set_subtitle(_("No embedded icon found"))
         self._preview = icon_image(str(self._icon_path) if self._icon_path else "", 48)
         self._icon_row.add_prefix(self._preview)
-        choose_button = Gtk.Button(label="Choose…")
+        choose_button = Gtk.Button(label=_("Choose…"))
         choose_button.connect("clicked", lambda _b: self._choose_icon())
         self._icon_row.add_suffix(choose_button)
         if metadata is not None and metadata.icon:
-            extract_button = Gtk.Button(label="Extract icon")
+            extract_button = Gtk.Button(label=_("Extract icon"))
             extract_button.connect("clicked", lambda _b: self._extract_icon())
             self._icon_row.add_suffix(extract_button)
         icon_group.add(self._icon_row)
@@ -288,8 +289,8 @@ class AppImageInstallDialog(Adw.Dialog):
         self.set_child(toolbar)
 
     def _choose_icon(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose icon")
-        filt = file_filter("Images", ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
+        dialog = Gtk.FileDialog(title=_("Choose icon"))
+        filt = file_filter(_("Images"), ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -317,7 +318,9 @@ class AppImageInstallDialog(Adw.Dialog):
             self._icon_row.set_subtitle(escape_markup(candidate))
             self._preview.set_from_file(str(candidate))
         else:
-            self._icon_row.set_subtitle("The embedded icon is not available; choose one manually")
+            self._icon_row.set_subtitle(
+                _("The embedded icon is not available; choose one manually")
+            )
 
     def _on_install_clicked(self, _button: Gtk.Button) -> None:
         name = self._name.get_text().strip()
@@ -356,22 +359,22 @@ class TarballInstallDialog(Adw.Dialog):
         self._dest: Path | None = destination
         self._file_dialog: Gtk.FileDialog | None = None
 
-        self.set_title("Install .tar.gz application")
+        self.set_title(_("Install .tar.gz application"))
         self.set_content_width(640)
         self.set_content_height(560)
 
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
-        cancel = Gtk.Button(label="Cancel")
+        cancel = Gtk.Button(label=_("Cancel"))
         cancel.connect("clicked", lambda _b: self.close())
         header.pack_start(cancel)
-        install = Gtk.Button(label="Install")
+        install = Gtk.Button(label=_("Install"))
         install.add_css_class("suggested-action")
         install.connect("clicked", self._on_install_clicked)
         header.pack_end(install)
 
         warning = Gtk.Label(
-            label=(
+            label=_(
                 "Tarballs run outside a sandbox and can read your files. "
                 "Only install apps you trust."
             )
@@ -380,8 +383,8 @@ class TarballInstallDialog(Adw.Dialog):
         warning.set_xalign(0.0)
         warning.add_css_class("dim-label")
 
-        details = Adw.PreferencesGroup(title="Application details")
-        self._name = Adw.EntryRow(title="Name")
+        details = Adw.PreferencesGroup(title=_("Application details"))
+        self._name = Adw.EntryRow(title=_("Name"))
         self._name.set_text(metadata.name or source.stem)
         details.add(self._name)
 
@@ -389,36 +392,36 @@ class TarballInstallDialog(Adw.Dialog):
         if metadata.executable_rel and metadata.executable_rel not in candidates:
             candidates.insert(0, metadata.executable_rel)
         self._executables = candidates
-        model = Gtk.StringList.new(candidates or ["(no executable found)"])
-        self._exec_row = Adw.ComboRow(title="Executable", model=model)
+        model = Gtk.StringList.new(candidates or [_("(no executable found)")])
+        self._exec_row = Adw.ComboRow(title=_("Executable"), model=model)
         if metadata.executable_rel in candidates:
             self._exec_row.set_selected(candidates.index(metadata.executable_rel))
         details.add(self._exec_row)
 
-        self._comment = Adw.EntryRow(title="Comment")
+        self._comment = Adw.EntryRow(title=_("Comment"))
         self._comment.set_text(metadata.comment or "")
         details.add(self._comment)
 
         destination_group = Adw.PreferencesGroup(
-            title="Destination",
-            description=(
+            title=_("Destination"),
+            description=_(
                 "Leave empty to install into the managed AppDeb store. "
                 "Choose a folder to install into a subfolder of it."
             ),
         )
-        self._dest_row = Adw.EntryRow(title="Folder")
+        self._dest_row = Adw.EntryRow(title=_("Folder"))
         if destination is not None:
             self._dest_row.set_text(str(destination))
-        browse = Gtk.Button(label="Browse…")
+        browse = Gtk.Button(label=_("Browse…"))
         browse.connect("clicked", lambda _b: self._choose_folder())
         self._dest_row.add_suffix(browse)
         destination_group.add(self._dest_row)
 
-        icon_group = Adw.PreferencesGroup(title="Icon")
-        self._icon_row = Adw.ActionRow(title="Application icon", subtitle="Optional")
+        icon_group = Adw.PreferencesGroup(title=_("Icon"))
+        self._icon_row = Adw.ActionRow(title=_("Application icon"), subtitle=_("Optional"))
         self._preview = icon_image("", 48)
         self._icon_row.add_prefix(self._preview)
-        choose = Gtk.Button(label="Choose…")
+        choose = Gtk.Button(label=_("Choose…"))
         choose.connect("clicked", lambda _b: self._choose_icon())
         self._icon_row.add_suffix(choose)
         icon_group.add(self._icon_row)
@@ -444,7 +447,7 @@ class TarballInstallDialog(Adw.Dialog):
         self.set_child(toolbar)
 
     def _choose_folder(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose destination folder")
+        dialog = Gtk.FileDialog(title=_("Choose destination folder"))
         if self._dest is not None:
             try:
                 dialog.set_initial_folder(Gio.File.new_for_path(str(self._dest)))
@@ -464,8 +467,8 @@ class TarballInstallDialog(Adw.Dialog):
         self._dest_row.set_text(str(self._dest))
 
     def _choose_icon(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose icon")
-        filt = file_filter("Images", ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
+        dialog = Gtk.FileDialog(title=_("Choose icon"))
+        filt = file_filter(_("Images"), ["*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -519,7 +522,7 @@ class UrlDownloadDialog(Adw.Dialog):
         self,
         on_download: Callable[[str, str | None, Path | None], None],
         *,
-        title: str = "Download from URL",
+        title: str = "",
         show_destination: bool = False,
         parent: Gtk.Window | None = None,
     ) -> None:
@@ -529,36 +532,36 @@ class UrlDownloadDialog(Adw.Dialog):
         self._dest: Path | None = None
         self._file_dialog: Gtk.FileDialog | None = None
 
-        self.set_title(title)
+        self.set_title(title or _("Download from URL"))
         self.set_content_width(600)
         self.set_content_height(420 if show_destination else 340)
 
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
-        cancel = Gtk.Button(label="Cancel")
+        cancel = Gtk.Button(label=_("Cancel"))
         cancel.connect("clicked", lambda _b: self.close())
         header.pack_start(cancel)
-        download = Gtk.Button(label="Download")
+        download = Gtk.Button(label=_("Download"))
         download.add_css_class("suggested-action")
         download.connect("clicked", self._on_download_clicked)
         header.pack_end(download)
 
-        details = Adw.PreferencesGroup(title="Download")
-        self._url = Adw.EntryRow(title="URL (https://)")
+        details = Adw.PreferencesGroup(title=_("Download"))
+        self._url = Adw.EntryRow(title=_("URL (https://)"))
         details.add(self._url)
-        self._sha = Adw.EntryRow(title="SHA-256 (optional)")
+        self._sha = Adw.EntryRow(title=_("SHA-256 (optional)"))
         details.add(self._sha)
 
         group = Adw.PreferencesGroup(
-            title="Install",
-            description=(
+            title=_("Install"),
+            description=_(
                 "Downloads are installed from the download cache. "
                 "Only install software you trust."
             ),
         )
         if show_destination:
-            self._dest_row = Adw.EntryRow(title="Destination folder (optional)")
-            browse = Gtk.Button(label="Browse…")
+            self._dest_row = Adw.EntryRow(title=_("Destination folder (optional)"))
+            browse = Gtk.Button(label=_("Browse…"))
             browse.connect("clicked", lambda _b: self._choose_folder())
             self._dest_row.add_suffix(browse)
             group.add(self._dest_row)
@@ -586,7 +589,7 @@ class UrlDownloadDialog(Adw.Dialog):
         self.set_child(toolbar)
 
     def _choose_folder(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose destination folder")
+        dialog = Gtk.FileDialog(title=_("Choose destination folder"))
         self._file_dialog = dialog
         dialog.select_folder(self._parent, None, self._on_folder_chosen)
 
@@ -604,7 +607,7 @@ class UrlDownloadDialog(Adw.Dialog):
     def _on_download_clicked(self, _button: Gtk.Button) -> None:
         url = self._url.get_text().strip()
         if not url.startswith("https://"):
-            self._error.set_text("Only https:// URLs are supported.")
+            self._error.set_text(_("Only https:// URLs are supported."))
             self._error.set_visible(True)
             return
         sha = self._sha.get_text().strip() or None

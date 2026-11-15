@@ -13,6 +13,7 @@ from typing import Callable, Iterable
 from . import apps, desktop
 from .backends import appimage, brew, deb, flatpak, snap, tarball
 from .backends.runner import BackendError
+from .i18n import _
 from .models import InstalledApp
 
 KINDS = ("flatpak", "snap", "brew")
@@ -264,7 +265,7 @@ def find_sources(
             if per_kind[kind] >= _MAX_PER_KIND:
                 continue
             if progress is not None:
-                progress(f"Searching {kind} for {term}")
+                progress(_("Searching %s for %s") % (kind, term))
             try:
                 found = _candidates_for(kind, term)
             except (BackendError, OSError):
@@ -304,7 +305,7 @@ def install_candidate(
     if cand.kind == "brew":
         brew.install(cand.ref, progress=progress, cancel=cancel)
         return
-    raise BackendError(f"unknown source kind: {cand.kind}")
+    raise BackendError(_("unknown source kind: %s") % cand.kind)
 
 
 def uninstall_kind(
@@ -335,7 +336,9 @@ def uninstall_kind(
     if kind == "deb":
         package = deb.package_for_desktop(app.entry.path)
         if not package:
-            raise BackendError("no package found for desktop entry")
+            raise BackendError(_("no package found for desktop entry"))
         deb.remove(package, False, progress=progress, cancel=cancel)
         return
-    raise BackendError(f"no uninstall backend for kind: {kind or 'unknown'}")
+    raise BackendError(
+        _("no uninstall backend for kind: %s") % (kind or _("unknown"))
+    )

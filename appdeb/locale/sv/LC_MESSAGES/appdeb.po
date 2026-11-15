@@ -1,0 +1,1979 @@
+# Swedish translation for AppDeb.
+# Copyright (C) 2026 AppDeb contributors
+# This file is distributed under the same license as the AppDeb project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"\n"
+"The following packages will be removed:\n"
+"%s"
+msgstr "\n\nFöljande paket kommer att tas bort:\n%s"
+
+msgid ""
+"\n"
+"\n"
+"The managed bundle is deleted; your downloaded file is kept."
+msgstr "\n\nDet hanterade paketet raderas; din nedladdade fil behålls."
+
+msgid ""
+"\n"
+"\n"
+"The managed install directory is deleted; the original archive is kept."
+msgstr "\n\nDen hanterade installationskatalogen raderas; det ursprungliga arkivet behålls."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+#, python-format
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)dd %(hours)dh %(minutes)dm"
+
+#, python-format
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)dh %(minutes)dm"
+
+#, python-format
+msgid "%(minutes)dm"
+msgstr "%(minutes)dm"
+
+#, python-format
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s hanterar %(count)d paket; ta bort det först."
+msgstr[1] "%(name)s hanterar %(count)d paket; ta bort det först."
+
+#, python-format
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s följer nu %(channel)s"
+
+#, python-format
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+#, python-format
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+#, python-format
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+#, python-format
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+#, python-format
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+#, python-format
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+#, python-format
+msgid "%d Debian packages in the %s database"
+msgstr "%d Debian-paket i %s-databasen"
+
+#, python-format
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d Flatpak-uppdatering"
+msgstr[1] "%d Flatpak-uppdateringar"
+
+#, python-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d app"
+msgstr[1] "%d appar"
+
+#, python-format
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d program"
+msgstr[1] "%d program"
+
+#, python-format
+msgid "%d applications known to %s"
+msgstr "%d program kända av %s"
+
+#, python-format
+msgid "%d can be fixed automatically"
+msgstr "%d kan åtgärdas automatiskt"
+
+#, python-format
+msgid "%d formulae installed with %s"
+msgstr "%d formler installerade med %s"
+
+#, python-format
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d problem"
+msgstr[1] "%d problem"
+
+#, python-format
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+#, python-format
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+#, python-format
+msgid "%s applications"
+msgstr "%s program"
+
+#, python-format
+msgid "%s can be upgraded again"
+msgstr "%s kan uppgraderas igen"
+
+#, python-format
+msgid "%s failed"
+msgstr "%s misslyckades"
+
+#, python-format
+msgid "%s formulae"
+msgstr "%s formler"
+
+#, python-format
+msgid "%s held at its current version"
+msgstr "%s hålls kvar vid sin nuvarande version"
+
+#, python-format
+msgid "%s installation failed: %s"
+msgstr "%s installation misslyckades: %s"
+
+#, python-format
+msgid "%s is not installed"
+msgstr "%s är inte installerat"
+
+#, python-format
+msgid ""
+"%s is replaced in place. Quit the application first; the current bundle "
+"is backed up next to the new one."
+msgstr "%s ersätts på plats. Avsluta programmet först; den nuvarande paketfilen säkerhetskopieras bredvid den nya."
+
+#, python-format
+msgid "%s packages"
+msgstr "%s paket"
+
+#, python-format
+msgid "%s results"
+msgstr "%s resultat"
+
+#, python-format
+msgid "%s store"
+msgstr "%s-förråd"
+
+#, python-format
+msgid "%s updated"
+msgstr "%s uppdaterades"
+
+#, python-format
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+#, python-format
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(tom)"
+
+msgid "(no executable found)"
+msgstr "(ingen körbar fil hittades)"
+
+msgid "--name is required for AppImage installs"
+msgstr "--name krävs för AppImage-installationer"
+
+msgid "0 apps"
+msgstr "0 appar"
+
+msgid "10 seconds"
+msgstr "10 sekunder"
+
+msgid "2 seconds"
+msgstr "2 sekunder"
+
+msgid "5 seconds"
+msgstr "5 sekunder"
+
+#, python-format
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "Det finns redan en genväg för %s. Ta bort den?"
+
+msgid "Aborted"
+msgstr "Avbruten"
+
+msgid "About"
+msgstr "Om"
+
+msgid "About AppDeb"
+msgstr "Om AppDeb"
+
+msgid "Adjust the search text or the filter."
+msgstr "Justera söktexten eller filtret."
+
+msgid "All"
+msgstr "Alla"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "Alla skannade skrivbordsposter ser bra ut"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "Ta även bort systemkonfiguration vid avinstallation"
+
+msgid ""
+"AppDeb puts every kind of Linux application in one window: Flatpak, Snap,"
+" Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr "AppDeb samlar alla typer av Linux-program i ett fönster: Flatpak, Snap, Homebrew, AppImage, .deb-paket och portabla .tar.gz-arkiv."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage ersatt; starta om programmet för att använda den"
+
+msgid "AppImage store"
+msgstr "AppImage-förråd"
+
+msgid ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name "
+"with --from"
+msgstr "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz eller paketnamn med --from"
+
+msgid ""
+"AppImages run outside the Flatpak sandbox and can read your files. Only "
+"install apps you trust."
+msgstr "AppImages körs utanför Flatpaks sandlåda och kan läsa dina filer. Installera bara program du litar på."
+
+msgid "Application"
+msgstr "Program"
+
+msgid "Application data"
+msgstr "Programdata"
+
+msgid "Application database refreshed"
+msgstr "Programdatabasen har uppdaterats"
+
+msgid "Application details"
+msgstr "Programdetaljer"
+
+msgid "Application icon"
+msgstr "Programikon"
+
+msgid "Application icon reset"
+msgstr "Programikonen har återställts"
+
+msgid "Application icon updated"
+msgstr "Programikonen har uppdaterats"
+
+msgid "Application manager"
+msgstr "Programhanterare"
+
+msgid "Application parameters"
+msgstr "Programparametrar"
+
+msgid "Application renamed"
+msgstr "Programmet har bytt namn"
+
+msgid "Application runs in a terminal"
+msgstr "Programmet körs i en terminal"
+
+msgid "Application uninstalled"
+msgstr "Programmet har avinstallerats"
+
+msgid "Applications found through each package manager."
+msgstr "Program som hittats via respektive pakethanterare."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "Program som installeras och ägs av AppDeb."
+
+#, python-format
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "Tillämpa %d åtgärd? [j/N] "
+msgstr[1] "Tillämpa %d åtgärder? [j/N] "
+
+msgid "Architecture"
+msgstr "Arkitektur"
+
+msgid "Archives"
+msgstr "Arkiv"
+
+msgid "Audio"
+msgstr "Ljud"
+
+msgid "Autostart disabled"
+msgstr "Autostart inaktiverad"
+
+msgid "Autostart enabled"
+msgstr "Autostart aktiverad"
+
+msgid "Autostart this application when you sign in"
+msgstr "Starta programmet automatiskt när du loggar in"
+
+msgid "Available"
+msgstr "Tillgänglig"
+
+msgid "Back"
+msgstr "Tillbaka"
+
+msgid "Back up desktop entries"
+msgstr "Säkerhetskopiera skrivbordsposter"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "Säkerhetskopiera nuvarande paket och installera en ny version"
+
+#, python-format
+msgid "Backup created in %s"
+msgstr "Säkerhetskopia skapad i %s"
+
+#, python-format
+msgid "Backup failed: %s"
+msgstr "Säkerhetskopieringen misslyckades: %s"
+
+msgid "Browse…"
+msgstr "Bläddra…"
+
+msgid "Bundle"
+msgstr "Paket"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU-användning"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Cancelling…"
+msgstr "Avbryter…"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Change Icon"
+msgstr "Byt ikon"
+
+msgid "Change executable…"
+msgstr "Byt körbar fil…"
+
+msgid "Change package manager"
+msgstr "Byt pakethanterare"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "Ändringar tillämpas som användaråsidosättningar för det här programmet."
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Check updates"
+msgstr "Sök uppdateringar"
+
+msgid "Check your package managers"
+msgstr "Kontrollera dina pakethanterare"
+
+msgid "Checking"
+msgstr "Kontrollerar"
+
+msgid "Checking…"
+msgstr "Kontrollerar…"
+
+msgid "Choose .deb package"
+msgstr "Välj .deb-paket"
+
+msgid "Choose .deb package…"
+msgstr "Välj .deb-paket…"
+
+msgid "Choose .tar.gz archive"
+msgstr "Välj .tar.gz-arkiv"
+
+msgid "Choose AppImage"
+msgstr "Välj AppImage"
+
+msgid "Choose AppImage file…"
+msgstr "Välj AppImage-fil…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Välj Flatpak-paket eller .flatpakref"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Välj Flatpak-paket eller .flatpakref…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "Välj en körbar fil i installationskatalogen"
+
+msgid "Choose application icon"
+msgstr "Välj programikon"
+
+msgid "Choose archive"
+msgstr "Välj arkiv"
+
+msgid "Choose destination folder"
+msgstr "Välj målmapp"
+
+msgid "Choose executable"
+msgstr "Välj körbar fil"
+
+msgid "Choose icon"
+msgstr "Välj ikon"
+
+msgid "Choose replacement"
+msgstr "Välj ersättning"
+
+msgid "Choose replacement .tar.gz"
+msgstr "Välj ersättnings-.tar.gz"
+
+msgid "Choose replacement AppImage"
+msgstr "Välj ersättnings-AppImage"
+
+msgid "Choose…"
+msgstr "Välj…"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "Kopiera användarens skrivbordsposter och databasen till säkerhetskopiemappen"
+
+#, python-format
+msgid "Could not change autostart: %s"
+msgstr "Kunde inte ändra autostart: %s"
+
+#, python-format
+msgid "Could not change package hold: %s"
+msgstr "Kunde inte ändra paketlåsningen: %s"
+
+#, python-format
+msgid "Could not change permission: %s"
+msgstr "Kunde inte ändra behörigheten: %s"
+
+#, python-format
+msgid "Could not change update hold: %s"
+msgstr "Kunde inte ändra uppdateringslåsningen: %s"
+
+#, python-format
+msgid "Could not create shortcut: %s"
+msgstr "Kunde inte skapa genväg: %s"
+
+msgid "Could not fix this issue"
+msgstr "Kunde inte åtgärda problemet"
+
+#, python-format
+msgid "Could not install icon: %s"
+msgstr "Kunde inte installera ikonen: %s"
+
+#, python-format
+msgid "Could not launch: %s"
+msgstr "Kunde inte starta: %s"
+
+#, python-format
+msgid "Could not open link: %s"
+msgstr "Kunde inte öppna länken: %s"
+
+#, python-format
+msgid "Could not open location: %s"
+msgstr "Kunde inte öppna platsen: %s"
+
+msgid "Could not read archive"
+msgstr "Kunde inte läsa arkivet"
+
+#, python-format
+msgid "Could not read snap channels: %s"
+msgstr "Kunde inte läsa snap-kanaler: %s"
+
+msgid "Could not read the archive"
+msgstr "Kunde inte läsa arkivet"
+
+msgid "Could not read the package"
+msgstr "Kunde inte läsa paketet"
+
+msgid "Could not rebuild the icon cache"
+msgstr "Kunde inte bygga om ikoncachen"
+
+#, python-format
+msgid "Could not refresh snap: %s"
+msgstr "Kunde inte uppdatera snap: %s"
+
+#, python-format
+msgid "Could not reset overrides: %s"
+msgstr "Kunde inte återställa åsidosättningar: %s"
+
+#, python-format
+msgid "Could not search for alternative sources: %s"
+msgstr "Kunde inte söka efter alternativa källor: %s"
+
+#, python-format
+msgid "Could not switch channel: %s"
+msgstr "Kunde inte byta kanal: %s"
+
+#, python-format
+msgid "Could not terminate processes: %s"
+msgstr "Kunde inte avsluta processer: %s"
+
+#, python-format
+msgid "Could not update %s: %s"
+msgstr "Kunde inte uppdatera %s: %s"
+
+#, python-format
+msgid "Could not update Terminal: %s"
+msgstr "Kunde inte uppdatera Terminal: %s"
+
+#, python-format
+msgid "Could not update menu visibility: %s"
+msgstr "Kunde inte uppdatera menysynligheten: %s"
+
+#, python-format
+msgid "Could not update window class: %s"
+msgstr "Kunde inte uppdatera fönsterklassen: %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian-paket"
+
+msgid "Debian packages"
+msgstr "Debian-paket"
+
+msgid "Dependencies"
+msgstr "Beroenden"
+
+msgid "Depends"
+msgstr "Beroenden"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Desktop Shortcut"
+msgstr "Skrivbordsgenväg"
+
+msgid "Desktop entry ID"
+msgstr "Skrivbordspostens ID"
+
+msgid "Desktop file"
+msgstr "Skrivbordsfil"
+
+msgid "Desktop shortcut"
+msgstr "Skrivbordsgenväg"
+
+msgid "Destination"
+msgstr "Mål"
+
+msgid "Destination folder (optional)"
+msgstr "Målmapp (valfritt)"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Detected version"
+msgstr "Identifierad version"
+
+msgid "Developer"
+msgstr "Utvecklare"
+
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk read / write"
+msgstr "Diskläsning/-skrivning"
+
+msgid "Dock icon association"
+msgstr "Dockikonens koppling"
+
+msgid "Dock icon association updated"
+msgstr "Dockikonens koppling har uppdaterats"
+
+msgid "Download"
+msgstr "Ladda ned"
+
+msgid "Download .tar.gz"
+msgstr "Ladda ned .tar.gz"
+
+msgid "Download .tar.gz from URL…"
+msgstr "Ladda ned .tar.gz från URL…"
+
+msgid "Download AppImage"
+msgstr "Ladda ned AppImage"
+
+msgid "Download AppImage from URL…"
+msgstr "Ladda ned AppImage från URL…"
+
+msgid "Download from URL"
+msgstr "Ladda ned från URL"
+
+msgid "Download history"
+msgstr "Nedladdningshistorik"
+
+msgid "Downloading AppImage"
+msgstr "Laddar ned AppImage"
+
+msgid "Downloading archive"
+msgstr "Laddar ned arkiv"
+
+msgid ""
+"Downloads are installed from the download cache. Only install software "
+"you trust."
+msgstr "Nedladdningar installeras från nedladdningscachen. Installera bara programvara du litar på."
+
+msgid "Effective permissions"
+msgstr "Gällande behörigheter"
+
+msgid "End processes"
+msgstr "Avsluta processer"
+
+#, python-format
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "Avslutade %d process"
+msgstr[1] "Avslutade %d processer"
+
+msgid "Enter a formula name first"
+msgstr "Ange ett formelnamn först"
+
+msgid "Enter a snap name first"
+msgstr "Ange ett snap-namn först"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec får inte vara tomt"
+
+msgid "Executable"
+msgstr "Körbar fil"
+
+msgid "Executable updated"
+msgstr "Den körbara filen har uppdaterats"
+
+msgid "Executables"
+msgstr "Körbara filer"
+
+msgid "Extract icon"
+msgstr "Extrahera ikon"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid "Finish"
+msgstr "Slutför"
+
+msgid "Fix"
+msgstr "Åtgärda"
+
+msgid "Fix icons and desktop entries"
+msgstr "Åtgärda ikoner och skrivbordsposter"
+
+#, python-format
+msgid "Fixing %s"
+msgstr "Åtgärdar %s"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak-paket"
+
+msgid "Flatpak is not installed on this system."
+msgstr "Flatpak är inte installerat på det här systemet."
+
+msgid "Flatpak location"
+msgstr "Flatpaks plats"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpaks åsidosättningar har återställts"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak-behörigheter"
+
+msgid "Flatpak scope"
+msgstr "Flatpak-omfattning"
+
+msgid "Folder"
+msgstr "Mapp"
+
+#, python-format
+msgid "Following %s; switching refreshes the snap"
+msgstr "Följer %s; ett byte uppdaterar snapen"
+
+msgid "Hidden from the application menu"
+msgstr "Dold från programmenyn"
+
+msgid "Hide from application menu"
+msgstr "Dölj från programmenyn"
+
+msgid "Hold package version"
+msgstr "Håll kvar paketversionen"
+
+msgid "Hold updates"
+msgstr "Håll tillbaka uppdateringar"
+
+msgid "Holding package version"
+msgstr "Håller kvar paketversionen"
+
+msgid "Holding snap updates"
+msgstr "Håller tillbaka snap-uppdateringar"
+
+msgid "Home disk usage"
+msgstr "Hemkatalogens diskanvändning"
+
+msgid "Home folder"
+msgstr "Hemkatalog"
+
+#, python-format
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew-uppgraderingen misslyckades: %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew hittades inte"
+
+msgid "Homepage"
+msgstr "Webbplats"
+
+msgid "Host filesystem"
+msgstr "Värdens filsystem"
+
+msgid "How often resource usage is sampled"
+msgstr "Hur ofta resursanvändningen mäts"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Icon cache rebuilt"
+msgstr "Ikoncachen har byggts om"
+
+msgid ""
+"If a running window shows a generic gear instead of its real icon, the "
+"entry is missing a window-class association. The Tools page finds those "
+"problems and repairs them, with a backup of every file it changes."
+msgstr "Om ett körande fönster visar en allmän kugghjulsikon i stället för sin riktiga ikon saknar posten en fönsterklasskoppling. Verktygssidan hittar dessa problem och åtgärdar dem, med säkerhetskopia av varje fil som ändras."
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "Inkludera poster markerade NoDisplay eller Hidden"
+
+#, python-format
+msgid "Inside install: %s"
+msgstr "I installationen: %s"
+
+msgid "Inspecting AppImage…"
+msgstr "Granskar AppImage…"
+
+msgid "Install"
+msgstr "Installera"
+
+#, python-format
+msgid "Install %s with %s? [y/N] "
+msgstr "Installera %s med %s? [j/N] "
+
+#, python-format
+msgid "Install %s? [y/N] "
+msgstr "Installera %s? [j/N] "
+
+msgid "Install .deb package"
+msgstr "Installera .deb-paket"
+
+msgid "Install .tar.gz (one click)"
+msgstr "Installera .tar.gz (ett klick)"
+
+msgid "Install .tar.gz application"
+msgstr "Installera .tar.gz-program"
+
+msgid "Install .tar.gz to folder…"
+msgstr "Installera .tar.gz i mapp…"
+
+msgid "Install AppImage"
+msgstr "Installera AppImage"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "Installera ett lokalt .deb-paket via apt och polkit."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "Installera och hantera Flatpak-, AppImage-, .deb- och .tar.gz-program."
+
+msgid "Install by searching or by typing"
+msgstr "Installera genom att söka eller skriva"
+
+msgid "Install directory"
+msgstr "Installationskatalog"
+
+msgid "Install formula by name"
+msgstr "Installera formel via namn"
+
+msgid "Install path"
+msgstr "Installationssökväg"
+
+msgid "Install snap by name"
+msgstr "Installera snap via namn"
+
+msgid ""
+"Install this application from another package manager. The current copy "
+"is not touched until you remove it."
+msgstr "Installera programmet från en annan pakethanterare. Den nuvarande kopian rörs inte förrän du tar bort den."
+
+#, python-format
+msgid "Installation failed: %s"
+msgstr "Installationen misslyckades: %s"
+
+msgid "Installation scope"
+msgstr "Installationsomfattning"
+
+msgid "Installed"
+msgstr "Installerade"
+
+#, python-format
+msgid "Installed %s"
+msgstr "Installerade %s"
+
+#, python-format
+msgid "Installed %s with %s"
+msgstr "Installerade %s med %s"
+
+msgid "Installed applications"
+msgstr "Installerade program"
+
+msgid "Installed by manager"
+msgstr "Installerat av hanterare"
+
+msgid "Installed size"
+msgstr "Installerad storlek"
+
+#, python-format
+msgid "Installing %s"
+msgstr "Installerar %s"
+
+#, python-format
+msgid "Installing %s with %s"
+msgstr "Installerar %s med %s"
+
+msgid ""
+"Installing a .deb package changes system software and requires "
+"administrator authentication via polkit."
+msgstr "Att installera ett .deb-paket ändrar systemets programvara och kräver administratörsautentisering via polkit."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "Gränssnittsspråk som används efter omstart av AppDeb"
+
+msgid "Issue fixed"
+msgstr "Problemet har åtgärdats"
+
+msgid "Issues"
+msgstr "Problem"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "Behåll skrivbordsposten men utelämna den i programmenyerna"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "Behåll skrivbordsposten, ikonen och namnet när filerna ersätts"
+
+msgid "Keywords"
+msgstr "Nyckelord"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Launch"
+msgstr "Starta"
+
+#, python-format
+msgid "Launching %s"
+msgstr "Startar %s"
+
+msgid ""
+"Leave empty to install into the managed AppDeb store. Choose a folder to "
+"install into a subfolder of it."
+msgstr "Lämna tomt för att installera i AppDebs hanterade förråd. Välj en mapp för att installera i en undermapp."
+
+msgid "License"
+msgstr "Licens"
+
+msgid "Load"
+msgstr "Belastning"
+
+msgid "Load average"
+msgstr "Systembelastning"
+
+msgid "Loading channels…"
+msgstr "Läser in kanaler…"
+
+msgid "Loading store details…"
+msgstr "Läser in butiksuppgifter…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "Sök efter ogiltiga poster, saknade ikoner och fönsterklasser utan matchning"
+
+msgid "Looking for alternative package sources…"
+msgstr "Söker efter alternativa paketkällor…"
+
+msgid "Main menu"
+msgstr "Huvudmeny"
+
+msgid "Maintainer"
+msgstr "Underhållare"
+
+msgid "Maintenance"
+msgstr "Underhåll"
+
+msgid "Managed stores"
+msgstr "Hanterade förråd"
+
+msgid "Managers"
+msgstr "Hanterare"
+
+msgid "Matching folder"
+msgstr "Matchande mapp"
+
+msgid "Memory"
+msgstr "Minne"
+
+msgid "Memory usage"
+msgstr "Minnesanvändning"
+
+msgid "Monitoring"
+msgstr "Övervakning"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Network"
+msgstr "Nätverk"
+
+msgid "Next"
+msgstr "Nästa"
+
+msgid "No alternative package sources found."
+msgstr "Inga alternativa paketkällor hittades."
+
+msgid "No applications match"
+msgstr "Inga program matchar"
+
+msgid "No channels reported for this snap"
+msgstr "Inga kanaler rapporterade för den här snapen"
+
+msgid "No embedded icon found"
+msgstr "Ingen inbäddad ikon hittades"
+
+msgid "No executable detected; choose one"
+msgstr "Ingen körbar fil hittades; välj en"
+
+msgid "No issues found"
+msgstr "Inga problem hittades"
+
+msgid "No results"
+msgstr "Inga resultat"
+
+msgid "No running processes"
+msgstr "Inga körande processer"
+
+msgid "No scan has run yet"
+msgstr "Ingen skanning har körts än"
+
+msgid "No shortcut found"
+msgstr "Ingen genväg hittades"
+
+msgid "Not installed"
+msgstr "Inte installerad"
+
+msgid "Only https:// URLs are supported."
+msgstr "Endast https://-URL:er stöds."
+
+msgid "Open bundle folder"
+msgstr "Öppna paketmappen"
+
+msgid "Open homepage"
+msgstr "Öppna webbplatsen"
+
+msgid "Open install folder"
+msgstr "Öppna installationsmappen"
+
+msgid "Open location"
+msgstr "Öppna plats"
+
+msgid "Optional"
+msgstr "Valfritt"
+
+msgid "Original archive"
+msgstr "Ursprungligt arkiv"
+
+msgid "Outdated formulae upgraded"
+msgstr "Föråldrade formler uppgraderade"
+
+msgid "Package"
+msgstr "Paket"
+
+msgid "Package manager information is unavailable"
+msgstr "Information om pakethanterare är inte tillgänglig"
+
+msgid "Package manager overview"
+msgstr "Översikt över pakethanterare"
+
+msgid "Package managers"
+msgstr "Pakethanterare"
+
+msgid "Package managers available on this system and their versions."
+msgstr "Pakethanterare som finns på systemet och deras versioner."
+
+msgid "Package removed"
+msgstr "Paketet har tagits bort"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "Pausa automatiska uppdateringar för den här snapen"
+
+msgid "Permissions are unavailable."
+msgstr "Behörigheter är inte tillgängliga."
+
+msgid ""
+"Pick a page from the sidebar to start. Settings holds the Flatpak install"
+" scope, the interface language and a button to show this guide again at "
+"any time."
+msgstr "Välj en sida i sidopanelen för att börja. Inställningar innehåller Flatpaks installationsomfattning, gränssnittsspråket och en knapp för att visa den här guiden igen när som helst."
+
+msgid "Pick another executable inside the install directory"
+msgstr "Välj en annan körbar fil i installationskatalogen"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "Förhindra att apt uppgraderar det här paketet"
+
+msgid "Processes"
+msgstr "Processer"
+
+msgid "Purge configuration files"
+msgstr "Rensa konfigurationsfiler"
+
+msgid "Quit"
+msgstr "Avsluta"
+
+msgid "Rebuild icon cache"
+msgstr "Bygg om ikoncachen"
+
+msgid "Refresh application database"
+msgstr "Uppdatera programdatabasen"
+
+msgid "Refresh interval"
+msgstr "Uppdateringsintervall"
+
+msgid "Refresh package manager information"
+msgstr "Uppdatera information om pakethanterare"
+
+msgid "Refresh snap now"
+msgstr "Uppdatera snapen nu"
+
+msgid "Refresh the application list"
+msgstr "Uppdatera programlistan"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "Uppdatera användarens hicolor-ikoncache"
+
+#, python-format
+msgid "Refreshed %s"
+msgstr "Uppdaterade %s"
+
+#, python-format
+msgid "Refreshing %s"
+msgstr "Uppdaterar %s"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "Återskapa cachefiler för desktop-file-utils"
+
+msgid "Reinstall / replace archive…"
+msgstr "Installera om / ersätt arkiv…"
+
+msgid "Releasing package hold"
+msgstr "Släpper paketlåsningen"
+
+#, python-format
+msgid "Removal failed: %s"
+msgstr "Borttagningen misslyckades: %s"
+
+msgid "Remove"
+msgstr "Ta bort"
+
+#, python-format
+msgid "Remove %s? [y/N] "
+msgstr "Ta bort %s? [j/N] "
+
+msgid "Remove Debian package"
+msgstr "Ta bort Debian-paket"
+
+#, python-format
+msgid "Remove all user permission overrides for %s?"
+msgstr "Ta bort alla användarbehörighetsåsidosättningar för %s?"
+
+msgid "Remove current copy"
+msgstr "Ta bort nuvarande kopia"
+
+msgid "Remove every user permission override for this application"
+msgstr "Ta bort alla användarbehörighetsåsidosättningar för det här programmet"
+
+msgid "Remove package"
+msgstr "Ta bort paket"
+
+msgid "Remove shortcut"
+msgstr "Ta bort genväg"
+
+#, python-format
+msgid ""
+"Remove the %(kind)s copy of %(name)s?\n"
+"\n"
+"%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr "Ta bort %(kind)s-kopian av %(name)s?\n\n%(candidate)s installerades med %(manager)s. Du kan behålla båda kopiorna."
+
+msgid "Remove the current copy?"
+msgstr "Ta bort den nuvarande kopian?"
+
+#, python-format
+msgid "Remove the package %s?"
+msgstr "Ta bort paketet %s?"
+
+msgid "Remove…"
+msgstr "Ta bort…"
+
+#, python-format
+msgid "Removing %s"
+msgstr "Tar bort %s"
+
+msgid "Rename"
+msgstr "Byt namn"
+
+msgid "Rename application"
+msgstr "Byt namn på program"
+
+#, python-format
+msgid "Rename failed: %s"
+msgstr "Namnbytet misslyckades: %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "Reparera skrivbordsposter och uppdatera programmetadata."
+
+msgid "Replace AppImage"
+msgstr "Ersätt AppImage"
+
+msgid "Replace AppImage…"
+msgstr "Ersätt AppImage…"
+
+msgid "Replace tarball installation"
+msgstr "Ersätt tarball-installation"
+
+msgid "Replacing AppImage"
+msgstr "Ersätter AppImage"
+
+msgid "Replacing tarball installation"
+msgstr "Ersätter tarball-installation"
+
+msgid "Reset"
+msgstr "Återställ"
+
+msgid "Reset Flatpak overrides"
+msgstr "Återställ Flatpaks åsidosättningar"
+
+msgid "Reset Icon"
+msgstr "Återställ ikon"
+
+msgid "Reset all overrides"
+msgstr "Återställ alla åsidosättningar"
+
+msgid "Resources"
+msgstr "Resurser"
+
+msgid "Restart"
+msgstr "Starta om"
+
+msgid "Restart AppDeb to apply"
+msgstr "Starta om AppDeb för att tillämpa"
+
+msgid "Results"
+msgstr "Resultat"
+
+msgid "Resuming snap updates"
+msgstr "Återupptar snap-uppdateringar"
+
+msgid "Run this application in a terminal window"
+msgstr "Kör programmet i ett terminalfönster"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (valfritt)"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 stämmer inte"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Scan desktop entries"
+msgstr "Skanna skrivbordsposter"
+
+msgid "Scan failed"
+msgstr "Skanningen misslyckades"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "Skanna för att granska alla skrivbordsposter"
+
+msgid "Scanning desktop entries…"
+msgstr "Skannar skrivbordsposter…"
+
+msgid "Scanning…"
+msgstr "Skannar…"
+
+msgid "Scope"
+msgstr "Omfattning"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Omfattning som används för Flatpak-installationer och -uppdateringar."
+
+msgid "Screenshot"
+msgstr "Skärmbild"
+
+msgid "Screenshot is not available"
+msgstr "Skärmbild är inte tillgänglig"
+
+msgid "Screenshots"
+msgstr "Skärmbilder"
+
+msgid "Search Flathub"
+msgstr "Sök på Flathub"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "Sök på Flathub och installera program i omfattningen som valts i Inställningar."
+
+msgid ""
+"Search Flathub, the Snap Store or Homebrew, or type an exact package "
+"name. AppImages, .deb packages and .tar.gz archives can be installed from"
+" a file or an https URL, and every install is checked before it touches "
+"your system."
+msgstr "Sök på Flathub, i Snap Store eller Homebrew, eller skriv ett exakt paketnamn. AppImages, .deb-paket och .tar.gz-arkiv kan installeras från en fil eller en https-URL, och varje installation kontrolleras innan den rör systemet."
+
+msgid "Search applications"
+msgstr "Sök program"
+
+#, python-format
+msgid "Search failed: %s"
+msgstr "Sökningen misslyckades: %s"
+
+msgid "Search formulae"
+msgstr "Sök formler"
+
+msgid ""
+"Search formulae and install them with Homebrew. Homebrew installs into "
+"your user account; no password is needed."
+msgstr "Sök formler och installera dem med Homebrew. Homebrew installerar i ditt användarkonto; inget lösenord behövs."
+
+msgid "Search snaps"
+msgstr "Sök snapar"
+
+msgid ""
+"Search snaps and install them. System installs prompt for authentication "
+"and may take a while."
+msgstr "Sök snapar och installera dem. Systeminstallationer kräver autentisering och kan ta en stund."
+
+#, python-format
+msgid "Searching %s for %s"
+msgstr "Söker i %s efter %s"
+
+#, python-format
+msgid "Searching for “%s”…"
+msgstr "Söker efter ”%s”…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "Skicka SIGTERM till programmets processer"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+#, python-format
+msgid "Shortcut created: %s"
+msgstr "Genväg skapad: %s"
+
+msgid "Shortcut removed"
+msgstr "Genvägen har tagits bort"
+
+msgid "Show hidden desktop entries"
+msgstr "Visa dolda skrivbordsposter"
+
+msgid "Shown in the application menu"
+msgstr "Visas i programmenyn"
+
+msgid "Shows the affected packages before removal"
+msgstr "Visar de berörda paketen före borttagning"
+
+msgid "Size"
+msgstr "Storlek"
+
+msgid "Skip"
+msgstr "Hoppa över"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Snap-installationer kräver autentisering"
+
+msgid "Snap name unknown"
+msgstr "Snap-namnet är okänt"
+
+msgid "Snap was not found"
+msgstr "Snapen hittades inte"
+
+msgid "Source / reference"
+msgstr "Källa / referens"
+
+msgid "Start at login"
+msgstr "Starta vid inloggning"
+
+msgid "Started"
+msgstr "Startad"
+
+msgid "Startup"
+msgstr "Uppstart"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / fönsterklass"
+
+#, python-format
+msgid "Step %d of %d"
+msgstr "Steg %d av %d"
+
+msgid "Store"
+msgstr "Butik"
+
+msgid "Store ID"
+msgstr "Butiks-ID"
+
+msgid "Store details"
+msgstr "Butiksuppgifter"
+
+msgid "Swap usage"
+msgstr "Swap-användning"
+
+#, python-format
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "Byta %(name)s till %(channel)s? Snapen uppdateras nu."
+
+msgid "Switch channel"
+msgstr "Byt kanal"
+
+msgid "Switch snap channel"
+msgstr "Byt snap-kanal"
+
+#, python-format
+msgid "Switching %(name)s to %(channel)s"
+msgstr "Byter %(name)s till %(channel)s"
+
+msgid "System"
+msgstr "System"
+
+msgid "Tar archives"
+msgstr "Tar-arkiv"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball-installationen misslyckades"
+
+msgid "Tarball store"
+msgstr "Tarball-förråd"
+
+msgid ""
+"Tarballs run outside a sandbox and can read your files. Only install apps"
+" you trust."
+msgstr "Tarballs körs utanför en sandlåda och kan läsa dina filer. Installera bara program du litar på."
+
+msgid "Terminal application"
+msgstr "Terminalprogram"
+
+msgid "Terminal disabled"
+msgstr "Terminal inaktiverad"
+
+#, python-format
+msgid "Terminate all processes belonging to %s?"
+msgstr "Avsluta alla processer som tillhör %s?"
+
+msgid "The Debian package name is unknown"
+msgstr "Debian-paketets namn är okänt"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Flatpak-programmets ID är okänt"
+
+msgid ""
+"The Managers page shows which package managers exist on this computer, "
+"their versions and how many packages each one owns. You can install a "
+"missing manager there, or remove one once it no longer manages any "
+"packages."
+msgstr "Sidan Hanterare visar vilka pakethanterare som finns på datorn, deras versioner och hur många paket var och en hanterar. Du kan installera en saknad hanterare där, eller ta bort en när den inte längre hanterar några paket."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "Den inbäddade ikonen är inte tillgänglig; välj en manuellt"
+
+#, python-format
+msgid ""
+"The files for %s are replaced and the current install directory is backed"
+" up. Quit the application first."
+msgstr "Filerna för %s ersätts och den nuvarande installationskatalogen säkerhetskopieras. Avsluta programmet först."
+
+msgid "The install directory is unknown"
+msgstr "Installationskatalogen är okänd"
+
+msgid "The selected file is not an AppImage"
+msgstr "Den valda filen är inte en AppImage"
+
+msgid "The snap command is not available on this system."
+msgstr "Kommandot snap är inte tillgängligt på det här systemet."
+
+msgid ""
+"The window class (WM_CLASS) GNOME uses to match this application's "
+"windows to the desktop entry."
+msgstr "Fönsterklassen (WM_CLASS) som GNOME använder för att matcha programmets fönster mot skrivbordsposten."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "Detta ändrar namnet som visas i menyer, dockan och det här fönstret."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "Den här skrivbordsposten identifierar ingen snap-instans"
+
+msgid "Threads"
+msgstr "Trådar"
+
+msgid "Tools"
+msgstr "Verktyg"
+
+msgid "Top processes"
+msgstr "Topprocesser"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Type at least 2 characters to search"
+msgstr "Skriv minst två tecken för att söka"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL saknar värd"
+
+msgid "Uninstall"
+msgstr "Avinstallera"
+
+#, python-format
+msgid "Uninstall %s? This cannot be undone."
+msgstr "Avinstallera %s? Detta kan inte ångras."
+
+msgid "Uninstall application"
+msgstr "Avinstallera program"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "Avinstallation stöds inte för den här posten"
+
+#, python-format
+msgid "Uninstalling %s"
+msgstr "Avinstallerar %s"
+
+msgid "Unknown package"
+msgstr "Okänt paket"
+
+#, python-format
+msgid "Unsupported file type: %s"
+msgstr "Filtypen stöds inte: %s"
+
+#, python-format
+msgid "Unsupported image: %s"
+msgstr "Bilden stöds inte: %s"
+
+#, python-format
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "Uppdaterade %d program"
+msgstr[1] "Uppdaterade %d program"
+
+#, python-format
+msgid "Updates for %s are held"
+msgstr "Uppdateringar för %s hålls tillbaka"
+
+#, python-format
+msgid "Updates for %s resumed"
+msgstr "Uppdateringar för %s återupptogs"
+
+#, python-format
+msgid "Updating %s…"
+msgstr "Uppdaterar %s…"
+
+msgid "Updating Flatpak applications"
+msgstr "Uppdaterar Flatpak-program"
+
+msgid "Upgrade outdated formulae"
+msgstr "Uppgradera föråldrade formler"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Uppgraderar Homebrew-formler"
+
+msgid "Upload"
+msgstr "Uppladdning"
+
+msgid "Uptime"
+msgstr "Drifttid"
+
+msgid "Usage history"
+msgstr "Användningshistorik"
+
+msgid "User"
+msgstr "Användare"
+
+msgid "User data"
+msgstr "Användardata"
+
+msgid "Values written to this application's desktop entry."
+msgstr "Värden som skrivs till programmets skrivbordspost."
+
+msgid "Version"
+msgstr "Version"
+
+#, python-format
+msgid "Version %s"
+msgstr "Version %s"
+
+msgid "Version unknown"
+msgstr "Versionen är okänd"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "Välkommen till AppDeb"
+
+msgid "Window class"
+msgstr "Fönsterklass"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "Du är redo"
+
+msgid "a package name is required with --from"
+msgstr "ett paketnamn krävs med --from"
+
+msgid "application name"
+msgstr "programnamn"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "åtgärda alla automatiskt åtgärdbara problem i skrivbordsposter"
+
+msgid "apps"
+msgstr "appar"
+
+msgid "available"
+msgstr "tillgänglig"
+
+msgid "brew install failed"
+msgstr "brew install misslyckades"
+
+msgid "brew search failed"
+msgstr "brew search misslyckades"
+
+msgid "brew uninstall failed"
+msgstr "brew uninstall misslyckades"
+
+msgid "brew upgrade failed"
+msgstr "brew upgrade misslyckades"
+
+msgid "cancelled"
+msgstr "avbruten"
+
+#, python-format
+msgid "cannot inspect package: %s"
+msgstr "kan inte granska paketet: %s"
+
+#, python-format
+msgid "cannot install to %s: %s"
+msgstr "kan inte installera till %s: %s"
+
+#, python-format
+msgid "cannot replace %s: %s"
+msgstr "kan inte ersätta %s: %s"
+
+#, python-format
+msgid "cannot start: %s"
+msgstr "kan inte starta: %s"
+
+msgid "choose an executable with --exec"
+msgstr "välj en körbar fil med --exec"
+
+#, python-format
+msgid "command failed: %s"
+msgstr "kommandot misslyckades: %s"
+
+#, python-format
+msgid "command not found: %s"
+msgstr "kommandot hittades inte: %s"
+
+msgid "desktop entry comment"
+msgstr "kommentar för skrivbordspost"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "skrivbordsfilen har fler än en [Desktop Entry]-grupp"
+
+msgid "destination folder for tarball installs"
+msgstr "målmapp för tarball-installationer"
+
+#, python-format
+msgid "destination is not writable: %s"
+msgstr "målmappen är inte skrivbar: %s"
+
+msgid "disabled"
+msgstr "inaktiverad"
+
+msgid "download cancelled"
+msgstr "nedladdningen avbröts"
+
+#, python-format
+msgid "download failed: HTTP %s"
+msgstr "nedladdningen misslyckades: HTTP %s"
+
+msgid "download too large"
+msgstr "nedladdningen är för stor"
+
+msgid "enabled"
+msgstr "aktiverad"
+
+msgid "essential package"
+msgstr "essentiellt paket"
+
+#, python-format
+msgid "executable not found: %s"
+msgstr "körbar fil hittades inte: %s"
+
+#, python-format
+msgid "failed\t%s\t%s\t%s"
+msgstr "misslyckades\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "kunde inte skriva skrivbordsposten"
+
+#, python-format
+msgid "file not found: %s"
+msgstr "filen hittades inte: %s"
+
+#, python-format
+msgid "fixed\t%s\t%s"
+msgstr "åtgärdat\t%s\t%s"
+
+#, python-format
+msgid "fixed %d/%d"
+msgstr "åtgärdade %d/%d"
+
+msgid "flatpak install failed"
+msgstr "flatpak-installationen misslyckades"
+
+msgid "flatpak override failed"
+msgstr "flatpak-åsidosättningen misslyckades"
+
+msgid "flatpak override reset failed"
+msgstr "återställning av flatpak-åsidosättning misslyckades"
+
+msgid "flatpak search failed"
+msgstr "flatpak-sökningen misslyckades"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak-avinstallationen misslyckades"
+
+msgid "flatpak update failed"
+msgstr "flatpak-uppdateringen misslyckades"
+
+msgid "icon file to install"
+msgstr "ikonfil att installera"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "ikonen är en absolut sökväg utanför ikontemat"
+
+#, python-format
+msgid "icon not found: %s"
+msgstr "ikonen hittades inte: %s"
+
+msgid "install a file or package-manager package"
+msgstr "installera en fil eller ett paket från en pakethanterare"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "installera ett formel-/snap-/app-ID med angiven pakethanterare"
+
+#, python-format
+msgid "installed %s"
+msgstr "installerade %s"
+
+msgid "installed bundle not found"
+msgstr "det installerade paketet hittades inte"
+
+msgid "installed directory not found"
+msgstr "installationskatalogen hittades inte"
+
+#, python-format
+msgid "invalid flatpak scope: %s"
+msgstr "ogiltig flatpak-omfattning: %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "begränsa sökningen till en hanterare (standard: alla tillgängliga)"
+
+msgid "missing"
+msgstr "saknas"
+
+msgid "name contains a forbidden character"
+msgstr "namnet innehåller ett otillåtet tecken"
+
+msgid "name is empty"
+msgstr "namnet är tomt"
+
+#, python-format
+msgid "no application with desktop ID %s"
+msgstr "inget program med skrivbords-ID %s"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "ingen körbar fil hittades; använd install_spec med en körbar fil"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "ingen grafisk bildskärm; använd ett CLI-underkommando"
+
+msgid "no package found for desktop entry"
+msgstr "inget paket hittades för skrivbordsposten"
+
+#, python-format
+msgid "no uninstall backend for kind: %s"
+msgstr "ingen avinstallationsmetod för typen: %s"
+
+#, python-format
+msgid "not a .tar.gz archive: %s"
+msgstr "inte ett .tar.gz-arkiv: %s"
+
+#, python-format
+msgid "not an AppImage: %s"
+msgstr "inte en AppImage: %s"
+
+msgid "only https:// URLs are supported"
+msgstr "endast https://-URL:er stöds"
+
+msgid "package"
+msgstr "paket"
+
+msgid "package hold failed"
+msgstr "paketlåsningen misslyckades"
+
+msgid "package installation failed"
+msgstr "paketinstallationen misslyckades"
+
+msgid "package name is empty"
+msgstr "paketnamnet är tomt"
+
+#, python-format
+msgid "package not found: %s"
+msgstr "paketet hittades inte: %s"
+
+msgid "package removal failed"
+msgstr "borttagningen av paketet misslyckades"
+
+msgid "packages"
+msgstr "paket"
+
+msgid "print JSON"
+msgstr "skriv ut JSON"
+
+msgid "print installed desktop entries"
+msgstr "skriv ut installerade skrivbordsposter"
+
+msgid "purge configuration for .deb packages"
+msgstr "rensa konfiguration för .deb-paket"
+
+#, python-format
+msgid "refusing to remove %s: %s"
+msgstr "vägrar ta bort %s: %s"
+
+#, python-format
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "vägrar ta bort %s; det skulle ta bort skyddade paket: %s"
+
+#, python-format
+msgid "removal is not supported for %s entries"
+msgstr "borttagning stöds inte för %s-poster"
+
+#, python-format
+msgid "removed %s"
+msgstr "tog bort %s"
+
+msgid "required-priority package"
+msgstr "paket med prioriteten required"
+
+msgid "scan desktop entries for problems"
+msgstr "sök efter problem i skrivbordsposter"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "sök efter Flatpak-, Snap- och Homebrew-paket"
+
+msgid "search text (at least 2 characters)"
+msgstr "söktext (minst två tecken)"
+
+msgid "semicolon separated categories"
+msgstr "semikolonavgränsade kategorier"
+
+msgid "show package manager availability and counts"
+msgstr "visa tillgängliga pakethanterare och antal"
+
+msgid "skip the confirmation prompt"
+msgstr "hoppa över bekräftelsen"
+
+#, python-format
+msgid "skipped\t%s\t%s"
+msgstr "hoppade över\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap find misslyckades"
+
+msgid "snap hold failed"
+msgstr "snap hold misslyckades"
+
+msgid "snap info failed"
+msgstr "snap info misslyckades"
+
+msgid "snap install failed"
+msgstr "snap install misslyckades"
+
+msgid "snap name is empty"
+msgstr "snap-namnet är tomt"
+
+msgid "snap refresh failed"
+msgstr "snap refresh misslyckades"
+
+msgid "snap remove failed"
+msgstr "snap remove misslyckades"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "tarball-körbar fil, relativ till arkivets rot"
+
+msgid "the Debian package name is unknown"
+msgstr "Debian-paketets namn är okänt"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "Flatpak-programmets ID är okänt"
+
+msgid "the search query must be at least 2 characters"
+msgstr "sökfrågan måste vara minst två tecken"
+
+msgid "timed out"
+msgstr "tidsgränsen överskreds"
+
+msgid "uninstall an application by desktop ID"
+msgstr "avinstallera ett program via skrivbords-ID"
+
+msgid "unknown"
+msgstr "okänt"
+
+#, python-format
+msgid "unknown source kind: %s"
+msgstr "okänd källtyp: %s"
+
+#, python-format
+msgid "unsafe archive: %s"
+msgstr "osäkert arkiv: %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "osäkert arkiv: arkivet är större än 4 GiB"
+
+msgid "unsafe archive: too many members"
+msgstr "osäkert arkiv: för många medlemmar"
+
+#, python-format
+msgid "unsupported file type: %s"
+msgstr "filtypen stöds inte: %s"
+
+#, python-format
+msgid "unsupported flatpak override action: %s"
+msgstr "flatpak-åsidosättningsåtgärden stöds inte: %s"
+
+#, python-format
+msgid "window class %s is not associated with this entry"
+msgstr "fönsterklassen %s är inte kopplad till den här posten"
+
+msgid "%s installed"
+msgstr "%s installerat"
+
+msgid "%s removed"
+msgstr "%s borttaget"
+
+msgid "Getting started"
+msgstr "Kom igång"
+
+msgid "Install %s?"
+msgstr "Installera %s?"
+
+msgid "Kind"
+msgstr "Typ"
+
+msgid "Name (A–Z)"
+msgstr "Namn (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "Namn (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "Inga paket från den här pakethanteraren återstår."
+
+msgid "Recently installed (newest first)"
+msgstr "Senast installerade (nyaste först)"
+
+msgid "Remove %s"
+msgstr "Ta bort %s"
+
+msgid "Remove %s?"
+msgstr "Ta bort %s?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "Spela upp steg-för-steg-introduktionen igen"
+
+msgid "Show welcome guide"
+msgstr "Visa välkomstguiden"
+
+msgid "Size (largest first)"
+msgstr "Storlek (störst först)"
+
+msgid "Sort by"
+msgstr "Sortera efter"
+
+msgid "Sort the application list"
+msgstr "Sortera programlistan"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "Den här åtgärden görs manuellt. Kör kommandot nedan i en terminal."
+
+msgid "This uses apt and asks for authentication."
+msgstr "Detta använder apt och kräver autentisering."
+
+msgid "options"
+msgstr "flaggor"
+
+msgid "positional arguments"
+msgstr "positionsargument"

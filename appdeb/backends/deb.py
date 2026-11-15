@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 
+from ..i18n import _
 from . import runner
 from .runner import BackendError
 
@@ -73,11 +74,11 @@ def inspect(path: Path) -> DebInfo:
         timeout=120,
     )
     if not result.ok:
-        raise BackendError("cannot inspect package: " + source.name, result.output)
+        raise BackendError(_("cannot inspect package: %s") % source.name, result.output)
     fields = _parse_fields(result.output)
     package = fields.get("Package", "")
     if not package:
-        raise BackendError("cannot inspect package: " + source.name, result.output)
+        raise BackendError(_("cannot inspect package: %s") % source.name, result.output)
     return DebInfo(
         package=package,
         version=fields.get("Version", ""),
@@ -96,7 +97,7 @@ def install(
 ) -> None:
     source = Path(path).expanduser().resolve()
     if not source.is_file():
-        raise BackendError("package not found: " + str(source))
+        raise BackendError(_("package not found: %s") % source)
     result = runner.run(
         [
             "pkexec",
@@ -112,7 +113,7 @@ def install(
         cancel=cancel,
     )
     if not result.ok:
-        raise BackendError("package installation failed", result.output)
+        raise BackendError(_("package installation failed"), result.output)
 
 
 def _query_field(package: str, fmt: str) -> str:
@@ -158,9 +159,9 @@ def _essential_reason(package: str) -> str:
     output = _query_field(package, "${Essential} ${Priority}")
     tokens = output.lower().split()
     if "yes" in tokens:
-        return "essential package"
+        return _("essential package")
     if "required" in tokens:
-        return "required-priority package"
+        return _("required-priority package")
     return ""
 
 
@@ -172,19 +173,19 @@ def remove(
 ) -> None:
     package = (package or "").strip()
     if not package:
-        raise BackendError("package name is empty")
+        raise BackendError(_("package name is empty"))
     reason = _essential_reason(package)
     impact = removal_impact(package)
     protected = sorted(PROTECTED_PACKAGES.intersection(impact))
     if reason:
         raise BackendError(
-            f"refusing to remove {reason}: {package}",
+            _("refusing to remove %s: %s") % (reason, package),
             "\n".join(impact),
         )
     if protected:
         raise BackendError(
-            f"refusing to remove {package}; it would remove protected packages: "
-            + ", ".join(protected),
+            _("refusing to remove %s; it would remove protected packages: %s")
+            % (package, ", ".join(protected)),
             "\n".join(impact),
         )
     args = [
@@ -200,7 +201,7 @@ def remove(
     args.append(package)
     result = runner.run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("package removal failed", result.output)
+        raise BackendError(_("package removal failed"), result.output)
 
 
 def parse_showhold(output: str) -> list[str]:
@@ -233,11 +234,11 @@ def hold(
 ) -> None:
     name = (package or "").strip()
     if not name:
-        raise BackendError("package name is empty")
+        raise BackendError(_("package name is empty"))
     args = ["pkexec", "apt-mark", "hold" if enabled else "unhold", name]
     result = runner.run(args, timeout=300, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("package hold failed", result.output)
+        raise BackendError(_("package hold failed"), result.output)
 
 
 def package_for_desktop(desktop_path: Path) -> str | None:

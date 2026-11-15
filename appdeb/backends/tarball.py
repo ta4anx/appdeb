@@ -18,6 +18,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import GLib  # noqa: E402
 
 from .. import config, db, desktop, icons  # noqa: E402
+from ..i18n import _  # noqa: E402
 from ..models import InstalledApp, TarballMetadata  # noqa: E402
 from .runner import BackendError  # noqa: E402
 
@@ -73,7 +74,7 @@ def _exec_value(path: Path) -> str:
 
 def _check_cancel(cancel) -> None:
     if cancel is not None and cancel.is_set():
-        raise BackendError("cancelled")
+        raise BackendError(_("cancelled"))
 
 
 def is_tarball(path: Path) -> bool:
@@ -88,17 +89,17 @@ def is_tarball(path: Path) -> bool:
 
 
 def _unsafe(member: str) -> BackendError:
-    return BackendError(f"unsafe archive: {member}")
+    return BackendError(_("unsafe archive: %s") % member)
 
 
 def _validate_members(members: list[tarfile.TarInfo]) -> None:
     if len(members) > MAX_MEMBERS:
-        raise BackendError("unsafe archive: too many members")
+        raise BackendError(_("unsafe archive: too many members"))
     total = 0
     for member in members:
         total += max(member.size, 0)
         if total > MAX_TOTAL_BYTES:
-            raise BackendError("unsafe archive: archive is larger than 4 GiB")
+            raise BackendError(_("unsafe archive: archive is larger than 4 GiB"))
         name = member.name
         normalized = os.path.normpath(name)
         if not name or name.startswith("/") or os.path.isabs(name):
@@ -152,7 +153,7 @@ def _extract(source: Path, destination: Path) -> None:
         raise
     except (tarfile.TarError, OSError, ValueError) as exc:
         shutil.rmtree(destination, ignore_errors=True)
-        raise BackendError(f"unsafe archive: {exc}") from exc
+        raise BackendError(_("unsafe archive: %s") % exc) from exc
 
 
 def _content_root(extracted: Path) -> Path:
@@ -473,7 +474,7 @@ def _archive_root(source: Path) -> tuple[Path, tempfile.TemporaryDirectory]:
 def inspect(path: Path) -> TarballMetadata:
     source = Path(path)
     if not is_tarball(source):
-        raise BackendError("not a .tar.gz archive: " + str(source))
+        raise BackendError(_("not a .tar.gz archive: %s") % source)
     root, temp = _archive_root(source)
     try:
         return _metadata_from_root(root, source)
@@ -564,7 +565,7 @@ def _installed(
 ) -> InstalledApp:
     entry = desktop.load(desktop_path)
     if entry is None:
-        raise BackendError("failed to write desktop entry", str(desktop_path))
+        raise BackendError(_("failed to write desktop entry"), str(desktop_path))
     return InstalledApp(
         entry=entry,
         kind="tarball",
@@ -585,9 +586,9 @@ def _destination_parent(dest: Path | None) -> Path:
     try:
         parent.mkdir(parents=True, exist_ok=True)
     except OSError as exc:
-        raise BackendError(f"destination is not writable: {parent}") from exc
+        raise BackendError(_("destination is not writable: %s") % parent) from exc
     if not os.access(parent, os.W_OK | os.X_OK):
-        raise BackendError(f"destination is not writable: {parent}")
+        raise BackendError(_("destination is not writable: %s") % parent)
     return parent
 
 
@@ -606,9 +607,9 @@ def install_spec(
 ) -> InstalledApp:
     source = Path(source)
     if not is_tarball(source):
-        raise BackendError("not a .tar.gz archive: " + str(source))
+        raise BackendError(_("not a .tar.gz archive: %s") % source)
     if not executable_rel:
-        raise BackendError("no executable found; use install_spec with an executable")
+        raise BackendError(_("no executable found; use install_spec with an executable"))
     _check_cancel(cancel)
     config.ensure_dirs()
     db.init()
@@ -625,7 +626,7 @@ def install_spec(
         root = _content_root(extraction)
         executable_path = _within_root(root, executable_rel)
         if executable_path is None or not executable_path.is_file():
-            raise BackendError(f"executable not found: {executable_rel}")
+            raise BackendError(_("executable not found: %s") % executable_rel)
         metadata = _metadata_from_root(root, source, fallback_name=display_name)
         embedded = _embedded_desktop(root, metadata.desktop_rel)
         embedded_kf = desktop.load_keyfile(embedded) if embedded is not None else GLib.KeyFile()
@@ -640,7 +641,7 @@ def install_spec(
         try:
             os.replace(root, final_dir)
         except OSError as exc:
-            raise BackendError(f"cannot install to {final_dir}: {exc}") from exc
+            raise BackendError(_("cannot install to %s: %s") % (final_dir, exc)) from exc
     finally:
         shutil.rmtree(temp, ignore_errors=True)
 
@@ -694,7 +695,7 @@ def install_spec(
     desktop.update_desktop_database()
     if progress is not None:
         try:
-            progress(f"installed {display_name}")
+            progress(_("installed %s") % display_name)
         except Exception:  # noqa: BLE001
             pass
     return _installed(
@@ -720,7 +721,7 @@ def install(
     metadata = inspect(source)
     chosen_executable = executable_rel or metadata.executable_rel
     if not chosen_executable:
-        raise BackendError("no executable found; use install_spec with an executable")
+        raise BackendError(_("no executable found; use install_spec with an executable"))
     return install_spec(
         source,
         name=name or metadata.name,
@@ -755,10 +756,10 @@ def _install_dir_for(app: InstalledApp) -> Path | None:
 def replace(app: InstalledApp, new_source: Path) -> InstalledApp:
     new_source = Path(new_source)
     if not is_tarball(new_source):
-        raise BackendError("not a .tar.gz archive: " + str(new_source))
+        raise BackendError(_("not a .tar.gz archive: %s") % new_source)
     install_dir = _install_dir_for(app)
     if install_dir is None or not install_dir.is_dir():
-        raise BackendError("installed directory not found")
+        raise BackendError(_("installed directory not found"))
     metadata = inspect(new_source)
     kf = desktop.load_keyfile(app.entry.path)
     stored_executable = _get(kf, "X-Appdeb-Executable")
@@ -778,13 +779,13 @@ def replace(app: InstalledApp, new_source: Path) -> InstalledApp:
             executable_rel = metadata.executable_rel
         executable_path = _within_root(root, executable_rel)
         if executable_path is None or not executable_path.is_file():
-            raise BackendError("no executable found; use install_spec with an executable")
+            raise BackendError(_("no executable found; use install_spec with an executable"))
         os.chmod(executable_path, 0o755)
         shutil.rmtree(install_dir)
         try:
             os.replace(root, install_dir)
         except OSError as exc:
-            raise BackendError(f"cannot replace {install_dir}: {exc}") from exc
+            raise BackendError(_("cannot replace %s: %s") % (install_dir, exc)) from exc
     finally:
         shutil.rmtree(temp, ignore_errors=True)
 

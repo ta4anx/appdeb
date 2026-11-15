@@ -13,6 +13,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Gio  # noqa: E402
 
 from . import config  # noqa: E402
+from .i18n import _  # noqa: E402
 
 FALLBACK_ICON = "application-x-executable"
 
@@ -87,7 +88,7 @@ def icon_name_for(desktop_id: str) -> str:
 def install_icon(source: Path, desktop_id: str) -> str:
     source = Path(source)
     if not source.is_file():
-        raise ValueError(f"Unsupported image: {source}")
+        raise ValueError(_("Unsupported image: %s") % source)
     root = ensure_hicolor()
     name = icon_name_for(desktop_id)
     suffix = source.suffix.lower()
@@ -107,7 +108,7 @@ def install_icon(source: Path, desktop_id: str) -> str:
             target = root / "256x256" / "apps" / f"{name}.png"
             converted.save(target, format="PNG")
     except Exception as exc:  # noqa: BLE001
-        raise ValueError(f"Unsupported image: {source}") from exc
+        raise ValueError(_("Unsupported image: %s") % source) from exc
     rebuild_cache()
     return name
 

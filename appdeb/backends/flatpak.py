@@ -6,6 +6,7 @@ import shutil
 from typing import Callable
 
 from ..apps import parse_size
+from ..i18n import _
 from ..models import FlatpakApp, FlatpakResult
 from . import runner
 from .runner import BackendError
@@ -17,7 +18,7 @@ AUTH_MARKERS = ("not authorized", "requires authentication")
 
 def _scope_flag(scope: str) -> str:
     if scope not in SCOPES:
-        raise BackendError(f"invalid flatpak scope: {scope}")
+        raise BackendError(_("invalid flatpak scope: %s") % scope)
     return f"--{scope}"
 
 
@@ -121,7 +122,7 @@ def search(query: str) -> list[FlatpakResult]:
         timeout=120,
     )
     if not result.ok:
-        raise BackendError("flatpak search failed", result.output)
+        raise BackendError(_("flatpak search failed"), result.output)
     return _parse_search(result.output)
 
 
@@ -146,8 +147,8 @@ def install(
         retry = _run(pkexec_args, timeout=3600, progress=progress, cancel=cancel)
         if retry.ok:
             return
-        raise BackendError("flatpak install failed", retry.output or result.output)
-    raise BackendError("flatpak install failed", result.output)
+        raise BackendError(_("flatpak install failed"), retry.output or result.output)
+    raise BackendError(_("flatpak install failed"), result.output)
 
 
 def uninstall(
@@ -160,7 +161,7 @@ def uninstall(
     args = ["flatpak", "uninstall", flag, "-y", "--noninteractive", app_id]
     result = _run(args, timeout=1800, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("flatpak uninstall failed", result.output)
+        raise BackendError(_("flatpak uninstall failed"), result.output)
 
 
 def _parse_updates(output: str) -> list[FlatpakResult]:
@@ -221,7 +222,7 @@ def update(
         args.append(ref)
     result = _run(args, timeout=3600, progress=progress, cancel=cancel)
     if not result.ok:
-        raise BackendError("flatpak update failed", result.output)
+        raise BackendError(_("flatpak update failed"), result.output)
 
 
 def _parse_info(output: str) -> dict[str, str]:
@@ -289,16 +290,16 @@ def overrides(app_id: str) -> str:
 
 def set_override(app_id: str, action: str, value: str) -> None:
     if action not in OVERRIDE_ACTIONS:
-        raise BackendError(f"unsupported flatpak override action: {action}")
+        raise BackendError(_("unsupported flatpak override action: %s") % action)
     result = _run(
         ["flatpak", "override", "--user", f"--{action}={value}", app_id],
         timeout=60,
     )
     if not result.ok:
-        raise BackendError("flatpak override failed", result.output)
+        raise BackendError(_("flatpak override failed"), result.output)
 
 
 def reset_overrides(app_id: str) -> None:
     result = _run(["flatpak", "override", "--user", "--reset", app_id], timeout=60)
     if not result.ok:
-        raise BackendError("flatpak override reset failed", result.output)
+        raise BackendError(_("flatpak override reset failed"), result.output)

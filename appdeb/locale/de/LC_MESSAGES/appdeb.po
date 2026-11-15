@@ -1,0 +1,1909 @@
+# German translation for AppDeb.
+# Copyright (C) 2026 AppDeb contributors
+# This file is distributed under the same license as the AppDeb project.
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "\n\nThe following packages will be removed:\n%s"
+msgstr "\n\nDie folgenden Pakete werden entfernt:\n%s"
+
+msgid "\n\nThe managed bundle is deleted; your downloaded file is kept."
+msgstr ""
+"\n\nDas verwaltete Bundle wird gelöscht; die heruntergeladene Datei "
+"bleibt erhalten."
+
+msgid ""
+"\n\nThe managed install directory is deleted; the original archive "
+"is kept."
+msgstr ""
+"\n\nDas verwaltete Installationsverzeichnis wird gelöscht; das "
+"ursprüngliche Archiv bleibt erhalten."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)d T %(hours)d Std %(minutes)d Min"
+
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)d Std %(minutes)d Min"
+
+msgid "%(minutes)dm"
+msgstr "%(minutes)d Min"
+
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s verwaltet %(count)d Paket; entfernen Sie es zuerst."
+msgstr[1] "%(name)s verwaltet %(count)d Pakete; entfernen Sie sie zuerst."
+
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s folgt jetzt %(channel)s"
+
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+msgid "%d Debian packages in the %s database"
+msgstr "%d Debian-Pakete in der %s-Datenbank"
+
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d Flatpak-Aktualisierung"
+msgstr[1] "%d Flatpak-Aktualisierungen"
+
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d App"
+msgstr[1] "%d Apps"
+
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d Anwendung"
+msgstr[1] "%d Anwendungen"
+
+msgid "%d applications known to %s"
+msgstr "%d Anwendungen sind %s bekannt"
+
+msgid "%d can be fixed automatically"
+msgstr "%d können automatisch behoben werden"
+
+msgid "%d formulae installed with %s"
+msgstr "%d mit %s installierte Formeln"
+
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d Problem"
+msgstr[1] "%d Probleme"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+msgid "%s applications"
+msgstr "%s-Anwendungen"
+
+msgid "%s can be upgraded again"
+msgstr "%s kann wieder aktualisiert werden"
+
+msgid "%s failed"
+msgstr "%s fehlgeschlagen"
+
+msgid "%s formulae"
+msgstr "%s Formeln"
+
+msgid "%s held at its current version"
+msgstr "%s wird auf der aktuellen Version gehalten"
+
+msgid "%s installation failed: %s"
+msgstr "Installation von %s fehlgeschlagen: %s"
+
+msgid "%s is not installed"
+msgstr "%s ist nicht installiert"
+
+msgid ""
+"%s is replaced in place. Quit the application first; the current "
+"bundle is backed up next to the new one."
+msgstr ""
+"%s wird an Ort und Stelle ersetzt. Beenden Sie die Anwendung "
+"zuerst; das aktuelle Bundle wird neben dem neuen gesichert."
+
+msgid "%s packages"
+msgstr "%s Pakete"
+
+msgid "%s results"
+msgstr "%s Ergebnisse"
+
+msgid "%s store"
+msgstr "%s-Speicher"
+
+msgid "%s updated"
+msgstr "%s aktualisiert"
+
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(leer)"
+
+msgid "(no executable found)"
+msgstr "(keine ausführbare Datei gefunden)"
+
+msgid "--name is required for AppImage installs"
+msgstr "--name ist für die AppImage-Installation erforderlich"
+
+msgid "0 apps"
+msgstr "0 Apps"
+
+msgid "10 seconds"
+msgstr "10 Sekunden"
+
+msgid "2 seconds"
+msgstr "2 Sekunden"
+
+msgid "5 seconds"
+msgstr "5 Sekunden"
+
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "Für %s existiert bereits eine Verknüpfung. Entfernen?"
+
+msgid "Aborted"
+msgstr "Abgebrochen"
+
+msgid "About"
+msgstr "Info"
+
+msgid "About AppDeb"
+msgstr "Über AppDeb"
+
+msgid "Adjust the search text or the filter."
+msgstr "Suchtext oder Filter anpassen."
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "Alle geprüften Desktop-Einträge sind in Ordnung"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "Beim Deinstallieren auch die Systemkonfiguration entfernen"
+
+msgid ""
+"AppDeb puts every kind of Linux application in one window: Flatpak, "
+"Snap, Homebrew, AppImage, .deb packages and portable .tar.gz "
+"archives."
+msgstr ""
+"AppDeb vereint alle Arten von Linux-Anwendungen in einem Fenster: "
+"Flatpak, Snap, Homebrew, AppImage, .deb-Pakete und portable "
+".tar.gz-Archive."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage ersetzt; starten Sie die Anwendung neu, um es zu nutzen"
+
+msgid "AppImage store"
+msgstr "AppImage-Speicher"
+
+msgid ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package "
+"name with --from"
+msgstr ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz oder Paketname "
+"mit --from"
+
+msgid ""
+"AppImages run outside the Flatpak sandbox and can read your files. "
+"Only install apps you trust."
+msgstr ""
+"AppImages laufen außerhalb der Flatpak-Sandbox und können Ihre "
+"Dateien lesen. Installieren Sie nur Anwendungen, denen Sie "
+"vertrauen."
+
+msgid "Application"
+msgstr "Anwendung"
+
+msgid "Application data"
+msgstr "Anwendungsdaten"
+
+msgid "Application database refreshed"
+msgstr "Anwendungsdatenbank aktualisiert"
+
+msgid "Application details"
+msgstr "Anwendungsdetails"
+
+msgid "Application icon"
+msgstr "Anwendungssymbol"
+
+msgid "Application icon reset"
+msgstr "Anwendungssymbol zurückgesetzt"
+
+msgid "Application icon updated"
+msgstr "Anwendungssymbol aktualisiert"
+
+msgid "Application manager"
+msgstr "Anwendungsverwaltung"
+
+msgid "Application parameters"
+msgstr "Anwendungsparameter"
+
+msgid "Application renamed"
+msgstr "Anwendung umbenannt"
+
+msgid "Application runs in a terminal"
+msgstr "Anwendung läuft in einem Terminal"
+
+msgid "Application uninstalled"
+msgstr "Anwendung deinstalliert"
+
+msgid "Applications found through each package manager."
+msgstr "Anwendungen, die über die jeweilige Paketverwaltung gefunden werden."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "Von AppDeb installierte und verwaltete Anwendungen."
+
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "%d Korrektur anwenden? [y/N] "
+msgstr[1] "%d Korrekturen anwenden? [y/N] "
+
+msgid "Architecture"
+msgstr "Architektur"
+
+msgid "Archives"
+msgstr "Archive"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Autostart disabled"
+msgstr "Autostart deaktiviert"
+
+msgid "Autostart enabled"
+msgstr "Autostart aktiviert"
+
+msgid "Autostart this application when you sign in"
+msgstr "Diese Anwendung bei der Anmeldung automatisch starten"
+
+msgid "Available"
+msgstr "Verfügbar"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Back up desktop entries"
+msgstr "Desktop-Einträge sichern"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "Aktuelles Bundle sichern und eine neue Version installieren"
+
+msgid "Backup created in %s"
+msgstr "Sicherung erstellt unter %s"
+
+msgid "Backup failed: %s"
+msgstr "Sicherung fehlgeschlagen: %s"
+
+msgid "Browse…"
+msgstr "Durchsuchen…"
+
+msgid "Bundle"
+msgstr "Bundle"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU-Auslastung"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Cancelling…"
+msgstr "Wird abgebrochen…"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Change Icon"
+msgstr "Symbol ändern"
+
+msgid "Change executable…"
+msgstr "Ausführbare Datei ändern…"
+
+msgid "Change package manager"
+msgstr "Paketverwaltung wechseln"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "Änderungen gelten als Benutzer-Überschreibungen für diese Anwendung."
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Check updates"
+msgstr "Aktualisierungen prüfen"
+
+msgid "Check your package managers"
+msgstr "Paketverwaltungen prüfen"
+
+msgid "Checking"
+msgstr "Wird geprüft"
+
+msgid "Checking…"
+msgstr "Wird geprüft…"
+
+msgid "Choose .deb package"
+msgstr ".deb-Paket auswählen"
+
+msgid "Choose .deb package…"
+msgstr ".deb-Paket auswählen…"
+
+msgid "Choose .tar.gz archive"
+msgstr ".tar.gz-Archiv auswählen"
+
+msgid "Choose AppImage"
+msgstr "AppImage auswählen"
+
+msgid "Choose AppImage file…"
+msgstr "AppImage-Datei auswählen…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Flatpak-Bundle oder .flatpakref auswählen"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Flatpak-Bundle oder .flatpakref auswählen…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "Eine ausführbare Datei im Installationsverzeichnis auswählen"
+
+msgid "Choose application icon"
+msgstr "Anwendungssymbol auswählen"
+
+msgid "Choose archive"
+msgstr "Archiv auswählen"
+
+msgid "Choose destination folder"
+msgstr "Zielordner auswählen"
+
+msgid "Choose executable"
+msgstr "Ausführbare Datei auswählen"
+
+msgid "Choose icon"
+msgstr "Symbol auswählen"
+
+msgid "Choose replacement"
+msgstr "Ersatz auswählen"
+
+msgid "Choose replacement .tar.gz"
+msgstr "Ersatz-.tar.gz auswählen"
+
+msgid "Choose replacement AppImage"
+msgstr "Ersatz-AppImage auswählen"
+
+msgid "Choose…"
+msgstr "Auswählen…"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr ""
+"Benutzer-Desktop-Einträge und die Datenbank in den Sicherungsordner "
+"kopieren"
+
+msgid "Could not change autostart: %s"
+msgstr "Autostart konnte nicht geändert werden: %s"
+
+msgid "Could not change package hold: %s"
+msgstr "Zurückhalten des Pakets konnte nicht geändert werden: %s"
+
+msgid "Could not change permission: %s"
+msgstr "Berechtigung konnte nicht geändert werden: %s"
+
+msgid "Could not change update hold: %s"
+msgstr "Zurückhalten von Aktualisierungen konnte nicht geändert werden: %s"
+
+msgid "Could not create shortcut: %s"
+msgstr "Verknüpfung konnte nicht erstellt werden: %s"
+
+msgid "Could not fix this issue"
+msgstr "Dieses Problem konnte nicht behoben werden"
+
+msgid "Could not install icon: %s"
+msgstr "Symbol konnte nicht installiert werden: %s"
+
+msgid "Could not launch: %s"
+msgstr "Start fehlgeschlagen: %s"
+
+msgid "Could not open link: %s"
+msgstr "Link konnte nicht geöffnet werden: %s"
+
+msgid "Could not open location: %s"
+msgstr "Speicherort konnte nicht geöffnet werden: %s"
+
+msgid "Could not read archive"
+msgstr "Archiv konnte nicht gelesen werden"
+
+msgid "Could not read snap channels: %s"
+msgstr "Snap-Kanäle konnten nicht gelesen werden: %s"
+
+msgid "Could not read the archive"
+msgstr "Das Archiv konnte nicht gelesen werden"
+
+msgid "Could not read the package"
+msgstr "Das Paket konnte nicht gelesen werden"
+
+msgid "Could not rebuild the icon cache"
+msgstr "Der Symbol-Cache konnte nicht neu erstellt werden"
+
+msgid "Could not refresh snap: %s"
+msgstr "Snap konnte nicht aktualisiert werden: %s"
+
+msgid "Could not reset overrides: %s"
+msgstr "Überschreibungen konnten nicht zurückgesetzt werden: %s"
+
+msgid "Could not search for alternative sources: %s"
+msgstr "Suche nach alternativen Quellen fehlgeschlagen: %s"
+
+msgid "Could not switch channel: %s"
+msgstr "Kanal konnte nicht gewechselt werden: %s"
+
+msgid "Could not terminate processes: %s"
+msgstr "Prozesse konnten nicht beendet werden: %s"
+
+msgid "Could not update %s: %s"
+msgstr "%s konnte nicht aktualisiert werden: %s"
+
+msgid "Could not update Terminal: %s"
+msgstr "Terminal-Einstellung konnte nicht aktualisiert werden: %s"
+
+msgid "Could not update menu visibility: %s"
+msgstr "Menüsichtbarkeit konnte nicht aktualisiert werden: %s"
+
+msgid "Could not update window class: %s"
+msgstr "Fensterklasse konnte nicht aktualisiert werden: %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian-Paket"
+
+msgid "Debian packages"
+msgstr "Debian-Pakete"
+
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+msgid "Depends"
+msgstr "Hängt ab von"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Desktop Shortcut"
+msgstr "Desktop-Verknüpfung"
+
+msgid "Desktop entry ID"
+msgstr "Desktop-Eintrags-ID"
+
+msgid "Desktop file"
+msgstr "Desktop-Datei"
+
+msgid "Desktop shortcut"
+msgstr "Desktop-Verknüpfung"
+
+msgid "Destination"
+msgstr "Ziel"
+
+msgid "Destination folder (optional)"
+msgstr "Zielordner (optional)"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Detected version"
+msgstr "Erkannte Version"
+
+msgid "Developer"
+msgstr "Entwickler"
+
+msgid "Disk"
+msgstr "Datenträger"
+
+msgid "Disk read / write"
+msgstr "Datenträger lesen / schreiben"
+
+msgid "Dock icon association"
+msgstr "Dock-Symbolzuordnung"
+
+msgid "Dock icon association updated"
+msgstr "Dock-Symbolzuordnung aktualisiert"
+
+msgid "Download"
+msgstr "Herunterladen"
+
+msgid "Download .tar.gz"
+msgstr ".tar.gz herunterladen"
+
+msgid "Download .tar.gz from URL…"
+msgstr ".tar.gz von URL herunterladen…"
+
+msgid "Download AppImage"
+msgstr "AppImage herunterladen"
+
+msgid "Download AppImage from URL…"
+msgstr "AppImage von URL herunterladen…"
+
+msgid "Download from URL"
+msgstr "Von URL herunterladen"
+
+msgid "Download history"
+msgstr "Download-Verlauf"
+
+msgid "Downloading AppImage"
+msgstr "AppImage wird heruntergeladen"
+
+msgid "Downloading archive"
+msgstr "Archiv wird heruntergeladen"
+
+msgid ""
+"Downloads are installed from the download cache. Only install "
+"software you trust."
+msgstr ""
+"Downloads werden aus dem Download-Cache installiert. Installieren "
+"Sie nur Software, der Sie vertrauen."
+
+msgid "Effective permissions"
+msgstr "Effektive Berechtigungen"
+
+msgid "End processes"
+msgstr "Prozesse beenden"
+
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "%d Prozess beendet"
+msgstr[1] "%d Prozesse beendet"
+
+msgid "Enter a formula name first"
+msgstr "Geben Sie zuerst einen Formelnamen ein"
+
+msgid "Enter a snap name first"
+msgstr "Geben Sie zuerst einen Snap-Namen ein"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec darf nicht leer sein"
+
+msgid "Executable"
+msgstr "Ausführbare Datei"
+
+msgid "Executable updated"
+msgstr "Ausführbare Datei aktualisiert"
+
+msgid "Executables"
+msgstr "Ausführbare Dateien"
+
+msgid "Extract icon"
+msgstr "Symbol extrahieren"
+
+msgid "Files"
+msgstr "Dateien"
+
+msgid "Finish"
+msgstr "Fertigstellen"
+
+msgid "Fix"
+msgstr "Beheben"
+
+msgid "Fix icons and desktop entries"
+msgstr "Symbole und Desktop-Einträge reparieren"
+
+msgid "Fixing %s"
+msgstr "%s wird behoben"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak-Bundles"
+
+msgid "Flatpak is not installed on this system."
+msgstr "Flatpak ist auf diesem System nicht installiert."
+
+msgid "Flatpak location"
+msgstr "Flatpak-Speicherort"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpak-Überschreibungen zurückgesetzt"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak-Berechtigungen"
+
+msgid "Flatpak scope"
+msgstr "Flatpak-Bereich"
+
+msgid "Folder"
+msgstr "Ordner"
+
+msgid "Following %s; switching refreshes the snap"
+msgstr "Folgt %s; ein Wechsel aktualisiert den Snap"
+
+msgid "Hidden from the application menu"
+msgstr "Im Anwendungsmenü ausgeblendet"
+
+msgid "Hide from application menu"
+msgstr "Im Anwendungsmenü ausblenden"
+
+msgid "Hold package version"
+msgstr "Paketversion zurückhalten"
+
+msgid "Hold updates"
+msgstr "Aktualisierungen zurückhalten"
+
+msgid "Holding package version"
+msgstr "Paketversion wird zurückgehalten"
+
+msgid "Holding snap updates"
+msgstr "Snap-Aktualisierungen werden zurückgehalten"
+
+msgid "Home disk usage"
+msgstr "Datenträgernutzung im Home-Verzeichnis"
+
+msgid "Home folder"
+msgstr "Home-Ordner"
+
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew-Aktualisierung fehlgeschlagen: %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew wurde nicht gefunden"
+
+msgid "Homepage"
+msgstr "Webseite"
+
+msgid "Host filesystem"
+msgstr "Host-Dateisystem"
+
+msgid "How often resource usage is sampled"
+msgstr "Wie oft die Ressourcennutzung erfasst wird"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "Symbol"
+
+msgid "Icon cache rebuilt"
+msgstr "Symbol-Cache neu erstellt"
+
+msgid ""
+"If a running window shows a generic gear instead of its real icon, "
+"the entry is missing a window-class association. The Tools page "
+"finds those problems and repairs them, with a backup of every file "
+"it changes."
+msgstr ""
+"Wenn ein laufendes Fenster ein allgemeines Zahnrad statt seines "
+"echten Symbols zeigt, fehlt dem Eintrag eine "
+"Fensterklassen-Zuordnung. Die Werkzeugseite findet solche Probleme "
+"und behebt sie – mit einer Sicherung jeder geänderten Datei."
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "Einträge mit NoDisplay oder Hidden einbeziehen"
+
+msgid "Inside install: %s"
+msgstr "In der Installation: %s"
+
+msgid "Inspecting AppImage…"
+msgstr "AppImage wird geprüft…"
+
+msgid "Install"
+msgstr "Installieren"
+
+msgid "Install %s with %s? [y/N] "
+msgstr "%s mit %s installieren? [y/N] "
+
+msgid "Install %s? [y/N] "
+msgstr "%s installieren? [y/N] "
+
+msgid "Install .deb package"
+msgstr ".deb-Paket installieren"
+
+msgid "Install .tar.gz (one click)"
+msgstr ".tar.gz installieren (ein Klick)"
+
+msgid "Install .tar.gz application"
+msgstr ".tar.gz-Anwendung installieren"
+
+msgid "Install .tar.gz to folder…"
+msgstr ".tar.gz in Ordner installieren…"
+
+msgid "Install AppImage"
+msgstr "AppImage installieren"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "Ein lokales .deb-Paket über apt und polkit installieren."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr ""
+"Flatpak-, AppImage-, .deb- und .tar.gz-Anwendungen installieren und "
+"verwalten."
+
+msgid "Install by searching or by typing"
+msgstr "Durch Suchen oder Eingeben installieren"
+
+msgid "Install directory"
+msgstr "Installationsverzeichnis"
+
+msgid "Install formula by name"
+msgstr "Formel nach Namen installieren"
+
+msgid "Install path"
+msgstr "Installationspfad"
+
+msgid "Install snap by name"
+msgstr "Snap nach Namen installieren"
+
+msgid ""
+"Install this application from another package manager. The current "
+"copy is not touched until you remove it."
+msgstr ""
+"Diese Anwendung über eine andere Paketverwaltung installieren. Die "
+"aktuelle Kopie bleibt unberührt, bis Sie sie entfernen."
+
+msgid "Installation failed: %s"
+msgstr "Installation fehlgeschlagen: %s"
+
+msgid "Installation scope"
+msgstr "Installationsbereich"
+
+msgid "Installed"
+msgstr "Installiert"
+
+msgid "Installed %s"
+msgstr "%s installiert"
+
+msgid "Installed %s with %s"
+msgstr "%s mit %s installiert"
+
+msgid "Installed applications"
+msgstr "Installierte Anwendungen"
+
+msgid "Installed by manager"
+msgstr "Von Paketverwaltungen installiert"
+
+msgid "Installed size"
+msgstr "Installierte Größe"
+
+msgid "Installing %s"
+msgstr "%s wird installiert"
+
+msgid "Installing %s with %s"
+msgstr "%s wird mit %s installiert"
+
+msgid ""
+"Installing a .deb package changes system software and requires "
+"administrator authentication via polkit."
+msgstr ""
+"Die Installation eines .deb-Pakets verändert Systemsoftware und "
+"erfordert eine Administrator-Authentifizierung über polkit."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "Sprache der Oberfläche, die nach einem Neustart von AppDeb gilt"
+
+msgid "Issue fixed"
+msgstr "Problem behoben"
+
+msgid "Issues"
+msgstr "Probleme"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "Desktop-Eintrag beibehalten, aber aus den Anwendungsmenüs ausblenden"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "Desktop-Eintrag, Symbol und Namen beim Ersetzen der Dateien beibehalten"
+
+msgid "Keywords"
+msgstr "Schlagwörter"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Launch"
+msgstr "Starten"
+
+msgid "Launching %s"
+msgstr "%s wird gestartet"
+
+msgid ""
+"Leave empty to install into the managed AppDeb store. Choose a "
+"folder to install into a subfolder of it."
+msgstr ""
+"Leer lassen, um im verwalteten AppDeb-Speicher zu installieren. "
+"Wählen Sie einen Ordner, um in einem Unterordner davon zu "
+"installieren."
+
+msgid "License"
+msgstr "Lizenz"
+
+msgid "Load"
+msgstr "Laden"
+
+msgid "Load average"
+msgstr "Durchschnittslast"
+
+msgid "Loading channels…"
+msgstr "Kanäle werden geladen…"
+
+msgid "Loading store details…"
+msgstr "Details werden geladen…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr ""
+"Nach ungültigen Einträgen, fehlenden Symbolen und nicht "
+"zugeordneten Fensterklassen suchen"
+
+msgid "Looking for alternative package sources…"
+msgstr "Alternative Paketquellen werden gesucht…"
+
+msgid "Main menu"
+msgstr "Hauptmenü"
+
+msgid "Maintainer"
+msgstr "Betreuer"
+
+msgid "Maintenance"
+msgstr "Wartung"
+
+msgid "Managed stores"
+msgstr "Verwaltete Speicher"
+
+msgid "Managers"
+msgstr "Paketverwaltungen"
+
+msgid "Matching folder"
+msgstr "Passender Ordner"
+
+msgid "Memory"
+msgstr "Arbeitsspeicher"
+
+msgid "Memory usage"
+msgstr "Speicherauslastung"
+
+msgid "Monitoring"
+msgstr "Überwachung"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "No alternative package sources found."
+msgstr "Keine alternativen Paketquellen gefunden."
+
+msgid "No applications match"
+msgstr "Keine Anwendungen passen"
+
+msgid "No channels reported for this snap"
+msgstr "Für diesen Snap wurden keine Kanäle gemeldet"
+
+msgid "No embedded icon found"
+msgstr "Kein eingebettetes Symbol gefunden"
+
+msgid "No executable detected; choose one"
+msgstr "Keine ausführbare Datei erkannt; wählen Sie eine aus"
+
+msgid "No issues found"
+msgstr "Keine Probleme gefunden"
+
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+msgid "No running processes"
+msgstr "Keine laufenden Prozesse"
+
+msgid "No scan has run yet"
+msgstr "Noch keine Prüfung durchgeführt"
+
+msgid "No shortcut found"
+msgstr "Keine Verknüpfung gefunden"
+
+msgid "Not installed"
+msgstr "Nicht installiert"
+
+msgid "Only https:// URLs are supported."
+msgstr "Nur https://-URLs werden unterstützt."
+
+msgid "Open bundle folder"
+msgstr "Bundle-Ordner öffnen"
+
+msgid "Open homepage"
+msgstr "Webseite öffnen"
+
+msgid "Open install folder"
+msgstr "Installationsordner öffnen"
+
+msgid "Open location"
+msgstr "Speicherort öffnen"
+
+msgid "Optional"
+msgstr "Optional"
+
+msgid "Original archive"
+msgstr "Ursprüngliches Archiv"
+
+msgid "Outdated formulae upgraded"
+msgstr "Veraltete Formeln aktualisiert"
+
+msgid "Package"
+msgstr "Paket"
+
+msgid "Package manager information is unavailable"
+msgstr "Informationen zur Paketverwaltung sind nicht verfügbar"
+
+msgid "Package manager overview"
+msgstr "Übersicht der Paketverwaltungen"
+
+msgid "Package managers"
+msgstr "Paketverwaltungen"
+
+msgid "Package managers available on this system and their versions."
+msgstr "Auf diesem System verfügbare Paketverwaltungen und ihre Versionen."
+
+msgid "Package removed"
+msgstr "Paket entfernt"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "Automatische Aktualisierungen für diesen Snap pausieren"
+
+msgid "Permissions are unavailable."
+msgstr "Berechtigungen sind nicht verfügbar."
+
+msgid ""
+"Pick a page from the sidebar to start. Settings holds the Flatpak "
+"install scope, the interface language and a button to show this "
+"guide again at any time."
+msgstr ""
+"Wählen Sie links eine Seite aus. In den Einstellungen finden Sie "
+"den Flatpak-Installationsbereich, die Oberflächensprache und eine "
+"Schaltfläche, um diese Anleitung jederzeit erneut anzuzeigen."
+
+msgid "Pick another executable inside the install directory"
+msgstr "Eine andere ausführbare Datei im Installationsverzeichnis wählen"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "apt am Aktualisieren dieses Pakets hindern"
+
+msgid "Processes"
+msgstr "Prozesse"
+
+msgid "Purge configuration files"
+msgstr "Konfigurationsdateien löschen"
+
+msgid "Quit"
+msgstr "Beenden"
+
+msgid "Rebuild icon cache"
+msgstr "Symbol-Cache neu erstellen"
+
+msgid "Refresh application database"
+msgstr "Anwendungsdatenbank aktualisieren"
+
+msgid "Refresh interval"
+msgstr "Aktualisierungsintervall"
+
+msgid "Refresh package manager information"
+msgstr "Informationen zur Paketverwaltung aktualisieren"
+
+msgid "Refresh snap now"
+msgstr "Snap jetzt aktualisieren"
+
+msgid "Refresh the application list"
+msgstr "Anwendungsliste aktualisieren"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "Benutzer-Hicolor-Symbol-Cache aktualisieren"
+
+msgid "Refreshed %s"
+msgstr "%s aktualisiert"
+
+msgid "Refreshing %s"
+msgstr "%s wird aktualisiert"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "Caches von desktop-file-utils neu erzeugen"
+
+msgid "Reinstall / replace archive…"
+msgstr "Archiv neu installieren / ersetzen…"
+
+msgid "Releasing package hold"
+msgstr "Paket wird freigegeben"
+
+msgid "Removal failed: %s"
+msgstr "Entfernen fehlgeschlagen: %s"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Remove %s? [y/N] "
+msgstr "%s entfernen? [y/N] "
+
+msgid "Remove Debian package"
+msgstr "Debian-Paket entfernen"
+
+msgid "Remove all user permission overrides for %s?"
+msgstr "Alle Benutzer-Berechtigungsüberschreibungen für %s entfernen?"
+
+msgid "Remove current copy"
+msgstr "Aktuelle Kopie entfernen"
+
+msgid "Remove every user permission override for this application"
+msgstr ""
+"Alle Benutzer-Berechtigungsüberschreibungen für diese Anwendung "
+"entfernen"
+
+msgid "Remove package"
+msgstr "Paket entfernen"
+
+msgid "Remove shortcut"
+msgstr "Verknüpfung entfernen"
+
+msgid ""
+"Remove the %(kind)s copy of %(name)s?\n\n%(candidate)s was "
+"installed with %(manager)s. You can keep both copies."
+msgstr ""
+"Die %(kind)s-Kopie von %(name)s entfernen?\n\n%(candidate)s wurde "
+"mit %(manager)s installiert. Beide Kopien können beibehalten werden."
+
+msgid "Remove the current copy?"
+msgstr "Die aktuelle Kopie entfernen?"
+
+msgid "Remove the package %s?"
+msgstr "Das Paket %s entfernen?"
+
+msgid "Remove…"
+msgstr "Entfernen…"
+
+msgid "Removing %s"
+msgstr "%s wird entfernt"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Rename application"
+msgstr "Anwendung umbenennen"
+
+msgid "Rename failed: %s"
+msgstr "Umbenennen fehlgeschlagen: %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "Desktop-Einträge reparieren und Anwendungsmetadaten aktualisieren."
+
+msgid "Replace AppImage"
+msgstr "AppImage ersetzen"
+
+msgid "Replace AppImage…"
+msgstr "AppImage ersetzen…"
+
+msgid "Replace tarball installation"
+msgstr "Tarball-Installation ersetzen"
+
+msgid "Replacing AppImage"
+msgstr "AppImage wird ersetzt"
+
+msgid "Replacing tarball installation"
+msgstr "Tarball-Installation wird ersetzt"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Reset Flatpak overrides"
+msgstr "Flatpak-Überschreibungen zurücksetzen"
+
+msgid "Reset Icon"
+msgstr "Symbol zurücksetzen"
+
+msgid "Reset all overrides"
+msgstr "Alle Überschreibungen zurücksetzen"
+
+msgid "Resources"
+msgstr "Ressourcen"
+
+msgid "Restart"
+msgstr "Neu starten"
+
+msgid "Restart AppDeb to apply"
+msgstr "AppDeb neu starten, um es anzuwenden"
+
+msgid "Results"
+msgstr "Ergebnisse"
+
+msgid "Resuming snap updates"
+msgstr "Snap-Aktualisierungen werden fortgesetzt"
+
+msgid "Run this application in a terminal window"
+msgstr "Diese Anwendung in einem Terminalfenster ausführen"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (optional)"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 stimmt nicht überein"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Scan desktop entries"
+msgstr "Desktop-Einträge prüfen"
+
+msgid "Scan failed"
+msgstr "Prüfung fehlgeschlagen"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "Prüfen, um alle Desktop-Einträge zu kontrollieren"
+
+msgid "Scanning desktop entries…"
+msgstr "Desktop-Einträge werden geprüft…"
+
+msgid "Scanning…"
+msgstr "Wird geprüft…"
+
+msgid "Scope"
+msgstr "Bereich"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Bereich für Flatpak-Installationen und -Aktualisierungen."
+
+msgid "Screenshot"
+msgstr "Bildschirmfoto"
+
+msgid "Screenshot is not available"
+msgstr "Bildschirmfoto ist nicht verfügbar"
+
+msgid "Screenshots"
+msgstr "Bildschirmfotos"
+
+msgid "Search Flathub"
+msgstr "Flathub durchsuchen"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr ""
+"Flathub durchsuchen und Apps im in den Einstellungen gewählten "
+"Bereich installieren."
+
+msgid ""
+"Search Flathub, the Snap Store or Homebrew, or type an exact "
+"package name. AppImages, .deb packages and .tar.gz archives can be "
+"installed from a file or an https URL, and every install is checked "
+"before it touches your system."
+msgstr ""
+"Flathub, den Snap Store oder Homebrew durchsuchen oder einen "
+"exakten Paketnamen eingeben. AppImages, .deb-Pakete und "
+".tar.gz-Archive lassen sich aus einer Datei oder von einer "
+"https-URL installieren, und jede Installation wird geprüft, bevor "
+"sie das System verändert."
+
+msgid "Search applications"
+msgstr "Anwendungen suchen"
+
+msgid "Search failed: %s"
+msgstr "Suche fehlgeschlagen: %s"
+
+msgid "Search formulae"
+msgstr "Formeln suchen"
+
+msgid ""
+"Search formulae and install them with Homebrew. Homebrew installs "
+"into your user account; no password is needed."
+msgstr ""
+"Formeln suchen und mit Homebrew installieren. Homebrew installiert "
+"im Benutzerkonto; ein Passwort ist nicht nötig."
+
+msgid "Search snaps"
+msgstr "Snaps suchen"
+
+msgid ""
+"Search snaps and install them. System installs prompt for "
+"authentication and may take a while."
+msgstr ""
+"Snaps suchen und installieren. Systeminstallationen erfordern eine "
+"Authentifizierung und können etwas dauern."
+
+msgid "Searching %s for %s"
+msgstr "%s wird nach %s durchsucht"
+
+msgid "Searching for “%s”…"
+msgstr "Suche nach „%s“…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "SIGTERM an die Prozesse dieser Anwendung senden"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Shortcut created: %s"
+msgstr "Verknüpfung erstellt: %s"
+
+msgid "Shortcut removed"
+msgstr "Verknüpfung entfernt"
+
+msgid "Show hidden desktop entries"
+msgstr "Versteckte Desktop-Einträge anzeigen"
+
+msgid "Shown in the application menu"
+msgstr "Im Anwendungsmenü sichtbar"
+
+msgid "Shows the affected packages before removal"
+msgstr "Zeigt vor dem Entfernen die betroffenen Pakete"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Skip"
+msgstr "Überspringen"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Snap-Installationen erfordern eine Authentifizierung"
+
+msgid "Snap name unknown"
+msgstr "Snap-Name unbekannt"
+
+msgid "Snap was not found"
+msgstr "Snap wurde nicht gefunden"
+
+msgid "Source / reference"
+msgstr "Quelle / Referenz"
+
+msgid "Start at login"
+msgstr "Bei der Anmeldung starten"
+
+msgid "Started"
+msgstr "Gestartet"
+
+msgid "Startup"
+msgstr "Autostart"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / Fensterklasse"
+
+msgid "Step %d of %d"
+msgstr "Schritt %d von %d"
+
+msgid "Store"
+msgstr "Store"
+
+msgid "Store ID"
+msgstr "Store-ID"
+
+msgid "Store details"
+msgstr "Store-Details"
+
+msgid "Swap usage"
+msgstr "Swap-Auslastung"
+
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "%(name)s auf %(channel)s umstellen? Der Snap wird jetzt aktualisiert."
+
+msgid "Switch channel"
+msgstr "Kanal wechseln"
+
+msgid "Switch snap channel"
+msgstr "Snap-Kanal wechseln"
+
+msgid "Switching %(name)s to %(channel)s"
+msgstr "%(name)s wird auf %(channel)s umgestellt"
+
+msgid "System"
+msgstr "System"
+
+msgid "Tar archives"
+msgstr "Tar-Archive"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball-Installation fehlgeschlagen"
+
+msgid "Tarball store"
+msgstr "Tarball-Speicher"
+
+msgid ""
+"Tarballs run outside a sandbox and can read your files. Only "
+"install apps you trust."
+msgstr ""
+"Tarballs laufen außerhalb einer Sandbox und können Ihre Dateien "
+"lesen. Installieren Sie nur Anwendungen, denen Sie vertrauen."
+
+msgid "Terminal application"
+msgstr "Terminalanwendung"
+
+msgid "Terminal disabled"
+msgstr "Terminal deaktiviert"
+
+msgid "Terminate all processes belonging to %s?"
+msgstr "Alle Prozesse von %s beenden?"
+
+msgid "The Debian package name is unknown"
+msgstr "Der Name des Debian-Pakets ist unbekannt"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Die Flatpak-Anwendungs-ID ist unbekannt"
+
+msgid ""
+"The Managers page shows which package managers exist on this "
+"computer, their versions and how many packages each one owns. You "
+"can install a missing manager there, or remove one once it no "
+"longer manages any packages."
+msgstr ""
+"Die Seite „Paketverwaltungen“ zeigt, welche Paketverwaltungen auf "
+"diesem Rechner vorhanden sind, ihre Versionen und wie viele Pakete "
+"jede verwaltet. Fehlende Verwaltungen lassen sich dort installieren "
+"und nicht mehr benötigte entfernen."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr ""
+"Das eingebettete Symbol ist nicht verfügbar; wählen Sie eines "
+"manuell aus"
+
+msgid ""
+"The files for %s are replaced and the current install directory is "
+"backed up. Quit the application first."
+msgstr ""
+"Die Dateien für %s werden ersetzt und das aktuelle "
+"Installationsverzeichnis wird gesichert. Beenden Sie die Anwendung "
+"zuerst."
+
+msgid "The install directory is unknown"
+msgstr "Das Installationsverzeichnis ist unbekannt"
+
+msgid "The selected file is not an AppImage"
+msgstr "Die ausgewählte Datei ist kein AppImage"
+
+msgid "The snap command is not available on this system."
+msgstr "Der Befehl snap ist auf diesem System nicht verfügbar."
+
+msgid ""
+"The window class (WM_CLASS) GNOME uses to match this application's "
+"windows to the desktop entry."
+msgstr ""
+"Die Fensterklasse (WM_CLASS), mit der GNOME die Fenster dieser "
+"Anwendung dem Desktop-Eintrag zuordnet."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "Dadurch ändert sich der Name in Menüs, im Dock und in diesem Fenster."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "Dieser Desktop-Eintrag verweist auf keine Snap-Instanz"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "Top processes"
+msgstr "Top-Prozesse"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Type at least 2 characters to search"
+msgstr "Geben Sie mindestens 2 Zeichen zum Suchen ein"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL enthält keinen Host"
+
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+msgid "Uninstall %s? This cannot be undone."
+msgstr "%s deinstallieren? Dies kann nicht rückgängig gemacht werden."
+
+msgid "Uninstall application"
+msgstr "Anwendung deinstallieren"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "Deinstallieren wird für diesen Eintrag nicht unterstützt"
+
+msgid "Uninstalling %s"
+msgstr "%s wird deinstalliert"
+
+msgid "Unknown package"
+msgstr "Unbekanntes Paket"
+
+msgid "Unsupported file type: %s"
+msgstr "Nicht unterstützter Dateityp: %s"
+
+msgid "Unsupported image: %s"
+msgstr "Nicht unterstütztes Bild: %s"
+
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "%d Anwendung aktualisiert"
+msgstr[1] "%d Anwendungen aktualisiert"
+
+msgid "Updates for %s are held"
+msgstr "Aktualisierungen für %s werden zurückgehalten"
+
+msgid "Updates for %s resumed"
+msgstr "Aktualisierungen für %s werden wieder zugelassen"
+
+msgid "Updating %s…"
+msgstr "%s wird aktualisiert…"
+
+msgid "Updating Flatpak applications"
+msgstr "Flatpak-Anwendungen werden aktualisiert"
+
+msgid "Upgrade outdated formulae"
+msgstr "Veraltete Formeln aktualisieren"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Homebrew-Formeln werden aktualisiert"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Uptime"
+msgstr "Laufzeit"
+
+msgid "Usage history"
+msgstr "Nutzungsverlauf"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "User data"
+msgstr "Benutzerdaten"
+
+msgid "Values written to this application's desktop entry."
+msgstr "Werte, die in den Desktop-Eintrag dieser Anwendung geschrieben werden."
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Version %s"
+msgstr "Version %s"
+
+msgid "Version unknown"
+msgstr "Version unbekannt"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "Willkommen bei AppDeb"
+
+msgid "Window class"
+msgstr "Fensterklasse"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "Alles bereit"
+
+msgid "a package name is required with --from"
+msgstr "mit --from ist ein Paketname erforderlich"
+
+msgid "application name"
+msgstr "Anwendungsname"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "alle automatisch behebbaren Desktop-Eintragsprobleme beheben"
+
+msgid "apps"
+msgstr "Apps"
+
+msgid "available"
+msgstr "verfügbar"
+
+msgid "brew install failed"
+msgstr "brew install fehlgeschlagen"
+
+msgid "brew search failed"
+msgstr "brew search fehlgeschlagen"
+
+msgid "brew uninstall failed"
+msgstr "brew uninstall fehlgeschlagen"
+
+msgid "brew upgrade failed"
+msgstr "brew upgrade fehlgeschlagen"
+
+msgid "cancelled"
+msgstr "abgebrochen"
+
+msgid "cannot inspect package: %s"
+msgstr "Paket kann nicht geprüft werden: %s"
+
+msgid "cannot install to %s: %s"
+msgstr "Installation nach %s nicht möglich: %s"
+
+msgid "cannot replace %s: %s"
+msgstr "%s kann nicht ersetzt werden: %s"
+
+msgid "cannot start: %s"
+msgstr "Start nicht möglich: %s"
+
+msgid "choose an executable with --exec"
+msgstr "wählen Sie eine ausführbare Datei mit --exec"
+
+msgid "command failed: %s"
+msgstr "Befehl fehlgeschlagen: %s"
+
+msgid "command not found: %s"
+msgstr "Befehl nicht gefunden: %s"
+
+msgid "desktop entry comment"
+msgstr "Kommentar des Desktop-Eintrags"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "Desktop-Datei enthält mehr als eine [Desktop Entry]-Gruppe"
+
+msgid "destination folder for tarball installs"
+msgstr "Zielordner für Tarball-Installationen"
+
+msgid "destination is not writable: %s"
+msgstr "Ziel ist nicht beschreibbar: %s"
+
+msgid "disabled"
+msgstr "deaktiviert"
+
+msgid "download cancelled"
+msgstr "Download abgebrochen"
+
+msgid "download failed: HTTP %s"
+msgstr "Download fehlgeschlagen: HTTP %s"
+
+msgid "download too large"
+msgstr "Download zu groß"
+
+msgid "enabled"
+msgstr "aktiviert"
+
+msgid "essential package"
+msgstr "essentielles Paket"
+
+msgid "executable not found: %s"
+msgstr "ausführbare Datei nicht gefunden: %s"
+
+msgid "failed\t%s\t%s\t%s"
+msgstr "fehlgeschlagen\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "Desktop-Eintrag konnte nicht geschrieben werden"
+
+msgid "file not found: %s"
+msgstr "Datei nicht gefunden: %s"
+
+msgid "fixed\t%s\t%s"
+msgstr "behoben\t%s\t%s"
+
+msgid "fixed %d/%d"
+msgstr "%d/%d behoben"
+
+msgid "flatpak install failed"
+msgstr "flatpak install fehlgeschlagen"
+
+msgid "flatpak override failed"
+msgstr "flatpak override fehlgeschlagen"
+
+msgid "flatpak override reset failed"
+msgstr "Zurücksetzen der flatpak-Überschreibungen fehlgeschlagen"
+
+msgid "flatpak search failed"
+msgstr "flatpak search fehlgeschlagen"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak uninstall fehlgeschlagen"
+
+msgid "flatpak update failed"
+msgstr "flatpak update fehlgeschlagen"
+
+msgid "icon file to install"
+msgstr "zu installierende Symboldatei"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "Symbol ist ein absoluter Pfad außerhalb des Symbolthemas"
+
+msgid "icon not found: %s"
+msgstr "Symbol nicht gefunden: %s"
+
+msgid "install a file or package-manager package"
+msgstr "eine Datei oder ein Paket einer Paketverwaltung installieren"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr ""
+"eine Formel/einen Snap/eine App-ID mit der angegebenen "
+"Paketverwaltung installieren"
+
+msgid "installed %s"
+msgstr "%s installiert"
+
+msgid "installed bundle not found"
+msgstr "installiertes Bundle nicht gefunden"
+
+msgid "installed directory not found"
+msgstr "installiertes Verzeichnis nicht gefunden"
+
+msgid "invalid flatpak scope: %s"
+msgstr "ungültiger Flatpak-Bereich: %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "Suche auf eine Verwaltung beschränken (Standard: alle verfügbaren)"
+
+msgid "missing"
+msgstr "fehlt"
+
+msgid "name contains a forbidden character"
+msgstr "Name enthält ein unzulässiges Zeichen"
+
+msgid "name is empty"
+msgstr "Name ist leer"
+
+msgid "no application with desktop ID %s"
+msgstr "keine Anwendung mit Desktop-ID %s"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr ""
+"keine ausführbare Datei gefunden; verwenden Sie install_spec mit "
+"einer ausführbaren Datei"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "keine grafische Anzeige; verwenden Sie einen CLI-Unterbefehl"
+
+msgid "no package found for desktop entry"
+msgstr "kein Paket für Desktop-Eintrag gefunden"
+
+msgid "no uninstall backend for kind: %s"
+msgstr "kein Deinstallations-Backend für Typ: %s"
+
+msgid "not a .tar.gz archive: %s"
+msgstr "kein .tar.gz-Archiv: %s"
+
+msgid "not an AppImage: %s"
+msgstr "kein AppImage: %s"
+
+msgid "only https:// URLs are supported"
+msgstr "nur https://-URLs werden unterstützt"
+
+msgid "package"
+msgstr "Paket"
+
+msgid "package hold failed"
+msgstr "Zurückhalten des Pakets fehlgeschlagen"
+
+msgid "package installation failed"
+msgstr "Paketinstallation fehlgeschlagen"
+
+msgid "package name is empty"
+msgstr "Paketname ist leer"
+
+msgid "package not found: %s"
+msgstr "Paket nicht gefunden: %s"
+
+msgid "package removal failed"
+msgstr "Entfernen des Pakets fehlgeschlagen"
+
+msgid "packages"
+msgstr "Pakete"
+
+msgid "print JSON"
+msgstr "JSON ausgeben"
+
+msgid "print installed desktop entries"
+msgstr "installierte Desktop-Einträge ausgeben"
+
+msgid "purge configuration for .deb packages"
+msgstr "Konfiguration für .deb-Pakete löschen"
+
+msgid "refusing to remove %s: %s"
+msgstr "Entfernen von %s abgelehnt: %s"
+
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "Entfernen von %s abgelehnt; es würden geschützte Pakete entfernt: %s"
+
+msgid "removal is not supported for %s entries"
+msgstr "Entfernen wird für %s-Einträge nicht unterstützt"
+
+msgid "removed %s"
+msgstr "%s entfernt"
+
+msgid "required-priority package"
+msgstr "Paket mit Priorität required"
+
+msgid "scan desktop entries for problems"
+msgstr "Desktop-Einträge auf Probleme prüfen"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "Flatpak-, Snap- und Homebrew-Pakete suchen"
+
+msgid "search text (at least 2 characters)"
+msgstr "Suchtext (mindestens 2 Zeichen)"
+
+msgid "semicolon separated categories"
+msgstr "durch Semikolon getrennte Kategorien"
+
+msgid "show package manager availability and counts"
+msgstr "Verfügbarkeit und Anzahl der Paketverwaltungen anzeigen"
+
+msgid "skip the confirmation prompt"
+msgstr "Bestätigungsabfrage überspringen"
+
+msgid "skipped\t%s\t%s"
+msgstr "übersprungen\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap find fehlgeschlagen"
+
+msgid "snap hold failed"
+msgstr "snap hold fehlgeschlagen"
+
+msgid "snap info failed"
+msgstr "snap info fehlgeschlagen"
+
+msgid "snap install failed"
+msgstr "snap install fehlgeschlagen"
+
+msgid "snap name is empty"
+msgstr "Snap-Name ist leer"
+
+msgid "snap refresh failed"
+msgstr "snap refresh fehlgeschlagen"
+
+msgid "snap remove failed"
+msgstr "snap remove fehlgeschlagen"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "ausführbare Datei im Tarball, relativ zum Archivstamm"
+
+msgid "the Debian package name is unknown"
+msgstr "der Name des Debian-Pakets ist unbekannt"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "die Flatpak-Anwendungs-ID ist unbekannt"
+
+msgid "the search query must be at least 2 characters"
+msgstr "die Suchanfrage muss mindestens 2 Zeichen lang sein"
+
+msgid "timed out"
+msgstr "Zeitüberschreitung"
+
+msgid "uninstall an application by desktop ID"
+msgstr "eine Anwendung anhand der Desktop-ID deinstallieren"
+
+msgid "unknown"
+msgstr "unbekannt"
+
+msgid "unknown source kind: %s"
+msgstr "unbekannter Quelltyp: %s"
+
+msgid "unsafe archive: %s"
+msgstr "unsicheres Archiv: %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "unsicheres Archiv: Archiv ist größer als 4 GiB"
+
+msgid "unsafe archive: too many members"
+msgstr "unsicheres Archiv: zu viele Einträge"
+
+msgid "unsupported file type: %s"
+msgstr "nicht unterstützter Dateityp: %s"
+
+msgid "unsupported flatpak override action: %s"
+msgstr "nicht unterstützte flatpak-Override-Aktion: %s"
+
+msgid "window class %s is not associated with this entry"
+msgstr "Fensterklasse %s ist diesem Eintrag nicht zugeordnet"
+
+msgid "%s installed"
+msgstr "%s installiert"
+
+msgid "%s removed"
+msgstr "%s entfernt"
+
+msgid "Getting started"
+msgstr "Erste Schritte"
+
+msgid "Install %s?"
+msgstr "%s installieren?"
+
+msgid "Kind"
+msgstr "Art"
+
+msgid "Name (A–Z)"
+msgstr "Name (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "Name (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "Von dieser Paketverwaltung sind keine Pakete mehr vorhanden."
+
+msgid "Recently installed (newest first)"
+msgstr "Zuletzt installiert (neueste zuerst)"
+
+msgid "Remove %s"
+msgstr "%s entfernen"
+
+msgid "Remove %s?"
+msgstr "%s entfernen?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "Die Schritt-für-Schritt-Einführung erneut anzeigen"
+
+msgid "Show welcome guide"
+msgstr "Willkommensanleitung anzeigen"
+
+msgid "Size (largest first)"
+msgstr "Größe (größte zuerst)"
+
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+msgid "Sort the application list"
+msgstr "Die Anwendungsliste sortieren"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "Diese Aktion erfolgt manuell. Führen Sie den folgenden Befehl in einem Terminal aus."
+
+msgid "This uses apt and asks for authentication."
+msgstr "Dies verwendet apt und verlangt eine Authentifizierung."
+
+msgid "options"
+msgstr "Optionen"
+
+msgid "positional arguments"
+msgstr "Positionsargumente"

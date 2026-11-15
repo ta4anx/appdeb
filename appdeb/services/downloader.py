@@ -11,6 +11,7 @@ from urllib.parse import unquote, urlparse
 import requests
 
 from .. import __version__, config
+from ..i18n import _
 
 MAX_BYTES = 4 * 1024**3
 CHUNK = 64 * 1024
@@ -34,9 +35,9 @@ def download(
 ) -> Path:
     parsed = urlparse(url)
     if parsed.scheme != "https":
-        raise ValueError("only https:// URLs are supported")
+        raise ValueError(_("only https:// URLs are supported"))
     if not parsed.hostname:
-        raise ValueError("URL has no host")
+        raise ValueError(_("URL has no host"))
 
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -49,11 +50,11 @@ def download(
         headers={"User-Agent": f"AppDeb/{__version__}"},
     ) as response:
         if response.status_code != 200:
-            raise ValueError(f"download failed: HTTP {response.status_code}")
+            raise ValueError(_("download failed: HTTP %s") % response.status_code)
         declared = response.headers.get("Content-Length")
         total = int(declared) if declared and declared.isdigit() else 0
         if total > MAX_BYTES:
-            raise ValueError("download too large")
+            raise ValueError(_("download too large"))
 
         digest = hashlib.sha256()
         written = 0
@@ -61,12 +62,12 @@ def download(
             with part.open("wb") as handle:
                 for chunk in response.iter_content(chunk_size=CHUNK):
                     if cancel is not None and cancel.is_set():
-                        raise ValueError("download cancelled")
+                        raise ValueError(_("download cancelled"))
                     if not chunk:
                         continue
                     written += len(chunk)
                     if written > MAX_BYTES:
-                        raise ValueError("download too large")
+                        raise ValueError(_("download too large"))
                     digest.update(chunk)
                     handle.write(chunk)
                     if progress is not None:
@@ -77,6 +78,6 @@ def download(
 
     if sha256 and digest.hexdigest().lower() != sha256.strip().lower():
         part.unlink(missing_ok=True)
-        raise ValueError("SHA-256 mismatch")
+        raise ValueError(_("SHA-256 mismatch"))
     part.replace(dest)
     return dest

@@ -12,6 +12,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
 from .. import apps  # noqa: E402
+from ..i18n import N_, _  # noqa: E402
 from .details import DetailsPage  # noqa: E402
 from .install import InstallPage  # noqa: E402
 from .installed import InstalledPage  # noqa: E402
@@ -21,12 +22,12 @@ from .system import SystemPage  # noqa: E402
 from .tools import ToolsPage  # noqa: E402
 
 SECTIONS = [
-    ("installed", "Installed", "view-grid-symbolic"),
-    ("managers", "Managers", "package-x-generic-symbolic"),
-    ("install", "Install", "folder-download-symbolic"),
-    ("system", "System", "utilities-system-monitor-symbolic"),
-    ("tools", "Tools", "emblem-system-symbolic"),
-    ("settings", "Settings", "preferences-system-symbolic"),
+    ("installed", N_("Installed"), "view-grid-symbolic"),
+    ("managers", N_("Managers"), "package-x-generic-symbolic"),
+    ("install", N_("Install"), "folder-download-symbolic"),
+    ("system", N_("System"), "utilities-system-monitor-symbolic"),
+    ("tools", N_("Tools"), "emblem-system-symbolic"),
+    ("settings", N_("Settings"), "preferences-system-symbolic"),
 ]
 
 
@@ -65,14 +66,16 @@ class AppDebWindow(Adw.ApplicationWindow):
     # --------------------------------------------------------------- sidebar
     def _build_sidebar(self) -> Adw.NavigationPage:
         header = Adw.HeaderBar()
-        header.set_title_widget(Adw.WindowTitle(title="AppDeb", subtitle="Application manager"))
+        header.set_title_widget(
+            Adw.WindowTitle(title="AppDeb", subtitle=_("Application manager"))
+        )
 
         menu = Gio.Menu()
-        menu.append("About AppDeb", "app.about")
-        menu.append("Quit", "app.quit")
+        menu.append(_("About AppDeb"), "app.about")
+        menu.append(_("Quit"), "app.quit")
         menu_button = Gtk.MenuButton(icon_name="open-menu-symbolic")
         menu_button.set_menu_model(menu)
-        menu_button.set_tooltip_text("Main menu")
+        menu_button.set_tooltip_text(_("Main menu"))
         header.pack_end(menu_button)
 
         self._sidebar_list = Gtk.ListBox()
@@ -89,7 +92,7 @@ class AppDebWindow(Adw.ApplicationWindow):
             box.set_margin_start(12)
             box.set_margin_end(12)
             box.append(Gtk.Image.new_from_icon_name(icon_name))
-            label = Gtk.Label(label=title, xalign=0.0)
+            label = Gtk.Label(label=_(title), xalign=0.0)
             label.set_hexpand(True)
             box.append(label)
             row.set_child(box)

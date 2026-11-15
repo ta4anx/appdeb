@@ -16,6 +16,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Gio, Gtk  # noqa: E402
 
 from . import config, db, desktop, icons  # noqa: E402
+from .i18n import _  # noqa: E402
 from .models import DesktopEntry, Issue  # noqa: E402
 
 
@@ -139,7 +140,9 @@ def scan() -> list[Issue]:
                     path=str(path),
                     desktop_id=entry.id,
                     severity="error",
-                    message="desktop file has more than one [Desktop Entry] group",
+                    message=_(
+                        "desktop file has more than one [Desktop Entry] group"
+                    ),
                     fixable=True,
                 )
             )
@@ -151,7 +154,7 @@ def scan() -> list[Issue]:
                     path=str(path),
                     desktop_id=entry.id,
                     severity="warning",
-                    message=f"icon not found: {icon_value or '(empty)'}",
+                    message=_("icon not found: %s") % (icon_value or _("(empty)")),
                     fixable=True,
                 )
             )
@@ -162,7 +165,7 @@ def scan() -> list[Issue]:
                     path=str(path),
                     desktop_id=entry.id,
                     severity="info",
-                    message="icon is an absolute path outside the icon theme",
+                    message=_("icon is an absolute path outside the icon theme"),
                     fixable=True,
                 )
             )
@@ -176,7 +179,7 @@ def scan() -> list[Issue]:
                         path=str(path),
                         desktop_id=entry.id,
                         severity="error",
-                        message=f"executable not found: {candidate}",
+                        message=_("executable not found: %s") % candidate,
                         fixable=False,
                     )
                 )
@@ -195,7 +198,10 @@ def scan() -> list[Issue]:
                             path=str(path),
                             desktop_id=entry.id,
                             severity="warning",
-                            message=f"window class {raw_class} is not associated with this entry",
+                            message=_(
+                                "window class %s is not associated with this entry"
+                            )
+                            % raw_class,
                             fixable=True,
                         )
                     )

@@ -11,6 +11,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from .. import icons  # noqa: E402
+from ..i18n import _  # noqa: E402
 
 ACCENT = (0.208, 0.518, 0.894)
 
@@ -101,22 +102,26 @@ def show_toast(widget: Gtk.Widget, message: str) -> None:
 def format_rate(bytes_per_second: float) -> str:
     value = max(float(bytes_per_second or 0.0), 0.0)
     if value >= 1_000_000:
-        return f"{value / 1_000_000:.1f} MB/s"
+        return _("%.1f MB/s") % (value / 1_000_000)
     if value >= 1_000:
-        return f"{value / 1_000:.1f} kB/s"
-    return f"{value:.0f} B/s"
+        return _("%.1f kB/s") % (value / 1_000)
+    return _("%.0f B/s") % value
 
 
 def format_duration(seconds: float) -> str:
     total = int(max(seconds or 0.0, 0.0))
     days, remainder = divmod(total, 86400)
     hours, remainder = divmod(remainder, 3600)
-    minutes, _ = divmod(remainder, 60)
+    minutes, _seconds = divmod(remainder, 60)
     if days:
-        return f"{days}d {hours}h {minutes}m"
+        return _("%(days)dd %(hours)dh %(minutes)dm") % {
+            "days": days,
+            "hours": hours,
+            "minutes": minutes,
+        }
     if hours:
-        return f"{hours}h {minutes}m"
-    return f"{minutes}m"
+        return _("%(hours)dh %(minutes)dm") % {"hours": hours, "minutes": minutes}
+    return _("%(minutes)dm") % {"minutes": minutes}
 
 
 def monospace_view(text: str, *, height: int = 160) -> Gtk.ScrolledWindow:

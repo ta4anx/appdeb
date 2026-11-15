@@ -1,0 +1,1971 @@
+# Korean translations for AppDeb.
+# Copyright (C) 2026 AppDeb contributors
+# This file is distributed under the same license as the AppDeb project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, python-format
+msgid ""
+"\n"
+"\n"
+"The following packages will be removed:\n"
+"%s"
+msgstr "\n\n다음 패키지가 제거됩니다:\n%s"
+
+msgid ""
+"\n"
+"\n"
+"The managed bundle is deleted; your downloaded file is kept."
+msgstr "\n\n관리되는 번들은 삭제되며, 다운로드한 파일은 유지됩니다."
+
+msgid ""
+"\n"
+"\n"
+"The managed install directory is deleted; the original archive is kept."
+msgstr "\n\n관리되는 설치 디렉터리가 삭제되며, 원본 압축 파일은 유지됩니다."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+#, python-format
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)d일 %(hours)d시간 %(minutes)d분"
+
+#, python-format
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)d시간 %(minutes)d분"
+
+#, python-format
+msgid "%(minutes)dm"
+msgstr "%(minutes)d분"
+
+#, python-format
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s이(가) 패키지 %(count)d개를 관리합니다. 먼저 제거하세요."
+
+#, python-format
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s이(가) 이제 %(channel)s을(를) 따릅니다"
+
+#, python-format
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+#, python-format
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+#, python-format
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+#, python-format
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+#, python-format
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+#, python-format
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+#, python-format
+msgid "%d Debian packages in the %s database"
+msgstr "%s 데이터베이스의 Debian 패키지 %d개"
+
+#, python-format
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "Flatpak 업데이트 %d개"
+
+#, python-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "앱 %d개"
+
+#, python-format
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "애플리케이션 %d개"
+
+#, python-format
+msgid "%d applications known to %s"
+msgstr "%s이(가) 인식하는 애플리케이션 %d개"
+
+#, python-format
+msgid "%d can be fixed automatically"
+msgstr "%d개는 자동으로 고칠 수 있습니다"
+
+#, python-format
+msgid "%d formulae installed with %s"
+msgstr "%s(으)로 설치한 formulae %d개"
+
+#, python-format
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "문제 %d개"
+
+#, python-format
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+#, python-format
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+#, python-format
+msgid "%s applications"
+msgstr "%s 애플리케이션"
+
+#, python-format
+msgid "%s can be upgraded again"
+msgstr "%s을(를) 다시 업그레이드할 수 있습니다"
+
+#, python-format
+msgid "%s failed"
+msgstr "%s 실패"
+
+#, python-format
+msgid "%s formulae"
+msgstr "%s formulae"
+
+#, python-format
+msgid "%s held at its current version"
+msgstr "%s을(를) 현재 버전으로 고정했습니다"
+
+#, python-format
+msgid "%s installation failed: %s"
+msgstr "%s 설치 실패: %s"
+
+#, python-format
+msgid "%s is not installed"
+msgstr "%s이(가) 설치되어 있지 않습니다"
+
+#, python-format
+msgid ""
+"%s is replaced in place. Quit the application first; the current bundle "
+"is backed up next to the new one."
+msgstr "%s이(가) 제자리에서 교체됩니다. 먼저 애플리케이션을 종료하세요. 현재 번들은 새 번들 옆에 백업됩니다."
+
+#, python-format
+msgid "%s packages"
+msgstr "%s 패키지"
+
+#, python-format
+msgid "%s results"
+msgstr "결과 %s개"
+
+#, python-format
+msgid "%s store"
+msgstr "%s 저장소"
+
+#, python-format
+msgid "%s updated"
+msgstr "%s 업데이트됨"
+
+#, python-format
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+#, python-format
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(비어 있음)"
+
+msgid "(no executable found)"
+msgstr "(실행 파일을 찾을 수 없음)"
+
+msgid "--name is required for AppImage installs"
+msgstr "AppImage를 설치하려면 --name이 필요합니다"
+
+msgid "0 apps"
+msgstr "앱 0개"
+
+msgid "10 seconds"
+msgstr "10초"
+
+msgid "2 seconds"
+msgstr "2초"
+
+msgid "5 seconds"
+msgstr "5초"
+
+#, python-format
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "%s의 바로가기가 이미 있습니다. 제거할까요?"
+
+msgid "Aborted"
+msgstr "중단됨"
+
+msgid "About"
+msgstr "정보"
+
+msgid "About AppDeb"
+msgstr "AppDeb 정보"
+
+msgid "Adjust the search text or the filter."
+msgstr "검색어나 필터를 조정하세요."
+
+msgid "All"
+msgstr "전체"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "검사한 데스크톱 항목이 모두 정상입니다"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "제거할 때 시스템 설정도 함께 삭제"
+
+msgid ""
+"AppDeb puts every kind of Linux application in one window: Flatpak, Snap,"
+" Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr "AppDeb은(는) 모든 종류의 Linux 애플리케이션을 한 창에서 다룹니다: Flatpak, Snap, Homebrew, AppImage, .deb 패키지, 이식형 .tar.gz 압축 파일."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage를 교체했습니다. 사용하려면 애플리케이션을 다시 시작하세요"
+
+msgid "AppImage store"
+msgstr "AppImage 저장소"
+
+msgid ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name "
+"with --from"
+msgstr "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz 또는 --from을 사용한 패키지 이름"
+
+msgid ""
+"AppImages run outside the Flatpak sandbox and can read your files. Only "
+"install apps you trust."
+msgstr "AppImage는 Flatpak 샌드박스 밖에서 실행되며 파일을 읽을 수 있습니다. 신뢰하는 앱만 설치하세요."
+
+msgid "Application"
+msgstr "애플리케이션"
+
+msgid "Application data"
+msgstr "애플리케이션 데이터"
+
+msgid "Application database refreshed"
+msgstr "애플리케이션 데이터베이스를 새로 고쳤습니다"
+
+msgid "Application details"
+msgstr "애플리케이션 정보"
+
+msgid "Application icon"
+msgstr "애플리케이션 아이콘"
+
+msgid "Application icon reset"
+msgstr "애플리케이션 아이콘을 초기화했습니다"
+
+msgid "Application icon updated"
+msgstr "애플리케이션 아이콘을 업데이트했습니다"
+
+msgid "Application manager"
+msgstr "애플리케이션 관리자"
+
+msgid "Application parameters"
+msgstr "애플리케이션 매개변수"
+
+msgid "Application renamed"
+msgstr "애플리케이션 이름을 변경했습니다"
+
+msgid "Application runs in a terminal"
+msgstr "애플리케이션이 터미널에서 실행됩니다"
+
+msgid "Application uninstalled"
+msgstr "애플리케이션을 제거했습니다"
+
+msgid "Applications found through each package manager."
+msgstr "각 패키지 관리자를 통해 찾은 애플리케이션."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "AppDeb이(가) 설치하고 관리하는 애플리케이션."
+
+#, python-format
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "%d개 수정을 적용할까요? [y/N] "
+
+msgid "Architecture"
+msgstr "아키텍처"
+
+msgid "Archives"
+msgstr "압축 파일"
+
+msgid "Audio"
+msgstr "오디오"
+
+msgid "Autostart disabled"
+msgstr "자동 시작을 해제했습니다"
+
+msgid "Autostart enabled"
+msgstr "자동 시작을 설정했습니다"
+
+msgid "Autostart this application when you sign in"
+msgstr "로그인할 때 이 애플리케이션 자동 시작"
+
+msgid "Available"
+msgstr "사용 가능"
+
+msgid "Back"
+msgstr "뒤로"
+
+msgid "Back up desktop entries"
+msgstr "데스크톱 항목 백업"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "현재 번들을 백업하고 새 버전 설치"
+
+#, python-format
+msgid "Backup created in %s"
+msgstr "%s에 백업을 만들었습니다"
+
+#, python-format
+msgid "Backup failed: %s"
+msgstr "백업 실패: %s"
+
+msgid "Browse…"
+msgstr "찾아보기…"
+
+msgid "Bundle"
+msgstr "번들"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU 사용량"
+
+msgid "Cache"
+msgstr "캐시"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Cancelling…"
+msgstr "취소하는 중…"
+
+msgid "Categories"
+msgstr "카테고리"
+
+msgid "Change Icon"
+msgstr "아이콘 변경"
+
+msgid "Change executable…"
+msgstr "실행 파일 변경…"
+
+msgid "Change package manager"
+msgstr "패키지 관리자 변경"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "변경 사항은 이 애플리케이션의 사용자 재정의로 적용됩니다."
+
+msgid "Channel"
+msgstr "채널"
+
+msgid "Check updates"
+msgstr "업데이트 확인"
+
+msgid "Check your package managers"
+msgstr "패키지 관리자 확인"
+
+msgid "Checking"
+msgstr "확인 중"
+
+msgid "Checking…"
+msgstr "확인 중…"
+
+msgid "Choose .deb package"
+msgstr ".deb 패키지 선택"
+
+msgid "Choose .deb package…"
+msgstr ".deb 패키지 선택…"
+
+msgid "Choose .tar.gz archive"
+msgstr ".tar.gz 압축 파일 선택"
+
+msgid "Choose AppImage"
+msgstr "AppImage 선택"
+
+msgid "Choose AppImage file…"
+msgstr "AppImage 파일 선택…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Flatpak 번들 또는 .flatpakref 선택"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Flatpak 번들 또는 .flatpakref 선택…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "설치 디렉터리 안에서 실행 파일 선택"
+
+msgid "Choose application icon"
+msgstr "애플리케이션 아이콘 선택"
+
+msgid "Choose archive"
+msgstr "압축 파일 선택"
+
+msgid "Choose destination folder"
+msgstr "대상 폴더 선택"
+
+msgid "Choose executable"
+msgstr "실행 파일 선택"
+
+msgid "Choose icon"
+msgstr "아이콘 선택"
+
+msgid "Choose replacement"
+msgstr "교체 파일 선택"
+
+msgid "Choose replacement .tar.gz"
+msgstr "교체할 .tar.gz 선택"
+
+msgid "Choose replacement AppImage"
+msgstr "교체할 AppImage 선택"
+
+msgid "Choose…"
+msgstr "선택…"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Comment"
+msgstr "설명"
+
+msgid "Configuration"
+msgstr "설정"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "사용자 데스크톱 항목과 데이터베이스를 백업 폴더로 복사"
+
+#, python-format
+msgid "Could not change autostart: %s"
+msgstr "자동 시작을 변경하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not change package hold: %s"
+msgstr "패키지 고정을 변경하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not change permission: %s"
+msgstr "권한을 변경하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not change update hold: %s"
+msgstr "업데이트 고정을 변경하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not create shortcut: %s"
+msgstr "바로가기를 만들지 못했습니다: %s"
+
+msgid "Could not fix this issue"
+msgstr "이 문제를 고치지 못했습니다"
+
+#, python-format
+msgid "Could not install icon: %s"
+msgstr "아이콘을 설치하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not launch: %s"
+msgstr "실행하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not open link: %s"
+msgstr "링크를 열지 못했습니다: %s"
+
+#, python-format
+msgid "Could not open location: %s"
+msgstr "위치를 열지 못했습니다: %s"
+
+msgid "Could not read archive"
+msgstr "압축 파일을 읽지 못했습니다"
+
+#, python-format
+msgid "Could not read snap channels: %s"
+msgstr "snap 채널을 읽지 못했습니다: %s"
+
+msgid "Could not read the archive"
+msgstr "압축 파일을 읽지 못했습니다"
+
+msgid "Could not read the package"
+msgstr "패키지를 읽지 못했습니다"
+
+msgid "Could not rebuild the icon cache"
+msgstr "아이콘 캐시를 다시 만들지 못했습니다"
+
+#, python-format
+msgid "Could not refresh snap: %s"
+msgstr "snap을 새로 고치지 못했습니다: %s"
+
+#, python-format
+msgid "Could not reset overrides: %s"
+msgstr "재정의를 초기화하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not search for alternative sources: %s"
+msgstr "대체 소스를 검색하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not switch channel: %s"
+msgstr "채널을 전환하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not terminate processes: %s"
+msgstr "프로세스를 종료하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not update %s: %s"
+msgstr "%s을(를) 업데이트하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not update Terminal: %s"
+msgstr "Terminal을 업데이트하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not update menu visibility: %s"
+msgstr "메뉴 표시 여부를 업데이트하지 못했습니다: %s"
+
+#, python-format
+msgid "Could not update window class: %s"
+msgstr "창 클래스를 업데이트하지 못했습니다: %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian 패키지"
+
+msgid "Debian packages"
+msgstr "Debian 패키지"
+
+msgid "Dependencies"
+msgstr "의존성"
+
+msgid "Depends"
+msgstr "의존 패키지"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Desktop Shortcut"
+msgstr "데스크톱 바로가기"
+
+msgid "Desktop entry ID"
+msgstr "데스크톱 항목 ID"
+
+msgid "Desktop file"
+msgstr "데스크톱 파일"
+
+msgid "Desktop shortcut"
+msgstr "데스크톱 바로가기"
+
+msgid "Destination"
+msgstr "대상 위치"
+
+msgid "Destination folder (optional)"
+msgstr "대상 폴더 (선택)"
+
+msgid "Details"
+msgstr "정보"
+
+msgid "Detected version"
+msgstr "감지된 버전"
+
+msgid "Developer"
+msgstr "개발자"
+
+msgid "Disk"
+msgstr "디스크"
+
+msgid "Disk read / write"
+msgstr "디스크 읽기 / 쓰기"
+
+msgid "Dock icon association"
+msgstr "독 아이콘 연결"
+
+msgid "Dock icon association updated"
+msgstr "독 아이콘 연결을 업데이트했습니다"
+
+msgid "Download"
+msgstr "다운로드"
+
+msgid "Download .tar.gz"
+msgstr ".tar.gz 다운로드"
+
+msgid "Download .tar.gz from URL…"
+msgstr "URL에서 .tar.gz 다운로드…"
+
+msgid "Download AppImage"
+msgstr "AppImage 다운로드"
+
+msgid "Download AppImage from URL…"
+msgstr "URL에서 AppImage 다운로드…"
+
+msgid "Download from URL"
+msgstr "URL에서 다운로드"
+
+msgid "Download history"
+msgstr "다운로드 기록"
+
+msgid "Downloading AppImage"
+msgstr "AppImage 다운로드 중"
+
+msgid "Downloading archive"
+msgstr "압축 파일 다운로드 중"
+
+msgid ""
+"Downloads are installed from the download cache. Only install software "
+"you trust."
+msgstr "다운로드한 파일은 다운로드 캐시에서 설치됩니다. 신뢰하는 소프트웨어만 설치하세요."
+
+msgid "Effective permissions"
+msgstr "적용 중인 권한"
+
+msgid "End processes"
+msgstr "프로세스 종료"
+
+#, python-format
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "프로세스 %d개를 종료했습니다"
+
+msgid "Enter a formula name first"
+msgstr "먼저 formulae 이름을 입력하세요"
+
+msgid "Enter a snap name first"
+msgstr "먼저 snap 이름을 입력하세요"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec은(는) 비워 둘 수 없습니다"
+
+msgid "Executable"
+msgstr "실행 파일"
+
+msgid "Executable updated"
+msgstr "실행 파일을 업데이트했습니다"
+
+msgid "Executables"
+msgstr "실행 파일"
+
+msgid "Extract icon"
+msgstr "아이콘 추출"
+
+msgid "Files"
+msgstr "파일"
+
+msgid "Finish"
+msgstr "완료"
+
+msgid "Fix"
+msgstr "수정"
+
+msgid "Fix icons and desktop entries"
+msgstr "아이콘 및 데스크톱 항목 수정"
+
+#, python-format
+msgid "Fixing %s"
+msgstr "%s 수정 중"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak 번들"
+
+msgid "Flatpak is not installed on this system."
+msgstr "이 시스템에는 Flatpak이 설치되어 있지 않습니다."
+
+msgid "Flatpak location"
+msgstr "Flatpak 위치"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpak 재정의를 초기화했습니다"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak 권한"
+
+msgid "Flatpak scope"
+msgstr "Flatpak 범위"
+
+msgid "Folder"
+msgstr "폴더"
+
+#, python-format
+msgid "Following %s; switching refreshes the snap"
+msgstr "%s을(를) 따르는 중입니다. 전환하면 snap이 새로 고쳐집니다"
+
+msgid "Hidden from the application menu"
+msgstr "애플리케이션 메뉴에서 숨김"
+
+msgid "Hide from application menu"
+msgstr "애플리케이션 메뉴에서 숨기기"
+
+msgid "Hold package version"
+msgstr "패키지 버전 고정"
+
+msgid "Hold updates"
+msgstr "업데이트 고정"
+
+msgid "Holding package version"
+msgstr "패키지 버전 고정 중"
+
+msgid "Holding snap updates"
+msgstr "snap 업데이트 고정 중"
+
+msgid "Home disk usage"
+msgstr "홈 디스크 사용량"
+
+msgid "Home folder"
+msgstr "홈 폴더"
+
+#, python-format
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew 업그레이드 실패: %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew를 찾을 수 없습니다"
+
+msgid "Homepage"
+msgstr "홈페이지"
+
+msgid "Host filesystem"
+msgstr "호스트 파일 시스템"
+
+msgid "How often resource usage is sampled"
+msgstr "리소스 사용량을 측정하는 주기"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "아이콘"
+
+msgid "Icon cache rebuilt"
+msgstr "아이콘 캐시를 다시 만들었습니다"
+
+msgid ""
+"If a running window shows a generic gear instead of its real icon, the "
+"entry is missing a window-class association. The Tools page finds those "
+"problems and repairs them, with a backup of every file it changes."
+msgstr "실행 중인 창에 실제 아이콘 대신 기본 톱니바퀴가 표시되면 해당 항목에 창 클래스 연결이 없는 것입니다. 도구 페이지에서 이런 문제를 찾아 고치며, 변경하는 모든 파일을 백업합니다."
+
+msgid "Images"
+msgstr "이미지"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "NoDisplay 또는 Hidden으로 표시된 항목 포함"
+
+#, python-format
+msgid "Inside install: %s"
+msgstr "설치 위치 내부: %s"
+
+msgid "Inspecting AppImage…"
+msgstr "AppImage 검사 중…"
+
+msgid "Install"
+msgstr "설치"
+
+#, python-format
+msgid "Install %s with %s? [y/N] "
+msgstr "%s을(를) %s(으)로 설치할까요? [y/N] "
+
+#, python-format
+msgid "Install %s? [y/N] "
+msgstr "%s을(를) 설치할까요? [y/N] "
+
+msgid "Install .deb package"
+msgstr ".deb 패키지 설치"
+
+msgid "Install .tar.gz (one click)"
+msgstr ".tar.gz 설치 (한 번에)"
+
+msgid "Install .tar.gz application"
+msgstr ".tar.gz 애플리케이션 설치"
+
+msgid "Install .tar.gz to folder…"
+msgstr ".tar.gz를 폴더에 설치…"
+
+msgid "Install AppImage"
+msgstr "AppImage 설치"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "apt와 polkit을 통해 로컬 .deb 패키지를 설치합니다."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "Flatpak, AppImage, .deb 및 .tar.gz 애플리케이션을 설치하고 관리합니다."
+
+msgid "Install by searching or by typing"
+msgstr "검색하거나 이름을 입력해 설치"
+
+msgid "Install directory"
+msgstr "설치 디렉터리"
+
+msgid "Install formula by name"
+msgstr "이름으로 formulae 설치"
+
+msgid "Install path"
+msgstr "설치 경로"
+
+msgid "Install snap by name"
+msgstr "이름으로 snap 설치"
+
+msgid ""
+"Install this application from another package manager. The current copy "
+"is not touched until you remove it."
+msgstr "다른 패키지 관리자로 이 애플리케이션을 설치합니다. 제거하기 전까지 현재 복사본은 건드리지 않습니다."
+
+#, python-format
+msgid "Installation failed: %s"
+msgstr "설치 실패: %s"
+
+msgid "Installation scope"
+msgstr "설치 범위"
+
+msgid "Installed"
+msgstr "설치됨"
+
+#, python-format
+msgid "Installed %s"
+msgstr "%s을(를) 설치했습니다"
+
+#, python-format
+msgid "Installed %s with %s"
+msgstr "%s을(를) %s(으)로 설치했습니다"
+
+msgid "Installed applications"
+msgstr "설치된 애플리케이션"
+
+msgid "Installed by manager"
+msgstr "패키지 관리자별 설치 수"
+
+msgid "Installed size"
+msgstr "설치 크기"
+
+#, python-format
+msgid "Installing %s"
+msgstr "%s 설치 중"
+
+#, python-format
+msgid "Installing %s with %s"
+msgstr "%s을(를) %s(으)로 설치 중"
+
+msgid ""
+"Installing a .deb package changes system software and requires "
+"administrator authentication via polkit."
+msgstr ".deb 패키지를 설치하면 시스템 소프트웨어가 변경되며 polkit을 통한 관리자 인증이 필요합니다."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "AppDeb을(를) 다시 시작한 뒤 사용할 인터페이스 언어"
+
+msgid "Issue fixed"
+msgstr "문제를 고쳤습니다"
+
+msgid "Issues"
+msgstr "문제"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "데스크톱 항목은 유지하되 애플리케이션 메뉴에서 제외"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "파일을 교체하면서 데스크톱 항목, 아이콘, 이름 유지"
+
+msgid "Keywords"
+msgstr "키워드"
+
+msgid "Language"
+msgstr "언어"
+
+msgid "Launch"
+msgstr "실행"
+
+#, python-format
+msgid "Launching %s"
+msgstr "%s 실행 중"
+
+msgid ""
+"Leave empty to install into the managed AppDeb store. Choose a folder to "
+"install into a subfolder of it."
+msgstr "비워 두면 AppDeb 관리 저장소에 설치됩니다. 폴더를 선택하면 그 하위 폴더에 설치됩니다."
+
+msgid "License"
+msgstr "라이선스"
+
+msgid "Load"
+msgstr "부하"
+
+msgid "Load average"
+msgstr "부하 평균"
+
+msgid "Loading channels…"
+msgstr "채널을 불러오는 중…"
+
+msgid "Loading store details…"
+msgstr "저장소 정보를 불러오는 중…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "잘못된 항목, 없는 아이콘, 연결되지 않은 창 클래스를 찾습니다"
+
+msgid "Looking for alternative package sources…"
+msgstr "대체 패키지 소스를 찾는 중…"
+
+msgid "Main menu"
+msgstr "주 메뉴"
+
+msgid "Maintainer"
+msgstr "메인테이너"
+
+msgid "Maintenance"
+msgstr "유지 관리"
+
+msgid "Managed stores"
+msgstr "관리 저장소"
+
+msgid "Managers"
+msgstr "관리자"
+
+msgid "Matching folder"
+msgstr "일치하는 폴더"
+
+msgid "Memory"
+msgstr "메모리"
+
+msgid "Memory usage"
+msgstr "메모리 사용량"
+
+msgid "Monitoring"
+msgstr "모니터링"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Next"
+msgstr "다음"
+
+msgid "No alternative package sources found."
+msgstr "대체 패키지 소스를 찾지 못했습니다."
+
+msgid "No applications match"
+msgstr "일치하는 애플리케이션이 없습니다"
+
+msgid "No channels reported for this snap"
+msgstr "이 snap에 보고된 채널이 없습니다"
+
+msgid "No embedded icon found"
+msgstr "내장 아이콘을 찾지 못했습니다"
+
+msgid "No executable detected; choose one"
+msgstr "실행 파일을 찾지 못했습니다. 하나를 선택하세요"
+
+msgid "No issues found"
+msgstr "문제를 찾지 못했습니다"
+
+msgid "No results"
+msgstr "결과 없음"
+
+msgid "No running processes"
+msgstr "실행 중인 프로세스 없음"
+
+msgid "No scan has run yet"
+msgstr "아직 검사를 실행하지 않았습니다"
+
+msgid "No shortcut found"
+msgstr "바로가기를 찾지 못했습니다"
+
+msgid "Not installed"
+msgstr "설치되지 않음"
+
+msgid "Only https:// URLs are supported."
+msgstr "https:// URL만 지원합니다."
+
+msgid "Open bundle folder"
+msgstr "번들 폴더 열기"
+
+msgid "Open homepage"
+msgstr "홈페이지 열기"
+
+msgid "Open install folder"
+msgstr "설치 폴더 열기"
+
+msgid "Open location"
+msgstr "위치 열기"
+
+msgid "Optional"
+msgstr "선택 사항"
+
+msgid "Original archive"
+msgstr "원본 압축 파일"
+
+msgid "Outdated formulae upgraded"
+msgstr "오래된 formulae를 업그레이드했습니다"
+
+msgid "Package"
+msgstr "패키지"
+
+msgid "Package manager information is unavailable"
+msgstr "패키지 관리자 정보를 사용할 수 없습니다"
+
+msgid "Package manager overview"
+msgstr "패키지 관리자 개요"
+
+msgid "Package managers"
+msgstr "패키지 관리자"
+
+msgid "Package managers available on this system and their versions."
+msgstr "이 시스템에서 사용할 수 있는 패키지 관리자와 버전."
+
+msgid "Package removed"
+msgstr "패키지를 제거했습니다"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "이 snap의 자동 새로 고침 일시 중지"
+
+msgid "Permissions are unavailable."
+msgstr "권한을 사용할 수 없습니다."
+
+msgid ""
+"Pick a page from the sidebar to start. Settings holds the Flatpak install"
+" scope, the interface language and a button to show this guide again at "
+"any time."
+msgstr "시작하려면 사이드바에서 페이지를 선택하세요. 설정에는 Flatpak 설치 범위, 인터페이스 언어, 이 안내를 언제든 다시 볼 수 있는 버튼이 있습니다."
+
+msgid "Pick another executable inside the install directory"
+msgstr "설치 디렉터리 안의 다른 실행 파일 선택"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "apt가 이 패키지를 업그레이드하지 못하게 함"
+
+msgid "Processes"
+msgstr "프로세스"
+
+msgid "Purge configuration files"
+msgstr "설정 파일까지 삭제"
+
+msgid "Quit"
+msgstr "종료"
+
+msgid "Rebuild icon cache"
+msgstr "아이콘 캐시 다시 만들기"
+
+msgid "Refresh application database"
+msgstr "애플리케이션 데이터베이스 새로 고침"
+
+msgid "Refresh interval"
+msgstr "새로 고침 주기"
+
+msgid "Refresh package manager information"
+msgstr "패키지 관리자 정보 새로 고침"
+
+msgid "Refresh snap now"
+msgstr "지금 snap 새로 고침"
+
+msgid "Refresh the application list"
+msgstr "애플리케이션 목록 새로 고침"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "사용자 hicolor 아이콘 캐시 새로 고침"
+
+#, python-format
+msgid "Refreshed %s"
+msgstr "%s을(를) 새로 고쳤습니다"
+
+#, python-format
+msgid "Refreshing %s"
+msgstr "%s 새로 고치는 중"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "desktop-file-utils 캐시 다시 생성"
+
+msgid "Reinstall / replace archive…"
+msgstr "압축 파일 재설치 / 교체…"
+
+msgid "Releasing package hold"
+msgstr "패키지 고정 해제 중"
+
+#, python-format
+msgid "Removal failed: %s"
+msgstr "제거 실패: %s"
+
+msgid "Remove"
+msgstr "제거"
+
+#, python-format
+msgid "Remove %s? [y/N] "
+msgstr "%s을(를) 제거할까요? [y/N] "
+
+msgid "Remove Debian package"
+msgstr "Debian 패키지 제거"
+
+#, python-format
+msgid "Remove all user permission overrides for %s?"
+msgstr "%s의 모든 사용자 권한 재정의를 제거할까요?"
+
+msgid "Remove current copy"
+msgstr "현재 복사본 제거"
+
+msgid "Remove every user permission override for this application"
+msgstr "이 애플리케이션의 모든 사용자 권한 재정의 제거"
+
+msgid "Remove package"
+msgstr "패키지 제거"
+
+msgid "Remove shortcut"
+msgstr "바로가기 제거"
+
+#, python-format
+msgid ""
+"Remove the %(kind)s copy of %(name)s?\n"
+"\n"
+"%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr "%(name)s의 %(kind)s 복사본을 제거할까요?\n\n%(candidate)s은(는) %(manager)s(으)로 설치되었습니다. 두 복사본을 모두 유지할 수 있습니다."
+
+msgid "Remove the current copy?"
+msgstr "현재 복사본을 제거할까요?"
+
+#, python-format
+msgid "Remove the package %s?"
+msgstr "%s 패키지를 제거할까요?"
+
+msgid "Remove…"
+msgstr "제거…"
+
+#, python-format
+msgid "Removing %s"
+msgstr "%s 제거 중"
+
+msgid "Rename"
+msgstr "이름 변경"
+
+msgid "Rename application"
+msgstr "애플리케이션 이름 변경"
+
+#, python-format
+msgid "Rename failed: %s"
+msgstr "이름 변경 실패: %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "데스크톱 항목을 복구하고 애플리케이션 메타데이터를 새로 고칩니다."
+
+msgid "Replace AppImage"
+msgstr "AppImage 교체"
+
+msgid "Replace AppImage…"
+msgstr "AppImage 교체…"
+
+msgid "Replace tarball installation"
+msgstr "tarball 설치 교체"
+
+msgid "Replacing AppImage"
+msgstr "AppImage 교체 중"
+
+msgid "Replacing tarball installation"
+msgstr "tarball 설치 교체 중"
+
+msgid "Reset"
+msgstr "초기화"
+
+msgid "Reset Flatpak overrides"
+msgstr "Flatpak 재정의 초기화"
+
+msgid "Reset Icon"
+msgstr "아이콘 초기화"
+
+msgid "Reset all overrides"
+msgstr "모든 재정의 초기화"
+
+msgid "Resources"
+msgstr "리소스"
+
+msgid "Restart"
+msgstr "다시 시작"
+
+msgid "Restart AppDeb to apply"
+msgstr "적용하려면 AppDeb을(를) 다시 시작하세요"
+
+msgid "Results"
+msgstr "결과"
+
+msgid "Resuming snap updates"
+msgstr "snap 업데이트 재개 중"
+
+msgid "Run this application in a terminal window"
+msgstr "이 애플리케이션을 터미널 창에서 실행"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (선택)"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 불일치"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Scan desktop entries"
+msgstr "데스크톱 항목 검사"
+
+msgid "Scan failed"
+msgstr "검사 실패"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "모든 데스크톱 항목을 검사하려면 검사 실행"
+
+msgid "Scanning desktop entries…"
+msgstr "데스크톱 항목 검사 중…"
+
+msgid "Scanning…"
+msgstr "검사 중…"
+
+msgid "Scope"
+msgstr "범위"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Flatpak 설치 및 업데이트에 사용할 범위."
+
+msgid "Screenshot"
+msgstr "스크린샷"
+
+msgid "Screenshot is not available"
+msgstr "스크린샷을 사용할 수 없습니다"
+
+msgid "Screenshots"
+msgstr "스크린샷"
+
+msgid "Search Flathub"
+msgstr "Flathub 검색"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "Flathub을 검색하고 설정에서 선택한 범위로 앱을 설치합니다."
+
+msgid ""
+"Search Flathub, the Snap Store or Homebrew, or type an exact package "
+"name. AppImages, .deb packages and .tar.gz archives can be installed from"
+" a file or an https URL, and every install is checked before it touches "
+"your system."
+msgstr "Flathub, Snap Store 또는 Homebrew를 검색하거나 정확한 패키지 이름을 입력하세요. AppImage, .deb 패키지, .tar.gz 압축 파일은 파일이나 https URL에서 설치할 수 있으며, 모든 설치는 시스템을 변경하기 전에 검사합니다."
+
+msgid "Search applications"
+msgstr "애플리케이션 검색"
+
+#, python-format
+msgid "Search failed: %s"
+msgstr "검색 실패: %s"
+
+msgid "Search formulae"
+msgstr "formulae 검색"
+
+msgid ""
+"Search formulae and install them with Homebrew. Homebrew installs into "
+"your user account; no password is needed."
+msgstr "formulae를 검색하고 Homebrew로 설치합니다. Homebrew는 사용자 계정에 설치하므로 비밀번호가 필요하지 않습니다."
+
+msgid "Search snaps"
+msgstr "snap 검색"
+
+msgid ""
+"Search snaps and install them. System installs prompt for authentication "
+"and may take a while."
+msgstr "snap을 검색하고 설치합니다. 시스템 설치에는 인증이 필요하며 시간이 걸릴 수 있습니다."
+
+#, python-format
+msgid "Searching %s for %s"
+msgstr "%s에서 %s 검색 중"
+
+#, python-format
+msgid "Searching for “%s”…"
+msgstr "“%s” 검색 중…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "이 애플리케이션의 프로세스에 SIGTERM 보내기"
+
+msgid "Settings"
+msgstr "설정"
+
+#, python-format
+msgid "Shortcut created: %s"
+msgstr "바로가기를 만들었습니다: %s"
+
+msgid "Shortcut removed"
+msgstr "바로가기를 제거했습니다"
+
+msgid "Show hidden desktop entries"
+msgstr "숨겨진 데스크톱 항목 표시"
+
+msgid "Shown in the application menu"
+msgstr "애플리케이션 메뉴에 표시됨"
+
+msgid "Shows the affected packages before removal"
+msgstr "제거 전에 영향을 받는 패키지를 표시합니다"
+
+msgid "Size"
+msgstr "크기"
+
+msgid "Skip"
+msgstr "건너뛰기"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Snap 설치 시 인증을 요청합니다"
+
+msgid "Snap name unknown"
+msgstr "Snap 이름을 알 수 없음"
+
+msgid "Snap was not found"
+msgstr "Snap을 찾을 수 없습니다"
+
+msgid "Source / reference"
+msgstr "소스 / 참조"
+
+msgid "Start at login"
+msgstr "로그인 시 시작"
+
+msgid "Started"
+msgstr "시작 시간"
+
+msgid "Startup"
+msgstr "시작 프로그램"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / 창 클래스"
+
+#, python-format
+msgid "Step %d of %d"
+msgstr "%d / %d 단계"
+
+msgid "Store"
+msgstr "저장소"
+
+msgid "Store ID"
+msgstr "저장소 ID"
+
+msgid "Store details"
+msgstr "저장소 정보"
+
+msgid "Swap usage"
+msgstr "스왑 사용량"
+
+#, python-format
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "%(name)s을(를) %(channel)s(으)로 전환할까요? 지금 snap이 새로 고쳐집니다."
+
+msgid "Switch channel"
+msgstr "채널 전환"
+
+msgid "Switch snap channel"
+msgstr "snap 채널 전환"
+
+#, python-format
+msgid "Switching %(name)s to %(channel)s"
+msgstr "%(name)s을(를) %(channel)s(으)로 전환 중"
+
+msgid "System"
+msgstr "시스템"
+
+msgid "Tar archives"
+msgstr "Tar 압축 파일"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball 설치 실패"
+
+msgid "Tarball store"
+msgstr "Tarball 저장소"
+
+msgid ""
+"Tarballs run outside a sandbox and can read your files. Only install apps"
+" you trust."
+msgstr "Tarball은 샌드박스 밖에서 실행되며 파일을 읽을 수 있습니다. 신뢰하는 앱만 설치하세요."
+
+msgid "Terminal application"
+msgstr "터미널 애플리케이션"
+
+msgid "Terminal disabled"
+msgstr "터미널 사용 안 함"
+
+#, python-format
+msgid "Terminate all processes belonging to %s?"
+msgstr "%s에 속한 모든 프로세스를 종료할까요?"
+
+msgid "The Debian package name is unknown"
+msgstr "Debian 패키지 이름을 알 수 없습니다"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Flatpak 애플리케이션 ID를 알 수 없습니다"
+
+msgid ""
+"The Managers page shows which package managers exist on this computer, "
+"their versions and how many packages each one owns. You can install a "
+"missing manager there, or remove one once it no longer manages any "
+"packages."
+msgstr "관리자 페이지에는 이 컴퓨터에 있는 패키지 관리자, 버전, 각 관리자가 소유한 패키지 수가 표시됩니다. 여기서 없는 관리자를 설치하거나, 더 이상 패키지를 관리하지 않는 관리자를 제거할 수 있습니다."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "내장 아이콘을 사용할 수 없습니다. 직접 선택하세요"
+
+#, python-format
+msgid ""
+"The files for %s are replaced and the current install directory is backed"
+" up. Quit the application first."
+msgstr "%s의 파일이 교체되고 현재 설치 디렉터리는 백업됩니다. 먼저 애플리케이션을 종료하세요."
+
+msgid "The install directory is unknown"
+msgstr "설치 디렉터리를 알 수 없습니다"
+
+msgid "The selected file is not an AppImage"
+msgstr "선택한 파일은 AppImage가 아닙니다"
+
+msgid "The snap command is not available on this system."
+msgstr "이 시스템에는 snap 명령을 사용할 수 없습니다."
+
+msgid ""
+"The window class (WM_CLASS) GNOME uses to match this application's "
+"windows to the desktop entry."
+msgstr "GNOME이 이 애플리케이션의 창을 데스크톱 항목과 연결할 때 사용하는 창 클래스(WM_CLASS)입니다."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "메뉴, 독, 이 창에 표시되는 이름이 변경됩니다."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "이 데스크톱 항목은 snap 인스턴스를 가리키지 않습니다"
+
+msgid "Threads"
+msgstr "스레드"
+
+msgid "Tools"
+msgstr "도구"
+
+msgid "Top processes"
+msgstr "상위 프로세스"
+
+msgid "Type"
+msgstr "종류"
+
+msgid "Type at least 2 characters to search"
+msgstr "검색하려면 2자 이상 입력하세요"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL에 호스트가 없습니다"
+
+msgid "Uninstall"
+msgstr "제거"
+
+#, python-format
+msgid "Uninstall %s? This cannot be undone."
+msgstr "%s을(를) 제거할까요? 되돌릴 수 없습니다."
+
+msgid "Uninstall application"
+msgstr "애플리케이션 제거"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "이 항목은 제거를 지원하지 않습니다"
+
+#, python-format
+msgid "Uninstalling %s"
+msgstr "%s 제거 중"
+
+msgid "Unknown package"
+msgstr "알 수 없는 패키지"
+
+#, python-format
+msgid "Unsupported file type: %s"
+msgstr "지원하지 않는 파일 형식: %s"
+
+#, python-format
+msgid "Unsupported image: %s"
+msgstr "지원하지 않는 이미지: %s"
+
+#, python-format
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "애플리케이션 %d개를 업데이트했습니다"
+
+#, python-format
+msgid "Updates for %s are held"
+msgstr "%s의 업데이트를 고정했습니다"
+
+#, python-format
+msgid "Updates for %s resumed"
+msgstr "%s의 업데이트를 재개했습니다"
+
+#, python-format
+msgid "Updating %s…"
+msgstr "%s 업데이트 중…"
+
+msgid "Updating Flatpak applications"
+msgstr "Flatpak 애플리케이션 업데이트 중"
+
+msgid "Upgrade outdated formulae"
+msgstr "오래된 formulae 업그레이드"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Homebrew formulae 업그레이드 중"
+
+msgid "Upload"
+msgstr "업로드"
+
+msgid "Uptime"
+msgstr "가동 시간"
+
+msgid "Usage history"
+msgstr "사용 기록"
+
+msgid "User"
+msgstr "사용자"
+
+msgid "User data"
+msgstr "사용자 데이터"
+
+msgid "Values written to this application's desktop entry."
+msgstr "이 애플리케이션의 데스크톱 항목에 기록되는 값입니다."
+
+msgid "Version"
+msgstr "버전"
+
+#, python-format
+msgid "Version %s"
+msgstr "버전 %s"
+
+msgid "Version unknown"
+msgstr "버전 알 수 없음"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "AppDeb에 오신 것을 환영합니다"
+
+msgid "Window class"
+msgstr "창 클래스"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "준비가 완료되었습니다"
+
+msgid "a package name is required with --from"
+msgstr "--from을 사용할 때는 패키지 이름이 필요합니다"
+
+msgid "application name"
+msgstr "애플리케이션 이름"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "자동으로 고칠 수 있는 모든 데스크톱 항목 문제를 적용"
+
+msgid "apps"
+msgstr "앱"
+
+msgid "available"
+msgstr "사용 가능"
+
+msgid "brew install failed"
+msgstr "brew install 실패"
+
+msgid "brew search failed"
+msgstr "brew search 실패"
+
+msgid "brew uninstall failed"
+msgstr "brew uninstall 실패"
+
+msgid "brew upgrade failed"
+msgstr "brew upgrade 실패"
+
+msgid "cancelled"
+msgstr "취소됨"
+
+#, python-format
+msgid "cannot inspect package: %s"
+msgstr "패키지를 검사할 수 없습니다: %s"
+
+#, python-format
+msgid "cannot install to %s: %s"
+msgstr "%s에 설치할 수 없습니다: %s"
+
+#, python-format
+msgid "cannot replace %s: %s"
+msgstr "%s을(를) 교체할 수 없습니다: %s"
+
+#, python-format
+msgid "cannot start: %s"
+msgstr "시작할 수 없습니다: %s"
+
+msgid "choose an executable with --exec"
+msgstr "--exec으로 실행 파일을 지정하세요"
+
+#, python-format
+msgid "command failed: %s"
+msgstr "명령 실패: %s"
+
+#, python-format
+msgid "command not found: %s"
+msgstr "명령을 찾을 수 없습니다: %s"
+
+msgid "desktop entry comment"
+msgstr "데스크톱 항목 설명"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "데스크톱 파일에 [Desktop Entry] 그룹이 두 개 이상 있습니다"
+
+msgid "destination folder for tarball installs"
+msgstr "tarball 설치 대상 폴더"
+
+#, python-format
+msgid "destination is not writable: %s"
+msgstr "대상 위치에 쓸 수 없습니다: %s"
+
+msgid "disabled"
+msgstr "사용 안 함"
+
+msgid "download cancelled"
+msgstr "다운로드 취소됨"
+
+#, python-format
+msgid "download failed: HTTP %s"
+msgstr "다운로드 실패: HTTP %s"
+
+msgid "download too large"
+msgstr "다운로드 크기가 너무 큽니다"
+
+msgid "enabled"
+msgstr "사용"
+
+msgid "essential package"
+msgstr "필수 패키지"
+
+#, python-format
+msgid "executable not found: %s"
+msgstr "실행 파일을 찾을 수 없습니다: %s"
+
+#, python-format
+msgid "failed\t%s\t%s\t%s"
+msgstr "실패\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "데스크톱 항목을 쓰지 못했습니다"
+
+#, python-format
+msgid "file not found: %s"
+msgstr "파일을 찾을 수 없습니다: %s"
+
+#, python-format
+msgid "fixed\t%s\t%s"
+msgstr "수정됨\t%s\t%s"
+
+#, python-format
+msgid "fixed %d/%d"
+msgstr "%d/%d 수정됨"
+
+msgid "flatpak install failed"
+msgstr "flatpak install 실패"
+
+msgid "flatpak override failed"
+msgstr "flatpak override 실패"
+
+msgid "flatpak override reset failed"
+msgstr "flatpak override 초기화 실패"
+
+msgid "flatpak search failed"
+msgstr "flatpak search 실패"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak uninstall 실패"
+
+msgid "flatpak update failed"
+msgstr "flatpak update 실패"
+
+msgid "icon file to install"
+msgstr "설치할 아이콘 파일"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "아이콘이 아이콘 테마 밖의 절대 경로입니다"
+
+#, python-format
+msgid "icon not found: %s"
+msgstr "아이콘을 찾을 수 없습니다: %s"
+
+msgid "install a file or package-manager package"
+msgstr "파일 또는 패키지 관리자 패키지 설치"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "지정한 패키지 관리자로 formulae/snap/앱 ID 설치"
+
+#, python-format
+msgid "installed %s"
+msgstr "%s 설치됨"
+
+msgid "installed bundle not found"
+msgstr "설치된 번들을 찾을 수 없습니다"
+
+msgid "installed directory not found"
+msgstr "설치 디렉터리를 찾을 수 없습니다"
+
+#, python-format
+msgid "invalid flatpak scope: %s"
+msgstr "잘못된 flatpak 범위: %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "검색을 하나의 관리자로 제한 (기본값: 사용 가능한 모든 관리자)"
+
+msgid "missing"
+msgstr "없음"
+
+msgid "name contains a forbidden character"
+msgstr "이름에 사용할 수 없는 문자가 있습니다"
+
+msgid "name is empty"
+msgstr "이름이 비어 있습니다"
+
+#, python-format
+msgid "no application with desktop ID %s"
+msgstr "데스크톱 ID %s인 애플리케이션이 없습니다"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "실행 파일을 찾지 못했습니다. 실행 파일과 함께 install_spec을 사용하세요"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "그래픽 디스플레이가 없습니다. CLI 하위 명령을 사용하세요"
+
+msgid "no package found for desktop entry"
+msgstr "데스크톱 항목에 해당하는 패키지를 찾지 못했습니다"
+
+#, python-format
+msgid "no uninstall backend for kind: %s"
+msgstr "종류 %s에 대한 제거 백엔드가 없습니다"
+
+#, python-format
+msgid "not a .tar.gz archive: %s"
+msgstr ".tar.gz 압축 파일이 아닙니다: %s"
+
+#, python-format
+msgid "not an AppImage: %s"
+msgstr "AppImage가 아닙니다: %s"
+
+msgid "only https:// URLs are supported"
+msgstr "https:// URL만 지원합니다"
+
+msgid "package"
+msgstr "패키지"
+
+msgid "package hold failed"
+msgstr "패키지 고정 실패"
+
+msgid "package installation failed"
+msgstr "패키지 설치 실패"
+
+msgid "package name is empty"
+msgstr "패키지 이름이 비어 있습니다"
+
+#, python-format
+msgid "package not found: %s"
+msgstr "패키지를 찾을 수 없습니다: %s"
+
+msgid "package removal failed"
+msgstr "패키지 제거 실패"
+
+msgid "packages"
+msgstr "패키지"
+
+msgid "print JSON"
+msgstr "JSON으로 출력"
+
+msgid "print installed desktop entries"
+msgstr "설치된 데스크톱 항목 출력"
+
+msgid "purge configuration for .deb packages"
+msgstr ".deb 패키지의 설정까지 삭제"
+
+#, python-format
+msgid "refusing to remove %s: %s"
+msgstr "%s 제거를 거부합니다: %s"
+
+#, python-format
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "%s 제거를 거부합니다. 보호된 패키지도 제거됩니다: %s"
+
+#, python-format
+msgid "removal is not supported for %s entries"
+msgstr "%s 항목은 제거를 지원하지 않습니다"
+
+#, python-format
+msgid "removed %s"
+msgstr "%s 제거됨"
+
+msgid "required-priority package"
+msgstr "required 우선순위 패키지"
+
+msgid "scan desktop entries for problems"
+msgstr "데스크톱 항목의 문제 검사"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "Flatpak, Snap, Homebrew 패키지 검색"
+
+msgid "search text (at least 2 characters)"
+msgstr "검색어 (2자 이상)"
+
+msgid "semicolon separated categories"
+msgstr "세미콜론으로 구분된 카테고리"
+
+msgid "show package manager availability and counts"
+msgstr "패키지 관리자 사용 가능 여부와 개수 표시"
+
+msgid "skip the confirmation prompt"
+msgstr "확인 프롬프트 건너뛰기"
+
+#, python-format
+msgid "skipped\t%s\t%s"
+msgstr "건너뜀\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap find 실패"
+
+msgid "snap hold failed"
+msgstr "snap hold 실패"
+
+msgid "snap info failed"
+msgstr "snap info 실패"
+
+msgid "snap install failed"
+msgstr "snap install 실패"
+
+msgid "snap name is empty"
+msgstr "snap 이름이 비어 있습니다"
+
+msgid "snap refresh failed"
+msgstr "snap refresh 실패"
+
+msgid "snap remove failed"
+msgstr "snap remove 실패"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "압축 파일 루트 기준 tarball 실행 파일 경로"
+
+msgid "the Debian package name is unknown"
+msgstr "Debian 패키지 이름을 알 수 없습니다"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "Flatpak 애플리케이션 ID를 알 수 없습니다"
+
+msgid "the search query must be at least 2 characters"
+msgstr "검색어는 2자 이상이어야 합니다"
+
+msgid "timed out"
+msgstr "시간 초과"
+
+msgid "uninstall an application by desktop ID"
+msgstr "데스크톱 ID로 애플리케이션 제거"
+
+msgid "unknown"
+msgstr "알 수 없음"
+
+#, python-format
+msgid "unknown source kind: %s"
+msgstr "알 수 없는 소스 종류: %s"
+
+#, python-format
+msgid "unsafe archive: %s"
+msgstr "안전하지 않은 압축 파일: %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "안전하지 않은 압축 파일: 크기가 4 GiB를 넘습니다"
+
+msgid "unsafe archive: too many members"
+msgstr "안전하지 않은 압축 파일: 항목이 너무 많습니다"
+
+#, python-format
+msgid "unsupported file type: %s"
+msgstr "지원하지 않는 파일 형식: %s"
+
+#, python-format
+msgid "unsupported flatpak override action: %s"
+msgstr "지원하지 않는 flatpak override 작업: %s"
+
+#, python-format
+msgid "window class %s is not associated with this entry"
+msgstr "창 클래스 %s이(가) 이 항목과 연결되어 있지 않습니다"
+
+msgid "%s installed"
+msgstr "%s 설치됨"
+
+msgid "%s removed"
+msgstr "%s 제거됨"
+
+msgid "Getting started"
+msgstr "시작하기"
+
+msgid "Install %s?"
+msgstr "%s을(를) 설치할까요?"
+
+msgid "Kind"
+msgstr "종류"
+
+msgid "Name (A–Z)"
+msgstr "이름 (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "이름 (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "이 패키지 관리자에 남은 패키지가 없습니다."
+
+msgid "Recently installed (newest first)"
+msgstr "최근 설치 (최신순)"
+
+msgid "Remove %s"
+msgstr "%s 제거"
+
+msgid "Remove %s?"
+msgstr "%s을(를) 제거할까요?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "단계별 소개 다시 보기"
+
+msgid "Show welcome guide"
+msgstr "환영 안내 표시"
+
+msgid "Size (largest first)"
+msgstr "크기 (큰 것부터)"
+
+msgid "Sort by"
+msgstr "정렬 기준"
+
+msgid "Sort the application list"
+msgstr "애플리케이션 목록 정렬"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "이 작업은 수동으로 수행합니다. 아래 명령을 터미널에서 실행하세요."
+
+msgid "This uses apt and asks for authentication."
+msgstr "apt를 사용하며 인증을 요구합니다."
+
+msgid "options"
+msgstr "옵션"
+
+msgid "positional arguments"
+msgstr "위치 인수"

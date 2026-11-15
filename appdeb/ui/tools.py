@@ -12,6 +12,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from .. import desktop, doctor, icons  # noqa: E402
+from ..i18n import _, ngettext  # noqa: E402
 from ..models import Issue  # noqa: E402
 from .dialogs import OperationDialog  # noqa: E402
 from .widgets import escape_markup, show_toast  # noqa: E402
@@ -26,28 +27,46 @@ SEVERITY_ICONS = {
 class ToolsPage(Adw.NavigationPage):
     def __init__(self) -> None:
         super().__init__()
-        self.set_title("Tools")
+        self.set_title(_("Tools"))
         self._issue_rows: list[Adw.PreferencesRow] = []
         self._scanning = False
 
         header = Adw.HeaderBar()
-        header.set_title_widget(Adw.WindowTitle(title="Tools"))
+        header.set_title_widget(Adw.WindowTitle(title=_("Tools")))
         scan_button = Gtk.Button(icon_name="view-refresh-symbolic")
-        scan_button.set_tooltip_text("Scan desktop entries")
+        scan_button.set_tooltip_text(_("Scan desktop entries"))
         scan_button.connect("clicked", lambda _b: self.scan())
         header.pack_end(scan_button)
 
         page = Adw.PreferencesPage()
 
         actions = Adw.PreferencesGroup(
-            title="Maintenance",
-            description="Repair desktop entries and refresh application metadata.",
+            title=_("Maintenance"),
+            description=_("Repair desktop entries and refresh application metadata."),
         )
         for title, subtitle, handler in (
-            ("Scan desktop entries", "Look for invalid entries, missing icons and unmatched window classes", self.scan),
-            ("Rebuild icon cache", "Refresh the user hicolor icon cache", self._rebuild_icons),
-            ("Refresh application database", "Regenerate desktop-file-utils caches", self._refresh_database),
-            ("Back up desktop entries", "Copy user desktop entries and the database to the backup folder", self._backup),
+            (
+                _("Scan desktop entries"),
+                _(
+                    "Look for invalid entries, missing icons and unmatched window classes"
+                ),
+                self.scan,
+            ),
+            (
+                _("Rebuild icon cache"),
+                _("Refresh the user hicolor icon cache"),
+                self._rebuild_icons,
+            ),
+            (
+                _("Refresh application database"),
+                _("Regenerate desktop-file-utils caches"),
+                self._refresh_database,
+            ),
+            (
+                _("Back up desktop entries"),
+                _("Copy user desktop entries and the database to the backup folder"),
+                self._backup,
+            ),
         ):
             row = Adw.ActionRow(title=escape_markup(title), subtitle=escape_markup(subtitle), activatable=True)
             row.add_suffix(Gtk.Image.new_from_icon_name("go-next-symbolic"))
@@ -55,10 +74,10 @@ class ToolsPage(Adw.NavigationPage):
             actions.add(row)
         page.add(actions)
 
-        self._issues_group = Adw.PreferencesGroup(title="Issues")
+        self._issues_group = Adw.PreferencesGroup(title=_("Issues"))
         self._status_row = Adw.ActionRow(
-            title="No scan has run yet",
-            subtitle="Scan to inspect all desktop entries",
+            title=_("No scan has run yet"),
+            subtitle=_("Scan to inspect all desktop entries"),
         )
         self._issues_group.add(self._status_row)
         page.add(self._issues_group)
@@ -73,7 +92,7 @@ class ToolsPage(Adw.NavigationPage):
         if self._scanning:
             return
         self._scanning = True
-        self._status_row.set_title("Scanning desktop entries…")
+        self._status_row.set_title(_("Scanning desktop entries…"))
         self._status_row.set_subtitle("")
         self._status_row.set_visible(True)
         self._clear_issues()
@@ -90,7 +109,7 @@ class ToolsPage(Adw.NavigationPage):
 
     def _scan_failed(self, message: str) -> bool:
         self._scanning = False
-        self._status_row.set_title("Scan failed")
+        self._status_row.set_title(_("Scan failed"))
         self._status_row.set_subtitle(escape_markup(message))
         self._status_row.set_visible(True)
         return GLib.SOURCE_REMOVE
@@ -104,13 +123,16 @@ class ToolsPage(Adw.NavigationPage):
         self._scanning = False
         self._clear_issues()
         if not issues:
-            self._status_row.set_title("No issues found")
-            self._status_row.set_subtitle("All scanned desktop entries look healthy")
+            self._status_row.set_title(_("No issues found"))
+            self._status_row.set_subtitle(_("All scanned desktop entries look healthy"))
             self._status_row.set_visible(True)
             return GLib.SOURCE_REMOVE
-        self._status_row.set_title(f"{len(issues)} issue" + ("" if len(issues) == 1 else "s"))
+        self._status_row.set_title(
+            ngettext("%d issue", "%d issues", len(issues)) % len(issues)
+        )
         self._status_row.set_subtitle(
-            f"{sum(1 for issue in issues if issue.fixable)} can be fixed automatically"
+            _("%d can be fixed automatically")
+            % sum(1 for issue in issues if issue.fixable)
         )
         self._status_row.set_visible(True)
         for issue in issues:
@@ -120,7 +142,7 @@ class ToolsPage(Adw.NavigationPage):
                 Gtk.Image.new_from_icon_name(SEVERITY_ICONS.get(issue.severity, "dialog-information-symbolic"))
             )
             if issue.fixable:
-                fix = Gtk.Button(label="Fix")
+                fix = Gtk.Button(label=_("Fix"))
                 fix.add_css_class("suggested-action")
                 fix.connect("clicked", lambda _b, i=issue: self._fix(i))
                 row.add_suffix(fix)
@@ -133,7 +155,7 @@ class ToolsPage(Adw.NavigationPage):
             return doctor.fix(issue)
 
         dialog = OperationDialog(
-            f"Fixing {issue.code}",
+            _("Fixing %s") % issue.code,
             worker,
             on_success=self._on_fixed,
             parent=self.get_root(),
@@ -141,22 +163,22 @@ class ToolsPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _on_fixed(self, changed: bool) -> None:
-        show_toast(self, "Issue fixed" if changed else "Could not fix this issue")
+        show_toast(self, _("Issue fixed") if changed else _("Could not fix this issue"))
         self.scan()
 
     # --------------------------------------------------------------- actions
     def _rebuild_icons(self) -> None:
         ok = icons.rebuild_cache()
-        show_toast(self, "Icon cache rebuilt" if ok else "Could not rebuild the icon cache")
+        show_toast(self, _("Icon cache rebuilt") if ok else _("Could not rebuild the icon cache"))
 
     def _refresh_database(self) -> None:
         desktop.update_desktop_database()
-        show_toast(self, "Application database refreshed")
+        show_toast(self, _("Application database refreshed"))
 
     def _backup(self) -> None:
         try:
             target = doctor.backup_desktop_entries()
         except OSError as exc:
-            show_toast(self, f"Backup failed: {exc}")
+            show_toast(self, _("Backup failed: %s") % exc)
             return
-        show_toast(self, f"Backup created in {target}")
+        show_toast(self, _("Backup created in %s") % target)

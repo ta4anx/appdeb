@@ -7,15 +7,16 @@ import shutil
 from pathlib import Path
 
 from . import config, db, desktop
+from .i18n import N_, _
 from .models import DesktopEntry, InstalledApp
 
 KIND_LABELS = {
-    "flatpak": "Flatpak",
-    "appimage": "AppImage",
-    "tarball": "Tarball",
-    "deb": "Deb",
-    "snap": "Snap",
-    "system": "System",
+    "flatpak": N_("Flatpak"),
+    "appimage": N_("AppImage"),
+    "tarball": N_("Tarball"),
+    "deb": N_("Deb"),
+    "snap": N_("Snap"),
+    "system": N_("System"),
 }
 
 SIZE_UNITS = {"b": 1, "kb": 1000, "mb": 1000**2, "gb": 1000**3, "tb": 1000**4}
@@ -50,7 +51,7 @@ def human_size(value: int | None) -> str:
 
 
 def kind_label(kind: str) -> str:
-    return KIND_LABELS.get(kind, kind.title() if kind else "System")
+    return _(KIND_LABELS.get(kind, kind.title() if kind else "System"))
 
 
 def _flatpak_rows() -> dict[str, dict]:
@@ -219,16 +220,16 @@ def candidate_files(app: InstalledApp) -> list[tuple[str, Path]]:
         files.append((label, resolved))
 
     entry = app.entry
-    add("Desktop file", Path(entry.path))
+    add(_("Desktop file"), Path(entry.path))
 
     token = _first_exec_token(entry.exec_line)
     if token:
         candidate = Path(token)
         if candidate.is_absolute() and candidate.exists():
-            add("Executable", candidate)
+            add(_("Executable"), candidate)
 
     if app.install_path and app.install_path.exists():
-        add("Install path", app.install_path)
+        add(_("Install path"), app.install_path)
 
     if app.kind == "flatpak":
         from .backends import flatpak
@@ -238,15 +239,15 @@ def candidate_files(app: InstalledApp) -> list[tuple[str, Path]]:
             info = flatpak.info(app_id, app.scope)
             location = info.get("location")
             if location:
-                add("Flatpak location", Path(location))
-            add("Application data", Path.home() / ".var" / "app" / app_id)
-            add("Configuration", config.config_home() / app_id)
-            add("User data", config.data_home() / app_id)
-            add("Cache", config.cache_home() / app_id)
+                add(_("Flatpak location"), Path(location))
+            add(_("Application data"), Path.home() / ".var" / "app" / app_id)
+            add(_("Configuration"), config.config_home() / app_id)
+            add(_("User data"), config.data_home() / app_id)
+            add(_("Cache"), config.cache_home() / app_id)
 
     if app.kind == "tarball" and app.install_path and app.install_path.is_dir():
         for child in sorted(app.install_path.iterdir())[:3]:
-            add(f"Inside install: {child.name}", child)
+            add(_("Inside install: %s") % child.name, child)
 
     name_variants = [
         app.display_name,
@@ -256,7 +257,7 @@ def candidate_files(app: InstalledApp) -> list[tuple[str, Path]]:
     for base in (config.config_home(), config.data_home(), config.cache_home()):
         for variant in name_variants:
             if variant:
-                add("Matching folder", base / variant)
+                add(_("Matching folder"), base / variant)
 
     return files
 

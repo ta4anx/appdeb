@@ -1,0 +1,1796 @@
+# Azerbaijani translation for AppDeb.
+# Copyright (C) 2026 AppDeb contributors
+# This file is distributed under the same license as the AppDeb project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "\n\nThe following packages will be removed:\n%s"
+msgstr "\n\nAşağıdakı paketlər silinəcək:\n%s"
+
+msgid "\n\nThe managed bundle is deleted; your downloaded file is kept."
+msgstr "\n\nİdarə olunan AppImage paketi silinir; endirdiyiniz fayl saxlanılır."
+
+msgid "\n\nThe managed install directory is deleted; the original archive is kept."
+msgstr "\n\nİdarə olunan quraşdırma qovluğu silinir; orijinal arxiv saxlanılır."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)d gün %(hours)d saat %(minutes)d dəq"
+
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)d saat %(minutes)d dəq"
+
+msgid "%(minutes)dm"
+msgstr "%(minutes)d dəq"
+
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s %(count)d paketi idarə edir; əvvəlcə onu silin."
+msgstr[1] "%(name)s %(count)d paketi idarə edir; əvvəlcə onları silin."
+
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s artıq %(channel)s kanalını izləyir"
+
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+msgid "%d Debian packages in the %s database"
+msgstr "%s bazasında %d Debian paketi"
+
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d Flatpak yeniləməsi"
+msgstr[1] "%d Flatpak yeniləməsi"
+
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d tətbiq"
+msgstr[1] "%d tətbiq"
+
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d tətbiq"
+msgstr[1] "%d tətbiq"
+
+msgid "%d applications known to %s"
+msgstr "%s tərəfindən tanınan %d tətbiq"
+
+msgid "%d can be fixed automatically"
+msgstr "%d avtomatik düzəldilə bilər"
+
+msgid "%d formulae installed with %s"
+msgstr "%s ilə quraşdırılmış %d formula"
+
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d problem"
+msgstr[1] "%d problem"
+
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+msgid "%s applications"
+msgstr "%s tətbiq"
+
+msgid "%s can be upgraded again"
+msgstr "%s yenidən yenilənə bilər"
+
+msgid "%s failed"
+msgstr "%s alınmadı"
+
+msgid "%s formulae"
+msgstr "%s formula"
+
+msgid "%s held at its current version"
+msgstr "%s cari versiyasında saxlanılır"
+
+msgid "%s installation failed: %s"
+msgstr "%s quraşdırıla bilmədi: %s"
+
+msgid "%s is not installed"
+msgstr "%s quraşdırılmayıb"
+
+msgid "%s is replaced in place. Quit the application first; the current bundle is backed up next to the new one."
+msgstr "%s yerində əvəz olunur. Əvvəlcə tətbiqi bağlayın; cari paket yeninin yanında ehtiyat nüsxələnir."
+
+msgid "%s packages"
+msgstr "%s paket"
+
+msgid "%s results"
+msgstr "%s nəticə"
+
+msgid "%s store"
+msgstr "%s anbarı"
+
+msgid "%s updated"
+msgstr "%s yeniləndi"
+
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(boş)"
+
+msgid "(no executable found)"
+msgstr "(icra faylı tapılmadı)"
+
+msgid "--name is required for AppImage installs"
+msgstr "AppImage quraşdırmaları üçün --name tələb olunur"
+
+msgid "0 apps"
+msgstr "0 tətbiq"
+
+msgid "10 seconds"
+msgstr "10 saniyə"
+
+msgid "2 seconds"
+msgstr "2 saniyə"
+
+msgid "5 seconds"
+msgstr "5 saniyə"
+
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "%s üçün qısayol artıq mövcuddur. Silinsin?"
+
+msgid "Aborted"
+msgstr "Dayandırıldı"
+
+msgid "About"
+msgstr "Haqqında"
+
+msgid "About AppDeb"
+msgstr "AppDeb haqqında"
+
+msgid "Adjust the search text or the filter."
+msgstr "Axtarış mətnini və ya filtri dəyişdirin."
+
+msgid "All"
+msgstr "Hamısı"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "Skan edilən bütün desktop qeydləri sağlamdır"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "Silinərkən sistem konfiqurasiyasını da sil"
+
+msgid "AppDeb puts every kind of Linux application in one window: Flatpak, Snap, Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr "AppDeb bütün növ Linux tətbiqlərini bir pəncərədə birləşdirir: Flatpak, Snap, Homebrew, AppImage, .deb paketləri və portativ .tar.gz arxivləri."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage əvəz olundu; istifadə üçün tətbiqi yenidən başladın"
+
+msgid "AppImage store"
+msgstr "AppImage anbarı"
+
+msgid "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name with --from"
+msgstr "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz və ya --from ilə paket adı"
+
+msgid "AppImages run outside the Flatpak sandbox and can read your files. Only install apps you trust."
+msgstr "AppImage tətbiqləri Flatpak təcridindən kənarda işləyir və fayllarınızı oxuya bilər. Yalnız etibar etdiyiniz tətbiqləri quraşdırın."
+
+msgid "Application"
+msgstr "Tətbiq"
+
+msgid "Application data"
+msgstr "Tətbiq məlumatları"
+
+msgid "Application database refreshed"
+msgstr "Tətbiq bazası yeniləndi"
+
+msgid "Application details"
+msgstr "Tətbiq təfərrüatları"
+
+msgid "Application icon"
+msgstr "Tətbiq simvolu"
+
+msgid "Application icon reset"
+msgstr "Tətbiq simvolu sıfırlandı"
+
+msgid "Application icon updated"
+msgstr "Tətbiq simvolu yeniləndi"
+
+msgid "Application manager"
+msgstr "Tətbiq meneceri"
+
+msgid "Application parameters"
+msgstr "Tətbiq parametrləri"
+
+msgid "Application renamed"
+msgstr "Tətbiqin adı dəyişdirildi"
+
+msgid "Application runs in a terminal"
+msgstr "Tətbiq terminalda işləyir"
+
+msgid "Application uninstalled"
+msgstr "Tətbiq silindi"
+
+msgid "Applications found through each package manager."
+msgstr "Hər paket menecerində tapılan tətbiqlər."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "AppDeb tərəfindən quraşdırılmış və idarə olunan tətbiqlər."
+
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "%d düzəliş tətbiq edilsin? [y/N] "
+msgstr[1] "%d düzəliş tətbiq edilsin? [y/N] "
+
+msgid "Architecture"
+msgstr "Arxitektura"
+
+msgid "Archives"
+msgstr "Arxivlər"
+
+msgid "Audio"
+msgstr "Səs"
+
+msgid "Autostart disabled"
+msgstr "Avtomatik başlatma söndürüldü"
+
+msgid "Autostart enabled"
+msgstr "Avtomatik başlatma aktivləşdirildi"
+
+msgid "Autostart this application when you sign in"
+msgstr "Sistemə daxil olduqda bu tətbiqi avtomatik başlat"
+
+msgid "Available"
+msgstr "Mövcud"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Back up desktop entries"
+msgstr "Desktop qeydlərinin ehtiyat nüsxəsini çıxar"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "Cari paketin ehtiyat nüsxəsini çıxar və yeni versiya quraşdır"
+
+msgid "Backup created in %s"
+msgstr "%s içində ehtiyat nüsxə yaradıldı"
+
+msgid "Backup failed: %s"
+msgstr "Ehtiyat nüsxə alınmadı: %s"
+
+msgid "Browse…"
+msgstr "Gözdən keçir…"
+
+msgid "Bundle"
+msgstr "Paket"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU istifadəsi"
+
+msgid "Cache"
+msgstr "Keş"
+
+msgid "Cancel"
+msgstr "Ləğv et"
+
+msgid "Cancelling…"
+msgstr "Ləğv edilir…"
+
+msgid "Categories"
+msgstr "Kateqoriyalar"
+
+msgid "Change Icon"
+msgstr "Simvolu dəyiş"
+
+msgid "Change executable…"
+msgstr "İcra faylını dəyiş…"
+
+msgid "Change package manager"
+msgstr "Paket menecerini dəyiş"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "Dəyişikliklər bu tətbiq üçün istifadəçi override-ları kimi tətbiq olunur."
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Check updates"
+msgstr "Yeniləmələri yoxla"
+
+msgid "Check your package managers"
+msgstr "Paket menecerlərinizi yoxlayın"
+
+msgid "Checking"
+msgstr "Yoxlanılır"
+
+msgid "Checking…"
+msgstr "Yoxlanılır…"
+
+msgid "Choose .deb package"
+msgstr ".deb paketi seç"
+
+msgid "Choose .deb package…"
+msgstr ".deb paketi seç…"
+
+msgid "Choose .tar.gz archive"
+msgstr ".tar.gz arxivi seç"
+
+msgid "Choose AppImage"
+msgstr "AppImage seç"
+
+msgid "Choose AppImage file…"
+msgstr "AppImage faylını seç…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Flatpak paketi və ya .flatpakref seç"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Flatpak paketi və ya .flatpakref seç…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "Quraşdırma qovluğunda icra faylı seç"
+
+msgid "Choose application icon"
+msgstr "Tətbiq simvolu seç"
+
+msgid "Choose archive"
+msgstr "Arxiv seç"
+
+msgid "Choose destination folder"
+msgstr "Hədəf qovluğu seç"
+
+msgid "Choose executable"
+msgstr "İcra faylı seç"
+
+msgid "Choose icon"
+msgstr "Simvol seç"
+
+msgid "Choose replacement"
+msgstr "Əvəzedici seç"
+
+msgid "Choose replacement .tar.gz"
+msgstr "Əvəzedici .tar.gz seç"
+
+msgid "Choose replacement AppImage"
+msgstr "Əvəzedici AppImage seç"
+
+msgid "Choose…"
+msgstr "Seç…"
+
+msgid "Close"
+msgstr "Bağla"
+
+msgid "Comment"
+msgstr "Şərh"
+
+msgid "Configuration"
+msgstr "Konfiqurasiya"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "İstifadəçi desktop qeydlərini və bazanı ehtiyat qovluğuna kopyala"
+
+msgid "Could not change autostart: %s"
+msgstr "Avtomatik başlatma dəyişdirilə bilmədi: %s"
+
+msgid "Could not change package hold: %s"
+msgstr "Paketin saxlanması dəyişdirilə bilmədi: %s"
+
+msgid "Could not change permission: %s"
+msgstr "İcazə dəyişdirilə bilmədi: %s"
+
+msgid "Could not change update hold: %s"
+msgstr "Yeniləmənin saxlanması dəyişdirilə bilmədi: %s"
+
+msgid "Could not create shortcut: %s"
+msgstr "Qısayol yaradıla bilmədi: %s"
+
+msgid "Could not fix this issue"
+msgstr "Bu problem düzəldilə bilmədi"
+
+msgid "Could not install icon: %s"
+msgstr "Simvol quraşdırıla bilmədi: %s"
+
+msgid "Could not launch: %s"
+msgstr "İşə salına bilmədi: %s"
+
+msgid "Could not open link: %s"
+msgstr "Keçid açıla bilmədi: %s"
+
+msgid "Could not open location: %s"
+msgstr "Məkan açıla bilmədi: %s"
+
+msgid "Could not read archive"
+msgstr "Arxiv oxuna bilmədi"
+
+msgid "Could not read snap channels: %s"
+msgstr "Snap kanalları oxuna bilmədi: %s"
+
+msgid "Could not read the archive"
+msgstr "Arxiv oxuna bilmədi"
+
+msgid "Could not read the package"
+msgstr "Paket oxuna bilmədi"
+
+msgid "Could not rebuild the icon cache"
+msgstr "Simvol keşi yenidən qurula bilmədi"
+
+msgid "Could not refresh snap: %s"
+msgstr "Snap yenilənə bilmədi: %s"
+
+msgid "Could not reset overrides: %s"
+msgstr "Override-lar sıfırlana bilmədi: %s"
+
+msgid "Could not search for alternative sources: %s"
+msgstr "Alternativ mənbələr axtarıla bilmədi: %s"
+
+msgid "Could not switch channel: %s"
+msgstr "Kanal dəyişdirilə bilmədi: %s"
+
+msgid "Could not terminate processes: %s"
+msgstr "Proseslər dayandırıla bilmədi: %s"
+
+msgid "Could not update %s: %s"
+msgstr "%s yenilənə bilmədi: %s"
+
+msgid "Could not update Terminal: %s"
+msgstr "Terminal yenilənə bilmədi: %s"
+
+msgid "Could not update menu visibility: %s"
+msgstr "Menyu görünürlüğü yenilənə bilmədi: %s"
+
+msgid "Could not update window class: %s"
+msgstr "Pəncərə sinfi yenilənə bilmədi: %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian paketi"
+
+msgid "Debian packages"
+msgstr "Debian paketləri"
+
+msgid "Dependencies"
+msgstr "Asılılıqlar"
+
+msgid "Depends"
+msgstr "Asılıdır"
+
+msgid "Description"
+msgstr "Təsvir"
+
+msgid "Desktop Shortcut"
+msgstr "İş masası qısayolu"
+
+msgid "Desktop entry ID"
+msgstr "Desktop qeydinin ID-si"
+
+msgid "Desktop file"
+msgstr "Desktop faylı"
+
+msgid "Desktop shortcut"
+msgstr "İş masası qısayolu"
+
+msgid "Destination"
+msgstr "Hədəf"
+
+msgid "Destination folder (optional)"
+msgstr "Hədəf qovluğu (istəyə bağlı)"
+
+msgid "Details"
+msgstr "Təfərrüatlar"
+
+msgid "Detected version"
+msgstr "Aşkarlanan versiya"
+
+msgid "Developer"
+msgstr "Tərtibatçı"
+
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk read / write"
+msgstr "Disk oxunması / yazılması"
+
+msgid "Dock icon association"
+msgstr "Dock simvol əlaqəsi"
+
+msgid "Dock icon association updated"
+msgstr "Dock simvol əlaqəsi yeniləndi"
+
+msgid "Download"
+msgstr "Endir"
+
+msgid "Download .tar.gz"
+msgstr ".tar.gz endir"
+
+msgid "Download .tar.gz from URL…"
+msgstr "URL-dən .tar.gz endir…"
+
+msgid "Download AppImage"
+msgstr "AppImage endir"
+
+msgid "Download AppImage from URL…"
+msgstr "URL-dən AppImage endir…"
+
+msgid "Download from URL"
+msgstr "URL-dən endir"
+
+msgid "Download history"
+msgstr "Endirmə tarixçəsi"
+
+msgid "Downloading AppImage"
+msgstr "AppImage endirilir"
+
+msgid "Downloading archive"
+msgstr "Arxiv endirilir"
+
+msgid "Downloads are installed from the download cache. Only install software you trust."
+msgstr "Endirmələr endirmə keşindən quraşdırılır. Yalnız etibar etdiyiniz proqramı quraşdırın."
+
+msgid "Effective permissions"
+msgstr "Effektiv icazələr"
+
+msgid "End processes"
+msgstr "Prosesləri dayandır"
+
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "%d proses dayandırıldı"
+msgstr[1] "%d proses dayandırıldı"
+
+msgid "Enter a formula name first"
+msgstr "Əvvəlcə formula adı daxil edin"
+
+msgid "Enter a snap name first"
+msgstr "Əvvəlcə snap adı daxil edin"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec boş ola bilməz"
+
+msgid "Executable"
+msgstr "İcra faylı"
+
+msgid "Executable updated"
+msgstr "İcra faylı yeniləndi"
+
+msgid "Executables"
+msgstr "İcra faylları"
+
+msgid "Extract icon"
+msgstr "Simvolu çıxar"
+
+msgid "Files"
+msgstr "Fayllar"
+
+msgid "Finish"
+msgstr "Bitir"
+
+msgid "Fix"
+msgstr "Düzəlt"
+
+msgid "Fix icons and desktop entries"
+msgstr "Simvolları və desktop qeydlərini düzəlt"
+
+msgid "Fixing %s"
+msgstr "%s düzəldilir"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak paketləri"
+
+msgid "Flatpak is not installed on this system."
+msgstr "Bu sistemdə Flatpak quraşdırılmayıb."
+
+msgid "Flatpak location"
+msgstr "Flatpak məkanı"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpak override-ları sıfırlandı"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak icazələri"
+
+msgid "Flatpak scope"
+msgstr "Flatpak əhatəsi"
+
+msgid "Folder"
+msgstr "Qovluq"
+
+msgid "Following %s; switching refreshes the snap"
+msgstr "%s izlənilir; dəyişmə snap-ı yeniləyir"
+
+msgid "Hidden from the application menu"
+msgstr "Tətbiq menyusundan gizlədilib"
+
+msgid "Hide from application menu"
+msgstr "Tətbiq menyusundan gizlət"
+
+msgid "Hold package version"
+msgstr "Paket versiyasını saxla"
+
+msgid "Hold updates"
+msgstr "Yeniləmələri saxla"
+
+msgid "Holding package version"
+msgstr "Paket versiyası saxlanılır"
+
+msgid "Holding snap updates"
+msgstr "Snap yeniləmələri saxlanılır"
+
+msgid "Home disk usage"
+msgstr "Ev disk istifadəsi"
+
+msgid "Home folder"
+msgstr "Ev qovluğu"
+
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew yeniləməsi alınmadı: %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew tapılmadı"
+
+msgid "Homepage"
+msgstr "Veb səhifə"
+
+msgid "Host filesystem"
+msgstr "Host fayl sistemi"
+
+msgid "How often resource usage is sampled"
+msgstr "Resurs istifadəsinin nümunələnmə tezliyi"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "Simvol"
+
+msgid "Icon cache rebuilt"
+msgstr "Simvol keşi yenidən quruldu"
+
+msgid "If a running window shows a generic gear instead of its real icon, the entry is missing a window-class association. The Tools page finds those problems and repairs them, with a backup of every file it changes."
+msgstr "İşləyən pəncərə öz real simvolu əvəzinə ümumi dişli göstərirsə, qeyddə pəncərə sinfi əlaqəsi yoxdur. Alətlər səhifəsi bu problemləri tapır və hər dəyişdirilən faylın ehtiyat nüsxəsini çıxarmaqla onları düzəldir."
+
+msgid "Images"
+msgstr "Şəkillər"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "NoDisplay və ya Hidden kimi işarələnmiş qeydləri daxil et"
+
+msgid "Inside install: %s"
+msgstr "Quraşdırmanın içində: %s"
+
+msgid "Inspecting AppImage…"
+msgstr "AppImage yoxlanılır…"
+
+msgid "Install"
+msgstr "Quraşdır"
+
+msgid "Install %s with %s? [y/N] "
+msgstr "%s %s ilə quraşdırılsın? [y/N] "
+
+msgid "Install %s? [y/N] "
+msgstr "%s quraşdırılsın? [y/N] "
+
+msgid "Install .deb package"
+msgstr ".deb paketi quraşdır"
+
+msgid "Install .tar.gz (one click)"
+msgstr ".tar.gz quraşdır (bir kliklə)"
+
+msgid "Install .tar.gz application"
+msgstr ".tar.gz tətbiqini quraşdır"
+
+msgid "Install .tar.gz to folder…"
+msgstr ".tar.gz-ı qovluğa quraşdır…"
+
+msgid "Install AppImage"
+msgstr "AppImage quraşdır"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "apt və polkit vasitəsilə yerli .deb paketi quraşdır."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "Flatpak, AppImage, .deb və .tar.gz tətbiqlərini quraşdırın və idarə edin."
+
+msgid "Install by searching or by typing"
+msgstr "Axtarışla və ya ad yazaraq quraşdırın"
+
+msgid "Install directory"
+msgstr "Quraşdırma qovluğu"
+
+msgid "Install formula by name"
+msgstr "Formula adı ilə quraşdır"
+
+msgid "Install path"
+msgstr "Quraşdırma yolu"
+
+msgid "Install snap by name"
+msgstr "Snap-ı adı ilə quraşdır"
+
+msgid "Install this application from another package manager. The current copy is not touched until you remove it."
+msgstr "Bu tətbiqi başqa paket menecerindən quraşdırın. Onu silənə qədər cari nüsxəyə toxunulmur."
+
+msgid "Installation failed: %s"
+msgstr "Quraşdırma alınmadı: %s"
+
+msgid "Installation scope"
+msgstr "Quraşdırma əhatəsi"
+
+msgid "Installed"
+msgstr "Quraşdırılıb"
+
+msgid "Installed %s"
+msgstr "%s quraşdırıldı"
+
+msgid "Installed %s with %s"
+msgstr "%s, %s ilə quraşdırıldı"
+
+msgid "Installed applications"
+msgstr "Quraşdırılmış tətbiqlər"
+
+msgid "Installed by manager"
+msgstr "Menecer tərəfindən quraşdırılıb"
+
+msgid "Installed size"
+msgstr "Quraşdırılmış ölçü"
+
+msgid "Installing %s"
+msgstr "%s quraşdırılır"
+
+msgid "Installing %s with %s"
+msgstr "%s, %s ilə quraşdırılır"
+
+msgid "Installing a .deb package changes system software and requires administrator authentication via polkit."
+msgstr ".deb paketinin quraşdırılması sistem proqramını dəyişir və polkit vasitəsilə administrator autentifikasiyası tələb edir."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "AppDeb yenidən başladıldıqdan sonra istifadə olunan interfeys dili"
+
+msgid "Issue fixed"
+msgstr "Problem düzəldildi"
+
+msgid "Issues"
+msgstr "Problemlər"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "Desktop qeydini saxla, lakin tətbiq menyularından çıxar"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "Fayllar əvəz edilərkən desktop qeydini, simvolu və adı saxla"
+
+msgid "Keywords"
+msgstr "Açar sözlər"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Launch"
+msgstr "İşə sal"
+
+msgid "Launching %s"
+msgstr "%s işə salınır"
+
+msgid "Leave empty to install into the managed AppDeb store. Choose a folder to install into a subfolder of it."
+msgstr "İdarə olunan AppDeb anbarına quraşdırmaq üçün boş buraxın. Onun alt qovluğuna quraşdırmaq üçün qovluq seçin."
+
+msgid "License"
+msgstr "Lisenziya"
+
+msgid "Load"
+msgstr "Yüklə"
+
+msgid "Load average"
+msgstr "Orta yüklənmə"
+
+msgid "Loading channels…"
+msgstr "Kanallar yüklənir…"
+
+msgid "Loading store details…"
+msgstr "Anbar təfərrüatları yüklənir…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "Etibarsız qeydləri, çatışmayan simvolları və uyğunsuz pəncərə siniflərini axtar"
+
+msgid "Looking for alternative package sources…"
+msgstr "Alternativ paket mənbələri axtarılır…"
+
+msgid "Main menu"
+msgstr "Əsas menyu"
+
+msgid "Maintainer"
+msgstr "Baxıcı"
+
+msgid "Maintenance"
+msgstr "Texniki xidmət"
+
+msgid "Managed stores"
+msgstr "İdarə olunan anbarlar"
+
+msgid "Managers"
+msgstr "Menecerlər"
+
+msgid "Matching folder"
+msgstr "Uyğun qovluq"
+
+msgid "Memory"
+msgstr "Yaddaş"
+
+msgid "Memory usage"
+msgstr "Yaddaş istifadəsi"
+
+msgid "Monitoring"
+msgstr "İzləmə"
+
+msgid "Name"
+msgstr "Ad"
+
+msgid "Network"
+msgstr "Şəbəkə"
+
+msgid "Next"
+msgstr "İrəli"
+
+msgid "No alternative package sources found."
+msgstr "Alternativ paket mənbəyi tapılmadı."
+
+msgid "No applications match"
+msgstr "Uyğun tətbiq yoxdur"
+
+msgid "No channels reported for this snap"
+msgstr "Bu snap üçün kanal bildirilməyib"
+
+msgid "No embedded icon found"
+msgstr "Daxili simvol tapılmadı"
+
+msgid "No executable detected; choose one"
+msgstr "İcra faylı aşkarlanmadı; birini seçin"
+
+msgid "No issues found"
+msgstr "Problem tapılmadı"
+
+msgid "No results"
+msgstr "Nəticə yoxdur"
+
+msgid "No running processes"
+msgstr "İşləyən proses yoxdur"
+
+msgid "No scan has run yet"
+msgstr "Hələ heç bir skan aparılmayıb"
+
+msgid "No shortcut found"
+msgstr "Qısayol tapılmadı"
+
+msgid "Not installed"
+msgstr "Quraşdırılmayıb"
+
+msgid "Only https:// URLs are supported."
+msgstr "Yalnız https:// URL-ləri dəstəklənir."
+
+msgid "Open bundle folder"
+msgstr "Paket qovluğunu aç"
+
+msgid "Open homepage"
+msgstr "Veb səhifəni aç"
+
+msgid "Open install folder"
+msgstr "Quraşdırma qovluğunu aç"
+
+msgid "Open location"
+msgstr "Məkanı aç"
+
+msgid "Optional"
+msgstr "İstəyə bağlı"
+
+msgid "Original archive"
+msgstr "Orijinal arxiv"
+
+msgid "Outdated formulae upgraded"
+msgstr "Köhnə formulalar yeniləndi"
+
+msgid "Package"
+msgstr "Paket"
+
+msgid "Package manager information is unavailable"
+msgstr "Paket meneceri məlumatı mövcud deyil"
+
+msgid "Package manager overview"
+msgstr "Paket menecerlərinə ümumi baxış"
+
+msgid "Package managers"
+msgstr "Paket menecerləri"
+
+msgid "Package managers available on this system and their versions."
+msgstr "Bu sistemdə mövcud paket menecerləri və versiyaları."
+
+msgid "Package removed"
+msgstr "Paket silindi"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "Bu snap üçün avtomatik yeniləmələri dayandır"
+
+msgid "Permissions are unavailable."
+msgstr "İcazələr mövcud deyil."
+
+msgid "Pick a page from the sidebar to start. Settings holds the Flatpak install scope, the interface language and a button to show this guide again at any time."
+msgstr "Başlamaq üçün yan paneldən bir səhifə seçin. Parametrlərdə Flatpak quraşdırma əhatəsi, interfeys dili və bu bələdçini istənilən vaxt yenidən göstərən düymə var."
+
+msgid "Pick another executable inside the install directory"
+msgstr "Quraşdırma qovluğundan başqa icra faylı seç"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "apt-ın bu paketi yeniləməsinin qarşısını al"
+
+msgid "Processes"
+msgstr "Proseslər"
+
+msgid "Purge configuration files"
+msgstr "Konfiqurasiya fayllarını təmizlə"
+
+msgid "Quit"
+msgstr "Çıx"
+
+msgid "Rebuild icon cache"
+msgstr "Simvol keşini yenidən qur"
+
+msgid "Refresh application database"
+msgstr "Tətbiq bazasını yenilə"
+
+msgid "Refresh interval"
+msgstr "Yeniləmə intervalı"
+
+msgid "Refresh package manager information"
+msgstr "Paket meneceri məlumatını yenilə"
+
+msgid "Refresh snap now"
+msgstr "Snap-ı indi yenilə"
+
+msgid "Refresh the application list"
+msgstr "Tətbiq siyahısını yenilə"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "İstifadəçi hicolor simvol keşini yenilə"
+
+msgid "Refreshed %s"
+msgstr "%s yeniləndi"
+
+msgid "Refreshing %s"
+msgstr "%s yenilənir"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "desktop-file-utils keşlərini yenidən yarat"
+
+msgid "Reinstall / replace archive…"
+msgstr "Arxivi yenidən quraşdır / əvəz et…"
+
+msgid "Releasing package hold"
+msgstr "Paket saxlaması buraxılır"
+
+msgid "Removal failed: %s"
+msgstr "Silinmə alınmadı: %s"
+
+msgid "Remove"
+msgstr "Sil"
+
+msgid "Remove %s? [y/N] "
+msgstr "%s silinsin? [y/N] "
+
+msgid "Remove Debian package"
+msgstr "Debian paketini sil"
+
+msgid "Remove all user permission overrides for %s?"
+msgstr "%s üçün bütün istifadəçi icazə override-ları silinsin?"
+
+msgid "Remove current copy"
+msgstr "Cari nüsxəni sil"
+
+msgid "Remove every user permission override for this application"
+msgstr "Bu tətbiq üçün bütün istifadəçi icazə override-larını sil"
+
+msgid "Remove package"
+msgstr "Paketi sil"
+
+msgid "Remove shortcut"
+msgstr "Qısayolu sil"
+
+msgid "Remove the %(kind)s copy of %(name)s?\n\n%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr "%(name)s tətbiqinin %(kind)s nüsxəsi silinsin?\n\n%(candidate)s %(manager)s ilə quraşdırılıb. Hər iki nüsxəni saxlaya bilərsiniz."
+
+msgid "Remove the current copy?"
+msgstr "Cari nüsxə silinsin?"
+
+msgid "Remove the package %s?"
+msgstr "%s paketi silinsin?"
+
+msgid "Remove…"
+msgstr "Sil…"
+
+msgid "Removing %s"
+msgstr "%s silinir"
+
+msgid "Rename"
+msgstr "Adını dəyiş"
+
+msgid "Rename application"
+msgstr "Tətbiqin adını dəyiş"
+
+msgid "Rename failed: %s"
+msgstr "Ad dəyişdirilə bilmədi: %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "Desktop qeydlərini düzəlt və tətbiq metadatasını yenilə."
+
+msgid "Replace AppImage"
+msgstr "AppImage-ı əvəz et"
+
+msgid "Replace AppImage…"
+msgstr "AppImage-ı əvəz et…"
+
+msgid "Replace tarball installation"
+msgstr "Tarball quraşdırmasını əvəz et"
+
+msgid "Replacing AppImage"
+msgstr "AppImage əvəz olunur"
+
+msgid "Replacing tarball installation"
+msgstr "Tarball quraşdırması əvəz olunur"
+
+msgid "Reset"
+msgstr "Sıfırla"
+
+msgid "Reset Flatpak overrides"
+msgstr "Flatpak override-larını sıfırla"
+
+msgid "Reset Icon"
+msgstr "Simvolu sıfırla"
+
+msgid "Reset all overrides"
+msgstr "Bütün override-ları sıfırla"
+
+msgid "Resources"
+msgstr "Resurslar"
+
+msgid "Restart"
+msgstr "Yenidən başlat"
+
+msgid "Restart AppDeb to apply"
+msgstr "Tətbiq üçün AppDeb-i yenidən başladın"
+
+msgid "Results"
+msgstr "Nəticələr"
+
+msgid "Resuming snap updates"
+msgstr "Snap yeniləmələri bərpa edilir"
+
+msgid "Run this application in a terminal window"
+msgstr "Bu tətbiqi terminal pəncərəsində işə sal"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (istəyə bağlı)"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 uyğunsuzluğu"
+
+msgid "Save"
+msgstr "Yadda saxla"
+
+msgid "Scan desktop entries"
+msgstr "Desktop qeydlərini skan et"
+
+msgid "Scan failed"
+msgstr "Skan alınmadı"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "Bütün desktop qeydlərini yoxlamaq üçün skan et"
+
+msgid "Scanning desktop entries…"
+msgstr "Desktop qeydləri skan edilir…"
+
+msgid "Scanning…"
+msgstr "Skan edilir…"
+
+msgid "Scope"
+msgstr "Əhatə"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Flatpak quraşdırmaları və yeniləmələri üçün istifadə olunan əhatə."
+
+msgid "Screenshot"
+msgstr "Ekran görüntüsü"
+
+msgid "Screenshot is not available"
+msgstr "Ekran görüntüsü mövcud deyil"
+
+msgid "Screenshots"
+msgstr "Ekran görüntüləri"
+
+msgid "Search Flathub"
+msgstr "Flathub-da axtar"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "Flathub-da axtarın və tətbiqləri Parametrlərdə seçilmiş əhatədə quraşdırın."
+
+msgid "Search Flathub, the Snap Store or Homebrew, or type an exact package name. AppImages, .deb packages and .tar.gz archives can be installed from a file or an https URL, and every install is checked before it touches your system."
+msgstr "Flathub, Snap Store və ya Homebrew-da axtarın və ya dəqiq paket adı yazın. AppImage, .deb paketləri və .tar.gz arxivləri fayldan və ya https URL-dən quraşdırıla bilər və hər quraşdırma sisteminizə toxunmadan əvvəl yoxlanılır."
+
+msgid "Search applications"
+msgstr "Tətbiqləri axtar"
+
+msgid "Search failed: %s"
+msgstr "Axtarış alınmadı: %s"
+
+msgid "Search formulae"
+msgstr "Formulaları axtar"
+
+msgid "Search formulae and install them with Homebrew. Homebrew installs into your user account; no password is needed."
+msgstr "Formulaları axtarın və Homebrew ilə quraşdırın. Homebrew istifadəçi hesabınıza quraşdırır; parol tələb olunmur."
+
+msgid "Search snaps"
+msgstr "Snap-ları axtar"
+
+msgid "Search snaps and install them. System installs prompt for authentication and may take a while."
+msgstr "Snap-ları axtarın və quraşdırın. Sistem quraşdırmaları autentifikasiya tələb edir və bir az vaxt ala bilər."
+
+msgid "Searching %s for %s"
+msgstr "%s daxilində %s axtarılır"
+
+msgid "Searching for “%s”…"
+msgstr "“%s” axtarılır…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "Bu tətbiqin proseslərinə SIGTERM göndər"
+
+msgid "Settings"
+msgstr "Parametrlər"
+
+msgid "Shortcut created: %s"
+msgstr "Qısayol yaradıldı: %s"
+
+msgid "Shortcut removed"
+msgstr "Qısayol silindi"
+
+msgid "Show hidden desktop entries"
+msgstr "Gizli desktop qeydlərini göstər"
+
+msgid "Shown in the application menu"
+msgstr "Tətbiq menyusunda göstərilir"
+
+msgid "Shows the affected packages before removal"
+msgstr "Silinmədən əvvəl təsirlənən paketləri göstərir"
+
+msgid "Size"
+msgstr "Ölçü"
+
+msgid "Skip"
+msgstr "Keç"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Snap quraşdırmaları autentifikasiya tələb edir"
+
+msgid "Snap name unknown"
+msgstr "Snap adı naməlumdur"
+
+msgid "Snap was not found"
+msgstr "Snap tapılmadı"
+
+msgid "Source / reference"
+msgstr "Mənbə / istinad"
+
+msgid "Start at login"
+msgstr "Girişdə başlat"
+
+msgid "Started"
+msgstr "Başlama vaxtı"
+
+msgid "Startup"
+msgstr "Başlanğıc"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / pəncərə sinfi"
+
+msgid "Step %d of %d"
+msgstr "%d / %d addım"
+
+msgid "Store"
+msgstr "Anbar"
+
+msgid "Store ID"
+msgstr "Anbar ID-si"
+
+msgid "Store details"
+msgstr "Anbar təfərrüatları"
+
+msgid "Swap usage"
+msgstr "Swap istifadəsi"
+
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "%(name)s %(channel)s kanalına keçirilsin? Snap indi yenilənir."
+
+msgid "Switch channel"
+msgstr "Kanalı dəyiş"
+
+msgid "Switch snap channel"
+msgstr "Snap kanalını dəyiş"
+
+msgid "Switching %(name)s to %(channel)s"
+msgstr "%(name)s %(channel)s kanalına keçirilir"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Tar archives"
+msgstr "Tar arxivləri"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball quraşdırması alınmadı"
+
+msgid "Tarball store"
+msgstr "Tarball anbarı"
+
+msgid "Tarballs run outside a sandbox and can read your files. Only install apps you trust."
+msgstr "Tarball-lar təcriddən kənarda işləyir və fayllarınızı oxuya bilər. Yalnız etibar etdiyiniz tətbiqləri quraşdırın."
+
+msgid "Terminal application"
+msgstr "Terminal tətbiqi"
+
+msgid "Terminal disabled"
+msgstr "Terminal söndürüldü"
+
+msgid "Terminate all processes belonging to %s?"
+msgstr "%s tətbiqinə aid bütün proseslər dayandırılsın?"
+
+msgid "The Debian package name is unknown"
+msgstr "Debian paketinin adı naməlumdur"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Flatpak tətbiqinin ID-si naməlumdur"
+
+msgid "The Managers page shows which package managers exist on this computer, their versions and how many packages each one owns. You can install a missing manager there, or remove one once it no longer manages any packages."
+msgstr "Menecerlər səhifəsi bu kompüterdə hansı paket menecerlərinin olduğunu, versiyalarını və hər birinin nə qədər paketə sahib olduğunu göstərir. Orada çatışmayan meneceri quraşdıra və ya artıq heç bir paketi idarə etmədikdə onu silə bilərsiniz."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "Daxili simvol mövcud deyil; əl ilə birini seçin"
+
+msgid "The files for %s are replaced and the current install directory is backed up. Quit the application first."
+msgstr "%s üçün fayllar əvəz olunur və cari quraşdırma qovluğunun ehtiyat nüsxəsi çıxarılır. Əvvəlcə tətbiqi bağlayın."
+
+msgid "The install directory is unknown"
+msgstr "Quraşdırma qovluğu naməlumdur"
+
+msgid "The selected file is not an AppImage"
+msgstr "Seçilmiş fayl AppImage deyil"
+
+msgid "The snap command is not available on this system."
+msgstr "Bu sistemdə snap əmri mövcud deyil."
+
+msgid "The window class (WM_CLASS) GNOME uses to match this application's windows to the desktop entry."
+msgstr "GNOME-un bu tətbiqin pəncərələrini desktop qeydi ilə uyğunlaşdırmaq üçün istifadə etdiyi pəncərə sinfi (WM_CLASS)."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "Bu, menyularda, dock-da və bu pəncərədə göstərilən adı dəyişir."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "Bu desktop qeydi snap nüsxəsini müəyyən etmir"
+
+msgid "Threads"
+msgstr "Saplar"
+
+msgid "Tools"
+msgstr "Alətlər"
+
+msgid "Top processes"
+msgstr "Ən çox resurs istifadə edən proseslər"
+
+msgid "Type"
+msgstr "Növ"
+
+msgid "Type at least 2 characters to search"
+msgstr "Axtarmaq üçün ən azı 2 simvol yazın"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL-in host-u yoxdur"
+
+msgid "Uninstall"
+msgstr "Sil"
+
+msgid "Uninstall %s? This cannot be undone."
+msgstr "%s silinsin? Bu geri qaytarıla bilməz."
+
+msgid "Uninstall application"
+msgstr "Tətbiqi sil"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "Bu qeyd üçün silmə dəstəklənmir"
+
+msgid "Uninstalling %s"
+msgstr "%s silinir"
+
+msgid "Unknown package"
+msgstr "Naməlum paket"
+
+msgid "Unsupported file type: %s"
+msgstr "Dəstəklənməyən fayl növü: %s"
+
+msgid "Unsupported image: %s"
+msgstr "Dəstəklənməyən şəkil: %s"
+
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "%d tətbiq yeniləndi"
+msgstr[1] "%d tətbiq yeniləndi"
+
+msgid "Updates for %s are held"
+msgstr "%s üçün yeniləmələr saxlanılır"
+
+msgid "Updates for %s resumed"
+msgstr "%s üçün yeniləmələr bərpa edildi"
+
+msgid "Updating %s…"
+msgstr "%s yenilənir…"
+
+msgid "Updating Flatpak applications"
+msgstr "Flatpak tətbiqləri yenilənir"
+
+msgid "Upgrade outdated formulae"
+msgstr "Köhnə formulaları yenilə"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Homebrew formulaları yenilənir"
+
+msgid "Upload"
+msgstr "Yüklə"
+
+msgid "Uptime"
+msgstr "İşləmə müddəti"
+
+msgid "Usage history"
+msgstr "İstifadə tarixçəsi"
+
+msgid "User"
+msgstr "İstifadəçi"
+
+msgid "User data"
+msgstr "İstifadəçi məlumatları"
+
+msgid "Values written to this application's desktop entry."
+msgstr "Bu tətbiqin desktop qeydinə yazılan dəyərlər."
+
+msgid "Version"
+msgstr "Versiya"
+
+msgid "Version %s"
+msgstr "Versiya %s"
+
+msgid "Version unknown"
+msgstr "Versiya naməlumdur"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "AppDeb-ə xoş gəlmisiniz"
+
+msgid "Window class"
+msgstr "Pəncərə sinfi"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "Hazırsınız"
+
+msgid "a package name is required with --from"
+msgstr "--from ilə paket adı tələb olunur"
+
+msgid "application name"
+msgstr "tətbiq adı"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "avtomatik düzəldilə bilən bütün desktop qeydi problemlərini tətbiq et"
+
+msgid "apps"
+msgstr "tətbiq"
+
+msgid "available"
+msgstr "mövcud"
+
+msgid "brew install failed"
+msgstr "brew quraşdırması alınmadı"
+
+msgid "brew search failed"
+msgstr "brew axtarışı alınmadı"
+
+msgid "brew uninstall failed"
+msgstr "brew silinməsi alınmadı"
+
+msgid "brew upgrade failed"
+msgstr "brew yeniləməsi alınmadı"
+
+msgid "cancelled"
+msgstr "ləğv edildi"
+
+msgid "cannot inspect package: %s"
+msgstr "paket yoxlana bilmədi: %s"
+
+msgid "cannot install to %s: %s"
+msgstr "%s ünvanına quraşdırıla bilmədi: %s"
+
+msgid "cannot replace %s: %s"
+msgstr "%s əvəz edilə bilmədi: %s"
+
+msgid "cannot start: %s"
+msgstr "başlatıla bilmədi: %s"
+
+msgid "choose an executable with --exec"
+msgstr "--exec ilə icra faylı seçin"
+
+msgid "command failed: %s"
+msgstr "əmr alınmadı: %s"
+
+msgid "command not found: %s"
+msgstr "əmr tapılmadı: %s"
+
+msgid "desktop entry comment"
+msgstr "desktop qeydi şərhi"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "desktop faylında birdən çox [Desktop Entry] qrupu var"
+
+msgid "destination folder for tarball installs"
+msgstr "tarball quraşdırmaları üçün hədəf qovluq"
+
+msgid "destination is not writable: %s"
+msgstr "hədəf yazıla bilmir: %s"
+
+msgid "disabled"
+msgstr "söndürülüb"
+
+msgid "download cancelled"
+msgstr "endirmə ləğv edildi"
+
+msgid "download failed: HTTP %s"
+msgstr "endirmə alınmadı: HTTP %s"
+
+msgid "download too large"
+msgstr "endirmə çox böyükdür"
+
+msgid "enabled"
+msgstr "aktivdir"
+
+msgid "essential package"
+msgstr "vacib paket"
+
+msgid "executable not found: %s"
+msgstr "icra faylı tapılmadı: %s"
+
+msgid "failed\t%s\t%s\t%s"
+msgstr "uğursuz\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "desktop qeydi yazıla bilmədi"
+
+msgid "file not found: %s"
+msgstr "fayl tapılmadı: %s"
+
+msgid "fixed\t%s\t%s"
+msgstr "düzəldildi\t%s\t%s"
+
+msgid "fixed %d/%d"
+msgstr "%d/%d düzəldildi"
+
+msgid "flatpak install failed"
+msgstr "flatpak quraşdırması alınmadı"
+
+msgid "flatpak override failed"
+msgstr "flatpak override alınmadı"
+
+msgid "flatpak override reset failed"
+msgstr "flatpak override sıfırlaması alınmadı"
+
+msgid "flatpak search failed"
+msgstr "flatpak axtarışı alınmadı"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak silinməsi alınmadı"
+
+msgid "flatpak update failed"
+msgstr "flatpak yeniləməsi alınmadı"
+
+msgid "icon file to install"
+msgstr "quraşdırılacaq simvol faylı"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "simvol simvol temasından kənarda mütləq yoldur"
+
+msgid "icon not found: %s"
+msgstr "simvol tapılmadı: %s"
+
+msgid "install a file or package-manager package"
+msgstr "fayl və ya paket meneceri paketi quraşdır"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "verilmiş paket meneceri ilə formula/snap/tətbiq ID-si quraşdır"
+
+msgid "installed %s"
+msgstr "%s quraşdırıldı"
+
+msgid "installed bundle not found"
+msgstr "quraşdırılmış paket tapılmadı"
+
+msgid "installed directory not found"
+msgstr "quraşdırılmış qovluq tapılmadı"
+
+msgid "invalid flatpak scope: %s"
+msgstr "etibarsız flatpak əhatəsi: %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "axtarışı bir menecerlə məhdudlaşdır (susmaya görə: bütün mövcud olanlar)"
+
+msgid "missing"
+msgstr "çatışmır"
+
+msgid "name contains a forbidden character"
+msgstr "ad qadağan edilmiş simvol ehtiva edir"
+
+msgid "name is empty"
+msgstr "ad boşdur"
+
+msgid "no application with desktop ID %s"
+msgstr "%s desktop ID-si ilə tətbiq yoxdur"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "icra faylı tapılmadı; icra faylı ilə install_spec istifadə edin"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "qrafik displey yoxdur; CLI alt əmrindən istifadə edin"
+
+msgid "no package found for desktop entry"
+msgstr "desktop qeydi üçün paket tapılmadı"
+
+msgid "no uninstall backend for kind: %s"
+msgstr "%s növü üçün silmə backend-i yoxdur"
+
+msgid "not a .tar.gz archive: %s"
+msgstr ".tar.gz arxivi deyil: %s"
+
+msgid "not an AppImage: %s"
+msgstr "AppImage deyil: %s"
+
+msgid "only https:// URLs are supported"
+msgstr "yalnız https:// URL-ləri dəstəklənir"
+
+msgid "package"
+msgstr "paket"
+
+msgid "package hold failed"
+msgstr "paketin saxlanması alınmadı"
+
+msgid "package installation failed"
+msgstr "paket quraşdırması alınmadı"
+
+msgid "package name is empty"
+msgstr "paket adı boşdur"
+
+msgid "package not found: %s"
+msgstr "paket tapılmadı: %s"
+
+msgid "package removal failed"
+msgstr "paket silinməsi alınmadı"
+
+msgid "packages"
+msgstr "paketlər"
+
+msgid "print JSON"
+msgstr "JSON çap et"
+
+msgid "print installed desktop entries"
+msgstr "quraşdırılmış desktop qeydlərini çap et"
+
+msgid "purge configuration for .deb packages"
+msgstr ".deb paketləri üçün konfiqurasiyanı təmizlə"
+
+msgid "refusing to remove %s: %s"
+msgstr "%s silinməkdən imtina edildi: %s"
+
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "%s silinməkdən imtina edildi; qorunan paketləri silərdi: %s"
+
+msgid "removal is not supported for %s entries"
+msgstr "%s qeydləri üçün silmə dəstəklənmir"
+
+msgid "removed %s"
+msgstr "%s silindi"
+
+msgid "required-priority package"
+msgstr "tələb olunan prioritetli paket"
+
+msgid "scan desktop entries for problems"
+msgstr "desktop qeydlərini problemlər üçün skan et"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "Flatpak, Snap və Homebrew paketlərini axtar"
+
+msgid "search text (at least 2 characters)"
+msgstr "axtarış mətni (ən azı 2 simvol)"
+
+msgid "semicolon separated categories"
+msgstr "nöqtəli vergüllə ayrılmış kateqoriyalar"
+
+msgid "show package manager availability and counts"
+msgstr "paket menecerlərinin mövcudluğunu və saylarını göstər"
+
+msgid "skip the confirmation prompt"
+msgstr "təsdiq sorğusunu keç"
+
+msgid "skipped\t%s\t%s"
+msgstr "keçildi\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap find alınmadı"
+
+msgid "snap hold failed"
+msgstr "snap hold alınmadı"
+
+msgid "snap info failed"
+msgstr "snap info alınmadı"
+
+msgid "snap install failed"
+msgstr "snap quraşdırması alınmadı"
+
+msgid "snap name is empty"
+msgstr "snap adı boşdur"
+
+msgid "snap refresh failed"
+msgstr "snap yeniləməsi alınmadı"
+
+msgid "snap remove failed"
+msgstr "snap silinməsi alınmadı"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "arxiv kökünə nisbətən tarball icra faylı"
+
+msgid "the Debian package name is unknown"
+msgstr "Debian paketinin adı naməlumdur"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "Flatpak tətbiqinin ID-si naməlumdur"
+
+msgid "the search query must be at least 2 characters"
+msgstr "axtarış sorğusu ən azı 2 simvol olmalıdır"
+
+msgid "timed out"
+msgstr "vaxt bitdi"
+
+msgid "uninstall an application by desktop ID"
+msgstr "tətbiqi desktop ID-si ilə sil"
+
+msgid "unknown"
+msgstr "naməlum"
+
+msgid "unknown source kind: %s"
+msgstr "naməlum mənbə növü: %s"
+
+msgid "unsafe archive: %s"
+msgstr "təhlükəli arxiv: %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "təhlükəli arxiv: arxiv 4 GiB-dən böyükdür"
+
+msgid "unsafe archive: too many members"
+msgstr "təhlükəli arxiv: çox sayda üzv"
+
+msgid "unsupported file type: %s"
+msgstr "dəstəklənməyən fayl növü: %s"
+
+msgid "unsupported flatpak override action: %s"
+msgstr "dəstəklənməyən flatpak override əməliyyatı: %s"
+
+msgid "window class %s is not associated with this entry"
+msgstr "%s pəncərə sinfi bu qeydlə əlaqələndirilməyib"
+
+msgid "%s installed"
+msgstr "%s quraşdırıldı"
+
+msgid "%s removed"
+msgstr "%s silindi"
+
+msgid "Getting started"
+msgstr "Başlanğıc"
+
+msgid "Install %s?"
+msgstr "%s quraşdırılsın?"
+
+msgid "Kind"
+msgstr "Növ"
+
+msgid "Name (A–Z)"
+msgstr "Ad (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "Ad (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "Bu paket menecerindən qalan paket yoxdur."
+
+msgid "Recently installed (newest first)"
+msgstr "Son quraşdırılanlar (əvvəlcə ən yenilər)"
+
+msgid "Remove %s"
+msgstr "%s sil"
+
+msgid "Remove %s?"
+msgstr "%s silinsin?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "Addım-addım təqdimatı yenidən göstər"
+
+msgid "Show welcome guide"
+msgstr "Xoş gəldin təlimatını göstər"
+
+msgid "Size (largest first)"
+msgstr "Ölçü (əvvəlcə ən böyüklər)"
+
+msgid "Sort by"
+msgstr "Sıralama"
+
+msgid "Sort the application list"
+msgstr "Tətbiq siyahısını sırala"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "Bu əməliyyat əl ilə yerinə yetirilir. Aşağıdakı əmri terminalda işə salın."
+
+msgid "This uses apt and asks for authentication."
+msgstr "Bu, apt istifadə edir və autentifikasiya tələb edir."
+
+msgid "options"
+msgstr "seçimlər"
+
+msgid "positional arguments"
+msgstr "mövqeli arqumentlər"

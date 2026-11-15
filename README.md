@@ -1,6 +1,6 @@
 # AppDeb
 
-**Full-control installer and manager for Flatpak, Snap, Homebrew, AppImage, `.deb` and portable `.tar.gz` applications on Debian-based Linux — with store details, screenshots and desktop-entry icon repair.**
+**Full-control installer and manager for Flatpak, Snap, Homebrew, AppImage, `.deb` and portable `.tar.gz` applications on Debian-based Linux — with store details, screenshots, desktop-entry icon repair and eleven interface languages.**
 
 [![CI](https://github.com/ta4anx/appdeb/actions/workflows/ci.yml/badge.svg)](https://github.com/ta4anx/appdeb/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/ta4anx/appdeb)](https://github.com/ta4anx/appdeb/releases)
@@ -43,7 +43,9 @@ desktop-entry doctor that repairs broken or icon-less entries.
 
 **Manage**
 
-- Installed list with search and kind filters and a Flatpak update badge for update-all.
+- Installed list with search, kind filters, sorting (name A–Z/Z–A, kind, size, version,
+  recently installed — remembered across launches) and a Flatpak update badge for
+  update-all.
 - Details per app: kind, version, size, scope, install date, source, desktop ID, desktop file,
   `Exec` line, live CPU / RSS / threads / process count / disk I/O / start time, end-processes
   button, and every relevant path (bundle, install dir, Flatpak location, `~/.var/app/<id>`,
@@ -69,7 +71,9 @@ desktop-entry doctor that repairs broken or icon-less entries.
   version — plus Flatpak permission overrides.
 - Managers page: which package managers exist on the machine, their versions, install
   locations, and how many packages each one manages, plus the AppDeb-managed AppImage and
-  tarball stores.
+  tarball stores. Missing Flatpak or Snap can be installed from there; a manager can be
+  removed once it no longer manages any packages (APT and Homebrew stay manual, with the
+  exact command shown).
 
 **Diagnose**
 
@@ -85,14 +89,23 @@ desktop-entry doctor that repairs broken or icon-less entries.
   `--from brew|snap|flatpak`), `appdeb remove`, `appdeb scan`, `appdeb fix-icons` for
   scripted use and headless machines.
 
+**Languages and integration**
+
+- Interface languages: English, Türkçe, Deutsch, Français, 中文（简体）, Español, 한국어,
+  Polski, Svenska, Italiano, Azərbaycanca, Dansk (Settings → Language, applied on restart).
+- “Open with AppDeb” for AppImage, `.deb`, Flatpak bundles/refs and `.tar.gz`/`.tgz` files:
+  the desktop entry registers those MIME types, so file managers offer AppDeb and a
+  double-click opens the matching install flow.
+- First-run welcome guide with five short steps; replay it from Settings → Getting started.
+
 ## Install
 
 Download the latest `.deb` from the [releases page](https://github.com/ta4anx/appdeb/releases)
 and install it:
 
 ```bash
-wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.3.0_all.deb
-sudo apt install ./appdeb_0.3.0_all.deb
+wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.4.0_all.deb
+sudo apt install ./appdeb_0.4.0_all.deb
 appdeb
 ```
 
@@ -118,6 +131,8 @@ python3 -m appdeb
 ## Usage
 
 ### GUI
+
+![Welcome guide](docs/screenshots/welcome.png)
 
 | Page | What it does |
 | --- | --- |
@@ -198,7 +213,17 @@ scripts/           launcher, .deb builder
 python3 -m appdeb                                  # run from the source tree
 python3 -m unittest discover -s tests -v           # tests
 bash scripts/build_deb.sh                          # build the .deb
+
+# translations (gettext, Babel/pybabel only for extraction)
+pybabel extract -k _ -k N_ -k 'ngettext:1,2' --no-location --sort-output \
+  --project AppDeb --version 0.4.0 -o appdeb/locale/appdeb.pot appdeb
+python3 scripts/build_mo.py --check                # validate catalogues
+python3 scripts/build_mo.py --in-place             # compile .mo for source runs
+LANGUAGE=de python3 -m appdeb                      # try a language
 ```
+
+Translation files live in `appdeb/locale/<code>/LC_MESSAGES/appdeb.po`; the `.deb` installs
+compiled catalogues to `/usr/share/locale/<code>/LC_MESSAGES/appdeb.mo`.
 
 Tests isolate `HOME`, `XDG_DATA_HOME`, `XDG_CONFIG_HOME` and `XDG_CACHE_HOME` into temporary
 directories, so running them never modifies your real menu entries.

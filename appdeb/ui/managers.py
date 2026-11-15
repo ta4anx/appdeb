@@ -15,8 +15,10 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
-from .. import apps, config  # noqa: E402
-from .widgets import badge, escape_markup  # noqa: E402
+from .. import apps, config, managerops  # noqa: E402
+from ..i18n import _, ngettext  # noqa: E402
+from .dialogs import OperationDialog, confirm  # noqa: E402
+from .widgets import badge, escape_markup, show_toast  # noqa: E402
 
 MANAGERS = ("flatpak", "snap", "brew", "apt")
 
@@ -197,29 +199,34 @@ def gather() -> dict:
 class ManagersPage(Adw.NavigationPage):
     def __init__(self) -> None:
         super().__init__()
-        self.set_title("Managers")
+        self.set_title(_("Managers"))
         self._token: object | None = None
         self._manager_rows: dict[str, Adw.ActionRow] = {}
         self._manager_badges: dict[str, Gtk.Label] = {}
         self._manager_context: dict[str, Gtk.Label] = {}
+        self._manager_buttons: dict[str, Gtk.Button] = {}
         self._count_rows: dict[str, Adw.ActionRow] = {}
         self._count_badges: dict[str, Gtk.Label] = {}
         self._store_rows: dict[str, Adw.ActionRow] = {}
         self._store_badges: dict[str, Gtk.Label] = {}
 
-        self._title = Adw.WindowTitle(title="Managers", subtitle="Package manager overview")
+        self._title = Adw.WindowTitle(
+            title=_("Managers"), subtitle=_("Package manager overview")
+        )
         header = Adw.HeaderBar()
         header.set_title_widget(self._title)
         refresh = Gtk.Button(icon_name="view-refresh-symbolic")
-        refresh.set_tooltip_text("Refresh package manager information")
+        refresh.set_tooltip_text(_("Refresh package manager information"))
         refresh.connect("clicked", lambda _b: self.refresh())
         header.pack_end(refresh)
 
         page = Adw.PreferencesPage()
 
         manager_group = Adw.PreferencesGroup(
-            title="Package managers",
-            description="Package managers available on this system and their versions.",
+            title=_("Package managers"),
+            description=_(
+                "Package managers available on this system and their versions."
+            ),
         )
         for key, title, binary in (
             ("flatpak", "Flatpak", "flatpak"),
@@ -227,30 +234,35 @@ class ManagersPage(Adw.NavigationPage):
             ("brew", "Homebrew", "brew"),
             ("apt", "APT / dpkg", "dpkg"),
         ):
-            row = Adw.ActionRow(title=title, subtitle="Checking…")
+            row = Adw.ActionRow(title=title, subtitle=_("Checking…"))
             row.set_subtitle_lines(2)
             context = Gtk.Label(label=binary)
             context.add_css_class("dim-label")
             row.add_suffix(context)
-            status = badge("Checking")
+            status = badge(_("Checking"))
             row.add_suffix(status)
+            button = Gtk.Button(label=_("Install"))
+            button.add_css_class("flat")
+            button.connect("clicked", lambda _b, key=key: self._on_manager_action(key))
+            row.add_suffix(button)
             manager_group.add(row)
             self._manager_rows[key] = row
             self._manager_badges[key] = status
             self._manager_context[key] = context
+            self._manager_buttons[key] = button
         page.add(manager_group)
 
         store_group = Adw.PreferencesGroup(
-            title="Managed stores",
-            description="Applications installed and owned by AppDeb.",
+            title=_("Managed stores"),
+            description=_("Applications installed and owned by AppDeb."),
         )
         for key, title in (
-            ("appimage", "AppImage store"),
-            ("tarball", "Tarball store"),
+            ("appimage", _("AppImage store")),
+            ("tarball", _("Tarball store")),
         ):
             row = Adw.ActionRow(title=title, subtitle="—")
             row.set_subtitle_selectable(True)
-            count = badge("0 apps")
+            count = badge(_("0 apps"))
             row.add_suffix(count)
             store_group.add(row)
             self._store_rows[key] = row
@@ -258,16 +270,16 @@ class ManagersPage(Adw.NavigationPage):
         page.add(store_group)
 
         counts_group = Adw.PreferencesGroup(
-            title="Installed by manager",
-            description="Applications found through each package manager.",
+            title=_("Installed by manager"),
+            description=_("Applications found through each package manager."),
         )
         for key, title in (
-            ("flatpak", "Flatpak applications"),
-            ("snap", "Snap applications"),
-            ("brew", "Homebrew formulae"),
-            ("apt", "Debian packages"),
+            ("flatpak", _("%s applications") % "Flatpak"),
+            ("snap", _("%s applications") % "Snap"),
+            ("brew", _("%s formulae") % "Homebrew"),
+            ("apt", _("%s packages") % "Debian"),
         ):
-            row = Adw.ActionRow(title=title, subtitle="Scanning…")
+            row = Adw.ActionRow(title=title, subtitle=_("Scanning…"))
             count = badge("—")
             row.add_suffix(count)
             counts_group.add(row)
@@ -302,7 +314,7 @@ class ManagersPage(Adw.NavigationPage):
             return GLib.SOURCE_REMOVE
         if "_error" in data:
             for row in self._manager_rows.values():
-                row.set_subtitle("Package manager information is unavailable")
+                row.set_subtitle(_("Package manager information is unavailable"))
             return GLib.SOURCE_REMOVE
 
         for key, row in self._manager_rows.items():
@@ -311,43 +323,174 @@ class ManagersPage(Adw.NavigationPage):
             version = (info.get("version") or "").strip()
             path = (info.get("path") or "").strip()
             count = int(info.get("count", 0) or 0)
-            unit = "apps" if key in ("flatpak", "snap") else "packages"
+            unit = _("apps") if key in ("flatpak", "snap") else _("packages")
             if available:
-                subtitle = version or "Version unknown"
-                subtitle = f"{subtitle} · {count} {unit}"
+                subtitle = version or _("Version unknown")
+                subtitle = _("%s · %d %s") % (subtitle, count, unit)
                 if path:
-                    subtitle = f"{subtitle} · {path}"
-                self._manager_badges[key].set_text("Available")
+                    subtitle = _("%s · %s") % (subtitle, path)
+                self._manager_badges[key].set_text(_("Available"))
                 self._manager_context[key].set_text("")
             else:
-                subtitle = "Not installed"
+                subtitle = _("Not installed")
                 if version:
-                    subtitle = f"{subtitle} · {version}"
+                    subtitle = _("%s · %s") % (subtitle, version)
                 if path:
-                    subtitle = f"{subtitle} · {path}"
-                self._manager_badges[key].set_text("Not installed")
+                    subtitle = _("%s · %s") % (subtitle, path)
+                self._manager_badges[key].set_text(_("Not installed"))
                 self._manager_context[key].set_text("")
             row.set_subtitle(escape_markup(subtitle))
+            self._update_manager_button(
+                key, (info.get("name") or key.title()), available, count
+            )
 
         stores = data.get("_stores", {})
         for key, row in self._store_rows.items():
             info = stores.get(key, {})
             count = int(info.get("count", 0) or 0)
             row.set_subtitle(escape_markup(info.get("path") or "—"))
-            self._store_badges[key].set_text(f"{count} app" + ("" if count == 1 else "s"))
+            self._store_badges[key].set_text(
+                ngettext("%d app", "%d apps", count) % count
+            )
 
         for key, row in self._count_rows.items():
             info = data.get(key, {})
             count = int(info.get("count", 0) or 0)
             name = info.get("name", key)
             if not info.get("available", True):
-                row.set_subtitle(escape_markup(f"{name} is not installed"))
+                row.set_subtitle(escape_markup(_("%s is not installed") % name))
             elif key == "brew":
-                row.set_subtitle(escape_markup(f"{count} formulae installed with Homebrew"))
+                row.set_subtitle(
+                    escape_markup(
+                        _("%d formulae installed with %s") % (count, "Homebrew")
+                    )
+                )
             elif key == "apt":
-                row.set_subtitle(escape_markup(f"{count} Debian packages in the dpkg database"))
+                row.set_subtitle(
+                    escape_markup(
+                        _("%d Debian packages in the %s database") % (count, "dpkg")
+                    )
+                )
             else:
-                row.set_subtitle(escape_markup(f"{count} applications known to {name}"))
+                row.set_subtitle(
+                    escape_markup(_("%d applications known to %s") % (count, name))
+                )
             self._count_badges[key].set_text(str(count))
 
         return GLib.SOURCE_REMOVE
+
+    # --------------------------------------------------------- manager actions
+    def _update_manager_button(
+        self, key: str, name: str, available: bool, count: int
+    ) -> None:
+        button = self._manager_buttons.get(key)
+        if button is None:
+            return
+        button._manager_name = name  # type: ignore[attr-defined]
+        button._manager_available = available  # type: ignore[attr-defined]
+        button._manager_count = count  # type: ignore[attr-defined]
+        if available:
+            button.set_label(_("Remove"))
+            allowed, reason = managerops.can_remove(key, count)
+            button.set_sensitive(allowed)
+            button.set_tooltip_text(reason if not allowed else _("Remove %s") % name)
+        else:
+            button.set_label(_("Install"))
+            allowed, reason = managerops.can_install(key)
+            button.set_sensitive(True)
+            button.set_tooltip_text("" if allowed else reason)
+
+    def _manager_root(self) -> Gtk.Widget:
+        return self.get_root() or self
+
+    def _on_manager_action(self, key: str) -> None:
+        button = self._manager_buttons.get(key)
+        if button is None:
+            return
+        name = getattr(button, "_manager_name", key.title())
+        count = int(getattr(button, "_manager_count", 0))
+        if getattr(button, "_manager_available", False):
+            self._remove_manager(key, name, count)
+        else:
+            self._install_manager(key, name)
+
+    def _install_manager(self, key: str, name: str) -> None:
+        allowed, reason = managerops.can_install(key)
+        if not allowed:
+            self._present_instructions(
+                _("Install %s?") % name,
+                _("This action is performed manually. Run the command below in a terminal."),
+                reason,
+            )
+            return
+        confirm(
+            self._manager_root(),
+            _("Install %s?") % name,
+            _("This uses apt and asks for authentication."),
+            confirm_label=_("Install"),
+            on_confirm=lambda: self._run_manager_action("install", key, name),
+        )
+
+    def _remove_manager(self, key: str, name: str, count: int) -> None:
+        allowed, reason = managerops.can_remove(key, count)
+        if not allowed:
+            if key in ("brew", "apt"):
+                self._present_instructions(
+                    _("Remove %s?") % name,
+                    _("This action is performed manually. Run the command below in a terminal."),
+                    reason,
+                )
+            else:
+                show_toast(self, reason)
+            return
+        confirm(
+            self._manager_root(),
+            _("Remove %s?") % name,
+            _("No packages from this manager remain."),
+            confirm_label=_("Remove"),
+            destructive=True,
+            on_confirm=lambda: self._run_manager_action("remove", key, name),
+        )
+
+    def _present_instructions(self, heading: str, body: str, text: str) -> None:
+        dialog = Adw.AlertDialog(heading=heading, body=body)
+        dialog.add_response("close", _("Close"))
+        dialog.set_close_response("close")
+        dialog.set_default_response("close")
+        command = Gtk.Label(label=text)
+        command.set_selectable(True)
+        command.set_monospace(True)
+        command.set_wrap(True)
+        command.set_xalign(0.0)
+        dialog.set_extra_child(command)
+        dialog.present(self.get_root())
+
+    def _run_manager_action(self, mode: str, key: str, name: str) -> None:
+        title = (
+            _("Installing %s") % name if mode == "install" else _("Removing %s") % name
+        )
+
+        def worker(progress, cancel) -> None:
+            if mode == "install":
+                managerops.install(key, progress=progress, cancel=cancel)
+            else:
+                managerops.remove(key, progress=progress, cancel=cancel)
+
+        dialog = OperationDialog(
+            title,
+            worker,
+            on_success=lambda _result: self._manager_action_done(mode, name),
+            on_error=self._manager_action_failed,
+            parent=self.get_root(),
+        )
+        dialog.present(self.get_root())
+
+    def _manager_action_done(self, mode: str, name: str) -> None:
+        message = (
+            _("%s installed") % name if mode == "install" else _("%s removed") % name
+        )
+        show_toast(self, message)
+        self.refresh()
+
+    def _manager_action_failed(self, exc: BaseException) -> None:
+        show_toast(self, str(exc) or exc.__class__.__name__)

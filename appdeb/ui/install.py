@@ -12,6 +12,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from .. import apps  # noqa: E402
+from ..i18n import _, ngettext  # noqa: E402
 from ..services import downloader  # noqa: E402
 from . import settings  # noqa: E402
 from .dialogs import (  # noqa: E402
@@ -29,22 +30,22 @@ class DebInstallDialog(Adw.Dialog):
         super().__init__()
         self._path = Path(path)
         self._on_install = on_install
-        self.set_title("Install .deb package")
+        self.set_title(_("Install .deb package"))
         self.set_content_width(600)
         self.set_content_height(520)
 
         header = Adw.HeaderBar()
         header.set_show_end_title_buttons(False)
-        cancel = Gtk.Button(label="Cancel")
+        cancel = Gtk.Button(label=_("Cancel"))
         cancel.connect("clicked", lambda _b: self.close())
         header.pack_start(cancel)
-        install = Gtk.Button(label="Install")
+        install = Gtk.Button(label=_("Install"))
         install.add_css_class("suggested-action")
         install.connect("clicked", self._on_install_clicked)
         header.pack_end(install)
 
         warning = Gtk.Label(
-            label=(
+            label=_(
                 "Installing a .deb package changes system software and requires "
                 "administrator authentication via polkit."
             )
@@ -53,15 +54,15 @@ class DebInstallDialog(Adw.Dialog):
         warning.set_xalign(0.0)
         warning.add_css_class("dim-label")
 
-        group = Adw.PreferencesGroup(title="Package")
+        group = Adw.PreferencesGroup(title=_("Package"))
         for title, value in (
-            ("Package", info.package),
-            ("Version", info.version),
-            ("Architecture", info.architecture),
-            ("Installed size", apps.human_size(info.installed_size * 1024) or "—"),
-            ("Maintainer", info.maintainer),
-            ("Depends", info.depends),
-            ("Description", info.description),
+            (_("Package"), info.package),
+            (_("Version"), info.version),
+            (_("Architecture"), info.architecture),
+            (_("Installed size"), apps.human_size(info.installed_size * 1024) or "—"),
+            (_("Maintainer"), info.maintainer),
+            (_("Depends"), info.depends),
+            (_("Description"), info.description),
         ):
             row = Adw.ActionRow(title=title, subtitle=str(value or "—"))
             row.set_subtitle_selectable(True)
@@ -93,7 +94,7 @@ class DebInstallDialog(Adw.Dialog):
 class InstallPage(Adw.NavigationPage):
     def __init__(self, on_open_app, on_changed=None) -> None:
         super().__init__()
-        self.set_title("Install")
+        self.set_title(_("Install"))
         self._on_open_app = on_open_app
         self._on_changed = on_changed
         self._search_id = 0
@@ -103,7 +104,7 @@ class InstallPage(Adw.NavigationPage):
         self._manager_state: dict[str, dict] = {}
 
         header = Adw.HeaderBar()
-        header.set_title_widget(Adw.WindowTitle(title="Install"))
+        header.set_title_widget(Adw.WindowTitle(title=_("Install")))
 
         page = Adw.PreferencesPage()
 
@@ -117,22 +118,22 @@ class InstallPage(Adw.NavigationPage):
         flatpak_group = Adw.PreferencesGroup(
             title="Flatpak",
             description=(
-                "Search Flathub and install apps in the scope chosen in Settings."
+                _("Search Flathub and install apps in the scope chosen in Settings.")
                 if flatpak_ok
-                else "Flatpak is not installed on this system."
+                else _("Flatpak is not installed on this system.")
             ),
         )
-        self._search_row = Adw.EntryRow(title="Search Flathub")
+        self._search_row = Adw.EntryRow(title=_("Search Flathub"))
         self._search_row.set_sensitive(flatpak_ok)
         self._search_row.connect("changed", self._on_search_changed)
         flatpak_group.add(self._search_row)
-        bundle_row = Adw.ButtonRow(title="Choose Flatpak bundle or .flatpakref…")
+        bundle_row = Adw.ButtonRow(title=_("Choose Flatpak bundle or .flatpakref…"))
         bundle_row.connect("activated", lambda _r: self._choose_flatpak_bundle())
         flatpak_group.add(bundle_row)
         page.add(flatpak_group)
 
-        self._results_group = Adw.PreferencesGroup(title="Results")
-        self._status_row = Adw.ActionRow(title="Type at least 2 characters to search")
+        self._results_group = Adw.PreferencesGroup(title=_("Results"))
+        self._status_row = Adw.ActionRow(title=_("Type at least 2 characters to search"))
         self._results_group.add(self._status_row)
         page.add(self._results_group)
 
@@ -142,42 +143,42 @@ class InstallPage(Adw.NavigationPage):
 
         appimage_group = Adw.PreferencesGroup(
             title="AppImage",
-            description=(
+            description=_(
                 "AppImages run outside the Flatpak sandbox and can read your files. "
                 "Only install apps you trust."
             ),
         )
-        choose_appimage = Adw.ButtonRow(title="Choose AppImage file…")
+        choose_appimage = Adw.ButtonRow(title=_("Choose AppImage file…"))
         choose_appimage.connect("activated", lambda _r: self._choose_appimage())
         appimage_group.add(choose_appimage)
-        download_appimage = Adw.ButtonRow(title="Download AppImage from URL…")
+        download_appimage = Adw.ButtonRow(title=_("Download AppImage from URL…"))
         download_appimage.connect("activated", lambda _r: self._download_appimage())
         appimage_group.add(download_appimage)
         page.add(appimage_group)
 
         tarball_group = Adw.PreferencesGroup(
-            title="Tarball",
-            description=(
+            title=_("Tarball"),
+            description=_(
                 "Tarballs run outside a sandbox and can read your files. "
                 "Only install apps you trust."
             ),
         )
-        one_click = Adw.ButtonRow(title="Install .tar.gz (one click)")
+        one_click = Adw.ButtonRow(title=_("Install .tar.gz (one click)"))
         one_click.connect("activated", lambda _r: self._choose_tarball(None, False))
         tarball_group.add(one_click)
-        to_folder = Adw.ButtonRow(title="Install .tar.gz to folder…")
+        to_folder = Adw.ButtonRow(title=_("Install .tar.gz to folder…"))
         to_folder.connect("activated", lambda _r: self._choose_tarball_folder())
         tarball_group.add(to_folder)
-        download_tarball = Adw.ButtonRow(title="Download .tar.gz from URL…")
+        download_tarball = Adw.ButtonRow(title=_("Download .tar.gz from URL…"))
         download_tarball.connect("activated", lambda _r: self._download_tarball())
         tarball_group.add(download_tarball)
         page.add(tarball_group)
 
         deb_group = Adw.PreferencesGroup(
-            title="Debian package",
-            description="Install a local .deb package through apt and polkit.",
+            title=_("Debian package"),
+            description=_("Install a local .deb package through apt and polkit."),
         )
-        choose_deb = Adw.ButtonRow(title="Choose .deb package…")
+        choose_deb = Adw.ButtonRow(title=_("Choose .deb package…"))
         choose_deb.connect("activated", lambda _r: self._choose_deb())
         deb_group.add(choose_deb)
         page.add(deb_group)
@@ -212,7 +213,7 @@ class InstallPage(Adw.NavigationPage):
         elif path.suffix.lower() in (".flatpak", ".flatpakref"):
             self._install_flatpak_bundle(path)
         else:
-            show_toast(self, f"Unsupported file type: {path.name}")
+            show_toast(self, _("Unsupported file type: %s") % path.name)
 
     # --------------------------------------------------------------- flatpak
     def _on_search_changed(self, _row: Adw.EntryRow) -> None:
@@ -225,10 +226,10 @@ class InstallPage(Adw.NavigationPage):
         query = self._search_row.get_text().strip()
         self._clear_results()
         if len(query) < 2:
-            self._status_row.set_title("Type at least 2 characters to search")
+            self._status_row.set_title(_("Type at least 2 characters to search"))
             self._status_row.set_visible(True)
             return GLib.SOURCE_REMOVE
-        self._status_row.set_title(f"Searching for “{query}”…")
+        self._status_row.set_title(_("Searching for “%s”…") % query)
         self._status_row.set_visible(True)
         token = object()
         self._search_token = token
@@ -257,11 +258,11 @@ class InstallPage(Adw.NavigationPage):
             return GLib.SOURCE_REMOVE
         self._clear_results()
         if error:
-            self._status_row.set_title(f"Search failed: {error}")
+            self._status_row.set_title(_("Search failed: %s") % error)
             self._status_row.set_visible(True)
             return GLib.SOURCE_REMOVE
         if not results:
-            self._status_row.set_title("No results")
+            self._status_row.set_title(_("No results"))
             self._status_row.set_visible(True)
             return GLib.SOURCE_REMOVE
         self._status_row.set_visible(False)
@@ -272,11 +273,11 @@ class InstallPage(Adw.NavigationPage):
             if result.remotes:
                 subtitle_parts.append(result.remotes)
             row = Adw.ActionRow(title=result.name or result.application)
-            row.set_subtitle(escape_markup(" — ".join(subtitle_parts)))
+            row.set_subtitle(escape_markup(_(" — ").join(subtitle_parts)))
             row.set_subtitle_lines(2)
             if result.version:
                 row.add_suffix(Gtk.Label(label=result.version))
-            install = Gtk.Button(label="Install")
+            install = Gtk.Button(label=_("Install"))
             install.add_css_class("suggested-action")
             install.connect(
                 "clicked",
@@ -297,7 +298,7 @@ class InstallPage(Adw.NavigationPage):
             return ref
 
         dialog = OperationDialog(
-            f"Installing {name or ref}",
+            _("Installing %s") % (name or ref),
             worker,
             on_success=lambda ref_id: self._flatpak_installed(ref_id, name),
             parent=self.get_root(),
@@ -305,7 +306,7 @@ class InstallPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _flatpak_installed(self, app_id: str, name: str = "") -> None:
-        show_toast(self, f"Installed {name or app_id}")
+        show_toast(self, _("Installed %s") % (name or app_id))
         app = None
         for candidate in apps.scan_installed(include_hidden=True):
             if candidate.kind == "flatpak" and (
@@ -316,8 +317,8 @@ class InstallPage(Adw.NavigationPage):
         self._finish_install(app)
 
     def _choose_flatpak_bundle(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose Flatpak bundle or .flatpakref")
-        filt = file_filter("Flatpak bundles", ["*.flatpak", "*.flatpakref"])
+        dialog = Gtk.FileDialog(title=_("Choose Flatpak bundle or .flatpakref"))
+        filt = file_filter(_("Flatpak bundles"), ["*.flatpak", "*.flatpakref"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -344,7 +345,7 @@ class InstallPage(Adw.NavigationPage):
             return str(path)
 
         dialog = OperationDialog(
-            f"Installing {path.name}",
+            _("Installing %s") % path.name,
             worker,
             on_success=lambda _r: self._flatpak_installed(path.stem),
             parent=self.get_root(),
@@ -377,24 +378,24 @@ class InstallPage(Adw.NavigationPage):
             (
                 "brew",
                 "Homebrew",
-                (
+                _(
                     "Search formulae and install them with Homebrew. "
                     "Homebrew installs into your user account; no password is needed."
                 ),
-                "Search formulae",
-                "Install formula by name",
-                "Homebrew was not found",
+                _("Search formulae"),
+                _("Install formula by name"),
+                _("Homebrew was not found"),
             ),
             (
                 "snap",
                 "Snap",
-                (
+                _(
                     "Search snaps and install them. System installs prompt for "
                     "authentication and may take a while."
                 ),
-                "Search snaps",
-                "Install snap by name",
-                "Snap was not found",
+                _("Search snaps"),
+                _("Install snap by name"),
+                _("Snap was not found"),
             ),
         )
         groups: list[tuple[Adw.PreferencesGroup, Adw.PreferencesGroup]] = []
@@ -412,7 +413,7 @@ class InstallPage(Adw.NavigationPage):
 
             typed = Adw.EntryRow(title=typed_title)
             typed.connect("entry-activated", lambda _row, k=key: self._install_manager_typed(k))
-            install = Gtk.Button(label="Install")
+            install = Gtk.Button(label=_("Install"))
             install.add_css_class("suggested-action")
             install.connect("clicked", lambda _b, k=key: self._install_manager_typed(k))
             typed.add_suffix(install)
@@ -420,12 +421,12 @@ class InstallPage(Adw.NavigationPage):
 
             upgrade_row = None
             if key == "brew":
-                upgrade_row = Adw.ButtonRow(title="Upgrade outdated formulae")
+                upgrade_row = Adw.ButtonRow(title=_("Upgrade outdated formulae"))
                 upgrade_row.connect("activated", lambda _r: self._upgrade_outdated())
                 group.add(upgrade_row)
 
-            results = Adw.PreferencesGroup(title=f"{title} results")
-            status = Adw.ActionRow(title="Type at least 2 characters to search")
+            results = Adw.PreferencesGroup(title=_("%s results") % title)
+            status = Adw.ActionRow(title=_("Type at least 2 characters to search"))
             results.add(status)
             results.set_sensitive(available)
 
@@ -463,10 +464,10 @@ class InstallPage(Adw.NavigationPage):
         query = state["search"].get_text().strip()
         self._clear_manager_rows(key)
         if len(query) < 2:
-            state["results_status"].set_title("Type at least 2 characters to search")
+            state["results_status"].set_title(_("Type at least 2 characters to search"))
             state["results_status"].set_visible(True)
             return GLib.SOURCE_REMOVE
-        state["results_status"].set_title(f"Searching for “{query}”…")
+        state["results_status"].set_title(_("Searching for “%s”…") % query)
         state["results_status"].set_visible(True)
         token = object()
         state["token"] = token
@@ -503,11 +504,11 @@ class InstallPage(Adw.NavigationPage):
         self._clear_manager_rows(key)
         status = state["results_status"]
         if error:
-            status.set_title(f"Search failed: {error}")
+            status.set_title(_("Search failed: %s") % error)
             status.set_visible(True)
             return GLib.SOURCE_REMOVE
         if not results:
-            status.set_title("No results")
+            status.set_title(_("No results"))
             status.set_visible(True)
             return GLib.SOURCE_REMOVE
         status.set_visible(False)
@@ -523,10 +524,13 @@ class InstallPage(Adw.NavigationPage):
                     getattr(result, "publisher", "") or "",
                     getattr(result, "version", "") or "",
                 ]
-            subtitle = " · ".join(part for part in parts if part)
-            row = Adw.ActionRow(title=escape_markup(name or "Unknown package"), subtitle=escape_markup(subtitle))
+            subtitle = _(" · ").join(part for part in parts if part)
+            row = Adw.ActionRow(
+                title=escape_markup(name or _("Unknown package")),
+                subtitle=escape_markup(subtitle),
+            )
             row.set_subtitle_lines(2)
-            button = Gtk.Button(label="Install")
+            button = Gtk.Button(label=_("Install"))
             button.add_css_class("suggested-action")
             button.connect(
                 "clicked",
@@ -545,7 +549,9 @@ class InstallPage(Adw.NavigationPage):
         if not name:
             show_toast(
                 self,
-                "Enter a formula name first" if key == "brew" else "Enter a snap name first",
+                _("Enter a formula name first")
+                if key == "brew"
+                else _("Enter a snap name first"),
             )
             return
         self._install_manager_package(key, name)
@@ -561,10 +567,10 @@ class InstallPage(Adw.NavigationPage):
             return name
 
         def on_error(exc: BaseException) -> None:
-            show_toast(self, f"{title} installation failed: {exc}")
+            show_toast(self, _("%s installation failed: %s") % (title, exc))
 
         dialog = OperationDialog(
-            f"Installing {name} with {title}",
+            _("Installing %s with %s") % (name, title),
             worker,
             on_success=lambda installed: self._manager_installed(key, installed),
             on_error=on_error,
@@ -574,7 +580,7 @@ class InstallPage(Adw.NavigationPage):
 
     def _manager_installed(self, key: str, name: str) -> None:
         title = "Homebrew" if key == "brew" else "Snap"
-        show_toast(self, f"Installed {name} with {title}")
+        show_toast(self, _("Installed %s with %s") % (name, title))
         if self._on_changed is not None:
             self._on_changed()
 
@@ -600,9 +606,9 @@ class InstallPage(Adw.NavigationPage):
         state = self._manager_state.get("brew")
         if state is None or state.get("upgrade_row") is None:
             return GLib.SOURCE_REMOVE
-        title = "Upgrade outdated formulae"
+        title = _("Upgrade outdated formulae")
         if count > 0:
-            title = f"{title} ({count})"
+            title = _("%s (%d)") % (title, count)
         state["upgrade_row"].set_title(title)
         return GLib.SOURCE_REMOVE
 
@@ -614,23 +620,25 @@ class InstallPage(Adw.NavigationPage):
             return True
 
         dialog = OperationDialog(
-            "Upgrading Homebrew formulae",
+            _("Upgrading Homebrew formulae"),
             worker,
             on_success=self._outdated_upgraded,
-            on_error=lambda exc: show_toast(self, f"Homebrew upgrade failed: {exc}"),
+            on_error=lambda exc: show_toast(
+                self, _("Homebrew upgrade failed: %s") % exc
+            ),
             parent=self.get_root(),
         )
         dialog.present(self.get_root())
 
     def _outdated_upgraded(self, _result) -> None:
-        show_toast(self, "Outdated formulae upgraded")
+        show_toast(self, _("Outdated formulae upgraded"))
         self._refresh_outdated_idle()
         if self._on_changed is not None:
             self._on_changed()
 
     # -------------------------------------------------------------- AppImage
     def _choose_appimage(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose AppImage")
+        dialog = Gtk.FileDialog(title=_("Choose AppImage"))
         filt = file_filter("AppImage", ["*.AppImage", "*.appimage"])
         store = file_filters([filt])
         if store is not None:
@@ -652,9 +660,9 @@ class InstallPage(Adw.NavigationPage):
         from ..backends import appimage
 
         if not appimage.is_appimage(path):
-            show_toast(self, "The selected file is not an AppImage")
+            show_toast(self, _("The selected file is not an AppImage"))
             return
-        show_toast(self, "Inspecting AppImage…")
+        show_toast(self, _("Inspecting AppImage…"))
 
         def worker() -> None:
             metadata = None
@@ -692,7 +700,7 @@ class InstallPage(Adw.NavigationPage):
             )
 
         dialog = OperationDialog(
-            f"Installing {payload['name']}",
+            _("Installing %s") % payload["name"],
             worker,
             on_success=self._on_app_installed,
             parent=self.get_root(),
@@ -702,7 +710,7 @@ class InstallPage(Adw.NavigationPage):
     def _download_appimage(self) -> None:
         dialog = UrlDownloadDialog(
             self._start_appimage_download,
-            title="Download AppImage",
+            title=_("Download AppImage"),
             show_destination=False,
             parent=self.get_root(),
         )
@@ -715,7 +723,7 @@ class InstallPage(Adw.NavigationPage):
             return downloader.download(url, destination, progress=progress, cancel=cancel, sha256=sha)
 
         dialog = OperationDialog(
-            "Downloading AppImage",
+            _("Downloading AppImage"),
             worker,
             on_success=self._on_downloaded_appimage,
             parent=self.get_root(),
@@ -727,8 +735,8 @@ class InstallPage(Adw.NavigationPage):
 
     # --------------------------------------------------------------- tarball
     def _choose_tarball(self, destination: Path | None, advanced: bool) -> None:
-        dialog = Gtk.FileDialog(title="Choose .tar.gz archive")
-        filt = file_filter("Tar archives", ["*.tar.gz", "*.tgz"])
+        dialog = Gtk.FileDialog(title=_("Choose .tar.gz archive"))
+        filt = file_filter(_("Tar archives"), ["*.tar.gz", "*.tgz"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -760,7 +768,7 @@ class InstallPage(Adw.NavigationPage):
             self._start_tarball_install(path, destination)
 
     def _choose_tarball_folder(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose destination folder")
+        dialog = Gtk.FileDialog(title=_("Choose destination folder"))
         self._file_dialog = dialog
         dialog.select_folder(self.get_root(), None, self._on_tarball_folder_chosen)
 
@@ -786,13 +794,13 @@ class InstallPage(Adw.NavigationPage):
 
         def on_error(exc: BaseException) -> None:
             if "no executable found" in str(exc):
-                show_toast(self, "No executable detected; choose one")
+                show_toast(self, _("No executable detected; choose one"))
                 self._open_tarball_dialog(source, destination)
             else:
-                self._show_error("Tarball installation failed", exc)
+                self._show_error(_("Tarball installation failed"), exc)
 
         dialog = OperationDialog(
-            f"Installing {source.name}",
+            _("Installing %s") % source.name,
             worker,
             on_success=self._on_app_installed,
             on_error=on_error,
@@ -808,7 +816,9 @@ class InstallPage(Adw.NavigationPage):
 
                 metadata = tarball.inspect(source)
             except Exception as exc:  # noqa: BLE001
-                GLib.idle_add(self._show_error_idle, "Could not read archive", str(exc))
+                GLib.idle_add(
+                    self._show_error_idle, _("Could not read archive"), str(exc)
+                )
                 return
             GLib.idle_add(self._show_tarball_dialog_idle, source, metadata, destination)
 
@@ -816,7 +826,7 @@ class InstallPage(Adw.NavigationPage):
 
     def _show_tarball_dialog_idle(self, source: Path, metadata, destination) -> bool:
         if metadata is None:
-            show_toast(self, "Could not read the archive")
+            show_toast(self, _("Could not read the archive"))
             return GLib.SOURCE_REMOVE
         dialog = TarballInstallDialog(
             source,
@@ -846,7 +856,7 @@ class InstallPage(Adw.NavigationPage):
             )
 
         dialog = OperationDialog(
-            f"Installing {payload['name']}",
+            _("Installing %s") % payload["name"],
             worker,
             on_success=self._on_app_installed,
             parent=self.get_root(),
@@ -856,7 +866,7 @@ class InstallPage(Adw.NavigationPage):
     def _download_tarball(self) -> None:
         dialog = UrlDownloadDialog(
             self._start_tarball_download,
-            title="Download .tar.gz",
+            title=_("Download .tar.gz"),
             show_destination=True,
             parent=self.get_root(),
         )
@@ -869,7 +879,7 @@ class InstallPage(Adw.NavigationPage):
             return downloader.download(url, target, progress=progress, cancel=cancel, sha256=sha)
 
         dialog = OperationDialog(
-            "Downloading archive",
+            _("Downloading archive"),
             worker,
             on_success=lambda path: self._on_downloaded_tarball(Path(path), destination),
             parent=self.get_root(),
@@ -881,8 +891,8 @@ class InstallPage(Adw.NavigationPage):
 
     # ------------------------------------------------------------------- deb
     def _choose_deb(self) -> None:
-        dialog = Gtk.FileDialog(title="Choose .deb package")
-        filt = file_filter("Debian packages", ["*.deb"])
+        dialog = Gtk.FileDialog(title=_("Choose .deb package"))
+        filt = file_filter(_("Debian packages"), ["*.deb"])
         store = file_filters([filt])
         if store is not None:
             dialog.set_filters(store)
@@ -905,7 +915,7 @@ class InstallPage(Adw.NavigationPage):
 
             info = deb.inspect(path)
         except Exception as exc:  # noqa: BLE001
-            self._show_error("Could not read the package", exc)
+            self._show_error(_("Could not read the package"), exc)
             return
         dialog = DebInstallDialog(path, info, self._install_deb)
         dialog.present(self.get_root())
@@ -918,7 +928,7 @@ class InstallPage(Adw.NavigationPage):
             return path
 
         dialog = OperationDialog(
-            f"Installing {path.name}",
+            _("Installing %s") % path.name,
             worker,
             on_success=lambda _r: self._deb_installed(path),
             parent=self.get_root(),
@@ -926,7 +936,7 @@ class InstallPage(Adw.NavigationPage):
         dialog.present(self.get_root())
 
     def _deb_installed(self, path: Path) -> None:
-        show_toast(self, f"Installed {path.stem}")
+        show_toast(self, _("Installed %s") % path.stem)
         if self._on_changed is not None:
             self._on_changed()
 
@@ -945,7 +955,7 @@ class InstallPage(Adw.NavigationPage):
             self.get_root(),
             heading,
             str(exc) or exc.__class__.__name__,
-            confirm_label="Close",
+            confirm_label=_("Close"),
         )
 
     def _show_error_idle(self, heading: str, message: str) -> bool:
@@ -953,6 +963,6 @@ class InstallPage(Adw.NavigationPage):
             self.get_root(),
             heading,
             message,
-            confirm_label="Close",
+            confirm_label=_("Close"),
         )
         return GLib.SOURCE_REMOVE

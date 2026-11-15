@@ -20,6 +20,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import GLib  # noqa: E402
 
 from .. import config, db, desktop, icons  # noqa: E402
+from ..i18n import _  # noqa: E402
 from ..models import InstalledApp  # noqa: E402
 from . import runner  # noqa: E402
 from .runner import BackendError  # noqa: E402
@@ -97,7 +98,7 @@ def _exec_value(path: Path) -> str:
 
 def _check_cancel(cancel) -> None:
     if cancel is not None and cancel.is_set():
-        raise BackendError("cancelled")
+        raise BackendError(_("cancelled"))
 
 
 def is_appimage(path: Path) -> bool:
@@ -355,7 +356,7 @@ def _installed(
 ) -> InstalledApp:
     entry = desktop.load(desktop_path)
     if entry is None:
-        raise BackendError("failed to write desktop entry", str(desktop_path))
+        raise BackendError(_("failed to write desktop entry"), str(desktop_path))
     return InstalledApp(
         entry=entry,
         kind="appimage",
@@ -380,7 +381,7 @@ def install(
 ) -> InstalledApp:
     source = Path(source)
     if not is_appimage(source):
-        raise BackendError("not an AppImage: " + str(source))
+        raise BackendError(_("not an AppImage: %s") % source)
     _check_cancel(cancel)
     config.ensure_dirs()
     db.init()
@@ -445,7 +446,7 @@ def install(
     desktop.update_desktop_database()
     if progress is not None:
         try:
-            progress(f"installed {display_name}")
+            progress(_("installed %s") % display_name)
         except Exception:  # noqa: BLE001
             pass
     return _installed(
@@ -477,10 +478,10 @@ def _bundle_for(app: InstalledApp) -> Path | None:
 def replace(app: InstalledApp, new_source: Path) -> InstalledApp:
     new_source = Path(new_source)
     if not is_appimage(new_source):
-        raise BackendError("not an AppImage: " + str(new_source))
+        raise BackendError(_("not an AppImage: %s") % new_source)
     bundle = _bundle_for(app)
     if bundle is None or not bundle.exists():
-        raise BackendError("installed bundle not found")
+        raise BackendError(_("installed bundle not found"))
     backup = Path(str(bundle) + f".bak-{_timestamp()}")
     shutil.copy2(bundle, backup)
     shutil.copy2(new_source, bundle)

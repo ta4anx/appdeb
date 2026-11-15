@@ -8,6 +8,8 @@ import threading
 from dataclasses import dataclass, field
 from typing import Callable, Mapping, Sequence
 
+from ..i18n import _
+
 TAIL_LINES = 200
 
 
@@ -58,9 +60,9 @@ def run(
             cwd=str(cwd) if cwd else None,
         )
     except FileNotFoundError as exc:
-        raise BackendError(f"command not found: {command[0]}", str(exc)) from exc
+        raise BackendError(_("command not found: %s") % command[0], str(exc)) from exc
     except OSError as exc:
-        raise BackendError(f"cannot start: {command[0]}", str(exc)) from exc
+        raise BackendError(_("cannot start: %s") % command[0], str(exc)) from exc
 
     lines: list[str] = []
     killed_reason: str | None = None
@@ -106,12 +108,12 @@ def run(
         timer.cancel()
     output = "\n".join(lines)
     if killed_reason == "cancelled":
-        raise BackendError("cancelled", output)
+        raise BackendError(_("cancelled"), output)
     if killed_reason == "timeout":
-        raise BackendError("timed out", output)
+        raise BackendError(_("timed out"), output)
     result = CommandResult(args=command, returncode=returncode, output=output, lines=lines)
     if check and returncode != 0:
-        raise BackendError(f"command failed: {command[0]}", output)
+        raise BackendError(_("command failed: %s") % command[0], output)
     return result
 
 

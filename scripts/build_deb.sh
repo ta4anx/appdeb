@@ -33,6 +33,11 @@ while IFS= read -r -d '' file; do
   install -m 0644 "$file" "$target"
 done < <(find appdeb -type f -name '*.py' -print0)
 
+# Compiled gettext catalogues (pure-Python compiler, no msgfmt needed).
+if compgen -G "appdeb/locale/*/LC_MESSAGES/*.po" > /dev/null; then
+  python3 scripts/build_mo.py --dest "$ROOT/usr" --quiet
+fi
+
 cat > "$ROOT/usr/share/doc/appdeb/copyright" <<EOF
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: appdeb

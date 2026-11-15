@@ -15,6 +15,7 @@ gi.require_version("Gio", "2.0")
 from gi.repository import Gio, GLib  # noqa: E402
 
 from . import config, db  # noqa: E402
+from .i18n import _  # noqa: E402
 from .models import DesktopEntry  # noqa: E402
 
 GROUP = "Desktop Entry"
@@ -276,9 +277,9 @@ def update_desktop_database(directory: Path | None = None) -> None:
 def rename(entry: DesktopEntry, new_name: str) -> DesktopEntry:
     cleaned = " ".join(new_name.split())
     if not cleaned:
-        raise ValueError("name is empty")
+        raise ValueError(_("name is empty"))
     if "/" in cleaned or "\n" in cleaned:
-        raise ValueError("name contains a forbidden character")
+        raise ValueError(_("name contains a forbidden character"))
     cleaned = cleaned[:80]
 
     path = ensure_user_override(entry)
@@ -338,7 +339,7 @@ def remove_key(entry: DesktopEntry, key: str) -> DesktopEntry:
 
 def safe_shortcut_name(name: str) -> str:
     cleaned = re.sub(r"[/\\\x00-\x1f]", "", name).strip()
-    cleaned = cleaned or "Application"
+    cleaned = cleaned or _("Application")
     return cleaned[:120]
 
 

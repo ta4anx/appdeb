@@ -13,6 +13,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from . import APP_NAME, __version__, config, db
+from .i18n import _, ngettext, setup as setup_i18n
 
 SUBCOMMANDS = ("list", "install", "remove", "fix-icons", "scan", "managers", "search")
 
@@ -57,57 +58,98 @@ def _has_display() -> bool:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="appdeb",
-        description="Install and manage Flatpak, AppImage, .deb and .tar.gz applications.",
+        description=_(
+            "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+        ),
     )
     parser.add_argument("--version", action="version", version=__version__)
-    sub = parser.add_subparsers(dest="command")
+    parser._positionals.title = _("positional arguments")
+    parser._optionals.title = _("options")
+    sub = parser.add_subparsers(dest="command", metavar="COMMAND")
 
-    list_parser = sub.add_parser("list", help="print installed desktop entries")
-    list_parser.add_argument("--json", action="store_true", help="print JSON")
+    list_parser = sub.add_parser("list", help=_("print installed desktop entries"))
+    list_parser.add_argument("--json", action="store_true", help=_("print JSON"))
 
-    install_parser = sub.add_parser("install", help="install a file or package-manager package")
+    install_parser = sub.add_parser(
+        "install", help=_("install a file or package-manager package")
+    )
     install_parser.add_argument(
         "file",
-        help="AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name with --from",
+        metavar="FILE",
+        help=_(
+            "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name with --from"
+        ),
     )
-    install_parser.add_argument("--name", help="application name")
-    install_parser.add_argument("--icon", help="icon file to install")
-    install_parser.add_argument("--wm-class", dest="wm_class", help="StartupWMClass / window class")
-    install_parser.add_argument("--comment", help="desktop entry comment")
-    install_parser.add_argument("--categories", help="semicolon separated categories")
-    install_parser.add_argument("--scope", choices=["user", "system"], default="user", help="Flatpak scope")
-    install_parser.add_argument("--dest", help="destination folder for tarball installs")
-    install_parser.add_argument("--exec", dest="executable", help="tarball executable, relative to the archive root")
+    install_parser.add_argument("--name", help=_("application name"))
+    install_parser.add_argument("--icon", metavar="PATH", help=_("icon file to install"))
+    install_parser.add_argument(
+        "--wm-class", dest="wm_class", help=_("StartupWMClass / window class")
+    )
+    install_parser.add_argument("--comment", help=_("desktop entry comment"))
+    install_parser.add_argument("--categories", help=_("semicolon separated categories"))
+    install_parser.add_argument(
+        "--scope", choices=["user", "system"], default="user", help=_("Flatpak scope")
+    )
+    install_parser.add_argument(
+        "--dest", metavar="DIR", help=_("destination folder for tarball installs")
+    )
+    install_parser.add_argument(
+        "--exec",
+        metavar="PATH",
+        dest="executable",
+        help=_("tarball executable, relative to the archive root"),
+    )
     install_parser.add_argument(
         "--from",
         dest="from_manager",
         choices=["brew", "snap", "flatpak"],
-        help="install a formula/snap/app ID with the given package manager",
+        help=_("install a formula/snap/app ID with the given package manager"),
     )
-    install_parser.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
+    install_parser.add_argument(
+        "--yes", action="store_true", help=_("skip the confirmation prompt")
+    )
 
-    remove_parser = sub.add_parser("remove", help="uninstall an application by desktop ID")
-    remove_parser.add_argument("desktop_id")
-    remove_parser.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
-    remove_parser.add_argument("--purge", action="store_true", help="purge configuration for .deb packages")
+    remove_parser = sub.add_parser(
+        "remove", help=_("uninstall an application by desktop ID")
+    )
+    remove_parser.add_argument("desktop_id", metavar="DESKTOP_ID")
+    remove_parser.add_argument(
+        "--yes", action="store_true", help=_("skip the confirmation prompt")
+    )
+    remove_parser.add_argument(
+        "--purge",
+        action="store_true",
+        help=_("purge configuration for .deb packages"),
+    )
 
-    fix_parser = sub.add_parser("fix-icons", help="apply every automatically fixable desktop entry issue")
-    fix_parser.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
+    fix_parser = sub.add_parser(
+        "fix-icons",
+        help=_("apply every automatically fixable desktop entry issue"),
+    )
+    fix_parser.add_argument(
+        "--yes", action="store_true", help=_("skip the confirmation prompt")
+    )
 
-    scan_parser = sub.add_parser("scan", help="scan desktop entries for problems")
-    scan_parser.add_argument("--json", action="store_true", help="print JSON")
+    scan_parser = sub.add_parser("scan", help=_("scan desktop entries for problems"))
+    scan_parser.add_argument("--json", action="store_true", help=_("print JSON"))
 
-    managers_parser = sub.add_parser("managers", help="show package manager availability and counts")
-    managers_parser.add_argument("--json", action="store_true", help="print JSON")
+    managers_parser = sub.add_parser(
+        "managers", help=_("show package manager availability and counts")
+    )
+    managers_parser.add_argument("--json", action="store_true", help=_("print JSON"))
 
-    search_parser = sub.add_parser("search", help="search Flatpak, Snap and Homebrew packages")
-    search_parser.add_argument("query", help="search text (at least 2 characters)")
+    search_parser = sub.add_parser(
+        "search", help=_("search Flatpak, Snap and Homebrew packages")
+    )
+    search_parser.add_argument(
+        "query", metavar="QUERY", help=_("search text (at least 2 characters)")
+    )
     search_parser.add_argument(
         "--manager",
         choices=["flatpak", "snap", "brew"],
-        help="limit the search to one manager (default: all available)",
+        help=_("limit the search to one manager (default: all available)"),
     )
-    search_parser.add_argument("--json", action="store_true", help="print JSON")
+    search_parser.add_argument("--json", action="store_true", help=_("print JSON"))
 
     return parser
 
@@ -242,7 +284,7 @@ def _cmd_managers(args) -> int:
         return 0
     for row in payload:
         print(
-            f"{row['name']}\t{'available' if row['available'] else 'missing'}\t"
+            f"{row['name']}\t{_('available') if row['available'] else _('missing')}\t"
             f"{row['version']}\t{row['installed_count']}"
         )
     return 0
@@ -298,7 +340,7 @@ def _search_manager(manager: str, query: str) -> list[dict]:
 def _cmd_search(args) -> int:
     query = (args.query or "").strip()
     if len(query) < 2:
-        _print_error("the search query must be at least 2 characters")
+        _print_error(_("the search query must be at least 2 characters"))
         return 1
     if args.manager:
         managers = [args.manager]
@@ -328,14 +370,14 @@ def _manager_install(args) -> int:
     manager = args.from_manager
     spec = (args.file or "").strip()
     if not spec:
-        _print_error("a package name is required with --from")
+        _print_error(_("a package name is required with --from"))
         return 1
     if not _manager_available(manager):
-        _print_error(f"{manager} is not installed")
+        _print_error(_("%s is not installed") % manager)
         return 1
     if not args.yes and sys.stdin.isatty():
-        if not _confirm(f"Install {spec} with {manager}? [y/N] "):
-            print("Aborted")
+        if not _confirm(_("Install %s with %s? [y/N] ") % (spec, manager)):
+            print(_("Aborted"))
             return 1
     try:
         if manager == "brew":
@@ -365,24 +407,27 @@ def _cmd_fix_icons(args) -> int:
     issues = doctor.scan()
     fixable = [issue for issue in issues if issue.fixable]
     if not args.yes and sys.stdin.isatty():
-        if not _confirm(f"Apply {len(fixable)} fix(es)? [y/N] "):
-            print("Aborted")
+        if not _confirm(
+            ngettext("Apply %d fix? [y/N] ", "Apply %d fixes? [y/N] ", len(fixable))
+            % len(fixable)
+        ):
+            print(_("Aborted"))
             return 1
     fixed = 0
     for issue in fixable:
         try:
             changed = doctor.fix(issue)
         except Exception as exc:  # noqa: BLE001 - continue with other issues
-            print(f"failed\t{issue.code}\t{issue.path}\t{exc}")
+            print(_("failed\t%s\t%s\t%s") % (issue.code, issue.path, exc))
             continue
         if changed:
             fixed += 1
-            print(f"fixed\t{issue.code}\t{issue.path}")
+            print(_("fixed\t%s\t%s") % (issue.code, issue.path))
         else:
-            print(f"skipped\t{issue.code}\t{issue.path}")
+            print(_("skipped\t%s\t%s") % (issue.code, issue.path))
     remaining = doctor.scan()
     errors = [issue for issue in remaining if issue.severity == "error"]
-    print(f"fixed {fixed}/{len(fixable)}")
+    print(_("fixed %d/%d") % (fixed, len(fixable)))
     return 1 if errors else 0
 
 
@@ -392,10 +437,10 @@ def _appimage_install(args, path: Path) -> int:
 
     try:
         if not appimage.is_appimage(path):
-            _print_error(f"not an AppImage: {path}")
+            _print_error(_("not an AppImage: %s") % path)
             return 1
         if not args.name:
-            _print_error("--name is required for AppImage installs")
+            _print_error(_("--name is required for AppImage installs"))
             return 1
         metadata = None
         try:
@@ -460,7 +505,7 @@ def _tarball_install(args, path: Path) -> int:
     except BackendError as exc:
         _report_exception(exc)
         if "no executable found" in str(exc):
-            _print_error("choose an executable with --exec")
+            _print_error(_("choose an executable with --exec"))
         return 1
     except (OSError, ValueError) as exc:
         _report_exception(exc)
@@ -517,11 +562,11 @@ def _cmd_install(args) -> int:
         return _manager_install(args)
     path = Path(args.file).expanduser()
     if not path.is_file():
-        _print_error(f"file not found: {path}")
+        _print_error(_("file not found: %s") % path)
         return 1
     if not args.yes and sys.stdin.isatty():
-        if not _confirm(f"Install {path.name}? [y/N] "):
-            print("Aborted")
+        if not _confirm(_("Install %s? [y/N] ") % path.name):
+            print(_("Aborted"))
             return 1
 
     from .backends import appimage, tarball
@@ -535,7 +580,7 @@ def _cmd_install(args) -> int:
         return _flatpak_install(args, path)
     if tarball.is_tarball(path):
         return _tarball_install(args, path)
-    _print_error(f"unsupported file type: {path.name}")
+    _print_error(_("unsupported file type: %s") % path.name)
     return 1
 
 
@@ -556,11 +601,11 @@ def _cmd_remove(args) -> int:
 
     app = apps.get_app(args.desktop_id)
     if app is None:
-        _print_error(f"no application with desktop ID {args.desktop_id}")
+        _print_error(_("no application with desktop ID %s") % args.desktop_id)
         return 1
     if not args.yes and sys.stdin.isatty():
-        if not _confirm(f"Remove {app.display_name}? [y/N] "):
-            print("Aborted")
+        if not _confirm(_("Remove %s? [y/N] ") % app.display_name):
+            print(_("Aborted"))
             return 1
     try:
         if app.kind == "flatpak":
@@ -568,7 +613,7 @@ def _cmd_remove(args) -> int:
 
             app_id = app.source_ref or _flatpak_app_id(app)
             if not app_id:
-                _print_error("the Flatpak application ID is unknown")
+                _print_error(_("the Flatpak application ID is unknown"))
                 return 1
             flatpak.uninstall(app_id, app.scope, progress=_stream)
         elif app.kind == "appimage":
@@ -584,22 +629,25 @@ def _cmd_remove(args) -> int:
 
             package = app.source_ref or deb.package_for_desktop(Path(app.entry.path))
             if not package:
-                _print_error("the Debian package name is unknown")
+                _print_error(_("the Debian package name is unknown"))
                 return 1
             deb.remove(package, args.purge, progress=_stream)
         else:
-            _print_error(f"removal is not supported for {apps.kind_label(app.kind)} entries")
+            _print_error(
+                _("removal is not supported for %s entries")
+                % apps.kind_label(app.kind)
+            )
             return 1
     except Exception as exc:  # noqa: BLE001
         _report_exception(exc)
         return 1
-    print(f"removed {args.desktop_id}")
+    print(_("removed %s") % args.desktop_id)
     return 0
 
 
 def _run_gui(files: list[str]) -> int:
     if not _has_display():
-        _print_error("no graphical display; use a CLI subcommand")
+        _print_error(_("no graphical display; use a CLI subcommand"))
         return 1
     from .ui.application import main as gui_main
 
@@ -608,13 +656,14 @@ def _run_gui(files: list[str]) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     args_list = list(sys.argv[1:] if argv is None else argv)
+    config.ensure_dirs()
+    db.init()
+    setup_i18n(db.setting("language"))
     if args_list and not args_list[0].startswith("-") and args_list[0] not in SUBCOMMANDS:
         return _run_gui(args_list)
 
     parser = build_parser()
     args = parser.parse_args(args_list)
-    config.ensure_dirs()
-    db.init()
 
     if args.command is None:
         return _run_gui([])

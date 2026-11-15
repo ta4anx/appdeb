@@ -1,0 +1,1975 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AppDeb 0.4.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ta4anx/appdeb/issues\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"\n"
+"The following packages will be removed:\n"
+"%s"
+msgstr "\n\nFølgende pakker fjernes:\n%s"
+
+msgid ""
+"\n"
+"\n"
+"The managed bundle is deleted; your downloaded file is kept."
+msgstr "\n\nDen administrerede bundle slettes; din downloadede fil bevares."
+
+msgid ""
+"\n"
+"\n"
+"The managed install directory is deleted; the original archive is kept."
+msgstr "\n\nDen administrerede installationsmappe slettes; det originale arkiv bevares."
+
+msgid " · "
+msgstr " · "
+
+msgid " — "
+msgstr " — "
+
+#, python-format
+msgid "%(days)dd %(hours)dh %(minutes)dm"
+msgstr "%(days)dd %(hours)dt %(minutes)dm"
+
+#, python-format
+msgid "%(hours)dh %(minutes)dm"
+msgstr "%(hours)dt %(minutes)dm"
+
+#, python-format
+msgid "%(minutes)dm"
+msgstr "%(minutes)dm"
+
+#, python-format
+msgid "%(name)s manages %(count)d package; remove it first."
+msgid_plural "%(name)s manages %(count)d packages; remove it first."
+msgstr[0] "%(name)s administrerer %(count)d pakke; fjern den først."
+msgstr[1] "%(name)s administrerer %(count)d pakker; fjern dem først."
+
+#, python-format
+msgid "%(name)s now follows %(channel)s"
+msgstr "%(name)s følger nu %(channel)s"
+
+#, python-format
+msgid "%(permission)s %(state)s"
+msgstr "%(permission)s %(state)s"
+
+#, python-format
+msgid "%.0f %%"
+msgstr "%.0f %%"
+
+#, python-format
+msgid "%.0f B/s"
+msgstr "%.0f B/s"
+
+#, python-format
+msgid "%.1f %% CPU"
+msgstr "%.1f %% CPU"
+
+#, python-format
+msgid "%.1f MB/s"
+msgstr "%.1f MB/s"
+
+#, python-format
+msgid "%.1f kB/s"
+msgstr "%.1f kB/s"
+
+#, python-format
+msgid "%d Debian packages in the %s database"
+msgstr "%d Debian-pakker i %s-databasen"
+
+#, python-format
+msgid "%d Flatpak update"
+msgid_plural "%d Flatpak updates"
+msgstr[0] "%d Flatpak-opdatering"
+msgstr[1] "%d Flatpak-opdateringer"
+
+#, python-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d app"
+msgstr[1] "%d apps"
+
+#, python-format
+msgid "%d application"
+msgid_plural "%d applications"
+msgstr[0] "%d program"
+msgstr[1] "%d programmer"
+
+#, python-format
+msgid "%d applications known to %s"
+msgstr "%d programmer kendt af %s"
+
+#, python-format
+msgid "%d can be fixed automatically"
+msgstr "%d kan rettes automatisk"
+
+#, python-format
+msgid "%d formulae installed with %s"
+msgstr "%d formler installeret med %s"
+
+#, python-format
+msgid "%d issue"
+msgid_plural "%d issues"
+msgstr[0] "%d problem"
+msgstr[1] "%d problemer"
+
+#, python-format
+msgid "%s (%d)"
+msgstr "%s (%d)"
+
+#, python-format
+msgid "%s / %s (%.0f %%)"
+msgstr "%s / %s (%.0f %%)"
+
+#, python-format
+msgid "%s applications"
+msgstr "%s-programmer"
+
+#, python-format
+msgid "%s can be upgraded again"
+msgstr "%s kan opgraderes igen"
+
+#, python-format
+msgid "%s failed"
+msgstr "%s mislykkedes"
+
+#, python-format
+msgid "%s formulae"
+msgstr "%s formler"
+
+#, python-format
+msgid "%s held at its current version"
+msgstr "%s holdes på sin nuværende version"
+
+#, python-format
+msgid "%s installation failed: %s"
+msgstr "%s-installation mislykkedes: %s"
+
+#, python-format
+msgid "%s is not installed"
+msgstr "%s er ikke installeret"
+
+#, python-format
+msgid ""
+"%s is replaced in place. Quit the application first; the current bundle "
+"is backed up next to the new one."
+msgstr "%s erstattes på stedet. Afslut programmet først; den nuværende bundle sikkerhedskopieres ved siden af den nye."
+
+#, python-format
+msgid "%s packages"
+msgstr "%s-pakker"
+
+#, python-format
+msgid "%s results"
+msgstr "%s resultater"
+
+#, python-format
+msgid "%s store"
+msgstr "%s-lager"
+
+#, python-format
+msgid "%s updated"
+msgstr "%s opdateret"
+
+#, python-format
+msgid "%s · %d %s"
+msgstr "%s · %d %s"
+
+#, python-format
+msgid "%s · %s"
+msgstr "%s · %s"
+
+msgid "(empty)"
+msgstr "(tom)"
+
+msgid "(no executable found)"
+msgstr "(ingen eksekverbar fil fundet)"
+
+msgid "--name is required for AppImage installs"
+msgstr "--name er påkrævet ved AppImage-installation"
+
+msgid "0 apps"
+msgstr "0 apps"
+
+msgid "10 seconds"
+msgstr "10 sekunder"
+
+msgid "2 seconds"
+msgstr "2 sekunder"
+
+msgid "5 seconds"
+msgstr "5 sekunder"
+
+#, python-format
+msgid "A shortcut for %s already exists. Remove it?"
+msgstr "Der findes allerede en genvej til %s. Vil du fjerne den?"
+
+msgid "Aborted"
+msgstr "Afbrudt"
+
+msgid "About"
+msgstr "Om"
+
+msgid "About AppDeb"
+msgstr "Om AppDeb"
+
+msgid "Adjust the search text or the filter."
+msgstr "Justér søgeteksten eller filtret."
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All scanned desktop entries look healthy"
+msgstr "Alle scannede skrivebordsfiler ser fine ud"
+
+msgid "Also remove system configuration when uninstalling"
+msgstr "Fjern også systemkonfiguration ved afinstallation"
+
+msgid ""
+"AppDeb puts every kind of Linux application in one window: Flatpak, Snap,"
+" Homebrew, AppImage, .deb packages and portable .tar.gz archives."
+msgstr "AppDeb samler alle slags Linux-programmer i ét vindue: Flatpak, Snap, Homebrew, AppImage, .deb-pakker og portable .tar.gz-arkiver."
+
+msgid "AppImage"
+msgstr "AppImage"
+
+msgid "AppImage replaced; restart the application to use it"
+msgstr "AppImage erstattet; genstart programmet for at bruge det"
+
+msgid "AppImage store"
+msgstr "AppImage-lager"
+
+msgid ""
+"AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz, or package name "
+"with --from"
+msgstr "AppImage, .deb, .flatpak, .flatpakref, .tar.gz, .tgz eller pakkenavn med --from"
+
+msgid ""
+"AppImages run outside the Flatpak sandbox and can read your files. Only "
+"install apps you trust."
+msgstr "AppImages kører uden for Flatpak-sandkassen og kan læse dine filer. Installér kun programmer, du har tillid til."
+
+msgid "Application"
+msgstr "Program"
+
+msgid "Application data"
+msgstr "Programdata"
+
+msgid "Application database refreshed"
+msgstr "Programdatabasen er opdateret"
+
+msgid "Application details"
+msgstr "Programoplysninger"
+
+msgid "Application icon"
+msgstr "Programikon"
+
+msgid "Application icon reset"
+msgstr "Programikonet er nulstillet"
+
+msgid "Application icon updated"
+msgstr "Programikonet er opdateret"
+
+msgid "Application manager"
+msgstr "Programhåndtering"
+
+msgid "Application parameters"
+msgstr "Programparametre"
+
+msgid "Application renamed"
+msgstr "Programmet er omdøbt"
+
+msgid "Application runs in a terminal"
+msgstr "Programmet kører i en terminal"
+
+msgid "Application uninstalled"
+msgstr "Programmet er afinstalleret"
+
+msgid "Applications found through each package manager."
+msgstr "Programmer fundet via hver pakkehåndtering."
+
+msgid "Applications installed and owned by AppDeb."
+msgstr "Programmer installeret og administreret af AppDeb."
+
+#, python-format
+msgid "Apply %d fix? [y/N] "
+msgid_plural "Apply %d fixes? [y/N] "
+msgstr[0] "Anvend %d rettelse? [j/N] "
+msgstr[1] "Anvend %d rettelser? [j/N] "
+
+msgid "Architecture"
+msgstr "Arkitektur"
+
+msgid "Archives"
+msgstr "Arkiver"
+
+msgid "Audio"
+msgstr "Lyd"
+
+msgid "Autostart disabled"
+msgstr "Autostart deaktiveret"
+
+msgid "Autostart enabled"
+msgstr "Autostart aktiveret"
+
+msgid "Autostart this application when you sign in"
+msgstr "Start dette program automatisk ved login"
+
+msgid "Available"
+msgstr "Tilgængelig"
+
+msgid "Back"
+msgstr "Tilbage"
+
+msgid "Back up desktop entries"
+msgstr "Sikkerhedskopiér skrivebordsfiler"
+
+msgid "Back up the current bundle and install a new version"
+msgstr "Sikkerhedskopiér den nuværende bundle og installér en ny version"
+
+#, python-format
+msgid "Backup created in %s"
+msgstr "Sikkerhedskopi oprettet i %s"
+
+#, python-format
+msgid "Backup failed: %s"
+msgstr "Sikkerhedskopiering mislykkedes: %s"
+
+msgid "Browse…"
+msgstr "Gennemse…"
+
+msgid "Bundle"
+msgstr "Bundle"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU usage"
+msgstr "CPU-forbrug"
+
+msgid "Cache"
+msgstr "Cache"
+
+msgid "Cancel"
+msgstr "Annullér"
+
+msgid "Cancelling…"
+msgstr "Annullerer…"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Change Icon"
+msgstr "Skift ikon"
+
+msgid "Change executable…"
+msgstr "Skift eksekverbar fil…"
+
+msgid "Change package manager"
+msgstr "Skift pakkehåndtering"
+
+msgid "Changes apply as user overrides for this application."
+msgstr "Ændringer gemmes som brugeroverskrivninger for dette program."
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "Check updates"
+msgstr "Søg efter opdateringer"
+
+msgid "Check your package managers"
+msgstr "Tjek dine pakkehåndteringer"
+
+msgid "Checking"
+msgstr "Tjekker"
+
+msgid "Checking…"
+msgstr "Tjekker…"
+
+msgid "Choose .deb package"
+msgstr "Vælg .deb-pakke"
+
+msgid "Choose .deb package…"
+msgstr "Vælg .deb-pakke…"
+
+msgid "Choose .tar.gz archive"
+msgstr "Vælg .tar.gz-arkiv"
+
+msgid "Choose AppImage"
+msgstr "Vælg AppImage"
+
+msgid "Choose AppImage file…"
+msgstr "Vælg AppImage-fil…"
+
+msgid "Choose Flatpak bundle or .flatpakref"
+msgstr "Vælg Flatpak-bundle eller .flatpakref"
+
+msgid "Choose Flatpak bundle or .flatpakref…"
+msgstr "Vælg Flatpak-bundle eller .flatpakref…"
+
+msgid "Choose an executable inside the install directory"
+msgstr "Vælg en eksekverbar fil i installationsmappen"
+
+msgid "Choose application icon"
+msgstr "Vælg programikon"
+
+msgid "Choose archive"
+msgstr "Vælg arkiv"
+
+msgid "Choose destination folder"
+msgstr "Vælg destinationsmappe"
+
+msgid "Choose executable"
+msgstr "Vælg eksekverbar fil"
+
+msgid "Choose icon"
+msgstr "Vælg ikon"
+
+msgid "Choose replacement"
+msgstr "Vælg erstatning"
+
+msgid "Choose replacement .tar.gz"
+msgstr "Vælg erstatnings-.tar.gz"
+
+msgid "Choose replacement AppImage"
+msgstr "Vælg erstatnings-AppImage"
+
+msgid "Choose…"
+msgstr "Vælg…"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Copy user desktop entries and the database to the backup folder"
+msgstr "Kopiér brugerens skrivebordsfiler og databasen til sikkerhedskopimappen"
+
+#, python-format
+msgid "Could not change autostart: %s"
+msgstr "Kunne ikke ændre autostart: %s"
+
+#, python-format
+msgid "Could not change package hold: %s"
+msgstr "Kunne ikke ændre pakkehold: %s"
+
+#, python-format
+msgid "Could not change permission: %s"
+msgstr "Kunne ikke ændre tilladelse: %s"
+
+#, python-format
+msgid "Could not change update hold: %s"
+msgstr "Kunne ikke ændre opdateringshold: %s"
+
+#, python-format
+msgid "Could not create shortcut: %s"
+msgstr "Kunne ikke oprette genvej: %s"
+
+msgid "Could not fix this issue"
+msgstr "Kunne ikke rette dette problem"
+
+#, python-format
+msgid "Could not install icon: %s"
+msgstr "Kunne ikke installere ikon: %s"
+
+#, python-format
+msgid "Could not launch: %s"
+msgstr "Kunne ikke starte: %s"
+
+#, python-format
+msgid "Could not open link: %s"
+msgstr "Kunne ikke åbne link: %s"
+
+#, python-format
+msgid "Could not open location: %s"
+msgstr "Kunne ikke åbne placering: %s"
+
+msgid "Could not read archive"
+msgstr "Kunne ikke læse arkivet"
+
+#, python-format
+msgid "Could not read snap channels: %s"
+msgstr "Kunne ikke læse snap-kanaler: %s"
+
+msgid "Could not read the archive"
+msgstr "Kunne ikke læse arkivet"
+
+msgid "Could not read the package"
+msgstr "Kunne ikke læse pakken"
+
+msgid "Could not rebuild the icon cache"
+msgstr "Kunne ikke genopbygge ikoncachen"
+
+#, python-format
+msgid "Could not refresh snap: %s"
+msgstr "Kunne ikke opdatere snap: %s"
+
+#, python-format
+msgid "Could not reset overrides: %s"
+msgstr "Kunne ikke nulstille overskrivninger: %s"
+
+#, python-format
+msgid "Could not search for alternative sources: %s"
+msgstr "Kunne ikke søge efter alternative kilder: %s"
+
+#, python-format
+msgid "Could not switch channel: %s"
+msgstr "Kunne ikke skifte kanal: %s"
+
+#, python-format
+msgid "Could not terminate processes: %s"
+msgstr "Kunne ikke afslutte processer: %s"
+
+#, python-format
+msgid "Could not update %s: %s"
+msgstr "Kunne ikke opdatere %s: %s"
+
+#, python-format
+msgid "Could not update Terminal: %s"
+msgstr "Kunne ikke opdatere Terminal: %s"
+
+#, python-format
+msgid "Could not update menu visibility: %s"
+msgstr "Kunne ikke opdatere menuvisning: %s"
+
+#, python-format
+msgid "Could not update window class: %s"
+msgstr "Kunne ikke opdatere vinduesklasse: %s"
+
+msgid "Deb"
+msgstr "Deb"
+
+msgid "Debian package"
+msgstr "Debian-pakke"
+
+msgid "Debian packages"
+msgstr "Debian-pakker"
+
+msgid "Dependencies"
+msgstr "Afhængigheder"
+
+msgid "Depends"
+msgstr "Afhænger af"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Desktop Shortcut"
+msgstr "Skrivebordsgenvej"
+
+msgid "Desktop entry ID"
+msgstr "Skrivebordsfil-ID"
+
+msgid "Desktop file"
+msgstr "Skrivebordsfil"
+
+msgid "Desktop shortcut"
+msgstr "Skrivebordsgenvej"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Destination folder (optional)"
+msgstr "Destinationsmappe (valgfri)"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Detected version"
+msgstr "Registreret version"
+
+msgid "Developer"
+msgstr "Udvikler"
+
+msgid "Disk"
+msgstr "Disk"
+
+msgid "Disk read / write"
+msgstr "Disklæsning / -skrivning"
+
+msgid "Dock icon association"
+msgstr "Dock-ikontilknytning"
+
+msgid "Dock icon association updated"
+msgstr "Dock-ikontilknytningen er opdateret"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Download .tar.gz"
+msgstr "Download .tar.gz"
+
+msgid "Download .tar.gz from URL…"
+msgstr "Download .tar.gz fra URL…"
+
+msgid "Download AppImage"
+msgstr "Download AppImage"
+
+msgid "Download AppImage from URL…"
+msgstr "Download AppImage fra URL…"
+
+msgid "Download from URL"
+msgstr "Download fra URL"
+
+msgid "Download history"
+msgstr "Downloadhistorik"
+
+msgid "Downloading AppImage"
+msgstr "Downloader AppImage"
+
+msgid "Downloading archive"
+msgstr "Downloader arkiv"
+
+msgid ""
+"Downloads are installed from the download cache. Only install software "
+"you trust."
+msgstr "Downloads installeres fra downloadcachen. Installér kun software, du har tillid til."
+
+msgid "Effective permissions"
+msgstr "Effektive tilladelser"
+
+msgid "End processes"
+msgstr "Afslut processer"
+
+#, python-format
+msgid "Ended %d process"
+msgid_plural "Ended %d processes"
+msgstr[0] "Afsluttede %d proces"
+msgstr[1] "Afsluttede %d processer"
+
+msgid "Enter a formula name first"
+msgstr "Indtast først et formelnavn"
+
+msgid "Enter a snap name first"
+msgstr "Indtast først et snap-navn"
+
+msgid "Exec"
+msgstr "Exec"
+
+msgid "Exec cannot be empty"
+msgstr "Exec må ikke være tom"
+
+msgid "Executable"
+msgstr "Eksekverbar fil"
+
+msgid "Executable updated"
+msgstr "Eksekverbar fil opdateret"
+
+msgid "Executables"
+msgstr "Eksekverbare filer"
+
+msgid "Extract icon"
+msgstr "Udtræk ikon"
+
+msgid "Files"
+msgstr "Filer"
+
+msgid "Finish"
+msgstr "Afslut"
+
+msgid "Fix"
+msgstr "Ret"
+
+msgid "Fix icons and desktop entries"
+msgstr "Ret ikoner og skrivebordsfiler"
+
+#, python-format
+msgid "Fixing %s"
+msgstr "Retter %s"
+
+msgid "Flatpak"
+msgstr "Flatpak"
+
+msgid "Flatpak bundles"
+msgstr "Flatpak-bundles"
+
+msgid "Flatpak is not installed on this system."
+msgstr "Flatpak er ikke installeret på dette system."
+
+msgid "Flatpak location"
+msgstr "Flatpak-placering"
+
+msgid "Flatpak overrides reset"
+msgstr "Flatpak-overskrivninger nulstillet"
+
+msgid "Flatpak permissions"
+msgstr "Flatpak-tilladelser"
+
+msgid "Flatpak scope"
+msgstr "Flatpak-omfang"
+
+msgid "Folder"
+msgstr "Mappe"
+
+#, python-format
+msgid "Following %s; switching refreshes the snap"
+msgstr "Følger %s; skift opdaterer snappen"
+
+msgid "Hidden from the application menu"
+msgstr "Skjult i programmenuen"
+
+msgid "Hide from application menu"
+msgstr "Skjul i programmenuen"
+
+msgid "Hold package version"
+msgstr "Hold pakkeversionen tilbage"
+
+msgid "Hold updates"
+msgstr "Hold opdateringer tilbage"
+
+msgid "Holding package version"
+msgstr "Holder pakkeversionen tilbage"
+
+msgid "Holding snap updates"
+msgstr "Holder snap-opdateringer tilbage"
+
+msgid "Home disk usage"
+msgstr "Diskforbrug i hjemmemappen"
+
+msgid "Home folder"
+msgstr "Hjemmemappe"
+
+#, python-format
+msgid "Homebrew upgrade failed: %s"
+msgstr "Homebrew-opgradering mislykkedes: %s"
+
+msgid "Homebrew was not found"
+msgstr "Homebrew blev ikke fundet"
+
+msgid "Homepage"
+msgstr "Hjemmeside"
+
+msgid "Host filesystem"
+msgstr "Værtsfilsystem"
+
+msgid "How often resource usage is sampled"
+msgstr "Hvor ofte ressourceforbruget måles"
+
+msgid "IPC"
+msgstr "IPC"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Icon cache rebuilt"
+msgstr "Ikoncachen er genopbygget"
+
+msgid ""
+"If a running window shows a generic gear instead of its real icon, the "
+"entry is missing a window-class association. The Tools page finds those "
+"problems and repairs them, with a backup of every file it changes."
+msgstr "Hvis et kørende vindue viser et generisk tandhjul i stedet for det rigtige ikon, mangler filen en vinduesklassetilknytning. Værktøjssiden finder disse problemer og retter dem, med sikkerhedskopi af hver fil, den ændrer."
+
+msgid "Images"
+msgstr "Billeder"
+
+msgid "Include entries marked NoDisplay or Hidden"
+msgstr "Medtag filer markeret med NoDisplay eller Hidden"
+
+#, python-format
+msgid "Inside install: %s"
+msgstr "I installationen: %s"
+
+msgid "Inspecting AppImage…"
+msgstr "Undersøger AppImage…"
+
+msgid "Install"
+msgstr "Installér"
+
+#, python-format
+msgid "Install %s with %s? [y/N] "
+msgstr "Installér %s med %s? [j/N] "
+
+#, python-format
+msgid "Install %s? [y/N] "
+msgstr "Installér %s? [j/N] "
+
+msgid "Install .deb package"
+msgstr "Installér .deb-pakke"
+
+msgid "Install .tar.gz (one click)"
+msgstr "Installér .tar.gz (ét klik)"
+
+msgid "Install .tar.gz application"
+msgstr "Installér .tar.gz-program"
+
+msgid "Install .tar.gz to folder…"
+msgstr "Installér .tar.gz i mappe…"
+
+msgid "Install AppImage"
+msgstr "Installér AppImage"
+
+msgid "Install a local .deb package through apt and polkit."
+msgstr "Installér en lokal .deb-pakke via apt og polkit."
+
+msgid "Install and manage Flatpak, AppImage, .deb and .tar.gz applications."
+msgstr "Installér og administrér Flatpak-, AppImage-, .deb- og .tar.gz-programmer."
+
+msgid "Install by searching or by typing"
+msgstr "Installér ved at søge eller skrive"
+
+msgid "Install directory"
+msgstr "Installationsmappe"
+
+msgid "Install formula by name"
+msgstr "Installér formel efter navn"
+
+msgid "Install path"
+msgstr "Installationssti"
+
+msgid "Install snap by name"
+msgstr "Installér snap efter navn"
+
+msgid ""
+"Install this application from another package manager. The current copy "
+"is not touched until you remove it."
+msgstr "Installér dette program fra en anden pakkehåndtering. Den nuværende kopi berøres ikke, før du fjerner den."
+
+#, python-format
+msgid "Installation failed: %s"
+msgstr "Installationen mislykkedes: %s"
+
+msgid "Installation scope"
+msgstr "Installationsomfang"
+
+msgid "Installed"
+msgstr "Installeret"
+
+#, python-format
+msgid "Installed %s"
+msgstr "Installerede %s"
+
+#, python-format
+msgid "Installed %s with %s"
+msgstr "Installerede %s med %s"
+
+msgid "Installed applications"
+msgstr "Installerede programmer"
+
+msgid "Installed by manager"
+msgstr "Installeret via håndtering"
+
+msgid "Installed size"
+msgstr "Installeret størrelse"
+
+#, python-format
+msgid "Installing %s"
+msgstr "Installerer %s"
+
+#, python-format
+msgid "Installing %s with %s"
+msgstr "Installerer %s med %s"
+
+msgid ""
+"Installing a .deb package changes system software and requires "
+"administrator authentication via polkit."
+msgstr "Installation af en .deb-pakke ændrer systemsoftware og kræver administratorgodkendelse via polkit."
+
+msgid "Interface language used after restarting AppDeb"
+msgstr "Grænsefladesprog brugt efter genstart af AppDeb"
+
+msgid "Issue fixed"
+msgstr "Problemet er rettet"
+
+msgid "Issues"
+msgstr "Problemer"
+
+msgid "Keep the desktop entry but omit it from application menus"
+msgstr "Behold skrivebordsfilen, men udelad den fra programmenuerne"
+
+msgid "Keep the desktop entry, icon and name while replacing the files"
+msgstr "Behold skrivebordsfilen, ikonet og navnet ved udskiftning af filerne"
+
+msgid "Keywords"
+msgstr "Nøgleord"
+
+msgid "Language"
+msgstr "Sprog"
+
+msgid "Launch"
+msgstr "Start"
+
+#, python-format
+msgid "Launching %s"
+msgstr "Starter %s"
+
+msgid ""
+"Leave empty to install into the managed AppDeb store. Choose a folder to "
+"install into a subfolder of it."
+msgstr "Lad stå tom for at installere i AppDebs administrerede lager. Vælg en mappe for at installere i en undermappe af den."
+
+msgid "License"
+msgstr "Licens"
+
+msgid "Load"
+msgstr "Belastning"
+
+msgid "Load average"
+msgstr "Gennemsnitlig belastning"
+
+msgid "Loading channels…"
+msgstr "Indlæser kanaler…"
+
+msgid "Loading store details…"
+msgstr "Indlæser lageroplysninger…"
+
+msgid "Look for invalid entries, missing icons and unmatched window classes"
+msgstr "Søg efter ugyldige filer, manglende ikoner og vinduesklasser uden match"
+
+msgid "Looking for alternative package sources…"
+msgstr "Søger efter alternative pakkekilder…"
+
+msgid "Main menu"
+msgstr "Hovedmenu"
+
+msgid "Maintainer"
+msgstr "Vedligeholder"
+
+msgid "Maintenance"
+msgstr "Vedligeholdelse"
+
+msgid "Managed stores"
+msgstr "Administrerede lagre"
+
+msgid "Managers"
+msgstr "Håndteringer"
+
+msgid "Matching folder"
+msgstr "Matchende mappe"
+
+msgid "Memory"
+msgstr "Hukommelse"
+
+msgid "Memory usage"
+msgstr "Hukommelsesforbrug"
+
+msgid "Monitoring"
+msgstr "Overvågning"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Network"
+msgstr "Netværk"
+
+msgid "Next"
+msgstr "Næste"
+
+msgid "No alternative package sources found."
+msgstr "Ingen alternative pakkekilder fundet."
+
+msgid "No applications match"
+msgstr "Ingen programmer matcher"
+
+msgid "No channels reported for this snap"
+msgstr "Ingen kanaler rapporteret for denne snap"
+
+msgid "No embedded icon found"
+msgstr "Intet indlejret ikon fundet"
+
+msgid "No executable detected; choose one"
+msgstr "Ingen eksekverbar fil fundet; vælg en"
+
+msgid "No issues found"
+msgstr "Ingen problemer fundet"
+
+msgid "No results"
+msgstr "Ingen resultater"
+
+msgid "No running processes"
+msgstr "Ingen kørende processer"
+
+msgid "No scan has run yet"
+msgstr "Der er ikke kørt nogen scanning endnu"
+
+msgid "No shortcut found"
+msgstr "Ingen genvej fundet"
+
+msgid "Not installed"
+msgstr "Ikke installeret"
+
+msgid "Only https:// URLs are supported."
+msgstr "Kun https://-URL'er understøttes."
+
+msgid "Open bundle folder"
+msgstr "Åbn bundle-mappen"
+
+msgid "Open homepage"
+msgstr "Åbn hjemmeside"
+
+msgid "Open install folder"
+msgstr "Åbn installationsmappen"
+
+msgid "Open location"
+msgstr "Åbn placering"
+
+msgid "Optional"
+msgstr "Valgfri"
+
+msgid "Original archive"
+msgstr "Oprindeligt arkiv"
+
+msgid "Outdated formulae upgraded"
+msgstr "Forældede formler opgraderet"
+
+msgid "Package"
+msgstr "Pakke"
+
+msgid "Package manager information is unavailable"
+msgstr "Oplysninger om pakkehåndtering er ikke tilgængelige"
+
+msgid "Package manager overview"
+msgstr "Oversigt over pakkehåndtering"
+
+msgid "Package managers"
+msgstr "Pakkehåndteringer"
+
+msgid "Package managers available on this system and their versions."
+msgstr "Pakkehåndteringer tilgængelige på dette system og deres versioner."
+
+msgid "Package removed"
+msgstr "Pakken er fjernet"
+
+msgid "Pause automatic refreshes for this snap"
+msgstr "Sæt automatiske opdateringer af denne snap på pause"
+
+msgid "Permissions are unavailable."
+msgstr "Tilladelserne er ikke tilgængelige."
+
+msgid ""
+"Pick a page from the sidebar to start. Settings holds the Flatpak install"
+" scope, the interface language and a button to show this guide again at "
+"any time."
+msgstr "Vælg en side i sidepanelet for at begynde. Under Indstillinger finder du Flatpak-installationsomfanget, grænsefladesproget og en knap til at vise denne guide igen når som helst."
+
+msgid "Pick another executable inside the install directory"
+msgstr "Vælg en anden eksekverbar fil i installationsmappen"
+
+msgid "Prevent apt from upgrading this package"
+msgstr "Forhindr apt i at opgradere denne pakke"
+
+msgid "Processes"
+msgstr "Processer"
+
+msgid "Purge configuration files"
+msgstr "Fjern konfigurationsfiler"
+
+msgid "Quit"
+msgstr "Afslut"
+
+msgid "Rebuild icon cache"
+msgstr "Genopbyg ikoncachen"
+
+msgid "Refresh application database"
+msgstr "Opdater programdatabasen"
+
+msgid "Refresh interval"
+msgstr "Opdateringsinterval"
+
+msgid "Refresh package manager information"
+msgstr "Opdater oplysninger om pakkehåndtering"
+
+msgid "Refresh snap now"
+msgstr "Opdater snap nu"
+
+msgid "Refresh the application list"
+msgstr "Opdater programlisten"
+
+msgid "Refresh the user hicolor icon cache"
+msgstr "Opdater brugerens hicolor-ikoncache"
+
+#, python-format
+msgid "Refreshed %s"
+msgstr "Opdaterede %s"
+
+#, python-format
+msgid "Refreshing %s"
+msgstr "Opdaterer %s"
+
+msgid "Regenerate desktop-file-utils caches"
+msgstr "Genopret desktop-file-utils-caches"
+
+msgid "Reinstall / replace archive…"
+msgstr "Geninstallér / udskift arkiv…"
+
+msgid "Releasing package hold"
+msgstr "Ophæver pakkehold"
+
+#, python-format
+msgid "Removal failed: %s"
+msgstr "Fjernelse mislykkedes: %s"
+
+msgid "Remove"
+msgstr "Fjern"
+
+#, python-format
+msgid "Remove %s? [y/N] "
+msgstr "Fjern %s? [j/N] "
+
+msgid "Remove Debian package"
+msgstr "Fjern Debian-pakke"
+
+#, python-format
+msgid "Remove all user permission overrides for %s?"
+msgstr "Fjern alle brugerens tilladelsesoverskrivninger for %s?"
+
+msgid "Remove current copy"
+msgstr "Fjern nuværende kopi"
+
+msgid "Remove every user permission override for this application"
+msgstr "Fjern alle brugerens tilladelsesoverskrivninger for dette program"
+
+msgid "Remove package"
+msgstr "Fjern pakke"
+
+msgid "Remove shortcut"
+msgstr "Fjern genvej"
+
+#, python-format
+msgid ""
+"Remove the %(kind)s copy of %(name)s?\n"
+"\n"
+"%(candidate)s was installed with %(manager)s. You can keep both copies."
+msgstr "Fjern %(kind)s-kopien af %(name)s?\n\n%(candidate)s blev installeret med %(manager)s. Du kan beholde begge kopier."
+
+msgid "Remove the current copy?"
+msgstr "Fjern den nuværende kopi?"
+
+#, python-format
+msgid "Remove the package %s?"
+msgstr "Fjern pakken %s?"
+
+msgid "Remove…"
+msgstr "Fjern…"
+
+#, python-format
+msgid "Removing %s"
+msgstr "Fjerner %s"
+
+msgid "Rename"
+msgstr "Omdøb"
+
+msgid "Rename application"
+msgstr "Omdøb program"
+
+#, python-format
+msgid "Rename failed: %s"
+msgstr "Omdøbning mislykkedes: %s"
+
+msgid "Repair desktop entries and refresh application metadata."
+msgstr "Reparér skrivebordsfiler og opdater programmetadata."
+
+msgid "Replace AppImage"
+msgstr "Erstat AppImage"
+
+msgid "Replace AppImage…"
+msgstr "Erstat AppImage…"
+
+msgid "Replace tarball installation"
+msgstr "Erstat tarball-installation"
+
+msgid "Replacing AppImage"
+msgstr "Erstatter AppImage"
+
+msgid "Replacing tarball installation"
+msgstr "Erstatter tarball-installation"
+
+msgid "Reset"
+msgstr "Nulstil"
+
+msgid "Reset Flatpak overrides"
+msgstr "Nulstil Flatpak-overskrivninger"
+
+msgid "Reset Icon"
+msgstr "Nulstil ikon"
+
+msgid "Reset all overrides"
+msgstr "Nulstil alle overskrivninger"
+
+msgid "Resources"
+msgstr "Ressourcer"
+
+msgid "Restart"
+msgstr "Genstart"
+
+msgid "Restart AppDeb to apply"
+msgstr "Genstart AppDeb for at anvende"
+
+msgid "Results"
+msgstr "Resultater"
+
+msgid "Resuming snap updates"
+msgstr "Genoptager snap-opdateringer"
+
+msgid "Run this application in a terminal window"
+msgstr "Kør dette program i et terminalvindue"
+
+msgid "SHA-256 (optional)"
+msgstr "SHA-256 (valgfri)"
+
+msgid "SHA-256 mismatch"
+msgstr "SHA-256 stemmer ikke"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Scan desktop entries"
+msgstr "Scan skrivebordsfiler"
+
+msgid "Scan failed"
+msgstr "Scanning mislykkedes"
+
+msgid "Scan to inspect all desktop entries"
+msgstr "Scan for at inspicere alle skrivebordsfiler"
+
+msgid "Scanning desktop entries…"
+msgstr "Scanner skrivebordsfiler…"
+
+msgid "Scanning…"
+msgstr "Scanner…"
+
+msgid "Scope"
+msgstr "Omfang"
+
+msgid "Scope used for Flatpak installs and updates."
+msgstr "Omfang brugt til Flatpak-installationer og -opdateringer."
+
+msgid "Screenshot"
+msgstr "Skærmbillede"
+
+msgid "Screenshot is not available"
+msgstr "Skærmbillede er ikke tilgængeligt"
+
+msgid "Screenshots"
+msgstr "Skærmbilleder"
+
+msgid "Search Flathub"
+msgstr "Søg på Flathub"
+
+msgid "Search Flathub and install apps in the scope chosen in Settings."
+msgstr "Søg på Flathub, og installér programmer i det omfang, der er valgt i Indstillinger."
+
+msgid ""
+"Search Flathub, the Snap Store or Homebrew, or type an exact package "
+"name. AppImages, .deb packages and .tar.gz archives can be installed from"
+" a file or an https URL, and every install is checked before it touches "
+"your system."
+msgstr "Søg på Flathub, i Snap Store eller Homebrew, eller skriv et præcist pakkenavn. AppImages, .deb-pakker og .tar.gz-arkiver kan installeres fra en fil eller en https-URL, og hver installation kontrolleres, før den rører dit system."
+
+msgid "Search applications"
+msgstr "Søg efter programmer"
+
+#, python-format
+msgid "Search failed: %s"
+msgstr "Søgning mislykkedes: %s"
+
+msgid "Search formulae"
+msgstr "Søg efter formler"
+
+msgid ""
+"Search formulae and install them with Homebrew. Homebrew installs into "
+"your user account; no password is needed."
+msgstr "Søg efter formler, og installér dem med Homebrew. Homebrew installerer i din brugerkonto; ingen adgangskode er nødvendig."
+
+msgid "Search snaps"
+msgstr "Søg efter snaps"
+
+msgid ""
+"Search snaps and install them. System installs prompt for authentication "
+"and may take a while."
+msgstr "Søg efter snaps, og installér dem. Systeminstallationer kræver godkendelse og kan tage et stykke tid."
+
+#, python-format
+msgid "Searching %s for %s"
+msgstr "Søger i %s efter %s"
+
+#, python-format
+msgid "Searching for “%s”…"
+msgstr "Søger efter “%s”…"
+
+msgid "Send SIGTERM to this application's processes"
+msgstr "Send SIGTERM til dette programs processer"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+#, python-format
+msgid "Shortcut created: %s"
+msgstr "Genvej oprettet: %s"
+
+msgid "Shortcut removed"
+msgstr "Genvejen er fjernet"
+
+msgid "Show hidden desktop entries"
+msgstr "Vis skjulte skrivebordsfiler"
+
+msgid "Shown in the application menu"
+msgstr "Vist i programmenuen"
+
+msgid "Shows the affected packages before removal"
+msgstr "Viser de berørte pakker før fjernelse"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Skip"
+msgstr "Spring over"
+
+msgid "Snap"
+msgstr "Snap"
+
+msgid "Snap installs prompt for authentication"
+msgstr "Snap-installationer kræver godkendelse"
+
+msgid "Snap name unknown"
+msgstr "Snap-navn ukendt"
+
+msgid "Snap was not found"
+msgstr "Snap blev ikke fundet"
+
+msgid "Source / reference"
+msgstr "Kilde / reference"
+
+msgid "Start at login"
+msgstr "Start ved login"
+
+msgid "Started"
+msgstr "Startet"
+
+msgid "Startup"
+msgstr "Opstart"
+
+msgid "StartupWMClass / window class"
+msgstr "StartupWMClass / vinduesklasse"
+
+#, python-format
+msgid "Step %d of %d"
+msgstr "Trin %d af %d"
+
+msgid "Store"
+msgstr "Lager"
+
+msgid "Store ID"
+msgstr "Lager-ID"
+
+msgid "Store details"
+msgstr "Lageroplysninger"
+
+msgid "Swap usage"
+msgstr "Swapforbrug"
+
+#, python-format
+msgid "Switch %(name)s to %(channel)s? The snap is refreshed now."
+msgstr "Skift %(name)s til %(channel)s? Snappen opdateres nu."
+
+msgid "Switch channel"
+msgstr "Skift kanal"
+
+msgid "Switch snap channel"
+msgstr "Skift snap-kanal"
+
+#, python-format
+msgid "Switching %(name)s to %(channel)s"
+msgstr "Skifter %(name)s til %(channel)s"
+
+msgid "System"
+msgstr "System"
+
+msgid "Tar archives"
+msgstr "Tar-arkiver"
+
+msgid "Tarball"
+msgstr "Tarball"
+
+msgid "Tarball installation failed"
+msgstr "Tarball-installation mislykkedes"
+
+msgid "Tarball store"
+msgstr "Tarball-lager"
+
+msgid ""
+"Tarballs run outside a sandbox and can read your files. Only install apps"
+" you trust."
+msgstr "Tarballs kører uden for en sandkasse og kan læse dine filer. Installér kun programmer, du har tillid til."
+
+msgid "Terminal application"
+msgstr "Terminalprogram"
+
+msgid "Terminal disabled"
+msgstr "Terminal deaktiveret"
+
+#, python-format
+msgid "Terminate all processes belonging to %s?"
+msgstr "Afslut alle processer, der tilhører %s?"
+
+msgid "The Debian package name is unknown"
+msgstr "Navnet på Debian-pakken er ukendt"
+
+msgid "The Flatpak application ID is unknown"
+msgstr "Flatpak-program-ID'et er ukendt"
+
+msgid ""
+"The Managers page shows which package managers exist on this computer, "
+"their versions and how many packages each one owns. You can install a "
+"missing manager there, or remove one once it no longer manages any "
+"packages."
+msgstr "Siden Håndteringer viser, hvilke pakkehåndteringer der findes på denne computer, deres versioner og hvor mange pakker hver af dem ejer. Du kan installere en manglende håndtering der eller fjerne en, når den ikke længere administrerer nogen pakker."
+
+msgid "The embedded icon is not available; choose one manually"
+msgstr "Det indlejrede ikon er ikke tilgængeligt; vælg et manuelt"
+
+#, python-format
+msgid ""
+"The files for %s are replaced and the current install directory is backed"
+" up. Quit the application first."
+msgstr "Filerne til %s erstattes, og den nuværende installationsmappe sikkerhedskopieres. Afslut programmet først."
+
+msgid "The install directory is unknown"
+msgstr "Installationsmappen er ukendt"
+
+msgid "The selected file is not an AppImage"
+msgstr "Den valgte fil er ikke en AppImage"
+
+msgid "The snap command is not available on this system."
+msgstr "Kommandoen snap er ikke tilgængelig på dette system."
+
+msgid ""
+"The window class (WM_CLASS) GNOME uses to match this application's "
+"windows to the desktop entry."
+msgstr "Vinduesklassen (WM_CLASS), som GNOME bruger til at knytte dette programs vinduer til skrivebordsfilen."
+
+msgid "This changes the name shown in menus, the dock and this window."
+msgstr "Dette ændrer navnet, der vises i menuer, i docken og i dette vindue."
+
+msgid "This desktop entry does not identify a snap instance"
+msgstr "Denne skrivebordsfil identificerer ikke en snap-instans"
+
+msgid "Threads"
+msgstr "Tråde"
+
+msgid "Tools"
+msgstr "Værktøjer"
+
+msgid "Top processes"
+msgstr "Mest krævende processer"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Type at least 2 characters to search"
+msgstr "Skriv mindst 2 tegn for at søge"
+
+msgid "URL (https://)"
+msgstr "URL (https://)"
+
+msgid "URL has no host"
+msgstr "URL'en har ingen vært"
+
+msgid "Uninstall"
+msgstr "Afinstallér"
+
+#, python-format
+msgid "Uninstall %s? This cannot be undone."
+msgstr "Afinstallér %s? Dette kan ikke fortrydes."
+
+msgid "Uninstall application"
+msgstr "Afinstallér program"
+
+msgid "Uninstall is not supported for this entry"
+msgstr "Afinstallation understøttes ikke for denne fil"
+
+#, python-format
+msgid "Uninstalling %s"
+msgstr "Afinstallerer %s"
+
+msgid "Unknown package"
+msgstr "Ukendt pakke"
+
+#, python-format
+msgid "Unsupported file type: %s"
+msgstr "Ikke-understøttet filtype: %s"
+
+#, python-format
+msgid "Unsupported image: %s"
+msgstr "Ikke-understøttet billede: %s"
+
+#, python-format
+msgid "Updated %d application"
+msgid_plural "Updated %d applications"
+msgstr[0] "Opdaterede %d program"
+msgstr[1] "Opdaterede %d programmer"
+
+#, python-format
+msgid "Updates for %s are held"
+msgstr "Opdateringer til %s holdes tilbage"
+
+#, python-format
+msgid "Updates for %s resumed"
+msgstr "Opdateringer til %s genoptaget"
+
+#, python-format
+msgid "Updating %s…"
+msgstr "Opdaterer %s…"
+
+msgid "Updating Flatpak applications"
+msgstr "Opdaterer Flatpak-programmer"
+
+msgid "Upgrade outdated formulae"
+msgstr "Opgrader forældede formler"
+
+msgid "Upgrading Homebrew formulae"
+msgstr "Opgraderer Homebrew-formler"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Uptime"
+msgstr "Oppetid"
+
+msgid "Usage history"
+msgstr "Forbrugshistorik"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "User data"
+msgstr "Brugerdata"
+
+msgid "Values written to this application's desktop entry."
+msgstr "Værdier skrevet til dette programs skrivebordsfil."
+
+msgid "Version"
+msgstr "Version"
+
+#, python-format
+msgid "Version %s"
+msgstr "Version %s"
+
+msgid "Version unknown"
+msgstr "Version ukendt"
+
+msgid "Wayland"
+msgstr "Wayland"
+
+msgid "Welcome to AppDeb"
+msgstr "Velkommen til AppDeb"
+
+msgid "Window class"
+msgstr "Vinduesklasse"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "You are ready"
+msgstr "Du er klar"
+
+msgid "a package name is required with --from"
+msgstr "et pakkenavn er påkrævet med --from"
+
+msgid "application name"
+msgstr "programnavn"
+
+msgid "apply every automatically fixable desktop entry issue"
+msgstr "ret alle automatisk retbare problemer i skrivebordsfiler"
+
+msgid "apps"
+msgstr "apps"
+
+msgid "available"
+msgstr "tilgængelig"
+
+msgid "brew install failed"
+msgstr "brew install mislykkedes"
+
+msgid "brew search failed"
+msgstr "brew search mislykkedes"
+
+msgid "brew uninstall failed"
+msgstr "brew uninstall mislykkedes"
+
+msgid "brew upgrade failed"
+msgstr "brew upgrade mislykkedes"
+
+msgid "cancelled"
+msgstr "annulleret"
+
+#, python-format
+msgid "cannot inspect package: %s"
+msgstr "kan ikke inspicere pakken: %s"
+
+#, python-format
+msgid "cannot install to %s: %s"
+msgstr "kan ikke installere til %s: %s"
+
+#, python-format
+msgid "cannot replace %s: %s"
+msgstr "kan ikke erstatte %s: %s"
+
+#, python-format
+msgid "cannot start: %s"
+msgstr "kan ikke starte: %s"
+
+msgid "choose an executable with --exec"
+msgstr "vælg en eksekverbar fil med --exec"
+
+#, python-format
+msgid "command failed: %s"
+msgstr "kommando mislykkedes: %s"
+
+#, python-format
+msgid "command not found: %s"
+msgstr "kommando ikke fundet: %s"
+
+msgid "desktop entry comment"
+msgstr "kommentar til skrivebordsfil"
+
+msgid "desktop file has more than one [Desktop Entry] group"
+msgstr "skrivebordsfilen har mere end én [Desktop Entry]-gruppe"
+
+msgid "destination folder for tarball installs"
+msgstr "destinationsmappe for tarball-installationer"
+
+#, python-format
+msgid "destination is not writable: %s"
+msgstr "destinationen er ikke skrivbar: %s"
+
+msgid "disabled"
+msgstr "deaktiveret"
+
+msgid "download cancelled"
+msgstr "download annulleret"
+
+#, python-format
+msgid "download failed: HTTP %s"
+msgstr "download mislykkedes: HTTP %s"
+
+msgid "download too large"
+msgstr "download for stor"
+
+msgid "enabled"
+msgstr "aktiveret"
+
+msgid "essential package"
+msgstr "essentiel pakke"
+
+#, python-format
+msgid "executable not found: %s"
+msgstr "eksekverbar fil ikke fundet: %s"
+
+#, python-format
+msgid "failed\t%s\t%s\t%s"
+msgstr "failed\t%s\t%s\t%s"
+
+msgid "failed to write desktop entry"
+msgstr "kunne ikke skrive skrivebordsfil"
+
+#, python-format
+msgid "file not found: %s"
+msgstr "fil ikke fundet: %s"
+
+#, python-format
+msgid "fixed\t%s\t%s"
+msgstr "fixed\t%s\t%s"
+
+#, python-format
+msgid "fixed %d/%d"
+msgstr "rettet %d/%d"
+
+msgid "flatpak install failed"
+msgstr "flatpak install mislykkedes"
+
+msgid "flatpak override failed"
+msgstr "flatpak override mislykkedes"
+
+msgid "flatpak override reset failed"
+msgstr "flatpak override reset mislykkedes"
+
+msgid "flatpak search failed"
+msgstr "flatpak search mislykkedes"
+
+msgid "flatpak uninstall failed"
+msgstr "flatpak uninstall mislykkedes"
+
+msgid "flatpak update failed"
+msgstr "flatpak update mislykkedes"
+
+msgid "icon file to install"
+msgstr "ikonfil der skal installeres"
+
+msgid "icon is an absolute path outside the icon theme"
+msgstr "ikonet er en absolut sti uden for ikontemaet"
+
+#, python-format
+msgid "icon not found: %s"
+msgstr "ikon ikke fundet: %s"
+
+msgid "install a file or package-manager package"
+msgstr "installér en fil eller en pakke fra en pakkehåndtering"
+
+msgid "install a formula/snap/app ID with the given package manager"
+msgstr "installér et formel-/snap-/app-ID med den angivne pakkehåndtering"
+
+#, python-format
+msgid "installed %s"
+msgstr "installerede %s"
+
+msgid "installed bundle not found"
+msgstr "installeret bundle ikke fundet"
+
+msgid "installed directory not found"
+msgstr "installeret mappe ikke fundet"
+
+#, python-format
+msgid "invalid flatpak scope: %s"
+msgstr "ugyldigt flatpak-omfang: %s"
+
+msgid "limit the search to one manager (default: all available)"
+msgstr "begræns søgningen til én håndtering (standard: alle tilgængelige)"
+
+msgid "missing"
+msgstr "mangler"
+
+msgid "name contains a forbidden character"
+msgstr "navnet indeholder et forbudt tegn"
+
+msgid "name is empty"
+msgstr "navnet er tomt"
+
+#, python-format
+msgid "no application with desktop ID %s"
+msgstr "intet program med skrivebordsfil-ID %s"
+
+msgid "no executable found; use install_spec with an executable"
+msgstr "ingen eksekverbar fil fundet; brug install_spec med en eksekverbar fil"
+
+msgid "no graphical display; use a CLI subcommand"
+msgstr "ingen grafisk visning; brug en CLI-underkommando"
+
+msgid "no package found for desktop entry"
+msgstr "ingen pakke fundet til skrivebordsfilen"
+
+#, python-format
+msgid "no uninstall backend for kind: %s"
+msgstr "ingen afinstallationsbackend for typen: %s"
+
+#, python-format
+msgid "not a .tar.gz archive: %s"
+msgstr "ikke et .tar.gz-arkiv: %s"
+
+#, python-format
+msgid "not an AppImage: %s"
+msgstr "ikke en AppImage: %s"
+
+msgid "only https:// URLs are supported"
+msgstr "kun https://-URL'er understøttes"
+
+msgid "package"
+msgstr "pakke"
+
+msgid "package hold failed"
+msgstr "pakkehold mislykkedes"
+
+msgid "package installation failed"
+msgstr "pakkeinstallation mislykkedes"
+
+msgid "package name is empty"
+msgstr "pakkenavnet er tomt"
+
+#, python-format
+msgid "package not found: %s"
+msgstr "pakke ikke fundet: %s"
+
+msgid "package removal failed"
+msgstr "fjernelse af pakke mislykkedes"
+
+msgid "packages"
+msgstr "pakker"
+
+msgid "print JSON"
+msgstr "udskriv JSON"
+
+msgid "print installed desktop entries"
+msgstr "udskriv installerede skrivebordsfiler"
+
+msgid "purge configuration for .deb packages"
+msgstr "fjern konfiguration for .deb-pakker"
+
+#, python-format
+msgid "refusing to remove %s: %s"
+msgstr "nægter at fjerne %s: %s"
+
+#, python-format
+msgid "refusing to remove %s; it would remove protected packages: %s"
+msgstr "nægter at fjerne %s; det ville fjerne beskyttede pakker: %s"
+
+#, python-format
+msgid "removal is not supported for %s entries"
+msgstr "fjernelse understøttes ikke for %s-filer"
+
+#, python-format
+msgid "removed %s"
+msgstr "fjernede %s"
+
+msgid "required-priority package"
+msgstr "pakke med prioriteten required"
+
+msgid "scan desktop entries for problems"
+msgstr "scan skrivebordsfiler for problemer"
+
+msgid "search Flatpak, Snap and Homebrew packages"
+msgstr "søg i Flatpak-, Snap- og Homebrew-pakker"
+
+msgid "search text (at least 2 characters)"
+msgstr "søgetekst (mindst 2 tegn)"
+
+msgid "semicolon separated categories"
+msgstr "semikolonadskilte kategorier"
+
+msgid "show package manager availability and counts"
+msgstr "vis tilgængelighed og antal for pakkehåndteringer"
+
+msgid "skip the confirmation prompt"
+msgstr "spring bekræftelsen over"
+
+#, python-format
+msgid "skipped\t%s\t%s"
+msgstr "skipped\t%s\t%s"
+
+msgid "snap find failed"
+msgstr "snap find mislykkedes"
+
+msgid "snap hold failed"
+msgstr "snap hold mislykkedes"
+
+msgid "snap info failed"
+msgstr "snap info mislykkedes"
+
+msgid "snap install failed"
+msgstr "snap install mislykkedes"
+
+msgid "snap name is empty"
+msgstr "snap-navnet er tomt"
+
+msgid "snap refresh failed"
+msgstr "snap refresh mislykkedes"
+
+msgid "snap remove failed"
+msgstr "snap remove mislykkedes"
+
+msgid "tarball executable, relative to the archive root"
+msgstr "tarball-eksekverbar fil, relativ til arkivroden"
+
+msgid "the Debian package name is unknown"
+msgstr "navnet på Debian-pakken er ukendt"
+
+msgid "the Flatpak application ID is unknown"
+msgstr "Flatpak-program-ID'et er ukendt"
+
+msgid "the search query must be at least 2 characters"
+msgstr "søgeforespørgslen skal være mindst 2 tegn"
+
+msgid "timed out"
+msgstr "tidsgrænsen blev overskredet"
+
+msgid "uninstall an application by desktop ID"
+msgstr "afinstallér et program via skrivebordsfil-ID"
+
+msgid "unknown"
+msgstr "ukendt"
+
+#, python-format
+msgid "unknown source kind: %s"
+msgstr "ukendt kildetype: %s"
+
+#, python-format
+msgid "unsafe archive: %s"
+msgstr "usikkert arkiv: %s"
+
+msgid "unsafe archive: archive is larger than 4 GiB"
+msgstr "usikkert arkiv: arkivet er større end 4 GiB"
+
+msgid "unsafe archive: too many members"
+msgstr "usikkert arkiv: for mange medlemmer"
+
+#, python-format
+msgid "unsupported file type: %s"
+msgstr "ikke-understøttet filtype: %s"
+
+#, python-format
+msgid "unsupported flatpak override action: %s"
+msgstr "ikke-understøttet flatpak-overskrivningshandling: %s"
+
+#, python-format
+msgid "window class %s is not associated with this entry"
+msgstr "vinduesklassen %s er ikke knyttet til denne fil"
+
+msgid "%s installed"
+msgstr "%s installeret"
+
+msgid "%s removed"
+msgstr "%s fjernet"
+
+msgid "Getting started"
+msgstr "Kom godt i gang"
+
+msgid "Install %s?"
+msgstr "Installér %s?"
+
+msgid "Kind"
+msgstr "Type"
+
+msgid "Name (A–Z)"
+msgstr "Navn (A–Z)"
+
+msgid "Name (Z–A)"
+msgstr "Navn (Z–A)"
+
+msgid "No packages from this manager remain."
+msgstr "Der er ingen pakker tilbage fra denne pakkehåndteringsprogram."
+
+msgid "Recently installed (newest first)"
+msgstr "Senest installerede (nyeste først)"
+
+msgid "Remove %s"
+msgstr "Fjern %s"
+
+msgid "Remove %s?"
+msgstr "Fjern %s?"
+
+msgid "Replay the step-by-step introduction"
+msgstr "Afspil trin-for-trin-introduktionen igen"
+
+msgid "Show welcome guide"
+msgstr "Vis velkomstguiden"
+
+msgid "Size (largest first)"
+msgstr "Størrelse (største først)"
+
+msgid "Sort by"
+msgstr "Sortér efter"
+
+msgid "Sort the application list"
+msgstr "Sortér programlisten"
+
+msgid "This action is performed manually. Run the command below in a terminal."
+msgstr "Denne handling udføres manuelt. Kør kommandoen nedenfor i en terminal."
+
+msgid "This uses apt and asks for authentication."
+msgstr "Dette bruger apt og kræver godkendelse."
+
+msgid "options"
+msgstr "tilvalg"
+
+msgid "positional arguments"
+msgstr "positionsargumenter"
