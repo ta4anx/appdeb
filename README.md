@@ -28,9 +28,9 @@ desktop-entry doctor that repairs broken or icon-less entries.
   installed an app on Linux: installation, first launch, installing Flatpak/Snap/Homebrew/
   AppImage/.deb/.tar.gz, managing apps, fixing the grey gear icon, troubleshooting and a
   glossary.
-- **Wiki** — <https://github.com/ta4anx/appdeb/wiki> mirrors the same pages. GitHub creates the
-  wiki only after the first page exists in the browser; after that, `bash scripts/publish_wiki.sh`
-  publishes every page (and `_Sidebar`) in one push.
+- **Wiki** — <https://github.com/ta4anx/appdeb/wiki> is the same guide, page by page, with the
+  navigation sidebar. `docs/guide` is the source; publish updates with
+  `bash scripts/publish_wiki.sh` (one push, links and screenshots rewritten automatically).
 
 ## Features
 
