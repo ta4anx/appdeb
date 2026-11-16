@@ -74,8 +74,12 @@ language names. Choose **English** (second entry) and click **Restart**.
 If you cannot find it: quit AppDeb, then run
 
 ```bash
-sqlite3 ~/.local/share/appdeb/appdeb.db "update settings set value='en' where key='language'"
+sudo apt install sqlite3       # only if the command below is missing
+sqlite3 ~/.local/share/appdeb/appdeb.db \
+  "insert into settings(key,value) values('language','en') on conflict(key) do update set value='en'"
 ```
+
+Start AppDeb again; the interface is English and you can pick another language properly.
 
 ## "Removing a package manager is greyed out"
 
