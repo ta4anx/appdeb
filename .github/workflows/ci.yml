@@ -39,5 +39,7 @@ jobs:
           cp data/io.github.ta4anx.AppDeb.desktop "$XDG_DATA_HOME/applications/"
           update-desktop-database "$XDG_DATA_HOME/applications"
           python3 scripts/check_mime.py
+      - name: Documentation links
+        run: python3 scripts/check_docs.py
       - name: Shell syntax
         run: bash -n scripts/build_deb.sh

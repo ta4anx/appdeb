@@ -22,6 +22,16 @@ desktop-entry doctor that repairs broken or icon-less entries.
 
 ![Package managers](docs/screenshots/managers.png)
 
+## Documentation
+
+- **[User guide — step by step](docs/guide/index.md)** — written for people who have never
+  installed an app on Linux: installation, first launch, installing Flatpak/Snap/Homebrew/
+  AppImage/.deb/.tar.gz, managing apps, fixing the grey gear icon, troubleshooting and a
+  glossary.
+- **Wiki** — <https://github.com/ta4anx/appdeb/wiki> mirrors the same pages. GitHub creates the
+  wiki only after the first page exists in the browser; after that, `bash scripts/publish_wiki.sh`
+  publishes every page (and `_Sidebar`) in one push.
+
 ## Features
 
 **Install**
@@ -105,8 +115,8 @@ Download the latest `.deb` from the [releases page](https://github.com/ta4anx/ap
 and install it:
 
 ```bash
-wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.4.1_all.deb
-sudo apt install ./appdeb_0.4.1_all.deb
+wget https://github.com/ta4anx/appdeb/releases/latest/download/appdeb_0.4.2_all.deb
+sudo apt install ./appdeb_0.4.2_all.deb
 appdeb
 ```
 
@@ -206,7 +216,8 @@ appdeb/            Python package (GTK4 + libadwaita)
   ui/              application, window, pages, widgets, dialogs
 data/              io.github.ta4anx.AppDeb.desktop, AppStream metainfo, app icon
 tests/             unittest suites (no network, no user state)
-scripts/           launcher, .deb builder
+docs/guide/        user guide (also published to the wiki)
+scripts/           launcher, .deb builder, wiki publisher, docs/mime checks
 .github/workflows/ CI and tag-driven release
 ```
 
@@ -217,10 +228,13 @@ bash scripts/build_deb.sh                          # build the .deb
 
 # translations (gettext, Babel/pybabel only for extraction)
 pybabel extract -k _ -k N_ -k 'ngettext:1,2' --no-location --sort-output \
-  --project AppDeb --version 0.4.1 -o appdeb/locale/appdeb.pot appdeb
+  --project AppDeb --version 0.4.2 -o appdeb/locale/appdeb.pot appdeb
 python3 scripts/build_mo.py --check                # validate catalogues
 python3 scripts/build_mo.py --in-place             # compile .mo for source runs
 LANGUAGE=de python3 -m appdeb                      # try a language
+
+python3 scripts/check_docs.py                      # verify guide links
+bash scripts/publish_wiki.sh                       # push docs/guide to the GitHub wiki
 ```
 
 Translation files live in `appdeb/locale/<code>/LC_MESSAGES/appdeb.po`; the `.deb` installs
